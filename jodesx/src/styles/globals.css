@@ -1,0 +1,531 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./navigation.css";
+@import "./signal.css";
+
+/* ==========================================================================
+   Tailwind theme bridge — exposes the JoDesx tokens as utilities
+   (bg-navy-900, text-mist-300, rounded-panel, ease-signal, …)
+   ========================================================================== */
+@theme inline {
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-slate-700: var(--slate-700);
+  --color-slate-600: var(--slate-600);
+  --color-slate-500: var(--slate-500);
+  --color-mist-400: var(--mist-400);
+  --color-mist-300: var(--mist-300);
+  --color-mist-200: var(--mist-200);
+  --color-soft-white: var(--soft-white);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-cyan-300: var(--cyan-300);
+  --color-cyan-400: var(--cyan-400);
+  --color-cyan-700: var(--cyan-700);
+  --color-violet-300: var(--violet-300);
+  --color-violet-400: var(--violet-400);
+  --color-violet-600: var(--violet-600);
+
+  /* Contextual (surface-aware) colours */
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-signal: var(--signal);
+
+  --radius-chip: var(--radius-sm);
+  --radius-control: var(--radius-md);
+  --radius-panel: var(--radius-lg);
+  --radius-stage: var(--radius-xl);
+
+  --ease-signal: var(--ease-signal);
+  --ease-out-soft: var(--ease-out-soft);
+
+  --breakpoint-xs: 26rem;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 6rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.65;
+    font-variation-settings: "wdth" 100;
+    background: var(--navy-900);
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--cyan-400) 35%, transparent);
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    color: var(--fg);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img,
+  svg {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   Surfaces — every section declares a surface; components read the vars.
+   ========================================================================== */
+@layer base {
+  :root,
+  .surface-dark {
+    --fg: var(--soft-white);
+    --fg-muted: var(--mist-300);
+    --fg-subtle: var(--mist-400);
+    --line: rgb(244 247 251 / 0.09);
+    --line-strong: rgb(244 247 251 / 0.18);
+    --surface: var(--navy-900);
+    --surface-raised: var(--slate-700);
+    --accent: var(--cyan-400);
+    --accent-text: var(--cyan-300);
+    --accent-contrast: var(--navy-900);
+    --signal: var(--violet-400);
+    --focus: var(--cyan-400);
+    --success: #4fd6a6;
+    --danger: #ff8a94;
+  }
+
+  .surface-dark {
+    background-color: var(--navy-900);
+    color: var(--fg);
+  }
+
+  .surface-deep {
+    background-color: var(--navy-950);
+  }
+
+  .surface-light {
+    --fg: var(--ink);
+    --fg-muted: var(--ink-muted);
+    --fg-subtle: #64738a;
+    --line: rgb(11 18 32 / 0.1);
+    --line-strong: rgb(11 18 32 / 0.2);
+    --surface: var(--soft-white);
+    --surface-raised: var(--paper);
+    --accent: var(--navy-900);
+    --accent-text: var(--cyan-700);
+    --accent-contrast: var(--soft-white);
+    --signal: var(--violet-600);
+    --focus: var(--violet-600);
+    --success: #13795b;
+    --danger: #c2334a;
+    background-color: var(--soft-white);
+    color: var(--fg);
+  }
+
+  .surface-paper {
+    background-color: var(--paper);
+  }
+}
+
+/* ==========================================================================
+   Components layer — typographic roles, layout primitives, controls
+   ========================================================================== */
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .section-pad {
+    padding-block: var(--section-pad);
+  }
+
+  /* Display type uses the condensed width axis — the JoDesx typographic signature. */
+  .type-display-xl,
+  .type-display-lg,
+  .type-display-md {
+    font-variation-settings: "wdth" 80;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .type-display-xl {
+    font-size: var(--text-display-xl);
+    line-height: 0.98;
+    letter-spacing: -0.028em;
+  }
+
+  .type-display-lg {
+    font-size: var(--text-display-lg);
+    line-height: 1.03;
+  }
+
+  .type-display-md {
+    font-size: var(--text-display-md);
+    line-height: 1.08;
+  }
+
+  .type-title {
+    font-size: var(--text-title);
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    font-variation-settings: "wdth" 92;
+  }
+
+  .type-lead {
+    font-size: var(--text-lead);
+    line-height: 1.55;
+    color: var(--fg-muted);
+  }
+
+  .type-small {
+    font-size: var(--text-small);
+    line-height: 1.55;
+  }
+
+  /* Section kicker: a signal unit + sentence-case label. Used only where it
+     names the section's role in the page narrative. */
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: var(--fg-muted);
+  }
+
+  .kicker::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--signal);
+    flex: none;
+  }
+
+  .prose-measure {
+    max-width: 62ch;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding: 0.75rem 1.375rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.975rem;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    transition:
+      background-color var(--dur-fast) var(--ease-out-soft),
+      color var(--dur-fast) var(--ease-out-soft),
+      border-color var(--dur-fast) var(--ease-out-soft),
+      transform var(--dur-fast) var(--ease-out-soft),
+      box-shadow var(--dur-base) var(--ease-out-soft);
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+  }
+
+  .btn:active {
+    transform: translateY(1px) scale(0.99);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--accent-contrast);
+  }
+
+  .surface-dark .btn-primary,
+  :root .btn-primary {
+    box-shadow: 0 0 0 0 rgb(53 214 232 / 0);
+  }
+
+  .btn-primary:hover {
+    background: color-mix(in oklab, var(--accent) 86%, white);
+    box-shadow: 0 8px 28px -10px color-mix(in oklab, var(--accent) 70%, transparent);
+  }
+
+  .surface-light .btn-primary:hover {
+    background: var(--slate-700);
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--line-strong);
+    color: var(--fg);
+    background: transparent;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--fg-subtle);
+    background: color-mix(in oklab, var(--fg) 5%, transparent);
+  }
+
+  .btn-sm {
+    min-height: 2.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Inline text link with an animated underline. */
+  .link-signal {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-weight: 600;
+    color: var(--fg);
+    text-decoration: none;
+    background-image: linear-gradient(var(--accent-text), var(--accent-text));
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 2px;
+    transition: background-size var(--dur-base) var(--ease-signal);
+  }
+
+  .link-signal:hover,
+  .link-signal:focus-visible {
+    background-size: 100% 1.5px;
+  }
+
+  .link-signal svg {
+    transition: transform var(--dur-base) var(--ease-signal);
+    color: var(--accent-text);
+  }
+
+  .link-signal:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* Hairline panel: the default raised container. */
+  .panel {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--surface-raised);
+  }
+
+  .surface-dark .panel {
+    background: color-mix(in oklab, var(--slate-700) 55%, transparent);
+  }
+
+  /* Background grid used behind signal diagrams. */
+  .grid-field {
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+  }
+
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* ==========================================================================
+   Route transition — a short, non-layout-shifting fade on navigation.
+   ========================================================================== */
+@keyframes route-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.route-enter {
+  animation: route-enter var(--dur-slow) var(--ease-out-soft) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Section-level decoration (Signal backgrounds) and form / prose styles
+   ========================================================================== */
+@layer components {
+  /* Faint construction grid that fades out toward the edges of dark heroes. */
+  .hero-grid {
+    background-image:
+      linear-gradient(rgb(244 247 251 / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(244 247 251 / 0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: center top;
+    mask-image: radial-gradient(ellipse 80% 70% at 70% 30%, black 20%, transparent 75%);
+  }
+
+  /* Closing CTA: horizontal signal lanes converging to the right. */
+  .closing-lanes {
+    background:
+      linear-gradient(90deg, transparent 0%, rgb(244 247 251 / 0.08) 60%, rgb(53 214 232 / 0.35) 100%) 0 30% / 100% 1px no-repeat,
+      linear-gradient(90deg, transparent 10%, rgb(244 247 251 / 0.06) 70%, rgb(244 247 251 / 0.12) 100%) 0 52% / 100% 1px no-repeat,
+      linear-gradient(90deg, transparent 20%, rgb(244 247 251 / 0.05) 70%, rgb(120 107 255 / 0.3) 100%) 0 74% / 100% 1px no-repeat,
+      radial-gradient(ellipse 40% 60% at 100% 50%, rgb(120 107 255 / 0.12), transparent 70%);
+  }
+
+  /* Service panel: a signal line draws across the top on hover/focus. */
+  .service-panel {
+    transition: background-color var(--dur-base) var(--ease-out-soft);
+  }
+
+  .service-panel:hover,
+  .service-panel:focus-visible {
+    background-color: color-mix(in oklab, var(--surface-raised) 92%, var(--cyan-400));
+  }
+
+  .service-panel-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--cyan-400), var(--violet-400));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur-slow) var(--ease-signal);
+  }
+
+  .service-panel:hover .service-panel-line,
+  .service-panel:focus-visible .service-panel-line {
+    transform: scaleX(1);
+  }
+
+  /* Form controls */
+  .form-control {
+    border-color: rgb(11 18 32 / 0.22);
+  }
+
+  .form-control:hover {
+    border-color: rgb(11 18 32 / 0.4);
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: var(--violet-600);
+    box-shadow: 0 0 0 3px rgb(91 79 224 / 0.18);
+  }
+
+  .form-control[aria-invalid="true"] {
+    border-color: var(--danger);
+  }
+
+  .form-control[aria-invalid="true"]:focus {
+    box-shadow: 0 0 0 3px rgb(194 51 74 / 0.15);
+  }
+
+  .field-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.375rem;
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: var(--danger);
+  }
+
+  .field-error svg {
+    margin-top: 0.2rem;
+    flex: none;
+  }
+
+  .btn:disabled {
+    cursor: progress;
+    opacity: 0.75;
+  }
+
+  /* Long-form legal text */
+  .legal-prose section + section {
+    margin-top: 2.75rem;
+  }
+
+  .legal-prose h2 {
+    font-size: var(--text-title);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    font-variation-settings: "wdth" 92;
+    scroll-margin-top: 7rem;
+  }
+
+  .legal-prose p,
+  .legal-prose ul {
+    margin-top: 1rem;
+    color: var(--fg-muted);
+  }
+
+  .legal-prose ul {
+    list-style: square;
+    padding-left: 1.25rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .legal-prose a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .legal-prose strong {
+    color: var(--fg);
+  }
+}

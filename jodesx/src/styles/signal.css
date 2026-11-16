@@ -1,0 +1,256 @@
+/* ==========================================================================
+   THE JODESX SIGNAL — motion system
+   Shared keyframes and component styles for the hero field, the
+   engagement rail and the Operations Blueprint.
+   ========================================================================== */
+
+/* Pause any signal animation while its container is off-screen. */
+[data-playing="false"] * {
+  animation-play-state: paused !important;
+}
+
+/* ---------- Hero field ---------- */
+.signal-field .signal-gate {
+  fill: color-mix(in oklab, var(--slate-700) 55%, transparent);
+  stroke: var(--line-strong);
+  stroke-width: 1;
+}
+
+.signal-field .signal-lane {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: signal-draw 1.6s var(--ease-signal) forwards;
+}
+
+.signal-field .signal-pulse {
+  stroke-dashoffset: 70;
+  animation: signal-travel var(--cycle) linear infinite both;
+  filter: drop-shadow(0 0 6px rgb(53 214 232 / 0.7));
+}
+
+.signal-field .signal-indicator {
+  fill: var(--cyan-400);
+  opacity: 0.16;
+  animation: signal-flash var(--cycle) var(--ease-out-soft) infinite both;
+}
+
+.signal-field .signal-output {
+  fill: var(--violet-400);
+}
+
+.signal-field .signal-output-flash {
+  fill: var(--cyan-300);
+  opacity: 0;
+  animation: signal-output var(--cycle) var(--ease-out-soft) infinite both;
+}
+
+.signal-field .signal-glow {
+  animation: signal-breathe 3.2s ease-in-out infinite alternate;
+}
+
+.signal-label {
+  font-size: 0.75rem;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--fg-subtle);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.signal-label-out {
+  color: var(--violet-300);
+}
+
+@keyframes signal-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes signal-travel {
+  0% {
+    stroke-dashoffset: 70;
+  }
+  50% {
+    stroke-dashoffset: -1000;
+  }
+  100% {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes signal-flash {
+  0% {
+    opacity: 1;
+  }
+  14% {
+    opacity: 0.16;
+  }
+  100% {
+    opacity: 0.16;
+  }
+}
+
+@keyframes signal-output {
+  0% {
+    opacity: 0.95;
+  }
+  12% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes signal-breathe {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- Engagement rail (home) ---------- */
+.engagement-rail .rail-progress {
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.engagement-rail[data-seen="true"] .rail-progress {
+  animation: rail-fill 2.6s var(--ease-signal) 0.2s forwards;
+}
+
+.engagement-rail .rail-node {
+  transition:
+    background-color var(--dur-slow) var(--ease-out-soft),
+    border-color var(--dur-slow) var(--ease-out-soft);
+}
+
+.engagement-rail[data-seen="true"] .rail-node {
+  animation: rail-node 0.5s var(--ease-out-soft) forwards;
+}
+
+@keyframes rail-fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes rail-node {
+  to {
+    background-color: var(--cyan-400);
+    border-color: var(--cyan-400);
+  }
+}
+
+@media (max-width: 767px) {
+  .engagement-rail .rail-progress {
+    transform-origin: center top;
+    transform: scaleY(0);
+  }
+  @keyframes rail-fill {
+    to {
+      transform: scaleY(1);
+    }
+  }
+}
+
+/* ---------- Service glyph micro-interaction ---------- */
+.service-glyph .glyph-unit {
+  transition: transform var(--dur-slow) var(--ease-signal);
+  transform-box: fill-box;
+}
+
+.group:hover .service-glyph .glyph-unit,
+.group:focus-visible .service-glyph .glyph-unit {
+  transform: translateX(-4px) rotate(90deg);
+}
+
+/* ---------- Reduced motion: a composed still frame ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .signal-field .signal-lane {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .signal-field .signal-pulse {
+    animation: none;
+    stroke-dashoffset: -520;
+  }
+  .signal-field .signal-indicator {
+    animation: none;
+    opacity: 0.45;
+  }
+  .signal-field .signal-output-flash,
+  .signal-field .signal-glow {
+    animation: none;
+  }
+  .engagement-rail .rail-progress {
+    animation: none !important;
+    transform: none !important;
+  }
+  .engagement-rail .rail-node {
+    animation: none !important;
+    background-color: var(--cyan-400);
+    border-color: var(--cyan-400);
+  }
+}
+
+/* ---------- Operations Blueprint ---------- */
+.blueprint-connector {
+  position: absolute;
+  left: 23.5px;
+  top: 3rem;
+  bottom: 0;
+  width: 1px;
+  background: var(--line-strong);
+  overflow: hidden;
+}
+
+.blueprint-connector-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--cyan-400);
+  transform: scaleY(0);
+  transform-origin: center top;
+  transition: transform 600ms var(--ease-signal);
+}
+
+.blueprint-connector-fill[data-on="true"] {
+  transform: none;
+}
+
+@media (min-width: 768px) {
+  .blueprint-connector {
+    left: calc(50% + 2.25rem);
+    top: 1.75rem;
+    bottom: auto;
+    width: calc(100% - 4.5rem + 1rem);
+    height: 1px;
+  }
+  .blueprint-connector-fill {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+}
+
+.blueprint-node {
+  z-index: 1;
+}
+
+.blueprint-detail {
+  animation: detail-in 420ms var(--ease-signal) both;
+}
+
+@keyframes detail-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

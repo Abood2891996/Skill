@@ -1,0 +1,57 @@
+/* ==========================================================================
+   JoDesx design tokens — single source of truth.
+   See docs/BRAND-GUIDELINES.md for rationale and usage rules.
+   ========================================================================== */
+:root {
+  /* ---- Core brand palette ---- */
+  --navy-950: #070c16;
+  --navy-900: #0b1220; /* Midnight Navy */
+  --navy-800: #101a2c;
+  --slate-700: #172438; /* Slate Blue */
+  --slate-600: #22324b;
+  --slate-500: #34465f;
+  --mist-400: #8c9ab0;
+  --mist-300: #b4bfd0;
+  --mist-200: #d6deea;
+  --soft-white: #f4f7fb; /* Soft White */
+  --paper: #ffffff;
+  --ink: #0b1220;
+  --ink-muted: #4a5970;
+
+  --cyan-300: #7fe6f1;
+  --cyan-400: #35d6e8; /* Signal Cyan */
+  --cyan-700: #0b7483; /* Cyan for text on light surfaces (AA) */
+
+  --violet-300: #a69dff;
+  --violet-400: #786bff; /* Digital Violet */
+  --violet-600: #5b4fe0;
+
+  /* ---- Typography ---- */
+  --text-display-xl: clamp(2.6rem, 1.55rem + 4.4vw, 5.4rem);
+  --text-display-lg: clamp(2.15rem, 1.45rem + 2.9vw, 3.9rem);
+  --text-display-md: clamp(1.7rem, 1.3rem + 1.6vw, 2.6rem);
+  --text-title: clamp(1.2rem, 1.08rem + 0.45vw, 1.45rem);
+  --text-lead: clamp(1.08rem, 1rem + 0.35vw, 1.25rem);
+  --text-body: 1.0625rem;
+  --text-small: 0.875rem;
+
+  /* ---- Layout ---- */
+  --container-max: 77.5rem; /* 1240px */
+  --gutter: clamp(1rem, 0.4rem + 2.6vw, 3rem);
+  --section-pad: clamp(4.5rem, 2.8rem + 6.5vw, 8.5rem);
+  --header-h: 4.5rem;
+
+  /* ---- Radius hierarchy: controls < panels < stages ---- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 28px;
+
+  /* ---- Motion ---- */
+  --ease-signal: cubic-bezier(0.22, 0.8, 0.24, 1);
+  --ease-out-soft: cubic-bezier(0.25, 0.6, 0.3, 1);
+  --dur-fast: 160ms;
+  --dur-base: 260ms;
+  --dur-slow: 480ms;
+  --dur-signal: 2400ms;
+}

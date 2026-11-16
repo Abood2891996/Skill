@@ -1,0 +1,88 @@
+/* Header, navigation and disclosure styles. */
+
+.site-header {
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+}
+
+.site-header.is-solid {
+  background-color: rgb(11 18 32 / 0.86);
+  border-bottom-color: var(--line);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.625rem 0.875rem;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--fg-muted);
+  transition: color var(--dur-fast) var(--ease-out-soft);
+}
+
+.nav-link:hover,
+.nav-link[aria-expanded="true"] {
+  color: var(--fg);
+}
+
+/* Active page: a short signal bar beneath the label. */
+.nav-link.is-active {
+  color: var(--fg);
+}
+
+.nav-link.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0.875rem;
+  bottom: 0.25rem;
+  width: 0.75rem;
+  height: 2px;
+  background: var(--cyan-400);
+}
+
+.services-panel:not([hidden]) > div {
+  animation: panel-in var(--dur-base) var(--ease-signal) both;
+}
+
+.mobile-menu:not([hidden]) {
+  animation: panel-in var(--dur-base) var(--ease-signal) both;
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* FAQ: animate the answer open where supported (::details-content). */
+.faq-item::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size var(--dur-slow) var(--ease-signal),
+    content-visibility var(--dur-slow) allow-discrete;
+}
+
+.faq-item[open]::details-content {
+  block-size: auto;
+}
+
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+.faq-item summary:hover .type-title {
+  color: var(--accent-text);
+}

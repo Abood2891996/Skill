@@ -1,0 +1,22 @@
+/**
+ * Site-wide configuration. Values that depend on business facts not yet
+ * confirmed (domain, public email, legal entity) are read from environment
+ * variables — see .env.example and docs/DEPLOYMENT.md.
+ */
+const rawUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.jodesx.com";
+
+export const site = {
+  name: "JoDesx",
+  url: rawUrl.replace(/\/+$/, ""),
+  locale: "en",
+  /** Public business email. Empty string hides it everywhere. */
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() ?? "",
+  country: "Jordan",
+  description:
+    "JoDesx is a Jordan-based business operations company that builds and runs structured remote teams for content moderation, customer support, back-office operations and AI data operations.",
+  positioning: "Operational support, intelligently connected.",
+} as const;
+
+export function absoluteUrl(path = "/"): string {
+  return `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
+}
