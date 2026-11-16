@@ -49,7 +49,9 @@
 <style>
   .logo-mark { width: 28px; height: 28px; flex: none; }
   .nav__logo { direction: ltr; display: inline-flex; align-items: center; gap: 10px; }
-  @media (max-width: 639px) { #pilot .frame { aspect-ratio: 3 / 2; height: auto; flex: none; } }
+  @media (max-width: 1023px) { #pilot .frame { aspect-ratio: 3 / 2; height: auto; flex: none; } }
+  @media (min-width: 640px) and (max-width: 1279px) { #services .rows p { display: none; } }
+  @media (min-width: 640px) and (max-width: 1023px) { #services .frame { aspect-ratio: 5 / 2; height: auto; min-height: 0; flex: none; } }
   .rows__name small { display: block; margin-top: 4px; font-size: var(--t-body); color: var(--muted, #6b5f59); }
   #jordan .develop img { aspect-ratio: 4 / 3; width: 100%; height: auto; object-fit: cover; }
   @media (max-width: 639px) { #services .frame { aspect-ratio: 9 / 16; height: auto; min-height: 0; flex: none; } }
@@ -108,11 +110,11 @@
           <li data-peek-to="so" tabindex="0"><span class="rows__name">عمليات المبيعات</span><p>حجز المواعيد، وتأهيل العملاء المحتملين، وبناء قوائم جديدة.</p><span class="rows__value">خط المبيعات</span></li>
         </ul>
         <div class="frame frame--photo frame--fill span-6 start-7">
-          <img class="frame__img" data-peek-for="mod" src="../assets/img/photo-f200381495-960.webp" srcset="../assets/img/photo-f200381495-500.webp 500w, ../assets/img/photo-f200381495-960.webp 960w, ../assets/img/photo-f200381495.webp 1280w" sizes="(max-width: 639px) 230vw, 50vw" width="960" height="720" alt="مقصورتا عمل مغلقتان في كل منهما مكتب ومصباح" decoding="async" data-source="stand-in" data-subject="work booths">
-          <img class="frame__img" data-peek-for="cx" src="../assets/img/photo-f85560480-960.webp" srcset="../assets/img/photo-f85560480-500.webp 500w, ../assets/img/photo-f85560480-960.webp 960w" sizes="(max-width: 639px) 230vw, 50vw" width="960" height="640" alt="موظفة دعم بسماعة رأس على مكتبها، من الخلف" decoding="async" data-source="stand-in" data-subject="support agent" hidden>
-          <img class="frame__img" data-peek-for="ai" src="../assets/img/photo-f62734295-960.webp" srcset="../assets/img/photo-f62734295-500.webp 500w, ../assets/img/photo-f62734295-960.webp 960w, ../assets/img/photo-f62734295.webp 1280w" sizes="(max-width: 639px) 230vw, 50vw" width="960" height="561" alt="يدان تكتبان على لوحة مفاتيح" decoding="async" data-source="stand-in" data-subject="typing" hidden>
-          <img class="frame__img" data-peek-for="bo" src="../assets/img/photo-f61681597-960.webp" srcset="../assets/img/photo-f61681597-500.webp 500w, ../assets/img/photo-f61681597-960.webp 960w, ../assets/img/photo-f61681597.webp 1280w" sizes="(max-width: 639px) 230vw, 50vw" width="960" height="640" alt="دفتر وقلم وحاسوب محمول على مكتب أبيض" decoding="async" data-source="stand-in" data-subject="desk work" hidden>
-          <img class="frame__img" data-peek-for="so" src="../assets/img/photo-f61739578.webp" srcset="../assets/img/photo-f61739578-500.webp 500w, ../assets/img/photo-f61739578.webp 1280w" sizes="(max-width: 639px) 230vw, 50vw" width="1280" height="853" alt="حاسوب محمول على مكتب قرب نافذة وبجانبه ملفات" decoding="async" data-source="stand-in" data-subject="desk" hidden>
+          <img class="frame__img" data-peek-for="mod" src="../assets/img/photo-f200381495-960.webp" srcset="../assets/img/photo-f200381495-500.webp 500w, ../assets/img/photo-f200381495-960.webp 960w, ../assets/img/photo-f200381495.webp 1280w" sizes="(max-width: 1023px) 180vw, 90vw" width="960" height="720" alt="مقصورتا عمل مغلقتان في كل منهما مكتب ومصباح" decoding="async" data-source="stand-in" data-subject="work booths">
+          <img class="frame__img" data-peek-for="cx" src="../assets/img/photo-f85560480-960.webp" srcset="../assets/img/photo-f85560480-500.webp 500w, ../assets/img/photo-f85560480-960.webp 960w" sizes="(max-width: 1023px) 180vw, 90vw" width="960" height="640" alt="موظفة دعم بسماعة رأس على مكتبها، من الخلف" decoding="async" data-source="stand-in" data-subject="support agent" hidden>
+          <img class="frame__img" data-peek-for="ai" src="../assets/img/photo-f62734295-960.webp" srcset="../assets/img/photo-f62734295-500.webp 500w, ../assets/img/photo-f62734295-960.webp 960w, ../assets/img/photo-f62734295.webp 1280w" sizes="(max-width: 1023px) 180vw, 90vw" width="960" height="561" alt="يدان تكتبان على لوحة مفاتيح" decoding="async" data-source="stand-in" data-subject="typing" hidden>
+          <img class="frame__img" data-peek-for="bo" src="../assets/img/photo-f61681597-960.webp" srcset="../assets/img/photo-f61681597-500.webp 500w, ../assets/img/photo-f61681597-960.webp 960w, ../assets/img/photo-f61681597.webp 1280w" sizes="(max-width: 1023px) 180vw, 90vw" width="960" height="640" alt="دفتر وقلم وحاسوب محمول على مكتب أبيض" decoding="async" data-source="stand-in" data-subject="desk work" hidden>
+          <img class="frame__img" data-peek-for="so" src="../assets/img/photo-f61739578.webp" srcset="../assets/img/photo-f61739578-500.webp 500w, ../assets/img/photo-f61739578.webp 1280w" sizes="(max-width: 1023px) 180vw, 90vw" width="1280" height="853" alt="حاسوب محمول على مكتب قرب نافذة وبجانبه ملفات" decoding="async" data-source="stand-in" data-subject="desk" hidden>
         </div>
       </div>
     </div>
@@ -174,7 +176,7 @@
           <li><span class="rows__name">برنامج Jordan Source<small>برنامج حكومي يقدّم دعماً للرواتب وحوافز ضريبية لمصدّري الخدمات</small></span></li>
         </ul>
       </div>
-      <figure class="develop span-6 start-7" data-moment="picture-develops"><img src="../assets/img/photo-f42301703-960.webp" srcset="../assets/img/photo-f42301703-500.webp 500w, ../assets/img/photo-f42301703-960.webp 960w" sizes="(max-width: 639px) 100vw, 50vw" alt="تلال عمّان وبيوتها الحجرية الفاتحة من جبل القلعة" width="960" height="558" loading="lazy" decoding="async" data-source="stand-in" data-subject="Amman"></figure>
+      <figure class="develop span-6 start-7" data-moment="picture-develops"><img src="../assets/img/photo-f42301703-960.webp" srcset="../assets/img/photo-f42301703-500.webp 500w, ../assets/img/photo-f42301703-960.webp 960w" sizes="(max-width: 1023px) 180vw, 90vw" alt="تلال عمّان وبيوتها الحجرية الفاتحة من جبل القلعة" width="960" height="558" loading="lazy" decoding="async" data-source="stand-in" data-subject="Amman"></figure>
     </div>
   </section>
 
@@ -201,7 +203,7 @@
         <p class="t-small muted">نرد عليك خلال يومَي عمل.</p>
       </form>
       </div>
-      <div class="frame frame--photo frame--fill span-6 start-7"><img class="frame__img" src="../assets/img/photo-f129295170-960.webp" srcset="../assets/img/photo-f129295170-500.webp 500w, ../assets/img/photo-f129295170-960.webp 960w, ../assets/img/photo-f129295170.webp 1280w" sizes="(max-width: 639px) 100vw, 50vw" width="960" height="655" alt="شخصان يسيران في السيق بالبتراء" loading="lazy" decoding="async" data-source="stand-in" data-subject="Petra, Jordan"></div>
+      <div class="frame frame--photo frame--fill span-6 start-7"><img class="frame__img" src="../assets/img/photo-f129295170-960.webp" srcset="../assets/img/photo-f129295170-500.webp 500w, ../assets/img/photo-f129295170-960.webp 960w, ../assets/img/photo-f129295170.webp 1280w" sizes="(max-width: 1023px) 180vw, 90vw" width="960" height="655" alt="شخصان يسيران في السيق بالبتراء" loading="lazy" decoding="async" data-source="stand-in" data-subject="Petra, Jordan"></div>
     </div>
   </section>
 </main>

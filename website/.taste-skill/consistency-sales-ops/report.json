@@ -1,7 +1,7 @@
 {
  "page": "/home/user/Skill/website/sales-ops.html",
  "url": "http://127.0.0.1:5200/sales-ops.html",
- "at": "2026-11-16T11:58:05.580Z",
+ "at": "2026-11-16T12:17:54.811Z",
  "out": "/home/user/Skill/website/.taste-skill/consistency-sales-ops",
  "widths": [
   {
@@ -17,7 +17,7 @@
      "sel": "div.wrap > div.hero-text.grid > div.hero-visual.frame > img.frame__img",
      "text": "photo-f61739578.webp",
      "stop": 0,
-     "msg": "2 photographs in more than one look: lightness from 0.37 to 0.86; saturation from 0.11 to 0.52; the odd one out is photo-f61739578.webp",
+     "msg": "2 photographs in more than one look: lightness from 0.37 to 0.85; saturation from 0.11 to 0.53; the odd one out is photo-f61739578.webp",
      "crop": "1440-01-photo-set.jpg",
      "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
@@ -53,32 +53,52 @@
    "glAsked": 0
   },
   {
-   "width": 768,
-   "height": 1024,
+   "width": 1024,
+   "height": 768,
    "screens": 5,
    "held": 0,
    "errors": [],
    "findings": [
     {
      "check": "section-gaps",
-     "sev": "FAIL",
-     "sel": "section#run / footer#contact",
+     "sev": "WARN",
+     "sel": "section#tasks / section#run",
      "text": "",
-     "stop": 3,
-     "msg": "343px between these sections, +81% against the median 189px of gaps at a change of ground",
-     "crop": "768-04-section-gaps.jpg",
+     "stop": 2,
+     "msg": "270px between these sections, +32% against the median 205px of gaps at a change of ground",
+     "crop": "1024-02-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
-     "check": "photo-upscale",
-     "sev": "FAIL",
-     "sel": "section#tasks > div.wrap.grid > div.frame.frame--photo > img.frame__img",
-     "text": "img: An agent with a headset at a desk, seen from",
-     "msg": "photo-f85560480-960.webp: 691x460 shown at 672x672, blown up 1.46x",
-     "stop": 2,
-     "crop": "768-02-photo-upscale.jpg",
-     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
+     "check": "photo-set",
+     "sev": "WARN",
+     "sel": "div.wrap > div.hero-text.grid > div.hero-visual.frame > img.frame__img",
+     "text": "photo-f61739578-960.webp",
+     "stop": 0,
+     "msg": "3 photographs in more than one look: lightness from 0.35 to 0.84; saturation from 0.10 to 0.51; the odd one out is photo-f61739578-960.webp",
+     "crop": "1024-01-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
+    {
+     "check": "action-repeat",
+     "sev": "WARN",
+     "sel": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2)",
+     "text": "request a pilot team",
+     "stop": 5,
+     "msg": "\"request a pilot team\" shows 2 times on the first screen at 1024px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+     "crop": "1024-03-action-repeat.jpg",
+     "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
+    }
+   ],
+   "glAsked": 0
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "screens": 5,
+   "held": 0,
+   "errors": [],
+   "findings": [
     {
      "check": "nav",
      "sev": "WARN",
@@ -90,23 +110,13 @@
      "crop": "768-01-nav.jpg"
     },
     {
-     "check": "no-visual",
-     "sev": "WARN",
-     "sel": "section#run",
-     "text": "How we run a sales operations team",
-     "msg": "pictures, effects and mocks cover 24% of this section; a feature section needs a visual (about 25% or more)",
-     "stop": 3,
-     "crop": "768-05-no-visual.jpg",
-     "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits"
-    },
-    {
      "check": "section-gaps",
      "sev": "WARN",
      "sel": "section#tasks / section#run",
      "text": "",
      "stop": 2,
      "msg": "uneven space at the edge of a band: 72px outside its edge, 117px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "768-03-section-gaps.jpg",
+     "crop": "768-02-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -115,8 +125,8 @@
      "sel": "section#run / footer#contact",
      "text": "",
      "stop": 3,
-     "msg": "uneven space at the edge of a band: 117px outside its edge, 226px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "768-06-section-gaps.jpg",
+     "msg": "uneven space at the edge of a band: 117px outside its edge, 72px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "768-03-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -125,8 +135,8 @@
      "sel": "section#run > div.wrap > div.frame.frame--photo > img.frame__img",
      "text": "photo-f51544809-960.webp",
      "stop": 3,
-     "msg": "2 photographs in more than one look: lightness from 0.26 to 0.86; saturation from 0.07 to 0.54; the odd one out is photo-f51544809-960.webp",
-     "crop": "768-07-photo-set.jpg",
+     "msg": "2 photographs in more than one look: lightness from 0.41 to 0.86; saturation from 0.17 to 0.53; the odd one out is photo-f51544809-960.webp",
+     "crop": "768-04-photo-set.jpg",
      "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     }
    ],
@@ -203,7 +213,6 @@
   "widths": [
    1280,
    1152,
-   1024,
    896
   ],
   "errors": [],
@@ -216,8 +225,8 @@
   "findings": []
  },
  "counts": {
-  "FAIL": 2,
-  "WARN": 13
+  "FAIL": 0,
+  "WARN": 15
  },
  "checks": {
   "assets": "PASS",
@@ -284,12 +293,12 @@
   "text-contrast": "PASS",
   "body-size": "PASS",
   "busy-ground": "PASS",
-  "section-gaps": "FAIL",
+  "section-gaps": "WARN",
   "proximity": "PASS",
   "hole": "PASS",
   "links": "PASS",
   "forms": "not checked",
-  "photo-upscale": "FAIL",
+  "photo-upscale": "PASS",
   "photo-set": "WARN",
   "photo-credit": "WARN",
   "nav-family": "PASS",

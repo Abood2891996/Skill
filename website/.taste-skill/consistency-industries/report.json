@@ -1,26 +1,16 @@
 {
  "page": "/home/user/Skill/website/industries.html",
  "url": "http://127.0.0.1:5200/industries.html",
- "at": "2026-11-16T12:07:02.716Z",
+ "at": "2026-11-16T12:19:27.395Z",
  "out": "/home/user/Skill/website/.taste-skill/consistency-industries",
  "widths": [
   {
-   "width": 1024,
-   "height": 768,
+   "width": 1440,
+   "height": 900,
    "screens": 5,
    "held": 0,
    "errors": [],
    "findings": [
-    {
-     "check": "no-visual",
-     "sev": "WARN",
-     "sel": "main#top > section.hero.hero--split",
-     "text": "Teams for platforms that need Arabic",
-     "msg": "pictures, effects and mocks cover 23% of this section; a feature section needs a visual (about 25% or more)",
-     "stop": 0,
-     "crop": "1024-01-no-visual.jpg",
-     "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits"
-    },
     {
      "check": "copy-headings",
      "sev": "WARN",
@@ -28,28 +18,18 @@
      "text": "What every buyer gets",
      "msg": "\"What every buyer gets\" names no product, part, place or section (the one brand line a page may have)",
      "stop": 2,
-     "crop": "1024-02-copy-headings.jpg",
+     "crop": "1440-02-copy-headings.jpg",
      "fix": "name the thing in every heading: the product, a part, the place or a section noun"
     },
     {
-     "check": "section-gaps",
+     "check": "photo-set",
      "sev": "WARN",
-     "sel": "section#buyers / section#fit",
-     "text": "",
-     "stop": 2,
-     "msg": "315px between these sections, +54% against the median 205px of gaps at a change of ground",
-     "crop": "1024-03-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "section#buyers / section#fit",
-     "text": "",
-     "stop": 2,
-     "msg": "uneven space at the edge of a band: 198px outside its edge, 117px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "1024-04-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
+     "sel": "section#buyers > div.wrap.grid > div.frame.frame--photo > img.frame__img",
+     "text": "photo-f62734295.webp",
+     "stop": 1,
+     "msg": "2 photographs in more than one look: lightness from 0.37 to 0.85; the odd one out is photo-f62734295.webp",
+     "crop": "1440-01-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
      "check": "photo-credit",
@@ -75,8 +55,58 @@
      "sel": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2)",
      "text": "request a pilot team",
      "stop": 5,
+     "msg": "\"request a pilot team\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+     "crop": "1440-03-action-repeat.jpg",
+     "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
+    }
+   ],
+   "glAsked": 0
+  },
+  {
+   "width": 1024,
+   "height": 768,
+   "screens": 5,
+   "held": 0,
+   "errors": [],
+   "findings": [
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#buyers / section#fit",
+     "text": "",
+     "stop": 2,
+     "msg": "315px between these sections, +54% against the median 205px of gaps at a change of ground",
+     "crop": "1024-02-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#buyers / section#fit",
+     "text": "",
+     "stop": 2,
+     "msg": "uneven space at the edge of a band: 198px outside its edge, 117px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "1024-03-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "photo-set",
+     "sev": "WARN",
+     "sel": "div.wrap > div.hero-text.grid > div.hero-visual.frame > img.frame__img",
+     "text": "photo-f61739578-960.webp",
+     "stop": 0,
+     "msg": "3 photographs in more than one look: lightness from 0.37 to 0.84; saturation from 0.15 to 0.51; the odd one out is photo-f61739578-960.webp",
+     "crop": "1024-01-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
+    },
+    {
+     "check": "action-repeat",
+     "sev": "WARN",
+     "sel": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2)",
+     "text": "request a pilot team",
+     "stop": 5,
      "msg": "\"request a pilot team\" shows 2 times on the first screen at 1024px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1024-05-action-repeat.jpg",
+     "crop": "1024-04-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
     }
    ],
@@ -118,6 +148,16 @@
      "msg": "uneven space at the edge of a band: 117px outside its edge, 72px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
      "crop": "768-03-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "photo-set",
+     "sev": "WARN",
+     "sel": "section#fit > div.wrap > div.frame.frame--photo > img.frame__img",
+     "text": "photo-f66417424-960.webp",
+     "stop": 3,
+     "msg": "2 photographs in more than one look: lightness from 0.47 to 0.86; saturation from 0.11 to 0.55; the odd one out is photo-f66417424-960.webp",
+     "crop": "768-04-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     }
    ],
    "glAsked": 0
@@ -146,7 +186,7 @@
      "text": "What every buyer gets",
      "msg": "pictures, effects and mocks cover 25% of this section; a feature section needs a visual (about 25% or more)",
      "stop": 3,
-     "crop": "390-03-no-visual.jpg",
+     "crop": "390-04-no-visual.jpg",
      "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits"
     },
     {
@@ -156,8 +196,18 @@
      "text": "",
      "stop": 1,
      "msg": "118px between these sections, -43% against the median 206px",
-     "crop": "390-02-section-gaps.jpg",
+     "crop": "390-03-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "photo-set",
+     "sev": "WARN",
+     "sel": "div.wrap > div.hero-text.grid > div.hero-visual.frame > img.frame__img",
+     "text": "photo-f61739578-960.webp",
+     "stop": 0,
+     "msg": "2 photographs in more than one look: lightness from 0.46 to 0.84; saturation from 0.11 to 0.52; the odd one out is photo-f61739578-960.webp",
+     "crop": "390-02-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     }
    ],
    "glAsked": 0
@@ -172,19 +222,11 @@
   "forms",
   "reduced-motion",
   "the dead-IntersectionObserver walk (hidden content is read with scripts off and under reduced motion)",
-  "hover-move",
-  "hero-screen (rhythm: no width of this run is one it runs at)",
-  "section-height (rhythm: no width of this run is one it runs at)",
-  "section-air (rhythm: no width of this run is one it runs at)",
-  "one-section (rhythm: no width of this run is one it runs at)",
-  "one-heading (rhythm: no width of this run is one it runs at)",
-  "container-edges (rhythm: no width of this run is one it runs at)",
-  "row-lines (rhythm: no width of this run is one it runs at)",
-  "split-pair (rhythm: no width of this run is one it runs at)"
+  "hover-move"
  ],
  "shaders": 0,
  "hidden": {
-  "screens": 10,
+  "screens": 8,
   "quick": true
  },
  "sweep": {
@@ -204,7 +246,7 @@
  },
  "counts": {
   "FAIL": 0,
-  "WARN": 13
+  "WARN": 17
  },
  "checks": {
   "assets": "PASS",
@@ -277,7 +319,7 @@
   "links": "PASS",
   "forms": "not checked",
   "photo-upscale": "PASS",
-  "photo-set": "PASS",
+  "photo-set": "WARN",
   "photo-credit": "WARN",
   "nav-family": "PASS",
   "nav-labels": "PASS",
@@ -319,14 +361,14 @@
   "coordinates": "PASS",
   "company-number": "PASS",
   "phone-number": "PASS",
-  "hero-screen": "not checked",
-  "section-height": "not checked",
-  "section-air": "not checked",
-  "one-section": "not checked",
-  "one-heading": "not checked",
-  "container-edges": "not checked",
-  "row-lines": "not checked",
-  "split-pair": "not checked",
+  "hero-screen": "PASS",
+  "section-height": "PASS",
+  "section-air": "PASS",
+  "one-section": "PASS",
+  "one-heading": "PASS",
+  "container-edges": "PASS",
+  "row-lines": "PASS",
+  "split-pair": "PASS",
   "motion-layer": "PASS",
   "count-text": "PASS",
   "loop-cycle": "PASS",

@@ -1,46 +1,16 @@
 {
  "page": "/home/user/Skill/website/ai-data.html",
  "url": "http://127.0.0.1:5200/ai-data.html",
- "at": "2026-11-16T12:05:47.997Z",
+ "at": "2026-11-16T12:14:50.454Z",
  "out": "/home/user/Skill/website/.taste-skill/consistency-ai-data",
  "widths": [
   {
-   "width": 1024,
-   "height": 768,
+   "width": 1440,
+   "height": 900,
    "screens": 5,
    "held": 0,
    "errors": [],
    "findings": [
-    {
-     "check": "no-visual",
-     "sev": "WARN",
-     "sel": "main#top > section.hero.hero--split",
-     "text": "AI data teams for Arabic",
-     "msg": "pictures, effects and mocks cover 23% of this section; a feature section needs a visual (about 25% or more)",
-     "stop": 0,
-     "crop": "1024-01-no-visual.jpg",
-     "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "section#tasks / section#run",
-     "text": "",
-     "stop": 2,
-     "msg": "270px between these sections, +32% against the median 205px of gaps at a change of ground",
-     "crop": "1024-03-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "photo-set",
-     "sev": "WARN",
-     "sel": "section#tasks > div.wrap.grid > div.frame.frame--photo > img.frame__img",
-     "text": "photo-f30343877-960.webp",
-     "stop": 1,
-     "msg": "3 photographs in more than one look: lightness from 0.08 to 0.48; the odd one out is photo-f30343877-960.webp",
-     "crop": "1024-02-photo-set.jpg",
-     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
-    },
     {
      "check": "photo-credit",
      "sev": "WARN",
@@ -65,8 +35,48 @@
      "sel": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2)",
      "text": "request a pilot team",
      "stop": 5,
+     "msg": "\"request a pilot team\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+     "crop": "1440-01-action-repeat.jpg",
+     "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
+    }
+   ],
+   "glAsked": 0
+  },
+  {
+   "width": 1024,
+   "height": 768,
+   "screens": 5,
+   "held": 0,
+   "errors": [],
+   "findings": [
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#tasks / section#run",
+     "text": "",
+     "stop": 2,
+     "msg": "270px between these sections, +32% against the median 205px of gaps at a change of ground",
+     "crop": "1024-02-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "photo-set",
+     "sev": "WARN",
+     "sel": "section#tasks > div.wrap.grid > div.frame.frame--photo > img.frame__img",
+     "text": "photo-f30343877-960.webp",
+     "stop": 1,
+     "msg": "3 photographs in more than one look: lightness from 0.08 to 0.51; the odd one out is photo-f30343877-960.webp",
+     "crop": "1024-01-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
+    },
+    {
+     "check": "action-repeat",
+     "sev": "WARN",
+     "sel": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2)",
+     "text": "request a pilot team",
+     "stop": 5,
      "msg": "\"request a pilot team\" shows 2 times on the first screen at 1024px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1024-04-action-repeat.jpg",
+     "crop": "1024-03-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
     }
    ],
@@ -136,7 +146,7 @@
      "text": "How we run an AI data team",
      "msg": "pictures, effects and mocks cover 24% of this section; a feature section needs a visual (about 25% or more)",
      "stop": 3,
-     "crop": "390-03-no-visual.jpg",
+     "crop": "390-04-no-visual.jpg",
      "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits"
     },
     {
@@ -148,6 +158,16 @@
      "msg": "118px between these sections, -43% against the median 206px",
      "crop": "390-02-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "photo-set",
+     "sev": "WARN",
+     "sel": "section#tasks > div.wrap.grid > div.frame.frame--photo > img.frame__img",
+     "text": "photo-f30343877-960.webp",
+     "stop": 2,
+     "msg": "3 photographs in more than one look: saturation from 0.11 to 0.42; the odd one out is photo-f30343877-960.webp",
+     "crop": "390-03-photo-set.jpg",
+     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     }
    ],
    "glAsked": 0
@@ -162,19 +182,11 @@
   "forms",
   "reduced-motion",
   "the dead-IntersectionObserver walk (hidden content is read with scripts off and under reduced motion)",
-  "hover-move",
-  "hero-screen (rhythm: no width of this run is one it runs at)",
-  "section-height (rhythm: no width of this run is one it runs at)",
-  "section-air (rhythm: no width of this run is one it runs at)",
-  "one-section (rhythm: no width of this run is one it runs at)",
-  "one-heading (rhythm: no width of this run is one it runs at)",
-  "container-edges (rhythm: no width of this run is one it runs at)",
-  "row-lines (rhythm: no width of this run is one it runs at)",
-  "split-pair (rhythm: no width of this run is one it runs at)"
+  "hover-move"
  ],
  "shaders": 0,
  "hidden": {
-  "screens": 10,
+  "screens": 8,
   "quick": true
  },
  "sweep": {
@@ -194,7 +206,7 @@
  },
  "counts": {
   "FAIL": 0,
-  "WARN": 12
+  "WARN": 13
  },
  "checks": {
   "assets": "PASS",
@@ -309,14 +321,14 @@
   "coordinates": "PASS",
   "company-number": "PASS",
   "phone-number": "PASS",
-  "hero-screen": "not checked",
-  "section-height": "not checked",
-  "section-air": "not checked",
-  "one-section": "not checked",
-  "one-heading": "not checked",
-  "container-edges": "not checked",
-  "row-lines": "not checked",
-  "split-pair": "not checked",
+  "hero-screen": "PASS",
+  "section-height": "PASS",
+  "section-air": "PASS",
+  "one-section": "PASS",
+  "one-heading": "PASS",
+  "container-edges": "PASS",
+  "row-lines": "PASS",
+  "split-pair": "PASS",
   "motion-layer": "PASS",
   "count-text": "PASS",
   "loop-cycle": "PASS",

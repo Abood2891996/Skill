@@ -45,11 +45,11 @@
   .nav__logo { direction: ltr; display: inline-flex; align-items: center; gap: 10px; }
   .rows__name small { display: block; margin-top: 4px; font-size: var(--t-body); color: var(--muted, #6b5f59); }
   .band { aspect-ratio: 4 / 1; margin-top: var(--s-7); }
-  @media (min-width: 1024px) { .hero--split .hero-visual { aspect-ratio: 4 / 3; height: auto; align-self: start; } }
-  @media (min-width: 640px) { .split-photo { aspect-ratio: 1 / 1; height: auto; align-self: start; } }
+  @media (min-width: 1024px) { .split-photo { aspect-ratio: 1 / 1; height: auto; align-self: start; } }
   .legal { max-width: 62ch; }
   .legal h2 { margin-top: var(--s-7); }
-  @media (max-width: 639px) { .band { aspect-ratio: 3 / 2; } .split-photo { aspect-ratio: 4 / 3; height: auto; flex: none; } }
+  @media (max-width: 1023px) { .band { aspect-ratio: 2 / 1; } .split-photo { aspect-ratio: 4 / 3; height: auto; flex: none; } }
+  @media (max-width: 639px) { .band { aspect-ratio: 3 / 2; } }
 </style>
 </head>
 <body>
@@ -84,11 +84,11 @@
         <div class="hero-copy span-6">
           <h1 id="hero-h">Remote jobs in managed teams</h1>
           <p class="t-lead">Remote roles in Jordan for people who read and write Arabic and English well. We train you on each client's rules.</p>
-          <div class="btn-row"><a class="btn btn--primary" href="index.html#pilot">Request a pilot team<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"></path><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"></path></svg></a><a class="btn btn--secondary" href="#roles">See the roles</a></div>
+          <div class="btn-row"><a class="btn btn--primary" href="#apply">Apply to join a team<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"></path><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"></path></svg></a><a class="btn btn--secondary" href="#roles">See the roles</a></div>
           <dl class="hero-facts"><div><dt>Where</dt><dd>Remote, in Jordan</dd></div><div><dt>Languages</dt><dd>Arabic and English</dd></div><div><dt>Training</dt><dd>Paid, before live work</dd></div></dl>
         </div>
         <div class="hero-visual frame frame--photo span-6 start-7">
-          <img class="frame__img" src="assets/img/photo-f51544809-960.webp" srcset="assets/img/photo-f51544809-500.webp 500w, assets/img/photo-f51544809-960.webp 960w, assets/img/photo-f51544809.webp 1280w" sizes="(max-width: 639px) 160vw, 90vw" width="960" height="540" alt="A room of desktop computers set up for training" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="lab">
+          <img class="frame__img" src="assets/img/photo-f66417424-960.webp" srcset="assets/img/photo-f66417424-500.webp 500w, assets/img/photo-f66417424-960.webp 960w, assets/img/photo-f66417424.webp 1280w" sizes="(max-width: 1023px) 180vw, 90vw" width="960" height="638" alt="An empty meeting room with tables set in a square" fetchpriority="high" decoding="async" data-source="stand-in" data-subject="room">
         </div>
       </div>
     </div>
@@ -99,7 +99,7 @@
         <div class="section-head"><h2 id="roles-h">Roles we hire for</h2><p>Each role works on one client queue with a team lead.</p></div>
         <ul class="rows"><li><span class="rows__name">Content moderator<small>Reviews posts, chat, streams and media against a policy</small></span></li><li><span class="rows__name">Support agent<small>Answers customers by chat, email and tickets</small></span></li><li><span class="rows__name">Data annotator<small>Labels and rates text, audio and AI answers</small></span></li><li><span class="rows__name">Team lead<small>Checks quality, coaches the team and reports to the client</small></span></li></ul>
       </div>
-      <div class="frame frame--photo frame--fill split-photo span-6 start-7"><img class="frame__img" src="assets/img/photo-f66417424-960.webp" srcset="assets/img/photo-f66417424-500.webp 500w, assets/img/photo-f66417424-960.webp 960w, assets/img/photo-f66417424.webp 1280w" sizes="(max-width: 639px) 160vw, 90vw" width="960" height="638" alt="An empty meeting room with tables set in a square" loading="eager" decoding="async" data-source="stand-in" data-subject="room"></div>
+      <div class="frame frame--photo frame--fill split-photo span-6 start-7"><img class="frame__img" src="assets/img/photo-f51544809-960.webp" srcset="assets/img/photo-f51544809-500.webp 500w, assets/img/photo-f51544809-960.webp 960w, assets/img/photo-f51544809.webp 1280w" sizes="(max-width: 639px) 160vw, 90vw" width="960" height="540" alt="A room of desktop computers set up for training" loading="eager" decoding="async" data-source="stand-in" data-subject="lab"></div>
     </div>
   </section>
   <section class="section" id="apply" aria-labelledby="apply-h">

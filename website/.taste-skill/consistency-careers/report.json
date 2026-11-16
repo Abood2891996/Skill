@@ -1,7 +1,7 @@
 {
  "page": "/home/user/Skill/website/careers.html",
  "url": "http://127.0.0.1:5200/careers.html",
- "at": "2026-11-16T12:02:13.905Z",
+ "at": "2026-11-16T12:22:33.463Z",
  "out": "/home/user/Skill/website/.taste-skill/consistency-careers",
  "widths": [
   {
@@ -27,7 +27,7 @@
      "sel": "main#top > section.hero.hero--split / section#roles",
      "text": "",
      "stop": 1,
-     "msg": "183px between these sections, -32% against the median 268px",
+     "msg": "180px between these sections, -33% against the median 268px",
      "crop": "1440-02-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -50,16 +50,6 @@
      "stop": null
     },
     {
-     "check": "action-repeat",
-     "sev": "WARN",
-     "sel": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2)",
-     "text": "request a pilot team",
-     "stop": 5,
-     "msg": "\"request a pilot team\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1440-04-action-repeat.jpg",
-     "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
-    },
-    {
      "check": "form-send",
      "sev": "WARN",
      "sel": "section#apply > div.wrap.grid > div.span-6.stack-4:nth-of-type(1) > form.form",
@@ -73,42 +63,21 @@
    "glAsked": 0
   },
   {
+   "width": 1024,
+   "height": 768,
+   "screens": 5,
+   "held": 0,
+   "errors": [],
+   "findings": [],
+   "glAsked": 0
+  },
+  {
    "width": 768,
    "height": 1024,
-   "screens": 6,
+   "screens": 5,
    "held": 0,
    "errors": [],
    "findings": [
-    {
-     "check": "photo-upscale",
-     "sev": "FAIL",
-     "sel": "div.wrap > div.hero-text.grid > div.hero-visual.frame > img.frame__img",
-     "text": "img: A room of desktop computers set up for train",
-     "msg": "photo-f51544809-960.webp: 691x388 shown at 672x610, blown up 1.57x",
-     "stop": 0,
-     "crop": "768-01-photo-upscale.jpg",
-     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
-    },
-    {
-     "check": "photo-upscale",
-     "sev": "FAIL",
-     "sel": "section#roles > div.wrap.grid > div.frame.frame--photo > img.frame__img",
-     "text": "img: An empty meeting room with tables set in a s",
-     "msg": "photo-f66417424-960.webp: 691x459 shown at 672x672, blown up 1.46x",
-     "stop": 2,
-     "crop": "768-03-photo-upscale.jpg",
-     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
-    },
-    {
-     "check": "photo-upscale",
-     "sev": "FAIL",
-     "sel": "section#apply > div.wrap.grid > div.frame.frame--photo > img.frame__img",
-     "text": "img: Two hands typing on a keyboard",
-     "msg": "photo-f62734295-960.webp: 691x403 shown at 672x672, blown up 1.67x",
-     "stop": 3,
-     "crop": "768-04-photo-upscale.jpg",
-     "fix": "use a source at least as wide as the picture is shown (twice that for sharp screens)"
-    },
     {
      "check": "nav",
      "sev": "WARN",
@@ -117,7 +86,7 @@
      "stop": 0,
      "msg": "the nav is lopsided: its last item ends 13px inside the content's edge (720px), while its first starts on the other edge",
      "fix": "start the nav's first item and end its last on the content's two edges",
-     "crop": "768-02-nav.jpg"
+     "crop": "768-01-nav.jpg"
     },
     {
      "check": "proximity",
@@ -127,7 +96,7 @@
      "msg": "stacked at this width, the visual starts 18px under the text and buttons above it (\"Apply to join a team Tell us w\"): it reads glued to them",
      "fix": "give the stacked split the section's own gap between text and visual (40px or more on a phone)",
      "stop": 3,
-     "crop": "768-05-proximity.jpg"
+     "crop": "768-02-proximity.jpg"
     }
    ],
    "glAsked": 0
@@ -193,7 +162,6 @@
   "widths": [
    1280,
    1152,
-   1024,
    896
   ],
   "errors": [],
@@ -206,8 +174,8 @@
   "findings": []
  },
  "counts": {
-  "FAIL": 3,
-  "WARN": 11
+  "FAIL": 0,
+  "WARN": 10
  },
  "checks": {
   "assets": "PASS",
@@ -279,7 +247,7 @@
   "hole": "PASS",
   "links": "PASS",
   "forms": "not checked",
-  "photo-upscale": "FAIL",
+  "photo-upscale": "PASS",
   "photo-set": "PASS",
   "photo-credit": "WARN",
   "nav-family": "PASS",
@@ -348,7 +316,7 @@
   "lang": "PASS",
   "page-meta": "PASS",
   "share-meta": "PASS",
-  "action-repeat": "WARN",
+  "action-repeat": "PASS",
   "map-link": "PASS",
   "open-now": "PASS",
   "assumed": "PASS",

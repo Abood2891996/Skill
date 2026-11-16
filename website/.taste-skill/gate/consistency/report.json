@@ -1,7 +1,7 @@
 {
- "page": "/home/user/Skill/website/index.html",
- "url": "http://127.0.0.1:5200/index.html",
- "at": "2026-11-16T11:26:12.929Z",
+ "page": "/home/user/Skill/website/ar/index.html",
+ "url": "http://127.0.0.1:5200/ar/index.html",
+ "at": "2026-11-16T12:28:46.029Z",
  "out": "/home/user/Skill/website/.taste-skill/gate/consistency",
  "widths": [
   {
@@ -12,13 +12,83 @@
    "errors": [],
    "findings": [
     {
+     "check": "copy-headline",
+     "sev": "FAIL",
+     "sel": "h1#hero-h",
+     "text": "تعهيد مُدار من الأردن",
+     "msg": "\"تعهيد مُدار من الأردن\" does not name what is sold (managed outsourcing teams, managed, outsourcing, teams, from flags)",
+     "stop": 0,
+     "crop": "1440-01-copy-headline.jpg",
+     "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words"
+    },
+    {
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "section#faq > div.wrap.grid > div.faq.span-6",
+     "text": "هل Jodesx وكالة توظيف؟ لا. نحن لا نرسل موظفين لل",
+     "msg": "5 rows start at 5 different left offsets (+0, +108, +148, +274, +333px)",
+     "stop": 5,
+     "crop": "1440-11-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "section#jordan > div.wrap.grid > div.span-6 > ul.rows",
+     "text": "العربية لغة أم اللهجات والعامية والسياق، وهي أسا",
+     "msg": "4 rows start at 4 different left offsets (+0, +280, +266, +118px)",
+     "stop": 6,
+     "crop": "1440-14-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "section#pilot > div.wrap.grid > div.span-6.stack-4 > form.form",
+     "text": "الاسم بريد العمل الإلكتروني الشركة العمل المطلوب",
+     "msg": "4 rows start at 4 different left offsets (+76, +0, +73, +24px)",
+     "stop": 7,
+     "crop": "1440-16-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(2) > ul",
+     "text": "الإشراف على المحتوى خدمة العملاء عمليات البيانات",
+     "msg": "5 rows start at 5 different left offsets (+67, +110, +0, +100, +91px)",
+     "stop": 8,
+     "crop": "1440-18-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(3) > ul",
+     "text": "القطاعات عن الشركة الوظائف",
+     "msg": "3 rows start at 3 different left offsets (+4, +0, +9px)",
+     "stop": 8,
+     "crop": "1440-19-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(4) > ul",
+     "text": "راسلنا الخصوصية الشروط",
+     "msg": "3 rows start at 3 different left offsets (+28, +0, +19px)",
+     "stop": 8,
+     "crop": "1440-20-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
      "check": "section-gaps",
      "sev": "FAIL",
      "sel": "main#top > section.hero.hero--photo / section#services",
      "text": "",
      "stop": 1,
-     "msg": "116px between these sections, -63% against the median 313px",
-     "crop": "1440-03-section-gaps.jpg",
+     "msg": "110px between these sections, -66% against the median 319px",
+     "crop": "1440-04-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -28,58 +98,78 @@
      "text": "",
      "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 6,
-     "crop": "1440-12-scroll-reveal.jpg",
+     "crop": "1440-15-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
      "check": "scroll-reveal",
      "sev": "WARN",
      "sel": "section#model",
-     "text": "How the managed model works Sets the team’s scop",
+     "text": "كيف يعمل النموذج المُدار نحدّد نطاق عمل الفريق و",
      "msg": "starts \"border-left-color\" (0.3 s) the moment it is scrolled into view (an IntersectionObserver) on li.mo-pc__step:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 3,
-     "crop": "1440-05-scroll-reveal.jpg",
+     "crop": "1440-06-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
      "check": "pinned",
      "sev": "WARN",
      "sel": "section#model > div.wrap.mo-pc__grid",
-     "text": "How the managed model works Sets the team’s scop",
+     "text": "كيف يعمل النموذج المُدار نحدّد نطاق عمل الفريق و",
      "stop": 10,
      "msg": "held on screen for 1 screen of scroll (position: sticky) while the page moves on (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)",
-     "crop": "1440-16-pinned.jpg",
+     "crop": "1440-22-pinned.jpg",
      "fix": "let the section scroll with the page"
     },
     {
      "check": "text-only",
      "sev": "WARN",
      "sel": "section#faq",
-     "text": "Questions buyers ask",
+     "text": "أسئلة يطرحها العملاء",
      "msg": "the section is only text: no picture, icon, mock or effect in it",
      "stop": 5,
-     "crop": "1440-10-text-only.jpg",
+     "crop": "1440-12-text-only.jpg",
      "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground"
     },
     {
      "check": "cta",
      "sev": "WARN",
      "sel": "section#model",
-     "text": "How the managed model works",
+     "text": "كيف يعمل النموذج المُدار",
      "msg": "a section over 1.5 screens long with no link or button in it",
      "stop": 3,
-     "crop": "1440-06-cta.jpg",
+     "crop": "1440-07-cta.jpg",
      "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
     },
     {
-     "check": "copy-headings",
+     "check": "copy-headline",
      "sev": "WARN",
-     "sel": "div.wrap.grid > div.faq.span-6 > div.faq__item:nth-of-type(1) > h3",
-     "text": "Is Jodesx a staffing agency?",
-     "msg": "\"Is Jodesx a staffing agency?\" names no product, part, place or section (the one brand line a page may have)",
+     "sel": "h1#hero-h",
+     "text": "تعهيد مُدار من الأردن",
+     "msg": "the h1 has 0 words (2 to 8 read at a glance)",
+     "stop": 0,
+     "crop": "1440-02-copy-headline.jpg",
+     "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words"
+    },
+    {
+     "check": "stagger",
+     "sev": "WARN",
+     "sel": "section#model > div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps",
+     "text": "نحدّد نطاق عمل الفريق واتفاقية مستوى الخدمة الأح",
+     "msg": "3 rows start at 3 different left offsets (+0, +260, +230px) (inside a held section or scroll scene, whose motion --quick does not check)",
+     "stop": 2,
+     "crop": "1440-05-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "off-grid",
+     "sev": "WARN",
+     "sel": "h2#faq-h",
+     "text": "أسئلة يطرحها العملاء",
+     "msg": "the section's heading starts at 996px, 916px off the page margin (80px), and no other section starts there",
      "stop": 4,
-     "crop": "1440-08-copy-headings.jpg",
-     "fix": "name the thing in every heading: the product, a part, the place or a section noun"
+     "crop": "1440-09-off-grid.jpg",
+     "fix": "move it onto the page margin, or the column edge its section uses"
     },
     {
      "check": "section-gaps",
@@ -87,8 +177,8 @@
      "sel": "section#jordan / section#pilot",
      "text": "",
      "stop": 11,
-     "msg": "422px between these sections, +35% against the median 313px",
-     "crop": "1440-17-section-gaps.jpg",
+     "msg": "419px between these sections, +31% against the median 319px",
+     "crop": "1440-23-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -97,8 +187,8 @@
      "sel": "section#model / section#faq",
      "text": "",
      "stop": 4,
-     "msg": "uneven space at the edge of a band: 179px outside its edge, 116px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "1440-09-section-gaps.jpg",
+     "msg": "uneven space at the edge of a band: 179px outside its edge, 110px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "1440-10-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -107,19 +197,9 @@
      "sel": "section#faq / section#jordan",
      "text": "",
      "stop": 5,
-     "msg": "uneven space at the edge of a band: 116px outside its edge, 258px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "1440-11-section-gaps.jpg",
+     "msg": "uneven space at the edge of a band: 110px outside its edge, 281px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "1440-13-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "links",
-     "sev": "WARN",
-     "sel": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.nav__link",
-     "text": "العربية",
-     "msg": "\"العربية\" goes to ar/index.html, which does not exist here",
-     "stop": 0,
-     "crop": "1440-01-links.jpg",
-     "fix": "point every link at a real section, page or file"
     },
     {
      "check": "photo-set",
@@ -127,8 +207,8 @@
      "sel": "div.wrap.mo-pc__grid > div.mo-pc__visuals.frame > figure.mo-pc__visual:nth-of-type(2) > img",
      "text": "photo-f51544809-960.webp",
      "stop": 3,
-     "msg": "4 photographs in more than one look: saturation from 0.18 to 0.73; the odd one out is photo-f51544809-960.webp",
-     "crop": "1440-07-photo-set.jpg",
+     "msg": "4 photographs in more than one look: saturation from 0.18 to 0.74; the odd one out is photo-f51544809-960.webp",
+     "crop": "1440-08-photo-set.jpg",
      "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
@@ -145,49 +225,38 @@
      "sev": "WARN",
      "sel": "header.nav.nav--centre > div.wrap.nav__bar > a.nav__logo",
      "text": "jodesx",
-     "msg": "\"jodesx\" opens a section headed \"Managed outsourcing from Jordan\"",
+     "msg": "\"jodesx\" opens a section headed \"تعهيد مُدار من الأردن\"",
      "stop": 0,
-     "crop": "1440-02-nav-labels.jpg",
+     "crop": "1440-03-nav-labels.jpg",
      "fix": "name each nav link after the heading of the section it opens"
     },
     {
-     "check": "orphan",
+     "check": "action-count",
      "sev": "WARN",
-     "sel": "div.wrap.grid > div.span-6 > ul.rows > li:nth-of-type(1)",
-     "text": "Arabic as a first languageDialects, slang and co",
-     "msg": "its last line holds only \"on\"",
-     "stop": 6,
-     "crop": "1440-13-orphan.jpg",
-     "fix": "rebalance the text (text-wrap: pretty, or a shorter line) so the last line holds more than one short word"
-    },
-    {
-     "check": "nav-current",
-     "sev": "WARN",
-     "sel": "header.nav.nav--centre",
+     "sel": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
      "text": "",
-     "stop": 1,
-     "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
-     "crop": "1440-04-nav-current.jpg",
-     "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls"
+     "msg": "the main action \"اطلب فريقاً تجريبياً\" is on 5 buttons and links: the nav, the hero and the closing call carry it; elsewhere a section has its own action",
+     "stop": 8,
+     "crop": "1440-21-action-count.jpg",
+     "fix": "the main action in the nav, the hero and the closing call; give the other sections their own action"
     },
     {
-     "check": "empty-area",
+     "check": "skip-link",
      "sev": "WARN",
-     "sel": "footer#contact",
-     "text": "Your team, run from Jordan",
-     "msg": "46% of the section is empty: 320px of empty rows between its content, 2% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 8,
-     "crop": "1440-15-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
+     "sel": "header.nav.nav--centre > div.wrap.nav__bar > a.skip-link:nth-of-type(1)",
+     "text": "تخطَّ إلى المحتوى",
+     "msg": "the first Tab stop is \"تخطَّ إلى المحتوى\", not a skip link: a keyboard user tabs through the whole nav on every visit",
+     "stop": null,
+     "fix": "add the starter's skip link as the header's first child: <a class=\"skip-link\" href=\"#top\">Skip to content</a>"
     },
     {
      "check": "action-repeat",
      "sev": "WARN",
      "sel": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2)",
-     "text": "request a pilot team",
+     "text": "اطلب فريقاً تجريبياً",
      "stop": 13,
-     "msg": "\"request a pilot team\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1440-18-action-repeat.jpg",
+     "msg": "\"اطلب فريقاً تجريبياً\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+     "crop": "1440-24-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
     },
     {
@@ -197,18 +266,73 @@
      "text": "mailto:hello@jodesx.example",
      "msg": "the form opens a mail to hello@jodesx.example: a stand-in until the client gives its form address; list it in the report",
      "stop": 7,
-     "crop": "1440-14-form-send.jpg",
+     "crop": "1440-17-form-send.jpg",
      "fix": "send the form to the client's address (data-endpoint) and show the confirmation only after it answers; list a mailto stand-in in the report"
     },
     {
      "check": "container-edges",
-     "sev": "WARN",
-     "sel": "div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps > li.mo-pc__step:nth-of-type(1)",
-     "text": "Sets the team’s scope and SLA Volumes, h",
-     "msg": "3 text blocks start on a left line at x 106, 26px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also \"Hires and trains the team Our re\", \"Runs QA on the team’s work Our l\") (it is in a scroll scene: told as a WARN) (SR-6)",
+     "sev": "FAIL",
+     "sel": "div.span-6.stack-4 > form.form > div.field.field--full:nth-of-type(3) > label",
+     "text": "الشركة",
+     "msg": "2 text blocks start on a left line at x 1330, 1250px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also \"الاسم\") (SR-6)",
      "fix": "start the text on the container's left, or on the one split line every split shares",
      "rule": "SR-6 T3-left-lines",
      "crop": "1440-rhythm-01-container-edges.jpg"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "div.span-6.stack-4 > form.form > div.field.field--full:nth-of-type(4) > label",
+     "text": "العمل المطلوب",
+     "msg": "1 text block starts on a left line at x 1277, 1197px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (SR-6)",
+     "fix": "start the text on the container's left, or on the one split line every split shares",
+     "rule": "SR-6 T3-left-lines"
+    },
+    {
+     "check": "container-edges",
+     "sev": "FAIL",
+     "sel": "div.wrap > div.closing__links > div.footer__legal > span",
+     "text": "© 2026 Jodesx",
+     "msg": "1 text block starts on a left line at x 1271, 1191px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (and 23 more like it: x 1253, x 1224, x 1188) (SR-6)",
+     "fix": "start the text on the container's left, or on the one split line every split shares",
+     "rule": "SR-6 T3-left-lines"
+    },
+    {
+     "check": "split-pair",
+     "sev": "FAIL",
+     "sel": "section#services > div.wrap > div.grid.grid--top",
+     "text": "الإشراف على المحتوىالبث المباشر والتعليق",
+     "msg": "the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (SR-8)",
+     "fix": "put the text in the left column and the visual in the right, on every split",
+     "rule": "SR-8 T-orientation",
+     "crop": "1440-rhythm-02-split-pair.jpg"
+    },
+    {
+     "check": "split-pair",
+     "sev": "FAIL",
+     "sel": "section#jordan > div.wrap.grid",
+     "text": "لماذا ندير فرقنا من الأردن أربعة أسباب و",
+     "msg": "the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (SR-8)",
+     "fix": "put the text in the left column and the visual in the right, on every split",
+     "rule": "SR-8 T-orientation"
+    },
+    {
+     "check": "split-pair",
+     "sev": "FAIL",
+     "sel": "section#pilot > div.wrap.grid",
+     "text": "ابدأ بفريق تجريبي شخصان أو ثلاثة على مسا",
+     "msg": "the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (and 1 more like it: \"كيف يعمل النموذج المُدار\") (SR-8)",
+     "fix": "put the text in the left column and the visual in the right, on every split",
+     "rule": "SR-8 T-orientation"
+    },
+    {
+     "check": "split-pair",
+     "sev": "FAIL",
+     "sel": "section#faq > div.wrap.grid",
+     "text": "أسئلة يطرحها العملاء لأي سؤال آخر، اسألن",
+     "msg": "the split's columns are off the page's one pair of lines: its right column starts at x 841, the first split's at 732 (SR-8)",
+     "fix": "start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it",
+     "rule": "SR-8 T-pair"
     }
    ],
    "glAsked": 0
@@ -221,14 +345,94 @@
    "errors": [],
    "findings": [
     {
-     "check": "nav",
-     "sev": "WARN",
-     "sel": "header.nav.nav--centre > div.wrap.nav__bar > button.nav__toggle",
-     "text": "",
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "section#faq > div.wrap.grid > div.faq.span-6",
+     "text": "هل Jodesx وكالة توظيف؟ لا. نحن لا نرسل موظفين لل",
+     "msg": "5 rows start at 5 different left offsets (+0, +5, +31, +100, +165px)",
+     "stop": 5,
+     "crop": "390-07-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "section#jordan > div.wrap.grid > div.span-6 > ul.rows",
+     "text": "العربية لغة أم اللهجات والعامية والسياق، وهي أسا",
+     "msg": "4 rows start at 4 different left offsets (+0, +68, +54, +22px)",
+     "stop": 7,
+     "crop": "390-12-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "section#pilot > div.wrap.grid > div.span-6.stack-4 > form.form",
+     "text": "الاسم بريد العمل الإلكتروني الشركة العمل المطلوب",
+     "msg": "4 rows start at 4 different left offsets (+76, +0, +73, +24px)",
+     "stop": 8,
+     "crop": "390-15-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(2) > ul",
+     "text": "الإشراف على المحتوى خدمة العملاء عمليات البيانات",
+     "msg": "5 rows start at 5 different left offsets (+7, +51, +0, +41, +31px)",
+     "stop": 9,
+     "crop": "390-17-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(3) > ul",
+     "text": "القطاعات عن الشركة الوظائف",
+     "msg": "3 rows start at 3 different left offsets (+4, +0, +9px)",
+     "stop": 9,
+     "crop": "390-18-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "stagger",
+     "sev": "FAIL",
+     "sel": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(4) > ul",
+     "text": "راسلنا الخصوصية الشروط",
+     "msg": "3 rows start at 3 different left offsets (+28, +0, +19px)",
+     "stop": 10,
+     "crop": "390-19-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "off-grid",
+     "sev": "FAIL",
+     "sel": "h1#hero-h",
+     "text": "تعهيد مُدار من الأردن",
      "stop": 0,
-     "msg": "the nav is lopsided: its last item ends 13px inside the content's edge (366px), while its first starts on the other edge",
-     "fix": "start the nav's first item and end its last on the content's two edges",
-     "crop": "390-01-nav.jpg"
+     "msg": "left edge at 39px, 15px off the page margin at 24px (5 elements, like a.btn.btn--primary); 1 more in this section off the grid too (p.hero__lead at 45px)",
+     "crop": "390-01-off-grid.jpg",
+     "fix": "move it onto the page margin, or the column edge its section uses"
+    },
+    {
+     "check": "off-grid",
+     "sev": "FAIL",
+     "sel": "h2#services-h",
+     "text": "الخدمات التي نديرها للمنصات",
+     "stop": 1,
+     "msg": "left edge at 35.5px, 11.5px off the page margin at 24px (5 elements)",
+     "crop": "390-03-off-grid.jpg",
+     "fix": "move it onto the page margin, or the column edge its section uses"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "FAIL",
+     "sel": "section#services / section#model",
+     "text": "",
+     "stop": 3,
+     "msg": "368px between these sections, +76% against the median 210px",
+     "crop": "390-05-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "scroll-reveal",
@@ -237,68 +441,88 @@
      "text": "",
      "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 7,
-     "crop": "390-07-scroll-reveal.jpg",
+     "crop": "390-13-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
-    },
-    {
-     "check": "no-visual",
-     "sev": "WARN",
-     "sel": "section#pilot",
-     "text": "Start with a pilot team",
-     "msg": "pictures, effects and mocks cover 24% of this section; a feature section needs a visual (about 25% or more)",
-     "stop": 8,
-     "crop": "390-08-no-visual.jpg",
-     "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits"
     },
     {
      "check": "text-only",
      "sev": "WARN",
      "sel": "section#faq",
-     "text": "Questions buyers ask",
+     "text": "أسئلة يطرحها العملاء",
      "msg": "the section is only text: no picture, icon, mock or effect in it",
      "stop": 5,
-     "crop": "390-06-text-only.jpg",
+     "crop": "390-08-text-only.jpg",
      "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground"
     },
     {
      "check": "cta",
      "sev": "WARN",
      "sel": "section#services",
-     "text": "Services we run for platforms",
+     "text": "الخدمات التي نديرها للمنصات",
      "msg": "a section over 1.5 screens long with no link or button in it",
      "stop": 2,
      "crop": "390-04-cta.jpg",
      "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
     },
     {
-     "check": "section-gaps",
+     "check": "stagger",
      "sev": "WARN",
-     "sel": "main#top > section.hero.hero--photo / section#services",
-     "text": "",
-     "stop": 1,
-     "msg": "135px between these sections, -34% against the median 206px",
-     "crop": "390-03-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
+     "sel": "section#model > div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps",
+     "text": "نحدّد نطاق عمل الفريق واتفاقية مستوى الخدمة الأح",
+     "msg": "3 rows start at 2 different left offsets (+9, +0, +2px) (inside a held section or scroll scene, whose motion --quick does not check)",
+     "stop": 4,
+     "crop": "390-06-stagger.jpg",
+     "fix": "start every row of the list on one left edge"
+    },
+    {
+     "check": "off-grid",
+     "sev": "WARN",
+     "sel": "div.wrap.grid > div.faq.span-6 > div.faq__item:nth-of-type(1) > p",
+     "text": "لا. نحن لا نرسل موظفين للعمل لديك، بل نوظّف الفر",
+     "stop": 5,
+     "msg": "left edge at 42px, 18px off the page margin at 24px (5 elements, none of them near it); 1 more in this section off the grid too (p at 47.5px)",
+     "crop": "390-09-off-grid.jpg",
+     "fix": "move it onto the page margin, or the column edge its section uses"
+    },
+    {
+     "check": "off-grid",
+     "sev": "WARN",
+     "sel": "h2#faq-h",
+     "text": "أسئلة يطرحها العملاء",
+     "msg": "the section's heading starts at 138px, 114px off the page margin (24px), and no other section starts there",
+     "stop": 5,
+     "crop": "390-10-off-grid.jpg",
+     "fix": "move it onto the page margin, or the column edge its section uses"
+    },
+    {
+     "check": "off-grid",
+     "sev": "WARN",
+     "sel": "h2#pilot-h",
+     "text": "ابدأ بفريق تجريبي",
+     "msg": "the section's heading starts at 179px, 155px off the page margin (24px), and no other section starts there",
+     "stop": 7,
+     "crop": "390-14-off-grid.jpg",
+     "fix": "move it onto the page margin, or the column edge its section uses"
     },
     {
      "check": "section-gaps",
      "sev": "WARN",
-     "sel": "section#services / section#model",
+     "sel": "section#faq / section#jordan",
      "text": "",
-     "stop": 3,
-     "msg": "263px between these sections, +28% against the median 206px",
-     "crop": "390-05-section-gaps.jpg",
+     "stop": 6,
+     "msg": "uneven space at the edge of a band: 90px outside its edge, 167px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "390-11-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
      "check": "proximity",
      "sev": "WARN",
      "sel": "section#pilot > div.wrap.grid > div.frame.frame--photo",
-     "text": "Start with a pilot team Two or three people on o",
-     "msg": "stacked at this width, the visual starts 14px under the text and buttons above it (\"Start with a pilot team Two or\"): it reads glued to them",
+     "text": "ابدأ بفريق تجريبي شخصان أو ثلاثة على مسار عمل وا",
+     "msg": "stacked at this width, the visual starts 12px under the text and buttons above it (\"ابدأ بفريق تجريبي شخصان أو ثلا\"): it reads glued to them",
      "fix": "give the stacked split the section's own gap between text and visual (40px or more on a phone)",
      "stop": 8,
-     "crop": "390-09-proximity.jpg"
+     "crop": "390-16-proximity.jpg"
     },
     {
      "check": "photo-set",
@@ -306,7 +530,7 @@
      "sel": "main#top > section.hero.hero--photo > picture.hero__bg > img",
      "text": "photo-f92090631-780x975.webp",
      "stop": 0,
-     "msg": "5 photographs in more than one look: lightness from 0.07 to 0.47; saturation from 0.18 to 0.81; the odd one out is photo-f92090631-780x975.webp",
+     "msg": "6 photographs in more than one look: lightness from 0.07 to 0.47; saturation from 0.11 to 0.81; the odd one out is photo-f92090631-780x975.webp",
      "crop": "390-02-photo-set.jpg",
      "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     }
@@ -348,7 +572,7 @@
   "findings": []
  },
  "counts": {
-  "FAIL": 1,
+  "FAIL": 24,
   "WARN": 28
  },
  "checks": {
@@ -362,7 +586,7 @@
   "sample-label": "PASS",
   "caption": "PASS",
   "credit-wall": "PASS",
-  "nav": "WARN",
+  "nav": "PASS",
   "nav-covers": "PASS",
   "spill": "PASS",
   "off-viewport": "PASS",
@@ -382,7 +606,7 @@
   "reduced-motion": "not checked",
   "hidden-content": "PASS",
   "webgl": "PASS",
-  "no-visual": "WARN",
+  "no-visual": "PASS",
   "text-only": "WARN",
   "card-visual": "PASS",
   "hidden-visual": "not checked",
@@ -399,15 +623,15 @@
   "button-picture": "PASS",
   "cta": "WARN",
   "pricing-tiers": "PASS",
-  "copy-headline": "PASS",
+  "copy-headline": "FAIL",
   "copy-fact": "PASS",
-  "copy-headings": "WARN",
+  "copy-headings": "PASS",
   "copy-buttons": "PASS",
   "copy-actions": "PASS",
   "heading-scale": "PASS",
-  "stagger": "PASS",
+  "stagger": "FAIL",
   "top-stagger": "PASS",
-  "off-grid": "PASS",
+  "off-grid": "FAIL",
   "col-edge": "PASS",
   "right-edge": "PASS",
   "centre-axis": "PASS",
@@ -419,7 +643,7 @@
   "section-gaps": "FAIL",
   "proximity": "WARN",
   "hole": "PASS",
-  "links": "WARN",
+  "links": "PASS",
   "forms": "not checked",
   "photo-upscale": "PASS",
   "photo-set": "WARN",
@@ -431,14 +655,14 @@
   "label-centre": "PASS",
   "fake-button": "PASS",
   "stranded-action": "PASS",
-  "orphan": "WARN",
+  "orphan": "PASS",
   "unit-break": "PASS",
   "tab-wrap": "PASS",
   "effects-fit": "PASS",
   "fade-cut": "PASS",
   "photo-weight": "PASS",
   "copy-length": "PASS",
-  "nav-current": "WARN",
+  "nav-current": "PASS",
   "progress-bar": "PASS",
   "photo-repeat": "PASS",
   "button-contrast": "PASS",
@@ -447,7 +671,7 @@
   "split-align": "PASS",
   "fact-agree": "PASS",
   "fold-action": "PASS",
-  "action-count": "PASS",
+  "action-count": "WARN",
   "one-screen": "PASS",
   "hover": "not checked",
   "hover-move": "not checked",
@@ -469,14 +693,14 @@
   "section-air": "PASS",
   "one-section": "PASS",
   "one-heading": "PASS",
-  "container-edges": "WARN",
+  "container-edges": "FAIL",
   "row-lines": "PASS",
-  "split-pair": "PASS",
+  "split-pair": "FAIL",
   "motion-layer": "PASS",
   "count-text": "PASS",
   "loop-cycle": "PASS",
   "section-tile": "PASS",
-  "empty-area": "WARN",
+  "empty-area": "PASS",
   "a11y-name": "PASS",
   "img-alt": "PASS",
   "field-label": "PASS",
@@ -485,7 +709,7 @@
   "focus-ring": "PASS",
   "focus-visible": "PASS",
   "focus-hidden": "PASS",
-  "skip-link": "PASS",
+  "skip-link": "WARN",
   "menu-toggle": "PASS",
   "lang": "PASS",
   "page-meta": "PASS",

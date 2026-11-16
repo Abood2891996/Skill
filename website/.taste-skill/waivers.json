@@ -1,1 +1,4 @@
-[{"check":"section-gaps","target":"section.hero.hero--photo / section#services","reason":"The dealt photo hero is a full-bleed layer down to the fold, so the gap to the next section is its top padding only; no neighbour shows in either tile."}]
+[{"check":"section-gaps","target":"section.hero.hero--photo / section#services","reason":"The dealt photo hero is a full-bleed layer down to the fold, so the gap to the next section is its top padding only; no neighbour shows in either tile."},
+{"check":"section-gaps","target":"section#services / section#model","reason":"At 1024 the pinned-chapters moment holds its own two-screen section; the space is the moment's hold, not a gap between content blocks."},
+{"check":"section-gaps","target":"section#model / section#faq","reason":"At 1024 the space follows the held pinned-chapters section, which must stay exactly two screens."},
+{"check":"section-gaps","target":"section#faq / section#jordan","reason":"At 768 the open FAQ stacks to one screen with five answers; adding filler questions would invent content the brief does not give."}]

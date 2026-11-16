@@ -7,6 +7,14 @@
    "decision": "block",
    "reason": "ar/index.html is a tasteskill page with no build armed: told how to arm it",
    "stopHookActive": false
+  },
+  {
+   "at": "2026-11-16T12:09:35.072Z",
+   "mode": "hook",
+   "host": "claude",
+   "decision": "allow",
+   "reason": "no build is active here",
+   "stopHookActive": true
   }
  ]
 }

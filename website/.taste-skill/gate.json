@@ -1,71 +1,163 @@
 {
- "start": "2026-11-16T10:50:55.551Z",
- "round": 2,
+ "start": "2026-11-16T12:28:45.612Z",
+ "round": 1,
  "idle": 0,
  "errors": 0,
- "status": "pass",
+ "status": "fail",
  "history": [
   {
-   "at": "2026-11-16T11:23:58.059Z",
+   "at": "2026-11-16T12:30:37.903Z",
    "mode": "manual",
    "status": "fail",
-   "fails": 6,
+   "fails": 29,
    "round": 1,
    "reused": false,
-   "stopHookActive": false
-  },
-  {
-   "at": "2026-11-16T11:26:03.196Z",
-   "mode": "manual",
-   "status": "fail",
-   "fails": 1,
-   "round": 2,
-   "reused": false,
-   "stopHookActive": false
-  },
-  {
-   "at": "2026-11-16T11:28:02.660Z",
-   "mode": "manual",
-   "status": "pass",
-   "fails": 0,
-   "round": 2,
-   "reused": false,
-   "stopHookActive": false
-  },
-  {
-   "at": "2026-11-16T11:34:14.131Z",
-   "mode": "hook",
-   "host": "claude",
-   "decision": "allow",
-   "reason": "no build is active here",
    "stopHookActive": false
   }
  ],
  "max": 3,
  "marker": {
-  "page": "index.html",
+  "page": "ar/index.html",
   "url": null,
   "root": null,
   "kind": "service",
   "category": "managed outsourcing teams",
-  "primary": "Request a pilot team",
+  "primary": "اطلب فريقاً تجريبياً",
   "rounds": 3,
-  "start": "2026-11-16T10:50:55.551Z",
+  "start": "2026-11-16T12:28:45.612Z",
   "by": "gate.mjs --start"
  },
  "manual": true,
- "roundKey": "3aeaf27ec925f434:88af5415",
+ "roundKey": "13cb97dd3e14052f:fc9514f9",
  "roundFree": false,
  "idleFree": false,
  "blockKey": null,
- "fp": "b643ef83a2da1537",
- "page": "index.html",
+ "fp": "13cb97dd3e14052f",
+ "page": "ar/index.html",
  "found": {
   "fails": [
    {
+    "check": "copy-headline",
+    "where": "h1#hero-h \"تعهيد مُدار من الأردن\"",
+    "msg": "\"تعهيد مُدار من الأردن\" does not name what is sold (managed outsourcing teams, managed, outsourcing, teams, from flags)",
+    "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "copy-headline"
+    ],
+    "wheres": [
+     "h1#hero-h \"تعهيد مُدار من الأردن\""
+    ]
+   },
+   {
+    "check": "stagger",
+    "where": "section#faq > div.wrap.grid > div.faq.span-6 \"هل Jodesx وكالة توظيف؟ لا. نحن لا نرسل م\"",
+    "msg": "5 rows start at 5 different left offsets (+0, +108, +148, +274, +333px)",
+    "fix": "start every row of the list on one left edge",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "stagger"
+    ],
+    "wheres": [
+     "section#faq > div.wrap.grid > div.faq.span-6 \"هل Jodesx وكالة توظيف؟ لا. نحن لا نرسل م\""
+    ]
+   },
+   {
+    "check": "stagger",
+    "where": "section#jordan > div.wrap.grid > div.span-6 > ul.rows \"العربية لغة أم اللهجات والعامية والسياق،\"",
+    "msg": "4 rows start at 4 different left offsets (+0, +280, +266, +118px)",
+    "fix": "start every row of the list on one left edge",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "stagger"
+    ],
+    "wheres": [
+     "section#jordan > div.wrap.grid > div.span-6 > ul.rows \"العربية لغة أم اللهجات والعامية والسياق،\""
+    ]
+   },
+   {
+    "check": "stagger",
+    "where": "section#pilot > div.wrap.grid > div.span-6.stack-4 > form.form \"الاسم بريد العمل الإلكتروني الشركة العمل\"",
+    "msg": "4 rows start at 4 different left offsets (+76, +0, +73, +24px)",
+    "fix": "start every row of the list on one left edge",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "stagger"
+    ],
+    "wheres": [
+     "section#pilot > div.wrap.grid > div.span-6.stack-4 > form.form \"الاسم بريد العمل الإلكتروني الشركة العمل\""
+    ]
+   },
+   {
+    "check": "stagger",
+    "where": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(2) > ul \"الإشراف على المحتوى خدمة العملاء عمليات \"",
+    "msg": "5 rows start at 5 different left offsets (+67, +110, +0, +100, +91px)",
+    "fix": "start every row of the list on one left edge",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "stagger"
+    ],
+    "wheres": [
+     "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(2) > ul \"الإشراف على المحتوى خدمة العملاء عمليات \""
+    ]
+   },
+   {
+    "check": "stagger",
+    "where": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(3) > ul \"القطاعات عن الشركة الوظائف\"",
+    "msg": "3 rows start at 3 different left offsets (+4, +0, +9px)",
+    "fix": "start every row of the list on one left edge",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "stagger"
+    ],
+    "wheres": [
+     "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(3) > ul \"القطاعات عن الشركة الوظائف\""
+    ]
+   },
+   {
+    "check": "stagger",
+    "where": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(4) > ul \"راسلنا الخصوصية الشروط\"",
+    "msg": "3 rows start at 3 different left offsets (+28, +0, +19px)",
+    "fix": "start every row of the list on one left edge",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "stagger"
+    ],
+    "wheres": [
+     "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(4) > ul \"راسلنا الخصوصية الشروط\""
+    ]
+   },
+   {
     "check": "section-gaps",
     "where": "main#top > section.hero.hero--photo / section#services",
-    "msg": "116px between these sections, -63% against the median 313px",
+    "msg": "110px between these sections, -66% against the median 319px",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440
@@ -76,6 +168,376 @@
     ],
     "wheres": [
      "main#top > section.hero.hero--photo / section#services"
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div.span-6.stack-4 > form.form > div.field.field--full:nth-of-type(3) > label \"الشركة\"",
+    "msg": "2 text blocks start on a left line at x 1330, 1250px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also \"الاسم\") (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div.span-6.stack-4 > form.form > div.field.field--full:nth-of-type(3) > label \"الشركة\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div.span-6.stack-4 > form.form > div.field.field--full:nth-of-type(4) > label \"العمل المطلوب\"",
+    "msg": "1 text block starts on a left line at x 1277, 1197px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div.span-6.stack-4 > form.form > div.field.field--full:nth-of-type(4) > label \"العمل المطلوب\""
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div.wrap > div.closing__links > div.footer__legal > span \"© 2026 Jodesx\"",
+    "msg": "1 text block starts on a left line at x 1271, 1191px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (and 23 more like it: x 1253, x 1224, x 1188) (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div.wrap > div.closing__links > div.footer__legal > span \"© 2026 Jodesx\""
+    ]
+   },
+   {
+    "check": "split-pair",
+    "where": "section#services > div.wrap > div.grid.grid--top \"الإشراف على المحتوىالبث المباشر والتعليق\"",
+    "msg": "the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (SR-8)",
+    "fix": "put the text in the left column and the visual in the right, on every split",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "split-pair"
+    ],
+    "wheres": [
+     "section#services > div.wrap > div.grid.grid--top \"الإشراف على المحتوىالبث المباشر والتعليق\""
+    ]
+   },
+   {
+    "check": "split-pair",
+    "where": "section#jordan > div.wrap.grid \"لماذا ندير فرقنا من الأردن أربعة أسباب و\"",
+    "msg": "the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (SR-8)",
+    "fix": "put the text in the left column and the visual in the right, on every split",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "split-pair"
+    ],
+    "wheres": [
+     "section#jordan > div.wrap.grid \"لماذا ندير فرقنا من الأردن أربعة أسباب و\""
+    ]
+   },
+   {
+    "check": "split-pair",
+    "where": "section#pilot > div.wrap.grid \"ابدأ بفريق تجريبي شخصان أو ثلاثة على مسا\"",
+    "msg": "the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (and 1 more like it: \"كيف يعمل النموذج المُدار\") (SR-8)",
+    "fix": "put the text in the left column and the visual in the right, on every split",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "split-pair"
+    ],
+    "wheres": [
+     "section#pilot > div.wrap.grid \"ابدأ بفريق تجريبي شخصان أو ثلاثة على مسا\""
+    ]
+   },
+   {
+    "check": "split-pair",
+    "where": "section#faq > div.wrap.grid \"أسئلة يطرحها العملاء لأي سؤال آخر، اسألن\"",
+    "msg": "the split's columns are off the page's one pair of lines: its right column starts at x 841, the first split's at 732 (SR-8)",
+    "fix": "start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "split-pair"
+    ],
+    "wheres": [
+     "section#faq > div.wrap.grid \"أسئلة يطرحها العملاء لأي سؤال آخر، اسألن\""
+    ]
+   },
+   {
+    "check": "off-grid",
+    "where": "h1#hero-h \"تعهيد مُدار من الأردن\"",
+    "msg": "left edge at 39px, 15px off the page margin at 24px (5 elements, like a.btn.btn--primary); 1 more in this section off the grid too (p.hero__lead at 45px)",
+    "fix": "move it onto the page margin, or the column edge its section uses",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "off-grid"
+    ],
+    "wheres": [
+     "h1#hero-h \"تعهيد مُدار من الأردن\""
+    ]
+   },
+   {
+    "check": "off-grid",
+    "where": "h2#services-h \"الخدمات التي نديرها للمنصات\"",
+    "msg": "left edge at 35.5px, 11.5px off the page margin at 24px (5 elements)",
+    "fix": "move it onto the page margin, or the column edge its section uses",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "off-grid"
+    ],
+    "wheres": [
+     "h2#services-h \"الخدمات التي نديرها للمنصات\""
+    ]
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#services / section#model",
+    "msg": "368px between these sections, +76% against the median 210px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-gaps"
+    ],
+    "wheres": [
+     "section#services / section#model"
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#services div.section-head \"الخدمات التي نديرها للمنصاتفريق \"",
+    "msg": "starts at x 600; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#services div.section-head \"الخدمات التي نديرها للمنصاتفريق \""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#services h2 \"الخدمات التي نديرها للمنصات\"",
+    "msg": "starts at x 600; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#services h2 \"الخدمات التي نديرها للمنصات\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#services p \"فريق واحد نديره نحن، بفاتورة واح\"",
+    "msg": "starts at x 640; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#services p \"فريق واحد نديره نحن، بفاتورة واح\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#faq p \"لا. نحن لا نرسل موظفين للعمل لدي\"",
+    "msg": "starts at x 93.6; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#faq p \"لا. نحن لا نرسل موظفين للعمل لدي\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#faq p \"تدفع لـ Jodesx بفاتورة واحدة عن \"",
+    "msg": "starts at x 93.6; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#faq p \"تدفع لـ Jodesx بفاتورة واحدة عن \""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#faq p \"قادة الفرق لدينا. وأنت تتواصل مع\"",
+    "msg": "starts at x 93.6; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#faq p \"قادة الفرق لدينا. وأنت تتواصل مع\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#faq p \"شخصان أو ثلاثة على مسار عمل واحد\"",
+    "msg": "starts at x 93.6; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#faq p \"شخصان أو ثلاثة على مسار عمل واحد\""
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "#faq p \"العربية لغةً أمّاً، والإنجليزية.\"",
+    "msg": "starts at x 93.6; the lines are 80 and the column starts",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "#faq p \"العربية لغةً أمّاً، والإنجليزية.\""
+    ]
+   },
+   {
+    "check": "one-sided",
+    "where": "#jordan section.section \"لماذا ندير فرقنا من الأردن أربعة\"",
+    "msg": "its visuals end at x 708, short of the right line 1360",
+    "fix": "let the row reach both .wrap edges",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "one-sided"
+    ],
+    "wheres": [
+     "#jordan section.section \"لماذا ندير فرقنا من الأردن أربعة\""
+    ]
+   },
+   {
+    "check": "one-sided",
+    "where": "#pilot section.section \"ابدأ بفريق تجريبي شخصان أو ثلاثة\"",
+    "msg": "its visuals end at x 708, short of the right line 1360",
+    "fix": "let the row reach both .wrap edges",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "one-sided"
+    ],
+    "wheres": [
+     "#pilot section.section \"ابدأ بفريق تجريبي شخصان أو ثلاثة\""
+    ]
+   },
+   {
+    "check": "lines",
+    "where": "page",
+    "msg": "headings and leads start on 4 lines (x 600, 640, 840.7, 732); the page has 80 and one split line",
+    "fix": "put the block on the .wrap lines or the grid columns",
+    "widths": [
+     1440
+    ],
+    "from": "layout",
+    "ids": [
+     "lines"
+    ],
+    "wheres": [
+     "page"
+    ]
+   },
+   {
+    "check": "edge-left",
+    "where": "nav logo",
+    "msg": "at x 1263, the page's left line is 80",
+    "fix": "start it on the .wrap left line",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-left"
+    ],
+    "wheres": [
+     "nav logo"
+    ]
+   },
+   {
+    "check": "edge-right",
+    "where": "nav actions",
+    "msg": "end at x 318.7, the page's right line is 1360",
+    "fix": "end it on the .wrap right line",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "edge-right"
+    ],
+    "wheres": [
+     "nav actions"
     ]
    }
   ],
@@ -93,7 +555,7 @@
    },
    {
     "check": "scroll-reveal",
-    "where": "section#model \"How the managed model works Sets the tea\"",
+    "where": "section#model \"كيف يعمل النموذج المُدار نحدّد نطاق عمل \"",
     "msg": "starts \"border-left-color\" (0.3 s) the moment it is scrolled into view (an IntersectionObserver) on li.mo-pc__step:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
     "widths": [
@@ -103,7 +565,7 @@
    },
    {
     "check": "pinned",
-    "where": "section#model > div.wrap.mo-pc__grid \"How the managed model works Sets the tea\"",
+    "where": "section#model > div.wrap.mo-pc__grid \"كيف يعمل النموذج المُدار نحدّد نطاق عمل \"",
     "msg": "held on screen for 1 screen of scroll (position: sticky) while the page moves on (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)",
     "fix": "let the section scroll with the page",
     "widths": [
@@ -113,7 +575,7 @@
    },
    {
     "check": "text-only",
-    "where": "section#faq \"Questions buyers ask\"",
+    "where": "section#faq \"أسئلة يطرحها العملاء\"",
     "msg": "the section is only text: no picture, icon, mock or effect in it",
     "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
     "widths": [
@@ -124,7 +586,7 @@
    },
    {
     "check": "cta",
-    "where": "section#model \"How the managed model works\"",
+    "where": "section#model \"كيف يعمل النموذج المُدار\"",
     "msg": "a section over 1.5 screens long with no link or button in it",
     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
     "widths": [
@@ -133,19 +595,41 @@
     "from": "consistency"
    },
    {
-    "check": "copy-headings",
-    "where": "div.wrap.grid > div.faq.span-6 > div.faq__item:nth-of-type(1) > h3 \"Is Jodesx a staffing agency?\"",
-    "msg": "\"Is Jodesx a staffing agency?\" names no product, part, place or section (the one brand line a page may have)",
-    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "check": "copy-headline",
+    "where": "h1#hero-h \"تعهيد مُدار من الأردن\"",
+    "msg": "the h1 has 0 words (2 to 8 read at a glance)",
+    "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
     "widths": [
      1440
     ],
     "from": "consistency"
    },
    {
+    "check": "stagger",
+    "where": "section#model > div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps \"نحدّد نطاق عمل الفريق واتفاقية مستوى الخ\"",
+    "msg": "3 rows start at 3 different left offsets (+0, +260, +230px) (inside a held section or scroll scene, whose motion --quick does not check)",
+    "fix": "start every row of the list on one left edge",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "off-grid",
+    "where": "h2#faq-h \"أسئلة يطرحها العملاء\"",
+    "msg": "the section's heading starts at 996px, 916px off the page margin (80px), and no other section starts there",
+    "fix": "move it onto the page margin, or the column edge its section uses",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
     "check": "section-gaps",
     "where": "section#jordan / section#pilot",
-    "msg": "422px between these sections, +35% against the median 313px",
+    "msg": "419px between these sections, +31% against the median 319px",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440
@@ -155,7 +639,7 @@
    {
     "check": "section-gaps",
     "where": "section#model / section#faq",
-    "msg": "uneven space at the edge of a band: 179px outside its edge, 116px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "msg": "uneven space at the edge of a band: 179px outside its edge, 110px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440
@@ -165,27 +649,18 @@
    {
     "check": "section-gaps",
     "where": "section#faq / section#jordan",
-    "msg": "uneven space at the edge of a band: 116px outside its edge, 258px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "msg": "uneven space at the edge of a band: 110px outside its edge, 281px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
-     1440
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "links",
-    "where": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.nav__link \"العربية\"",
-    "msg": "\"العربية\" goes to ar/index.html, which does not exist here",
-    "fix": "point every link at a real section, page or file",
-    "widths": [
-     1440
+     1440,
+     390
     ],
     "from": "consistency"
    },
    {
     "check": "photo-set",
     "where": "div.wrap.mo-pc__grid > div.mo-pc__visuals.frame > figure.mo-pc__visual:nth-of-type(2) > img \"photo-f51544809-960.webp\"",
-    "msg": "4 photographs in more than one look: saturation from 0.18 to 0.73; the odd one out is photo-f51544809-960.webp",
+    "msg": "4 photographs in more than one look: saturation from 0.18 to 0.74; the odd one out is photo-f51544809-960.webp",
     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
     "widths": [
      1440
@@ -205,7 +680,7 @@
    {
     "check": "nav-labels",
     "where": "header.nav.nav--centre > div.wrap.nav__bar > a.nav__logo \"jodesx\"",
-    "msg": "\"jodesx\" opens a section headed \"Managed outsourcing from Jordan\"",
+    "msg": "\"jodesx\" opens a section headed \"تعهيد مُدار من الأردن\"",
     "fix": "name each nav link after the heading of the section it opens",
     "widths": [
      1440
@@ -213,30 +688,20 @@
     "from": "consistency"
    },
    {
-    "check": "orphan",
-    "where": "div.wrap.grid > div.span-6 > ul.rows > li:nth-of-type(1) \"Arabic as a first languageDialects, slan\"",
-    "msg": "its last line holds only \"on\"",
-    "fix": "rebalance the text (text-wrap: pretty, or a shorter line) so the last line holds more than one short word",
+    "check": "action-count",
+    "where": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+    "msg": "the main action \"اطلب فريقاً تجريبياً\" is on 5 buttons and links: the nav, the hero and the closing call carry it; elsewhere a section has its own action",
+    "fix": "the main action in the nav, the hero and the closing call; give the other sections their own action",
     "widths": [
      1440
     ],
     "from": "consistency"
    },
    {
-    "check": "nav-current",
-    "where": "header.nav.nav--centre",
-    "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
-    "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls",
-    "widths": [
-     1440
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "empty-area",
-    "where": "footer#contact \"Your team, run from Jordan\"",
-    "msg": "46% of the section is empty: 320px of empty rows between its content, 2% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
-    "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
+    "check": "skip-link",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > a.skip-link:nth-of-type(1) \"تخطَّ إلى المحتوى\"",
+    "msg": "the first Tab stop is \"تخطَّ إلى المحتوى\", not a skip link: a keyboard user tabs through the whole nav on every visit",
+    "fix": "add the starter's skip link as the header's first child: <a class=\"skip-link\" href=\"#top\">Skip to content</a>",
     "widths": [
      1440
     ],
@@ -244,8 +709,8 @@
    },
    {
     "check": "action-repeat",
-    "where": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2) \"request a pilot team\"",
-    "msg": "\"request a pilot team\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2) \"اطلب فريقاً تجريبياً\"",
+    "msg": "\"اطلب فريقاً تجريبياً\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
     "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once",
     "widths": [
      1440
@@ -263,38 +728,8 @@
     "from": "consistency"
    },
    {
-    "check": "container-edges",
-    "where": "div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps > li.mo-pc__step:nth-of-type(1) \"Sets the team’s scope and SLA Volumes, h\"",
-    "msg": "3 text blocks start on a left line at x 106, 26px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also \"Hires and trains the team Our re\", \"Runs QA on the team’s work Our l\") (it is in a scroll scene: told as a WARN) (SR-6)",
-    "fix": "start the text on the container's left, or on the one split line every split shares",
-    "widths": [
-     1440
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "nav",
-    "where": "header.nav.nav--centre > div.wrap.nav__bar > button.nav__toggle",
-    "msg": "the nav is lopsided: its last item ends 13px inside the content's edge (366px), while its first starts on the other edge",
-    "fix": "start the nav's first item and end its last on the content's two edges",
-    "widths": [
-     390
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "no-visual",
-    "where": "section#pilot \"Start with a pilot team\"",
-    "msg": "pictures, effects and mocks cover 24% of this section; a feature section needs a visual (about 25% or more)",
-    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
-    "widths": [
-     390
-    ],
-    "from": "consistency"
-   },
-   {
     "check": "cta",
-    "where": "section#services \"Services we run for platforms\"",
+    "where": "section#services \"الخدمات التي نديرها للمنصات\"",
     "msg": "a section over 1.5 screens long with no link or button in it",
     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
     "widths": [
@@ -303,20 +738,20 @@
     "from": "consistency"
    },
    {
-    "check": "section-gaps",
-    "where": "main#top > section.hero.hero--photo / section#services",
-    "msg": "135px between these sections, -34% against the median 206px",
-    "fix": "use one gap between sections (all within 25% of each other)",
+    "check": "off-grid",
+    "where": "div.wrap.grid > div.faq.span-6 > div.faq__item:nth-of-type(1) > p \"لا. نحن لا نرسل موظفين للعمل لديك، بل نو\"",
+    "msg": "left edge at 42px, 18px off the page margin at 24px (5 elements, none of them near it); 1 more in this section off the grid too (p at 47.5px)",
+    "fix": "move it onto the page margin, or the column edge its section uses",
     "widths": [
      390
     ],
     "from": "consistency"
    },
    {
-    "check": "section-gaps",
-    "where": "section#services / section#model",
-    "msg": "263px between these sections, +28% against the median 206px",
-    "fix": "use one gap between sections (all within 25% of each other)",
+    "check": "off-grid",
+    "where": "h2#pilot-h \"ابدأ بفريق تجريبي\"",
+    "msg": "the section's heading starts at 179px, 155px off the page margin (24px), and no other section starts there",
+    "fix": "move it onto the page margin, or the column edge its section uses",
     "widths": [
      390
     ],
@@ -324,8 +759,8 @@
    },
    {
     "check": "proximity",
-    "where": "section#pilot > div.wrap.grid > div.frame.frame--photo \"Start with a pilot team Two or three peo\"",
-    "msg": "stacked at this width, the visual starts 14px under the text and buttons above it (\"Start with a pilot team Two or\"): it reads glued to them",
+    "where": "section#pilot > div.wrap.grid > div.frame.frame--photo \"ابدأ بفريق تجريبي شخصان أو ثلاثة على مسا\"",
+    "msg": "stacked at this width, the visual starts 12px under the text and buttons above it (\"ابدأ بفريق تجريبي شخصان أو ثلا\"): it reads glued to them",
     "fix": "give the stacked split the section's own gap between text and visual (40px or more on a phone)",
     "widths": [
      390
@@ -335,7 +770,7 @@
    {
     "check": "photo-set",
     "where": "main#top > section.hero.hero--photo > picture.hero__bg > img \"photo-f92090631-780x975.webp\"",
-    "msg": "5 photographs in more than one look: lightness from 0.07 to 0.47; saturation from 0.18 to 0.81; the odd one out is photo-f92090631-780x975.webp",
+    "msg": "6 photographs in more than one look: lightness from 0.07 to 0.47; saturation from 0.11 to 0.81; the odd one out is photo-f92090631-780x975.webp",
     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
     "widths": [
      390
@@ -345,16 +780,489 @@
   ],
   "crashed": [],
   "seconds": {
-   "consistency": 106,
+   "consistency": 108,
    "layout": 4
   }
  },
- "open": [],
+ "open": [
+  {
+   "check": "copy-headline",
+   "where": "h1#hero-h \"تعهيد مُدار من الأردن\"",
+   "msg": "\"تعهيد مُدار من الأردن\" does not name what is sold (managed outsourcing teams, managed, outsourcing, teams, from flags)",
+   "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "copy-headline"
+   ],
+   "wheres": [
+    "h1#hero-h \"تعهيد مُدار من الأردن\""
+   ]
+  },
+  {
+   "check": "stagger",
+   "where": "section#faq > div.wrap.grid > div.faq.span-6 \"هل Jodesx وكالة توظيف؟ لا. نحن لا نرسل م\"",
+   "msg": "5 rows start at 5 different left offsets (+0, +108, +148, +274, +333px)",
+   "fix": "start every row of the list on one left edge",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "stagger"
+   ],
+   "wheres": [
+    "section#faq > div.wrap.grid > div.faq.span-6 \"هل Jodesx وكالة توظيف؟ لا. نحن لا نرسل م\""
+   ]
+  },
+  {
+   "check": "stagger",
+   "where": "section#jordan > div.wrap.grid > div.span-6 > ul.rows \"العربية لغة أم اللهجات والعامية والسياق،\"",
+   "msg": "4 rows start at 4 different left offsets (+0, +280, +266, +118px)",
+   "fix": "start every row of the list on one left edge",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "stagger"
+   ],
+   "wheres": [
+    "section#jordan > div.wrap.grid > div.span-6 > ul.rows \"العربية لغة أم اللهجات والعامية والسياق،\""
+   ]
+  },
+  {
+   "check": "stagger",
+   "where": "section#pilot > div.wrap.grid > div.span-6.stack-4 > form.form \"الاسم بريد العمل الإلكتروني الشركة العمل\"",
+   "msg": "4 rows start at 4 different left offsets (+76, +0, +73, +24px)",
+   "fix": "start every row of the list on one left edge",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "stagger"
+   ],
+   "wheres": [
+    "section#pilot > div.wrap.grid > div.span-6.stack-4 > form.form \"الاسم بريد العمل الإلكتروني الشركة العمل\""
+   ]
+  },
+  {
+   "check": "stagger",
+   "where": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(2) > ul \"الإشراف على المحتوى خدمة العملاء عمليات \"",
+   "msg": "5 rows start at 5 different left offsets (+67, +110, +0, +100, +91px)",
+   "fix": "start every row of the list on one left edge",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "stagger"
+   ],
+   "wheres": [
+    "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(2) > ul \"الإشراف على المحتوى خدمة العملاء عمليات \""
+   ]
+  },
+  {
+   "check": "stagger",
+   "where": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(3) > ul \"القطاعات عن الشركة الوظائف\"",
+   "msg": "3 rows start at 3 different left offsets (+4, +0, +9px)",
+   "fix": "start every row of the list on one left edge",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "stagger"
+   ],
+   "wheres": [
+    "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(3) > ul \"القطاعات عن الشركة الوظائف\""
+   ]
+  },
+  {
+   "check": "stagger",
+   "where": "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(4) > ul \"راسلنا الخصوصية الشروط\"",
+   "msg": "3 rows start at 3 different left offsets (+28, +0, +19px)",
+   "fix": "start every row of the list on one left edge",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "stagger"
+   ],
+   "wheres": [
+    "div.closing__links > div.grid > div.span-2.footer__col:nth-of-type(4) > ul \"راسلنا الخصوصية الشروط\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div.span-6.stack-4 > form.form > div.field.field--full:nth-of-type(3) > label \"الشركة\"",
+   "msg": "2 text blocks start on a left line at x 1330, 1250px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also \"الاسم\") (SR-6)",
+   "fix": "start the text on the container's left, or on the one split line every split shares",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div.span-6.stack-4 > form.form > div.field.field--full:nth-of-type(3) > label \"الشركة\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div.span-6.stack-4 > form.form > div.field.field--full:nth-of-type(4) > label \"العمل المطلوب\"",
+   "msg": "1 text block starts on a left line at x 1277, 1197px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (SR-6)",
+   "fix": "start the text on the container's left, or on the one split line every split shares",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div.span-6.stack-4 > form.form > div.field.field--full:nth-of-type(4) > label \"العمل المطلوب\""
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div.wrap > div.closing__links > div.footer__legal > span \"© 2026 Jodesx\"",
+   "msg": "1 text block starts on a left line at x 1271, 1191px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (and 23 more like it: x 1253, x 1224, x 1188) (SR-6)",
+   "fix": "start the text on the container's left, or on the one split line every split shares",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div.wrap > div.closing__links > div.footer__legal > span \"© 2026 Jodesx\""
+   ]
+  },
+  {
+   "check": "split-pair",
+   "where": "section#services > div.wrap > div.grid.grid--top \"الإشراف على المحتوىالبث المباشر والتعليق\"",
+   "msg": "the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (SR-8)",
+   "fix": "put the text in the left column and the visual in the right, on every split",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "split-pair"
+   ],
+   "wheres": [
+    "section#services > div.wrap > div.grid.grid--top \"الإشراف على المحتوىالبث المباشر والتعليق\""
+   ]
+  },
+  {
+   "check": "split-pair",
+   "where": "section#jordan > div.wrap.grid \"لماذا ندير فرقنا من الأردن أربعة أسباب و\"",
+   "msg": "the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (SR-8)",
+   "fix": "put the text in the left column and the visual in the right, on every split",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "split-pair"
+   ],
+   "wheres": [
+    "section#jordan > div.wrap.grid \"لماذا ندير فرقنا من الأردن أربعة أسباب و\""
+   ]
+  },
+  {
+   "check": "split-pair",
+   "where": "section#pilot > div.wrap.grid \"ابدأ بفريق تجريبي شخصان أو ثلاثة على مسا\"",
+   "msg": "the split's left column starts with a picture or a box, not text: text left, the visual right, on every split (and 1 more like it: \"كيف يعمل النموذج المُدار\") (SR-8)",
+   "fix": "put the text in the left column and the visual in the right, on every split",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "split-pair"
+   ],
+   "wheres": [
+    "section#pilot > div.wrap.grid \"ابدأ بفريق تجريبي شخصان أو ثلاثة على مسا\""
+   ]
+  },
+  {
+   "check": "split-pair",
+   "where": "section#faq > div.wrap.grid \"أسئلة يطرحها العملاء لأي سؤال آخر، اسألن\"",
+   "msg": "the split's columns are off the page's one pair of lines: its right column starts at x 841, the first split's at 732 (SR-8)",
+   "fix": "start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "split-pair"
+   ],
+   "wheres": [
+    "section#faq > div.wrap.grid \"أسئلة يطرحها العملاء لأي سؤال آخر، اسألن\""
+   ]
+  },
+  {
+   "check": "off-grid",
+   "where": "h1#hero-h \"تعهيد مُدار من الأردن\"",
+   "msg": "left edge at 39px, 15px off the page margin at 24px (5 elements, like a.btn.btn--primary); 1 more in this section off the grid too (p.hero__lead at 45px)",
+   "fix": "move it onto the page margin, or the column edge its section uses",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "off-grid"
+   ],
+   "wheres": [
+    "h1#hero-h \"تعهيد مُدار من الأردن\""
+   ]
+  },
+  {
+   "check": "off-grid",
+   "where": "h2#services-h \"الخدمات التي نديرها للمنصات\"",
+   "msg": "left edge at 35.5px, 11.5px off the page margin at 24px (5 elements)",
+   "fix": "move it onto the page margin, or the column edge its section uses",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "off-grid"
+   ],
+   "wheres": [
+    "h2#services-h \"الخدمات التي نديرها للمنصات\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#services div.section-head \"الخدمات التي نديرها للمنصاتفريق \"",
+   "msg": "starts at x 600; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#services div.section-head \"الخدمات التي نديرها للمنصاتفريق \""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#services h2 \"الخدمات التي نديرها للمنصات\"",
+   "msg": "starts at x 600; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#services h2 \"الخدمات التي نديرها للمنصات\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#services p \"فريق واحد نديره نحن، بفاتورة واح\"",
+   "msg": "starts at x 640; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#services p \"فريق واحد نديره نحن، بفاتورة واح\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#faq p \"لا. نحن لا نرسل موظفين للعمل لدي\"",
+   "msg": "starts at x 93.6; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#faq p \"لا. نحن لا نرسل موظفين للعمل لدي\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#faq p \"تدفع لـ Jodesx بفاتورة واحدة عن \"",
+   "msg": "starts at x 93.6; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#faq p \"تدفع لـ Jodesx بفاتورة واحدة عن \""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#faq p \"قادة الفرق لدينا. وأنت تتواصل مع\"",
+   "msg": "starts at x 93.6; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#faq p \"قادة الفرق لدينا. وأنت تتواصل مع\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#faq p \"شخصان أو ثلاثة على مسار عمل واحد\"",
+   "msg": "starts at x 93.6; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#faq p \"شخصان أو ثلاثة على مسار عمل واحد\""
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "#faq p \"العربية لغةً أمّاً، والإنجليزية.\"",
+   "msg": "starts at x 93.6; the lines are 80 and the column starts",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "#faq p \"العربية لغةً أمّاً، والإنجليزية.\""
+   ]
+  },
+  {
+   "check": "one-sided",
+   "where": "#jordan section.section \"لماذا ندير فرقنا من الأردن أربعة\"",
+   "msg": "its visuals end at x 708, short of the right line 1360",
+   "fix": "let the row reach both .wrap edges",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "one-sided"
+   ],
+   "wheres": [
+    "#jordan section.section \"لماذا ندير فرقنا من الأردن أربعة\""
+   ]
+  },
+  {
+   "check": "one-sided",
+   "where": "#pilot section.section \"ابدأ بفريق تجريبي شخصان أو ثلاثة\"",
+   "msg": "its visuals end at x 708, short of the right line 1360",
+   "fix": "let the row reach both .wrap edges",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "one-sided"
+   ],
+   "wheres": [
+    "#pilot section.section \"ابدأ بفريق تجريبي شخصان أو ثلاثة\""
+   ]
+  },
+  {
+   "check": "lines",
+   "where": "page",
+   "msg": "headings and leads start on 4 lines (x 600, 640, 840.7, 732); the page has 80 and one split line",
+   "fix": "put the block on the .wrap lines or the grid columns",
+   "widths": [
+    1440
+   ],
+   "from": "layout",
+   "ids": [
+    "lines"
+   ],
+   "wheres": [
+    "page"
+   ]
+  },
+  {
+   "check": "edge-left",
+   "where": "nav logo",
+   "msg": "at x 1263, the page's left line is 80",
+   "fix": "start it on the .wrap left line",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-left"
+   ],
+   "wheres": [
+    "nav logo"
+   ]
+  },
+  {
+   "check": "edge-right",
+   "where": "nav actions",
+   "msg": "end at x 318.7, the page's right line is 1360",
+   "fix": "end it on the .wrap right line",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "edge-right"
+   ],
+   "wheres": [
+    "nav actions"
+   ]
+  }
+ ],
  "waived": [
   {
    "check": "section-gaps",
    "where": "main#top > section.hero.hero--photo / section#services",
-   "msg": "116px between these sections, -63% against the median 313px",
+   "msg": "110px between these sections, -66% against the median 319px",
    "fix": "use one gap between sections (all within 25% of each other)",
    "widths": [
     1440
@@ -367,8 +1275,25 @@
     "main#top > section.hero.hero--photo / section#services"
    ],
    "reason": "The dealt photo hero is a full-bleed layer down to the fold, so the gap to the next section is its top padding only; no neighbour shows in either tile."
+  },
+  {
+   "check": "section-gaps",
+   "where": "section#services / section#model",
+   "msg": "368px between these sections, +76% against the median 210px",
+   "fix": "use one gap between sections (all within 25% of each other)",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-gaps"
+   ],
+   "wheres": [
+    "section#services / section#model"
+   ],
+   "reason": "At 1024 the pinned-chapters moment holds its own two-screen section; the space is the moment's hold, not a gap between content blocks."
   }
  ],
- "warnCount": 26,
- "at": "2026-11-16T11:28:02.660Z"
+ "warnCount": 23,
+ "at": "2026-11-16T12:30:37.904Z"
 }

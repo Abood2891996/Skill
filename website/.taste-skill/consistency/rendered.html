@@ -48,7 +48,9 @@
 <style>
   .logo-mark { width: 28px; height: 28px; flex: none; }
   .nav__logo { display: inline-flex; align-items: center; gap: 10px; }
-  @media (max-width: 639px) { #pilot .frame { aspect-ratio: 3 / 2; height: auto; flex: none; } }
+  @media (max-width: 1023px) { #pilot .frame { aspect-ratio: 3 / 2; height: auto; flex: none; } }
+  @media (min-width: 640px) and (max-width: 1279px) { #services .rows p { display: none; } }
+  @media (min-width: 640px) and (max-width: 1023px) { #services .frame { aspect-ratio: 5 / 2; height: auto; min-height: 0; flex: none; } }
   .rows__name small { display: block; margin-top: 4px; font-size: var(--t-body); color: var(--muted, #6b5f59); }
   #jordan .develop img { aspect-ratio: 4 / 3; width: 100%; height: auto; object-fit: cover; }
   @media (max-width: 639px) { #services .frame { aspect-ratio: 9 / 16; height: auto; min-height: 0; flex: none; } }
@@ -100,46 +102,46 @@
       <div class="section-head"><h2 id="services-h">Services we run for platforms</h2><p>One team, managed by us, billed on one invoice.</p></div>
       <div class="grid grid--top fill" data-peek="">
         <ul class="rows span-6">
-          <li data-peek-to="mod" tabindex="0" class="is-on"><span class="rows__name">Content moderation</span><p>Live streams, comments, chat, images and video, against your policy.</p><span class="rows__value">Trust and safety</span></li>
+          <li data-peek-to="mod" tabindex="0"><span class="rows__name">Content moderation</span><p>Live streams, comments, chat, images and video, against your policy.</p><span class="rows__value">Trust and safety</span></li>
           <li data-peek-to="cx" tabindex="0"><span class="rows__name">Customer support</span><p>Live chat, email and tickets in Arabic and English.</p><span class="rows__value">AR and EN</span></li>
           <li data-peek-to="ai" tabindex="0"><span class="rows__name">AI and data operations</span><p>Annotation, AI answer rating, labelling, transcription and translation.</p><span class="rows__value">Arabic data</span></li>
           <li data-peek-to="bo" tabindex="0"><span class="rows__name">Back office</span><p>Data entry, processing and virtual assistants.</p><span class="rows__value">Daily volume</span></li>
           <li data-peek-to="so" tabindex="0"><span class="rows__name">Sales operations</span><p>Booked meetings, qualified leads and new lead lists.</p><span class="rows__value">Pipeline</span></li>
         </ul>
         <div class="frame frame--photo frame--fill span-6 start-7">
-          <img class="frame__img" data-peek-for="mod" src="assets/img/photo-f200381495-960.webp" srcset="assets/img/photo-f200381495-500.webp 500w, assets/img/photo-f200381495-960.webp 960w, assets/img/photo-f200381495.webp 1280w" sizes="(max-width: 639px) 230vw, 50vw" width="960" height="720" alt="Two closed work booths with a desk and a lamp in each" decoding="async" data-source="stand-in" data-subject="work booths">
-          <img class="frame__img" data-peek-for="cx" src="assets/img/photo-f85560480-960.webp" srcset="assets/img/photo-f85560480-500.webp 500w, assets/img/photo-f85560480-960.webp 960w" sizes="(max-width: 639px) 230vw, 50vw" width="960" height="640" alt="An agent with a headset at a desk, seen from behind" decoding="async" data-source="stand-in" data-subject="support agent" hidden="">
-          <img class="frame__img" data-peek-for="ai" src="assets/img/photo-f62734295-960.webp" srcset="assets/img/photo-f62734295-500.webp 500w, assets/img/photo-f62734295-960.webp 960w, assets/img/photo-f62734295.webp 1280w" sizes="(max-width: 639px) 230vw, 50vw" width="960" height="561" alt="Two hands typing on a keyboard" decoding="async" data-source="stand-in" data-subject="typing" hidden="">
-          <img class="frame__img" data-peek-for="bo" src="assets/img/photo-f61681597-960.webp" srcset="assets/img/photo-f61681597-500.webp 500w, assets/img/photo-f61681597-960.webp 960w, assets/img/photo-f61681597.webp 1280w" sizes="(max-width: 639px) 230vw, 50vw" width="960" height="640" alt="A notebook, a pen and a laptop on a white desk" decoding="async" data-source="stand-in" data-subject="desk work" hidden="">
-          <img class="frame__img" data-peek-for="so" src="assets/img/photo-f61739578.webp" srcset="assets/img/photo-f61739578-500.webp 500w, assets/img/photo-f61739578.webp 1280w" sizes="(max-width: 639px) 230vw, 50vw" width="1280" height="853" alt="A laptop on a desk by a window with files stacked beside it" decoding="async" data-source="stand-in" data-subject="desk" hidden="">
+          <img class="frame__img" data-peek-for="mod" src="assets/img/photo-f200381495-960.webp" srcset="assets/img/photo-f200381495-500.webp 500w, assets/img/photo-f200381495-960.webp 960w, assets/img/photo-f200381495.webp 1280w" sizes="(max-width: 1023px) 180vw, 90vw" width="960" height="720" alt="Two closed work booths with a desk and a lamp in each" decoding="async" data-source="stand-in" data-subject="work booths">
+          <img class="frame__img" data-peek-for="cx" src="assets/img/photo-f85560480-960.webp" srcset="assets/img/photo-f85560480-500.webp 500w, assets/img/photo-f85560480-960.webp 960w" sizes="(max-width: 1023px) 180vw, 90vw" width="960" height="640" alt="An agent with a headset at a desk, seen from behind" decoding="async" data-source="stand-in" data-subject="support agent" hidden="">
+          <img class="frame__img" data-peek-for="ai" src="assets/img/photo-f62734295-960.webp" srcset="assets/img/photo-f62734295-500.webp 500w, assets/img/photo-f62734295-960.webp 960w, assets/img/photo-f62734295.webp 1280w" sizes="(max-width: 1023px) 180vw, 90vw" width="960" height="561" alt="Two hands typing on a keyboard" decoding="async" data-source="stand-in" data-subject="typing" hidden="">
+          <img class="frame__img" data-peek-for="bo" src="assets/img/photo-f61681597-960.webp" srcset="assets/img/photo-f61681597-500.webp 500w, assets/img/photo-f61681597-960.webp 960w, assets/img/photo-f61681597.webp 1280w" sizes="(max-width: 1023px) 180vw, 90vw" width="960" height="640" alt="A notebook, a pen and a laptop on a white desk" decoding="async" data-source="stand-in" data-subject="desk work" hidden="">
+          <img class="frame__img" data-peek-for="so" src="assets/img/photo-f61739578.webp" srcset="assets/img/photo-f61739578-500.webp 500w, assets/img/photo-f61739578.webp 1280w" sizes="(max-width: 1023px) 180vw, 90vw" width="1280" height="853" alt="A laptop on a desk by a window with files stacked beside it" decoding="async" data-source="stand-in" data-subject="desk" hidden="">
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section is-live" id="model" style="--h: 2; --mo-hold: 1;" data-moment="pinned-chapters" aria-labelledby="model-h" data-moment-mounted="1">
-    <div class="wrap mo-pc__grid" data-edge-free="">
+  <section class="section" id="model" style="--h: 2; --mo-hold: 1;" data-moment="pinned-chapters" aria-labelledby="model-h" data-moment-mounted="1">
+    <div class="wrap mo-pc__grid">
       <div class="mo-pc__text">
         <h2 id="model-h">How the managed model works</h2>
         <ol class="mo-pc__steps">
           <li class="mo-pc__step">
             <h3>Sets the team’s scope and SLA</h3>
             <p><span class="mo-pc__p-in">Volumes, hours, languages and the quality bar, agreed before anyone is hired.</span></p>
-            
+            <figure class="mo-pc__visual"><img src="assets/img/photo-f66417424-960.webp" alt="An empty meeting room with tables set in a square" width="960" height="638"></figure>
           </li>
           <li class="mo-pc__step">
             <h3>Hires and trains the team</h3>
             <p><span class="mo-pc__p-in">Our recruiters, our trainers, your guidelines. People join your queue only after they pass.</span></p>
-            
+            <figure class="mo-pc__visual"><img src="assets/img/photo-f51544809-960.webp" alt="A room of desktop computers set up for training" width="960" height="540"></figure>
           </li>
-          <li class="mo-pc__step is-on">
+          <li class="mo-pc__step">
             <h3>Runs QA on the team’s work</h3>
             <p><span class="mo-pc__p-in">Our leads check samples daily and send you performance reports against the SLA.</span></p>
-            
+            <figure class="mo-pc__visual"><img src="assets/img/photo-f30343877-960.webp" alt="Hands on a backlit keyboard in a dark room" width="960" height="540"></figure>
           </li>
         </ol>
       </div>
-      <div class="mo-pc__visuals frame"><figure class="mo-pc__visual is-past"><img src="assets/img/photo-f66417424-960.webp" alt="An empty meeting room with tables set in a square" width="960" height="638"></figure><figure class="mo-pc__visual is-past"><img src="assets/img/photo-f51544809-960.webp" alt="A room of desktop computers set up for training" width="960" height="540"></figure><figure class="mo-pc__visual is-on"><img src="assets/img/photo-f30343877-960.webp" alt="Hands on a backlit keyboard in a dark room" width="960" height="540"></figure></div>
+      <div class="mo-pc__visuals frame"></div>
     </div>
   </section>
 
@@ -173,7 +175,7 @@
           <li><span class="rows__name">Jordan Source<small>A government programme with salary support and tax incentives for exporters of services</small></span></li>
         </ul>
       </div>
-      <figure class="develop span-6 start-7 mo-pd mo-pd--film is-live" data-moment="picture-develops" data-moment-mounted="1"><img src="assets/img/photo-f42301703-960.webp" srcset="assets/img/photo-f42301703-500.webp 500w, assets/img/photo-f42301703-960.webp 960w" sizes="(max-width: 639px) 100vw, 50vw" alt="Amman's hills of pale stone houses seen from Citadel Hill" width="960" height="558" loading="eager" decoding="async" data-source="stand-in" data-subject="Amman"></figure>
+      <figure class="develop span-6 start-7 mo-pd mo-pd--film is-live" data-moment="picture-develops" data-moment-mounted="1"><img src="assets/img/photo-f42301703-960.webp" srcset="assets/img/photo-f42301703-500.webp 500w, assets/img/photo-f42301703-960.webp 960w" sizes="(max-width: 1023px) 180vw, 90vw" alt="Amman's hills of pale stone houses seen from Citadel Hill" width="960" height="558" loading="eager" decoding="async" data-source="stand-in" data-subject="Amman"></figure>
     </div>
   </section>
 
@@ -200,7 +202,7 @@
         <p class="t-small muted">We reply within two working days.</p>
       </form>
       </div>
-      <div class="frame frame--photo frame--fill span-6 start-7"><img class="frame__img" src="assets/img/photo-f129295170-960.webp" srcset="assets/img/photo-f129295170-500.webp 500w, assets/img/photo-f129295170-960.webp 960w, assets/img/photo-f129295170.webp 1280w" sizes="(max-width: 639px) 100vw, 50vw" width="960" height="655" alt="Two people walking through the Siq at Petra" loading="eager" decoding="async" data-source="stand-in" data-subject="Petra, Jordan"></div>
+      <div class="frame frame--photo frame--fill span-6 start-7"><img class="frame__img" src="assets/img/photo-f129295170-960.webp" srcset="assets/img/photo-f129295170-500.webp 500w, assets/img/photo-f129295170-960.webp 960w, assets/img/photo-f129295170.webp 1280w" sizes="(max-width: 1023px) 180vw, 90vw" width="960" height="655" alt="Two people walking through the Siq at Petra" loading="eager" decoding="async" data-source="stand-in" data-subject="Petra, Jordan"></div>
     </div>
   </section>
 </main>
