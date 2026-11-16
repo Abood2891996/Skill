@@ -44,6 +44,14 @@
    "status": "done",
    "reason": "User chose option 1: close the Arabic page check, keep the open RTL findings in the report, rely on the manual Arabic review",
    "round": 1
+  },
+  {
+   "at": "2026-11-16T12:35:38.352Z",
+   "mode": "hook",
+   "host": "claude",
+   "decision": "allow",
+   "reason": "no build is active here",
+   "stopHookActive": false
   }
  ],
  "max": 3,
