@@ -29,7 +29,7 @@ These are business facts or authorisations the site depends on. Each has a safe 
 
 | # | Item | Current default | Where to change |
 | --- | --- | --- | --- |
-| 1 | **Production domain** | `https://jodesx.com` — confirmed (domain purchased; `www` redirects to it in Vercel) | `NEXT_PUBLIC_SITE_URL` |
+| 1 | **Production domain** | `https://www.jodesx.com` — confirmed (domain purchased; `jodesx.com` redirects to www in Vercel) | `NEXT_PUBLIC_SITE_URL` |
 | 2 | **Inquiry delivery** — webhook or Resend, and the receiving inbox | Not configured → form reports this honestly | Environment variables (DEPLOYMENT.md) |
 | 3 | **Public contact email** | Hidden | `NEXT_PUBLIC_CONTACT_EMAIL` |
 | 4 | **Privacy policy legal review** — legal entity name, registered address, applicable law (e.g. Jordan's data protection law; GDPR/UK GDPR for European visitors), retention periods, list of processors (host, form provider) | Generic but accurate draft describing what the site actually does (no cookies/analytics) | `src/app/privacy/page.tsx` |
