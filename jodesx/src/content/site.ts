@@ -3,7 +3,7 @@
  * confirmed (domain, public email, legal entity) are read from environment
  * variables — see .env.example and docs/DEPLOYMENT.md.
  */
-const rawUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.jodesx.com";
+const rawUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://jodesx.com";
 
 export const site = {
   name: "JoDesx",

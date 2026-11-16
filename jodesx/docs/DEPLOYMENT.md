@@ -9,7 +9,7 @@
 
 | Variable | Scope | Required | Purpose |
 | --- | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Public | **Yes, in production** | Canonical domain, e.g. `https://www.jodesx.com`. Used for canonical URLs, sitemap, OG and JSON-LD. Defaults to `https://www.jodesx.com` — **confirm the real domain**. |
+| `NEXT_PUBLIC_SITE_URL` | Public | **Yes, in production** | Canonical domain, e.g. `https://jodesx.com`. Used for canonical URLs, sitemap, OG and JSON-LD. Defaults to `https://jodesx.com` — **confirm the real domain**. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Public | Optional | Business email shown on the contact page, footer and privacy policy, and offered as fallback if delivery fails. Hidden when empty. |
 | `CONTACT_WEBHOOK_URL` | Server | One delivery option | HTTPS endpoint that receives each inquiry as JSON (Zapier, Make, n8n, a CRM, a Slack workflow…). |
 | `CONTACT_WEBHOOK_SECRET` | Server | Optional | If set, each request carries `X-JoDesx-Signature: hex(HMAC-SHA256(secret, rawBody))`. Verify it on the receiving side. |
