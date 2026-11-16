@@ -1,9 +1,9 @@
 {
  "start": "2026-11-16T12:28:45.612Z",
  "round": 1,
- "idle": 0,
+ "idle": 1,
  "errors": 0,
- "status": "fail",
+ "status": "done",
  "history": [
   {
    "at": "2026-11-16T12:30:37.903Z",
@@ -13,6 +13,37 @@
    "round": 1,
    "reused": false,
    "stopHookActive": false
+  },
+  {
+   "at": "2026-11-16T12:31:07.179Z",
+   "mode": "hook",
+   "host": "claude",
+   "status": "fail",
+   "fails": 29,
+   "round": 1,
+   "reused": true,
+   "stopHookActive": false,
+   "decision": "block",
+   "reason": "nothing changed since round 1 of 3, and 29 FAILs remain. Finishing again without a fix is blocked 1 more time, then counted as a round:"
+  },
+  {
+   "at": "2026-11-16T12:31:10.632Z",
+   "mode": "hook",
+   "host": "claude",
+   "status": "fail",
+   "fails": 29,
+   "round": 1,
+   "reused": true,
+   "stopHookActive": true,
+   "decision": "allow",
+   "reason": "nothing changed since the last block; this stop is allowed once without a round (a question to the user)"
+  },
+  {
+   "at": "2026-11-16T12:35:25.201Z",
+   "mode": "done",
+   "status": "done",
+   "reason": "User chose option 1: close the Arabic page check, keep the open RTL findings in the report, rely on the manual Arabic review",
+   "round": 1
   }
  ],
  "max": 3,
@@ -30,8 +61,8 @@
  "manual": true,
  "roundKey": "13cb97dd3e14052f:fc9514f9",
  "roundFree": false,
- "idleFree": false,
- "blockKey": null,
+ "idleFree": true,
+ "blockKey": "13cb97dd3e14052f:fc9514f9",
  "fp": "13cb97dd3e14052f",
  "page": "ar/index.html",
  "found": {
@@ -1295,5 +1326,7 @@
   }
  ],
  "warnCount": 23,
- "at": "2026-11-16T12:30:37.904Z"
+ "at": "2026-11-16T12:35:25.206Z",
+ "session": "98b5457b-712e-5cb4-a7fe-ae1f758bca1e",
+ "doneReason": "User chose option 1: close the Arabic page check, keep the open RTL findings in the report, rely on the manual Arabic review"
 }

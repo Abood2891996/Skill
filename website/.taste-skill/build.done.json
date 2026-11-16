@@ -1,11 +1,11 @@
 {
- "page": "index.html",
+ "page": "ar/index.html",
  "url": null,
  "root": null,
  "kind": "service",
  "category": "managed outsourcing teams",
- "primary": "Request a pilot team",
+ "primary": "اطلب فريقاً تجريبياً",
  "rounds": 3,
- "start": "2026-11-16T10:50:55.551Z",
+ "start": "2026-11-16T12:28:45.612Z",
  "by": "gate.mjs --start"
 }
