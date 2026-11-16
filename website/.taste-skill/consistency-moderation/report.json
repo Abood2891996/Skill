@@ -1,7 +1,7 @@
 {
  "page": "/home/user/Skill/website/moderation.html",
  "url": "http://127.0.0.1:5200/moderation.html",
- "at": "2026-11-16T12:11:44.825Z",
+ "at": "2026-11-16T18:36:36.496Z",
  "out": "/home/user/Skill/website/.taste-skill/consistency-moderation",
  "widths": [
   {
@@ -21,12 +21,22 @@
      "fix": "confirm the library photograph shows the client's own product, place or people; otherwise replace it"
     },
     {
+     "check": "label-centre",
+     "sev": "WARN",
+     "sel": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
+     "text": "Request a pilot team",
+     "msg": "its label sits 18px off-centre (25px of room at the left, 43px at the right)",
+     "stop": 0,
+     "crop": "1440-01-label-centre.jpg",
+     "fix": "centre the label in its button, or fill the empty side with an icon"
+    },
+    {
      "check": "moment-none",
      "sev": "WARN",
      "sel": "(the page)",
      "text": "",
-     "msg": "a service page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
-     "fix": "deal one (moments.mjs pick --page service --photo) and mount it in its own section",
+     "msg": "a software page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+     "fix": "deal one (moments.mjs pick --page software) and mount it in its own section",
      "stop": null
     },
     {
@@ -36,78 +46,8 @@
      "text": "request a pilot team",
      "stop": 5,
      "msg": "\"request a pilot team\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1440-01-action-repeat.jpg",
+     "crop": "1440-02-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
-    }
-   ],
-   "glAsked": 0
-  },
-  {
-   "width": 1024,
-   "height": 768,
-   "screens": 5,
-   "held": 0,
-   "errors": [],
-   "findings": [
-    {
-     "check": "photo-set",
-     "sev": "WARN",
-     "sel": "section#tasks > div.wrap.grid > div.frame.frame--photo > img.frame__img",
-     "text": "photo-f30343877-960.webp",
-     "stop": 1,
-     "msg": "3 photographs in more than one look: lightness from 0.08 to 0.51; saturation from 0.10 to 0.44; the odd one out is photo-f30343877-960.webp",
-     "crop": "1024-01-photo-set.jpg",
-     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
-    },
-    {
-     "check": "action-repeat",
-     "sev": "WARN",
-     "sel": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2)",
-     "text": "request a pilot team",
-     "stop": 5,
-     "msg": "\"request a pilot team\" shows 2 times on the first screen at 1024px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1024-02-action-repeat.jpg",
-     "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
-    }
-   ],
-   "glAsked": 0
-  },
-  {
-   "width": 768,
-   "height": 1024,
-   "screens": 5,
-   "held": 0,
-   "errors": [],
-   "findings": [
-    {
-     "check": "nav",
-     "sev": "WARN",
-     "sel": "header.nav.nav--centre > div.wrap.nav__bar > button.nav__toggle",
-     "text": "",
-     "stop": 0,
-     "msg": "the nav is lopsided: its last item ends 13px inside the content's edge (720px), while its first starts on the other edge",
-     "fix": "start the nav's first item and end its last on the content's two edges",
-     "crop": "768-01-nav.jpg"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "section#tasks / section#run",
-     "text": "",
-     "stop": 2,
-     "msg": "uneven space at the edge of a band: 72px outside its edge, 117px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "768-02-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "section#run / footer#contact",
-     "text": "",
-     "stop": 3,
-     "msg": "uneven space at the edge of a band: 117px outside its edge, 72px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "768-03-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
     }
    ],
    "glAsked": 0
@@ -130,22 +70,12 @@
      "crop": "390-01-nav.jpg"
     },
     {
-     "check": "no-visual",
-     "sev": "WARN",
-     "sel": "section#run",
-     "text": "How we run a moderation team",
-     "msg": "pictures, effects and mocks cover 24% of this section; a feature section needs a visual (about 25% or more)",
-     "stop": 3,
-     "crop": "390-04-no-visual.jpg",
-     "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits"
-    },
-    {
      "check": "section-gaps",
      "sev": "WARN",
      "sel": "main#top > section.hero.hero--split / section#tasks",
      "text": "",
      "stop": 1,
-     "msg": "118px between these sections, -43% against the median 206px",
+     "msg": "117px between these sections, -43% against the median 205px",
      "crop": "390-02-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
@@ -155,7 +85,7 @@
      "sel": "section#tasks > div.wrap.grid > div.frame.frame--photo > img.frame__img",
      "text": "photo-f30343877-960.webp",
      "stop": 2,
-     "msg": "3 photographs in more than one look: saturation from 0.10 to 0.43; the odd one out is photo-f30343877-960.webp",
+     "msg": "3 photographs in more than one look: lightness from 0.08 to 0.46; saturation from 0.10 to 0.43; the odd one out is photo-f30343877-960.webp",
      "crop": "390-03-photo-set.jpg",
      "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     }
@@ -183,7 +113,9 @@
   "widths": [
    1280,
    1152,
-   896
+   1024,
+   896,
+   768
   ],
   "errors": [],
   "findings": []
@@ -196,7 +128,7 @@
  },
  "counts": {
   "FAIL": 0,
-  "WARN": 12
+  "WARN": 7
  },
  "checks": {
   "assets": "PASS",
@@ -229,7 +161,7 @@
   "reduced-motion": "not checked",
   "hidden-content": "PASS",
   "webgl": "PASS",
-  "no-visual": "WARN",
+  "no-visual": "PASS",
   "text-only": "PASS",
   "card-visual": "PASS",
   "hidden-visual": "not checked",
@@ -275,7 +207,7 @@
   "nav-labels": "PASS",
   "link-styles": "PASS",
   "heading-align": "PASS",
-  "label-centre": "PASS",
+  "label-centre": "WARN",
   "fake-button": "PASS",
   "stranded-action": "PASS",
   "orphan": "PASS",

@@ -1,21 +1,38 @@
 {
- "palettes": [],
- "types": [],
- "dealt": [
-  "schibsted",
-  "figtree",
-  "newsreader"
- ],
- "moments": [
-  {
-   "id": "picture-develops",
-   "at": "2026-11-16T10:51:06.897Z",
-   "seed": "850eb3f2"
-  },
-  {
-   "id": "pinned-chapters",
-   "at": "2026-11-16T10:51:06.897Z",
-   "seed": "850eb3f2"
-  }
- ]
+  "palettes": [
+    "blue-black-cornflower"
+  ],
+  "types": [
+    "sora"
+  ],
+  "dealt": [
+    "schibsted",
+    "figtree",
+    "newsreader",
+    "sora",
+    "host",
+    "geist"
+  ],
+  "moments": [
+    {
+      "id": "picture-develops",
+      "at": "2026-11-16T10:51:06.897Z",
+      "seed": "850eb3f2"
+    },
+    {
+      "id": "pinned-chapters",
+      "at": "2026-11-16T10:51:06.897Z",
+      "seed": "850eb3f2"
+    },
+    {
+      "id": "line-carries-colour",
+      "at": "2026-11-16T18:22:00.434Z",
+      "seed": "8ac4f2b7"
+    },
+    {
+      "id": "letters-assemble",
+      "at": "2026-11-16T18:22:00.434Z",
+      "seed": "8ac4f2b7"
+    }
+  ]
 }
