@@ -121,12 +121,12 @@ function TimeZoneBand() {
           </li>
         ))}
       </ul>
-      <div className="mt-3 flex justify-between text-xs text-fg-subtle" aria-hidden="true">
-        <span>06:00</span>
-        <span>12:00</span>
-        <span>18:00</span>
-        <span>00:00</span>
-        <span>04:00</span>
+      <div className="relative mt-3 h-4 text-xs text-fg-subtle" aria-hidden="true">
+        {[6, 12, 18, 24].map((h) => (
+          <span key={h} className="absolute -translate-x-1/2 first:translate-x-0" style={{ left: `${((h - start) / span) * 100}%` }}>
+            {String(h % 24).padStart(2, "0")}:00
+          </span>
+        ))}
       </div>
     </figure>
   );

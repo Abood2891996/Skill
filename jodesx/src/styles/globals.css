@@ -418,10 +418,10 @@
   /* Closing CTA: horizontal signal lanes converging to the right. */
   .closing-lanes {
     background:
-      linear-gradient(90deg, transparent 0%, rgb(244 247 251 / 0.08) 60%, rgb(53 214 232 / 0.35) 100%) 0 30% / 100% 1px no-repeat,
-      linear-gradient(90deg, transparent 10%, rgb(244 247 251 / 0.06) 70%, rgb(244 247 251 / 0.12) 100%) 0 52% / 100% 1px no-repeat,
-      linear-gradient(90deg, transparent 20%, rgb(244 247 251 / 0.05) 70%, rgb(120 107 255 / 0.3) 100%) 0 74% / 100% 1px no-repeat,
-      radial-gradient(ellipse 40% 60% at 100% 50%, rgb(120 107 255 / 0.12), transparent 70%);
+      linear-gradient(90deg, transparent 55%, rgb(244 247 251 / 0.1) 80%, rgb(53 214 232 / 0.4) 100%) 0 22% / 100% 1px no-repeat,
+      linear-gradient(90deg, transparent 62%, rgb(244 247 251 / 0.08) 85%, rgb(244 247 251 / 0.16) 100%) 0 34% / 100% 1px no-repeat,
+      linear-gradient(90deg, transparent 70%, rgb(244 247 251 / 0.06) 88%, rgb(120 107 255 / 0.4) 100%) 0 46% / 100% 1px no-repeat,
+      radial-gradient(ellipse 40% 60% at 100% 35%, rgb(120 107 255 / 0.12), transparent 70%);
   }
 
   /* Service panel: a signal line draws across the top on hover/focus. */

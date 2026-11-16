@@ -54,7 +54,7 @@ const contentModeration: Service = {
     {
       id: "intake",
       label: "Content intake",
-      summary: "Items enter a prioritised queue.",
+      summary: "Items enter a prioritized queue.",
       detail:
         "Content arrives from your tools — report queues, pre-publication holds or live streams — and is ordered by the priority rules agreed during setup, so time-sensitive items are seen first.",
       checkpoint: "Queue priority matches the agreed rules.",
@@ -147,7 +147,7 @@ const contentModeration: Service = {
     {
       question: "How is exposure to harmful content handled?",
       answer:
-        "Shift structure, rotation between queue types and break planning are part of how moderation work is organised. Specific measures are discussed openly during scoping for queues with high exposure.",
+        "Shift structure, rotation between queue types and break planning are part of how moderation work is organized. Specific measures are discussed openly during scoping for queues with high exposure.",
     },
   ],
   cta: {
@@ -189,7 +189,7 @@ const customerSupport: Service = {
     },
     {
       title: "Ticket management",
-      body: "Triage, tagging, prioritisation and follow-up inside your help desk, so nothing sits unassigned.",
+      body: "Triage, tagging, prioritization and follow-up inside your help desk, so nothing sits unassigned.",
     },
     {
       title: "Customer inquiry handling",
@@ -252,7 +252,7 @@ const customerSupport: Service = {
       label: "Resolution",
       summary: "Solved, confirmed and reported.",
       detail:
-        "The ticket is closed when the customer's issue is resolved, not just answered. Volumes, response times and recurring issues are summarised in regular reporting.",
+        "The ticket is closed when the customer's issue is resolved, not just answered. Volumes, response times and recurring issues are summarized in regular reporting.",
       checkpoint: "Resolved status confirmed.",
     },
   ],
@@ -324,7 +324,7 @@ const backOffice: Service = {
   meta: {
     title: "Back-Office Outsourcing",
     description:
-      "Back-office outsourcing from JoDesx: administrative support, data entry and processing, documentation workflows, records organisation and order processing — run to documented procedures.",
+      "Back-office outsourcing from JoDesx: administrative support, data entry and processing, documentation workflows, records organization and order processing — run to documented procedures.",
   },
   hero: {
     title: "Back-office work, done accurately and on schedule.",
@@ -342,7 +342,7 @@ const backOffice: Service = {
     { title: "Data entry", body: "Accurate entry of records from forms, documents and systems into the places your business relies on." },
     { title: "Data processing", body: "Cleaning, formatting, de-duplicating and transforming data so it is usable for reporting and operations." },
     { title: "Documentation workflows", body: "Creating, updating and filing documents to a consistent structure, with version history you can follow." },
-    { title: "Records organisation", body: "Bringing scattered records into an agreed structure — and keeping them there." },
+    { title: "Records organization", body: "Bringing scattered records into an agreed structure — and keeping them there." },
     { title: "Order processing support", body: "Order entry, status updates, exception follow-ups and the admin around fulfilment." },
     { title: "Operational coordination", body: "Status tracking, vendor follow-ups and recurring checklists that would otherwise fall between roles." },
   ],
@@ -390,7 +390,7 @@ const backOffice: Service = {
       label: "Completion",
       summary: "Delivered, logged and reported.",
       detail:
-        "Completed work is delivered where agreed, logged with a timestamp and summarised in regular reporting on volume, turnaround and exceptions.",
+        "Completed work is delivered where agreed, logged with a timestamp and summarized in regular reporting on volume, turnaround and exceptions.",
       checkpoint: "Turnaround and volume reported.",
     },
   ],
@@ -441,26 +441,26 @@ const aiDataOperations: Service = {
   name: "AI Data Operations",
   href: "/services/ai-data-operations",
   tagline: "Human judgment, structured for AI training data.",
-  summary: "Annotation, labelling, text evaluation and data quality review, run by people following your guidelines.",
+  summary: "Annotation, labeling, text evaluation and data quality review, run by people following your guidelines.",
   meta: {
-    title: "AI Data Annotation and Labelling Services",
+    title: "AI Data Annotation and Labeling Services",
     description:
-      "Human-in-the-loop AI data operations from JoDesx: data annotation, labelling, text evaluation, data quality review and training data preparation, with validation in every batch.",
+      "Human-in-the-loop AI data operations from JoDesx: data annotation, labeling, text evaluation, data quality review and training data preparation, with validation in every batch.",
   },
   hero: {
     title: "Careful human work behind better training data.",
     lead: "JoDesx teams annotate, label, evaluate and review data for AI projects — following your guidelines, with validation and quality review built into every batch.",
   },
   problems: [
-    "Labelling quality varies too much to trust the dataset.",
-    "Your ML engineers spend their time on annotation instead of modelling.",
+    "Labeling quality varies too much to trust the dataset.",
+    "Your ML engineers spend their time on annotation instead of modeling.",
     "Guidelines change faster than the annotation team adapts.",
     "Model outputs need human evaluation at a volume you can't staff.",
   ],
   capabilitiesTitle: "What the work includes",
   capabilities: [
     { title: "Data annotation", body: "Marking up text and other data types according to your project schema, with consistent application of edge-case rules." },
-    { title: "Data labelling and categorisation", body: "Assigning labels and categories at scale, with clear handling of ambiguous items." },
+    { title: "Data labeling and categorization", body: "Assigning labels and categories at scale, with clear handling of ambiguous items." },
     { title: "Text evaluation", body: "Rating and comparing written outputs for accuracy, relevance, tone and guideline adherence." },
     { title: "Data quality review", body: "Auditing existing datasets for label errors, inconsistencies and gaps." },
     { title: "Training data preparation", body: "Cleaning, formatting and structuring data so it is ready for your pipeline." },
@@ -473,7 +473,7 @@ const aiDataOperations: Service = {
       label: "Data intake",
       summary: "Batches arrive with guidelines and schema.",
       detail:
-        "Data is received through the method you specify, together with the labelling schema and annotation guidelines. Unclear guideline points are raised before work starts.",
+        "Data is received through the method you specify, together with the labeling schema and annotation guidelines. Unclear guideline points are raised before work starts.",
       checkpoint: "Guidelines confirmed for the batch.",
     },
     {
@@ -522,14 +522,14 @@ const aiDataOperations: Service = {
     { title: "Feedback reaches the guideline", body: "Patterns in errors are treated as signals that a guideline needs clarifying, not only as individual mistakes." },
   ],
   useCases: [
-    { title: "AI product teams", body: "Evaluation and labelling for features built on language models." },
+    { title: "AI product teams", body: "Evaluation and labeling for features built on language models." },
     { title: "Machine learning teams", body: "Annotation capacity alongside in-house data work." },
-    { title: "Data and research teams", body: "Dataset audits, categorisation and structured review." },
+    { title: "Data and research teams", body: "Dataset audits, categorization and structured review." },
     { title: "Data service providers", body: "Additional, guideline-trained capacity for active projects." },
   ],
   engagement: [
     { title: "Pilot batch", body: "A defined sample to calibrate guidelines and measure quality before scaling." },
-    { title: "Ongoing annotation team", body: "A trained team for continuous labelling or evaluation work." },
+    { title: "Ongoing annotation team", body: "A trained team for continuous labeling or evaluation work." },
     { title: "Dataset audit project", body: "A one-off review of an existing dataset's quality." },
   ],
   note: "JoDesx does not build or train AI models. We provide the human operations that AI teams rely on.",
@@ -537,12 +537,12 @@ const aiDataOperations: Service = {
     {
       question: "Do you use your own annotation platform?",
       answer:
-        "No. The team works in the tools your project uses — your own platform or the labelling tool you have chosen. That keeps your data in your environment.",
+        "No. The team works in the tools your project uses — your own platform or the labeling tool you have chosen. That keeps your data in your environment.",
     },
     {
       question: "Which data types can you work with?",
       answer:
-        "Text-based work — classification, evaluation, extraction and categorisation — is the core. Other data types can be discussed during scoping, and we will be clear about what the team is ready for.",
+        "Text-based work — classification, evaluation, extraction and categorization — is the core. Other data types can be discussed during scoping, and we will be clear about what the team is ready for.",
     },
     {
       question: "How do you start a new annotation project?",

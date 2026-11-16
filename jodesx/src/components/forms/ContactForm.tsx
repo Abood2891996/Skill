@@ -327,7 +327,7 @@ export function ContactForm({ contactEmail }: { contactEmail: string }) {
               </Select>
             )}
           </Field>
-          <Field id="timeline" label="When would you like to start?" optional>
+          <Field id="timeline" label="Preferred start" optional>
             {(a) => (
               <Select {...a} name="timeline" value={values.timeline} onChange={(e) => update("timeline", e.target.value)}>
                 <option value="">Select if known</option>

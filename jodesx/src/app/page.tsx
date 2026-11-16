@@ -51,7 +51,7 @@ export default function HomePage() {
       {/* ---------- Services ---------- */}
       <Section surface="light" labelledBy="services-title">
         <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end">
-          <SectionHeader id="services-title" kicker="What we run" title={home.intro.title} />
+          <SectionHeader id="services-title" title={home.intro.title} />
           <p className="type-lead max-w-lg lg:justify-self-end">{home.intro.body}</p>
         </div>
         <div className="mt-14">
@@ -63,7 +63,6 @@ export default function HomePage() {
       <Section surface="paper" id="challenge" labelledBy="challenge-title">
         <SectionHeader
           id="challenge-title"
-          kicker="Find your starting point"
           title="Where is the pressure in your operation?"
           lead="Start from the problem, not the service list. Pick what sounds most familiar and see where a JoDesx engagement would begin."
         />
@@ -93,7 +92,6 @@ export default function HomePage() {
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeader
               id="why-title"
-              kicker="Why JoDesx"
               title="Outsourcing should reduce complexity, not relocate it."
               lead="Most of the effort in outsourced operations goes into designing how the work runs. That's the part we take on."
             />
@@ -114,7 +112,6 @@ export default function HomePage() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeader
             id="flow-title"
-            kicker="How an engagement runs"
             title="From your requirement to a reported result."
           />
           <TextLink href="/how-we-work">The six-step process in detail</TextLink>
@@ -127,7 +124,7 @@ export default function HomePage() {
       {/* ---------- Quality ---------- */}
       <Section surface="light" labelledBy="quality-title">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <SectionHeader id="quality-title" kicker="Quality philosophy" title={qualityPhilosophy.title} lead={qualityPhilosophy.body} />
+          <SectionHeader id="quality-title" title={qualityPhilosophy.title} lead={qualityPhilosophy.body} />
           <QualityLoop />
         </div>
       </Section>
@@ -136,7 +133,6 @@ export default function HomePage() {
       <Section surface="paper" labelledBy="env-title">
         <SectionHeader
           id="env-title"
-          kicker="Where JoDesx fits"
           title="Built for businesses where operations carry real weight."
         />
         <ul className="mt-12 border-t border-line">
@@ -165,19 +161,13 @@ export default function HomePage() {
       <Section surface="light" labelledBy="models-title">
         <SectionHeader
           id="models-title"
-          kicker="Engagement models"
           title="Choose the structure that suits the work."
           lead="Most engagements begin with a contained scope and grow once the operation is proven."
         />
         <ul className="mt-12 grid gap-5 md:grid-cols-3">
-          {engagementModels.map((m, i) => (
-            <li key={m.title} className="panel flex flex-col p-7">
-              <span aria-hidden="true" className="flex gap-1">
-                {Array.from({ length: 3 }).map((_, j) => (
-                  <span key={j} className={j <= i ? "size-2.5 bg-violet-600" : "size-2.5 border border-line-strong"} />
-                ))}
-              </span>
-              <h3 className="type-title mt-6">{m.title}</h3>
+          {engagementModels.map((m) => (
+            <li key={m.title} className="panel flex flex-col border-t-2 border-t-navy-900 p-7">
+              <h3 className="type-title">{m.title}</h3>
               <p className="mt-3 text-fg-muted">{m.body}</p>
               <p className="mt-auto pt-6 text-sm font-medium text-accent-text">{m.fit}</p>
             </li>

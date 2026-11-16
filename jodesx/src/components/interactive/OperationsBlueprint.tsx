@@ -58,6 +58,8 @@ export function OperationsBlueprint({ initial = "customer-support", lockService 
   const selectService = useCallback((next: ServiceSlug) => {
     setSlug(next);
     setStageIndex(0);
+    const index = services.findIndex((s) => s.slug === next);
+    tabRefs.current[index]?.scrollIntoView({ block: "nearest", inline: "nearest" });
   }, []);
 
   const onTabKey = (e: KeyboardEvent<HTMLButtonElement>, index: number) => {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type PointerEvent } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
 import { ServiceGlyph } from "@/components/services/ServiceGlyph";
@@ -26,6 +26,8 @@ export function SiteHeader() {
   const servicesRef = useRef<HTMLDivElement>(null);
   const servicesButtonRef = useRef<HTMLButtonElement>(null);
   const hoverTimer = useRef<number | undefined>(undefined);
+  /** Time the panel was last opened by mouse hover; a click shortly after must not close it. */
+  const hoverOpenedAt = useRef(0);
   const panelId = useId();
 
   // Close menus on navigation (state adjustment during render, per React guidance).
@@ -44,8 +46,9 @@ export function SiteHeader() {
       frame = requestAnimationFrame(() => {
         const y = window.scrollY;
         setScrolled(y > 8);
-        setHidden(y > 480 && y > lastY + 4);
-        if (y < lastY - 4 || y <= 480) setHidden(false);
+        // Small deltas (inertia, rounding) leave the current state unchanged.
+        if (y <= 480 || y < lastY - 4) setHidden(false);
+        else if (y > lastY + 4) setHidden(true);
         lastY = y;
       });
     };
@@ -64,19 +67,22 @@ export function SiteHeader() {
   useDismiss(servicesRef, servicesOpen, closeServices);
 
   // Pointer-hover opening for mouse users; touch and keyboard use the button.
-  const onPointerEnter = (e: React.PointerEvent) => {
+  const onPointerEnter = (e: PointerEvent) => {
     if (e.pointerType !== "mouse") return;
     window.clearTimeout(hoverTimer.current);
+    if (!servicesOpen) hoverOpenedAt.current = Date.now();
     setServicesOpen(true);
   };
-  const onPointerLeave = (e: React.PointerEvent) => {
+  const onPointerLeave = (e: PointerEvent) => {
     if (e.pointerType !== "mouse") return;
     hoverTimer.current = window.setTimeout(() => setServicesOpen(false), 180);
   };
 
+  const closeMobile = useCallback(() => setMobileOpen(false), []);
   const servicesActive = isActive(pathname, "/services");
 
   return (
+    <>
     <header
       className={cn(
         "site-header surface-dark fixed inset-x-0 top-0 z-50 transition-[transform,background-color,border-color] duration-300 ease-signal",
@@ -101,7 +107,14 @@ export function SiteHeader() {
               className={cn("nav-link", servicesActive && "is-active")}
               aria-expanded={servicesOpen}
               aria-controls={panelId}
-              onClick={() => setServicesOpen((o) => !o)}
+              onClick={() => {
+                // Mouse users who hovered open the panel expect their click to keep it open.
+                if (servicesOpen && Date.now() - hoverOpenedAt.current < 800) {
+                  hoverOpenedAt.current = 0;
+                  return;
+                }
+                setServicesOpen((o) => !o);
+              }}
             >
               Services
               <ChevronDown
@@ -173,7 +186,10 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} pathname={pathname} />
     </header>
+    {/* Rendered outside <header>: the header's translate would otherwise become the
+        containing block for this fixed-position panel. */}
+    <MobileMenu open={mobileOpen} onClose={closeMobile} pathname={pathname} />
+    </>
   );
 }

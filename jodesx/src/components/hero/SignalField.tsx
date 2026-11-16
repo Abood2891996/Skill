@@ -167,7 +167,7 @@ export function SignalField() {
         <span
           key={l.label}
           className="signal-label absolute -translate-y-[calc(100%+6px)]"
-          style={{ left: 0, top: pct(l.y, VB.h) }}
+          style={{ left: "8%", top: pct(l.y, VB.h) }}
         >
           {l.label}
         </span>

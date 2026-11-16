@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { ServiceGlyph } from "@/components/services/ServiceGlyph";
 import { challenges } from "@/content/pages";
 import { getService } from "@/content/services";
@@ -15,6 +16,18 @@ import { cn } from "@/lib/utils/cn";
 export function ChallengeSelector() {
   const name = useId();
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
+  const reducedMotion = usePrefersReducedMotion();
+
+  const choose = (id: string) => {
+    setSelectedId(id);
+    // On single-column layouts the result sits below the list; reveal it.
+    if (window.matchMedia("(max-width: 1023px)").matches) {
+      requestAnimationFrame(() =>
+        resultRef.current?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "nearest" }),
+      );
+    }
+  };
   const selected = challenges.find((c) => c.id === selectedId) ?? null;
   const service = selected ? getService(selected.service) : null;
 
@@ -38,7 +51,7 @@ export function ChallengeSelector() {
                   name={name}
                   value={c.id}
                   checked={checked}
-                  onChange={() => setSelectedId(c.id)}
+                  onChange={() => choose(c.id)}
                   className="sr-only"
                 />
                 <span
@@ -57,7 +70,7 @@ export function ChallengeSelector() {
         </div>
       </fieldset>
 
-      <div aria-live="polite" className="lg:sticky lg:top-28 lg:self-start">
+      <div ref={resultRef} aria-live="polite" className="scroll-mt-24 lg:sticky lg:top-28 lg:self-start">
         {selected && service ? (
           <article key={selected.id} className="blueprint-detail surface-dark rounded-[var(--radius-lg)] p-6 sm:p-8">
             <div className="flex items-center gap-4">

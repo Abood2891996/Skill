@@ -64,7 +64,7 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
       id="mobile-menu"
       ref={ref}
       hidden={!open}
-      className="mobile-menu fixed inset-x-0 bottom-0 top-[var(--header-h)] overflow-y-auto border-t border-line bg-navy-900 lg:hidden"
+      className="mobile-menu surface-dark fixed inset-x-0 bottom-0 top-[var(--header-h)] z-40 overflow-y-auto border-t border-line bg-navy-900 lg:hidden"
     >
       <nav aria-label="Mobile" className="container-site flex min-h-full flex-col py-8">
         <p className="kicker mb-4">Services</p>

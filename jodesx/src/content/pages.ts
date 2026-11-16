@@ -120,7 +120,7 @@ export const principles: TextBlock[] = [
 ];
 
 /* ------------------------------------------------------------------------
- * Engagement lifecycle (home visualisation + How We Work page)
+ * Engagement lifecycle (home visualization + How We Work page)
  * --------------------------------------------------------------------- */
 export const engagementFlow = [
   { id: "requirement", label: "Client requirement", body: "What needs to be done, at what volume, to what standard." },
@@ -165,7 +165,7 @@ export const processSteps: ProcessStep[] = [
   {
     number: "03",
     title: "Build",
-    summary: "We organise the operational structure the work requires.",
+    summary: "We organize the operational structure the work requires.",
     activities: [
       "Team composition and supervision structure",
       "Training on your products, policies and tools",
@@ -281,7 +281,7 @@ export const generalFaqs: Faq[] = [
   {
     question: "What exactly does JoDesx do?",
     answer:
-      "JoDesx organises and runs remote operational teams for four kinds of work: content moderation, customer support, back-office operations and AI data operations. We define the workflow with you, staff it, review quality and report on results.",
+      "JoDesx organizes and runs remote operational teams for four kinds of work: content moderation, customer support, back-office operations and AI data operations. We define the workflow with you, staff it, review quality and report on results.",
   },
   {
     question: "Is JoDesx a staffing or recruitment agency?",
@@ -291,12 +291,12 @@ export const generalFaqs: Faq[] = [
   {
     question: "Where is the team based?",
     answer:
-      "JoDesx is based in Jordan and works with businesses internationally. Jordan's time zone overlaps fully with European and Gulf business hours and partly with North American mornings; coverage hours for your engagement are agreed during scoping.",
+      "JoDesx is based in Jordan and works with businesses internationally. Jordan's time zone overlaps fully with European and Gulf business hours and with the start of the North American working day; coverage hours for your engagement are agreed during scoping.",
   },
   {
     question: "Who works on our account?",
     answer:
-      "Depending on the engagement, work is carried out by remote employees or contracted specialists organised and supervised by JoDesx. The team structure is described in the operating agreement, so you know how your work is staffed.",
+      "Depending on the engagement, work is carried out by remote employees or contracted specialists organized and supervised by JoDesx. The team structure is described in the operating agreement, so you know how your work is staffed.",
   },
   {
     question: "How do we start?",
@@ -346,7 +346,7 @@ export const about = {
   jordan: {
     title: "Based in Jordan, working internationally",
     paragraphs: [
-      "JoDesx is based in Jordan, and our work is oriented toward international businesses. Jordan sits at UTC+3, which overlaps with the working day across Europe and the Gulf and with the morning in North America.",
+      "JoDesx is based in Jordan, and our work is oriented toward international businesses. Jordan sits at UTC+3, which overlaps with the working day across Europe and the Gulf and with the start of the working day in North America.",
       "We see that position as practical, not decorative: it shapes coverage planning and how we communicate with clients across time zones.",
     ],
   },
@@ -362,7 +362,7 @@ export const comparisonRows: { label: string; values: Record<ServiceSlug, string
       "content-moderation": "Review queues, reports and your content policy",
       "customer-support": "Inbound conversations and your support policies",
       "back-office": "Recurring administrative and data tasks",
-      "ai-data-operations": "Datasets, a labelling schema and guidelines",
+      "ai-data-operations": "Datasets, a labeling schema and guidelines",
     },
   },
   {
