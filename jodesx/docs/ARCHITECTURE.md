@@ -98,11 +98,18 @@ ContactForm (client)                       POST /api/contact (server)
 
 The UI never claims success unless the server confirms delivery. On `not_configured` or failure, the visitor's input is preserved, a mailto link (if a public email is configured) and a "Copy my inquiry" button are offered. Successful submissions show a reference (`JDX-XXXXXX`) that is also included in the delivered message.
 
-## 8. SEO
+## 8. Careers
+
+- **Jobs as content files.** `src/content/jobs/*.md` → `lib/careers/jobs.ts` reads them at build time, validates front matter with Zod (`job-schema.ts`) and fails the build with a readable message if a post is invalid. Pages `/careers/[slug]` are statically generated (`dynamicParams = false`).
+- **Safe Markdown.** `lib/careers/markdown.ts` supports only headings, lists, paragraphs and bold, producing data that `JobBody` renders as React elements — no HTML injection path.
+- **Applications.** `POST /api/careers/apply` (multipart): same-origin check, size cap (4 MB CV; Vercel's 4.5 MB body limit), rate limit (5 per 30 min per client), honeypot and timing checks, shared Zod schema, **file-signature verification** (PDF/DOC/DOCX magic bytes must match the extension), file-name sanitising, and a check that the role exists and is open (410 otherwise). `outputFileTracingIncludes` ships the job files with the function.
+- **Structured data.** Open roles publish `JobPosting` JSON-LD (eligible for Google's job search experience).
+
+## 9. SEO
 
 `createMetadata()` gives every page a unique title, description, canonical URL, Open Graph and Twitter card. JSON-LD: `Organization` + `WebSite` (layout), `Service` + `FAQPage` + `BreadcrumbList` (service pages), `FAQPage` (home), `BreadcrumbList` (other pages). Generated `sitemap.xml`, `robots.txt` (disallows `/api/`), branded OG images per service. One `h1` per page; headings follow document order.
 
-## 9. Security
+## 10. Security
 
 - Strict CSP (`default-src 'self'`, no third-party origins, `frame-ancestors 'none'`, `object-src 'none'`), HSTS, `nosniff`, `Referrer-Policy`, `Permissions-Policy`, COOP. `script-src` allows `'unsafe-inline'` because Next.js injects inline bootstrap scripts; a nonce-based CSP via `proxy.ts` is possible but would force every page to render dynamically. Revisit if third-party scripts are ever added.
 - Zod runs in `jitless` mode so nothing needs `eval`.
@@ -110,20 +117,20 @@ The UI never claims success unless the server confirms delivery. On `not_configu
 - Secrets are server-only env vars; nothing secret is prefixed `NEXT_PUBLIC_`.
 - The webhook channel accepts only `https://` URLs from environment configuration (no user-controlled destinations).
 
-## 10. Performance and accessibility
+## 11. Performance and accessibility
 
 - Static HTML, self-hosted variable font, no images on the critical path (all visuals are inline SVG), CSS-only animation paused off-screen. CLS is 0 on every page.
 - The route fade runs only on client-side navigations: starting first paint at `opacity: 0` prevented Chrome from recording LCP.
 - Accessibility: skip link, landmarks, visible focus on every control, labelled form fields with `aria-invalid`/`aria-describedby`, focus moved to the first invalid field and to result messages, `aria-live` for dynamic regions, native `<details>` FAQs, reduced-motion still frames.
 
-## 11. Quality record (16 Nov 2026)
+## 12. Quality record (16 Nov 2026)
 
 | Check | Result |
 | --- | --- |
 | `tsc --noEmit` | Pass |
 | ESLint (next/core-web-vitals + typescript) | Pass, 0 warnings |
-| Unit tests (`npm test`) | 12 / 12 pass |
-| Playwright interaction suite (`qa/interactions.cjs`) | 51 / 51 pass, repeatable |
+| Unit tests (`npm test`) | 21 / 21 pass |
+| Playwright interaction suite (`qa/interactions.cjs`) | 66 / 66 pass, repeatable |
 | Layout sweep: 10 pages × 1440 / 768 / 390px | 0px horizontal overflow, 0 console errors |
 | axe-core WCAG 2.2 AA + best practice, 10 pages × 2 widths | 0 violations |
 | Lighthouse desktop (8 pages) | 100 / 100 / 100 / 100 |

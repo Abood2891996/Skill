@@ -28,7 +28,7 @@ export function Field({ id, label, required, optional, hint, error, counter, chi
   const describedBy = [errorId, hintId].filter(Boolean).join(" ") || undefined;
 
   return (
-    <div className="grid gap-2">
+    <div className="grid content-start gap-2">
       <div className="flex items-baseline justify-between gap-3">
         <label htmlFor={id} className="font-medium">
           {label}

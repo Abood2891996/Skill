@@ -10,7 +10,8 @@ import { FaqList } from "@/components/ui/FaqList";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
-import { engagementModels, environments, generalFaqs, home, principles, qualityPhilosophy } from "@/content/pages";
+import { engagementModels, environments, generalFaqs, home, qualityPhilosophy } from "@/content/pages";
+import { coreReasons } from "@/content/why";
 import { getService } from "@/content/services";
 import { createMetadata } from "@/lib/seo/metadata";
 import { faqJsonLd } from "@/lib/seo/structured-data";
@@ -95,12 +96,19 @@ export default function HomePage() {
               title="Outsourcing should reduce complexity, not relocate it."
               lead="Most of the effort in outsourced operations goes into designing how the work runs. That's the part we take on."
             />
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink href="/why-jodesx">All the reasons to choose JoDesx</ButtonLink>
+            </div>
           </div>
           <ul className="grid gap-px overflow-hidden rounded-[var(--radius-lg)] border border-line bg-line">
-            {principles.map((p) => (
-              <li key={p.title} className="bg-surface-raised p-7 sm:p-8">
-                <h3 className="type-title">{p.title}</h3>
-                <p className="mt-3 text-fg-muted">{p.body}</p>
+            {coreReasons.map((r) => (
+              <li key={r.id} className="bg-surface-raised p-7 sm:p-8">
+                <h3 className="type-title">{r.title}</h3>
+                <p className="mt-3 text-fg-muted">{r.body}</p>
+                <p className="mt-5 flex items-center gap-2.5 text-sm font-semibold text-accent-text">
+                  <span aria-hidden="true" className="size-2 flex-none bg-violet-600" />
+                  {r.outcome}
+                </p>
               </li>
             ))}
           </ul>

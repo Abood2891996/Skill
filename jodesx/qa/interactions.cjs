@@ -184,10 +184,79 @@ const ok = (cond, msg) => { console.log(`${cond ? "PASS" : "FAIL"}  ${msg}`); if
     ok(h["content-security-policy"]?.includes("frame-ancestors 'none'") && h["x-content-type-options"] === "nosniff", "security headers present");
   }
 
+  // ---------- Careers ----------
+  {
+    const page = await browser.newPage({
+      viewport: { width: 1280, height: 900 },
+      extraHTTPHeaders: { "X-Forwarded-For": `10.98.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}` },
+    });
+    await page.goto(BASE + "/careers", { waitUntil: "networkidle" });
+    const rows = page.locator(".job-row");
+    const total = await rows.count();
+    ok(total >= 1, `job board lists open roles (${total})`);
+    await page.locator("#roles label", { hasText: "Content Moderation" }).click();
+    ok((await rows.count()) === 1 && (await rows.first().textContent()).includes("Content Moderator"), "team filter narrows the list");
+    await page.locator("#roles label", { hasText: "All teams" }).click();
+    ok((await rows.count()) === total, "clearing the filter restores all roles");
+    await rows.filter({ hasText: "Content Moderator" }).click();
+    await page.waitForURL("**/careers/content-moderator");
+    ok((await page.locator("h1").textContent()) === "Content Moderator", "job page opens from the board");
+    const ld = await page.$$eval('script[type="application/ld+json"]', (s) => s.map((x) => x.textContent).join(""));
+    ok(ld.includes('"JobPosting"'), "job page publishes JobPosting structured data");
+
+    await page.getByRole("button", { name: "Send application" }).click();
+    ok((await page.locator("#apply .field-error").count()) >= 8, "empty application shows field errors");
+    ok(await page.locator("#fullName").evaluate((el) => el === document.activeElement), "focus moves to first invalid field");
+
+    await page.fill("#fullName", "Lina Odeh");
+    await page.fill("#email", "lina@example.com");
+    await page.fill("#phone", "+962 7 9123 4567");
+    await page.fill("#location", "Amman, Jordan");
+    await page.fill("#languages", "English (fluent), Arabic (native)");
+    await page.selectOption("#availability", "2-weeks");
+    await page.fill("#message", "I have two years of experience reviewing marketplace listings against detailed written policies.");
+    await page.locator('#apply input[name="consent"]').check();
+
+    // A renamed executable must be rejected by its file signature on the server.
+    await page.setInputFiles("#cv", { name: "cv.pdf", mimeType: "application/pdf", buffer: Buffer.from([0x4d, 0x5a, 0x90, 0x00, 0x03]) });
+    ok(await page.getByText("cv.pdf").isVisible(), "chosen file is shown with its name");
+    await page.waitForTimeout(3100);
+    let [resp] = await Promise.all([page.waitForResponse("**/api/careers/apply"), page.getByRole("button", { name: "Send application" }).click()]);
+    ok(resp.status() === 422 && (await page.getByText("doesn't look like a valid PDF").isVisible()), "fake PDF rejected by file signature");
+
+    await page.setInputFiles("#cv", { name: "Lina CV.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n%test\n") });
+    [resp] = await Promise.all([page.waitForResponse("**/api/careers/apply"), page.getByRole("button", { name: "Send application" }).click()]);
+    if (resp.status() === 503) {
+      ok(await page.getByText("Online applications are not connected yet").isVisible(), "unconfigured application delivery reported honestly (503)");
+      ok((await page.locator("#fullName").inputValue()) === "Lina Odeh", "application data preserved");
+    } else {
+      ok(resp.status() === 200 && (await page.getByText("Application received.").isVisible()), "configured delivery shows success");
+    }
+    await page.close();
+
+    const req = (await browser.newContext({ extraHTTPHeaders: { "X-Forwarded-For": "10.97.1.1" } })).request;
+    const form = { job: "no-such-role", fullName: "A B", email: "a@b.co", phone: "+962 7 9123 4567", location: "Amman", languages: "English", availability: "later", message: "x".repeat(60), consent: "true",
+      cv: { name: "cv.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4") } };
+    const r = await req.post(BASE + "/api/careers/apply", { multipart: form });
+    ok(r.status() === 410, "applications to unknown or closed roles are refused (410)");
+  }
+
+  // ---------- Why JoDesx ----------
+  {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+    await page.goto(BASE + "/", { waitUntil: "networkidle" });
+    await page.getByRole("link", { name: "All the reasons to choose JoDesx" }).click();
+    await page.waitForURL("**/why-jodesx");
+    ok((await page.locator(".reason-card").count()) === 4, "Why page shows the four core reasons");
+    ok((await page.locator("table tbody tr").count()) >= 6, "comparison table rendered");
+    ok((await page.locator('nav[aria-label="Main"] a[aria-current="page"]').textContent()) === "Why JoDesx", "Why JoDesx marked active in nav");
+    await page.close();
+  }
+
   // ---------- Link integrity ----------
   {
     const page = await browser.newPage();
-    const pages = ["/", "/services", "/services/content-moderation", "/services/customer-support", "/services/back-office", "/services/ai-data-operations", "/how-we-work", "/about", "/contact", "/privacy"];
+    const pages = ["/", "/services", "/services/content-moderation", "/services/customer-support", "/services/back-office", "/services/ai-data-operations", "/how-we-work", "/about", "/contact", "/privacy", "/why-jodesx", "/careers", "/careers/apply", "/careers/content-moderator"];
     const hrefs = new Set();
     let hashOnly = 0;
     for (const p of pages) {

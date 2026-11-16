@@ -31,7 +31,7 @@ Requires Node.js 20.9+ to build and run (22.6+ to run the unit tests, which use 
 Browser QA (needs Playwright; a server running on port 3100 unless `BASE_URL` is set):
 
 ```bash
-node qa/interactions.cjs          # 51 interaction, accessibility-behaviour and API checks
+node qa/interactions.cjs          # 66 interaction, accessibility-behaviour and API checks
 node qa/screens.cjs <outDir> /,/services 1440,390   # full-page screenshots + overflow check
 ```
 
@@ -42,9 +42,13 @@ node qa/screens.cjs <outDir> /,/services 1440,390   # full-page screenshots + ov
 | `/` | Home: hero with the Signal field, services, challenge selector, Operations Blueprint, principles, engagement rail, quality loop, environments, engagement models, FAQ |
 | `/services` | Overview and comparison of the four services |
 | `/services/content-moderation` · `/customer-support` · `/back-office` · `/ai-data-operations` | Service pages (shared template) |
+| `/why-jodesx` | Ten reasons to choose JoDesx, a three-way comparison and written commitments |
 | `/how-we-work` | The six-step engagement process and responsibilities |
 | `/about` | Company purpose, philosophy, Jordan-based identity |
 | `/contact` | Inquiry form with honest delivery states |
+| `/careers` | Careers: why join, filterable job board, hiring process, FAQ |
+| `/careers/<job>` | Job description and application form with CV upload |
+| `/careers/apply` | Open application |
 | `/privacy` | Privacy policy (draft for legal review) |
 
 ## Editing content
@@ -56,9 +60,16 @@ All copy is in typed files under `src/content/` — no component changes are nee
 | `services.ts` | Everything on each service page, including the workflow stages shown in the Operations Blueprint |
 | `pages.ts` | Home, About and How We Work copy; challenge selector entries; comparison table; engagement models; general FAQs |
 | `navigation.ts` | Header and footer links |
+| `why.ts` | Reasons, comparison table and commitments on the Why JoDesx page |
+| `careers.ts` | Careers page copy, hiring steps and candidate FAQs |
+| `jobs/*.md` | **Job postings** — one Markdown file per job (see `docs/POSTING-JOBS.md`) |
 | `site.ts` | Site name, URL and public email (from environment variables) |
 
 Copy guidelines: `docs/CONTENT-STRATEGY.md`. TypeScript will flag missing fields when you add or change content.
+
+## Posting jobs
+
+Add a Markdown file to `src/content/jobs/` (copy `_TEMPLATE.md`) — it can be done entirely in the GitHub web editor. Set `status: closed` to stop applications. Step-by-step guide: `docs/POSTING-JOBS.md`.
 
 ## Brand assets
 
@@ -70,7 +81,7 @@ The form validates in the browser and again on the server (`src/app/api/contact/
 
 ## Environment variables
 
-See `.env.example`. Summary: `NEXT_PUBLIC_SITE_URL` (required in production), `NEXT_PUBLIC_CONTACT_EMAIL` (optional), and one delivery option — `CONTACT_WEBHOOK_URL` (+ optional `CONTACT_WEBHOOK_SECRET`) or `RESEND_API_KEY` + `CONTACT_TO_EMAIL` + `CONTACT_FROM_EMAIL`.
+See `.env.example`. Summary: `NEXT_PUBLIC_SITE_URL` (required in production), `NEXT_PUBLIC_CONTACT_EMAIL` (optional), and one delivery option — `CONTACT_WEBHOOK_URL` (+ optional `CONTACT_WEBHOOK_SECRET`) or `RESEND_API_KEY` + `CONTACT_TO_EMAIL` + `CONTACT_FROM_EMAIL`. Job applications can go elsewhere with `CAREERS_WEBHOOK_URL` / `CAREERS_TO_EMAIL`.
 
 ## Directory structure
 
@@ -90,6 +101,7 @@ docs/             project documentation
 
 | Document | Contents |
 | --- | --- |
+| `docs/POSTING-JOBS.md` | How to post, close and remove jobs; where applications go |
 | `docs/PROJECT-STATUS.md` | Completed phases, open dependencies, **decisions needing confirmation** |
 | `docs/ARCHITECTURE.md` | Technical architecture, components, form flow, quality record |
 | `docs/BRAND-GUIDELINES.md` | Brand platform, logo construction, colour, type, the Signal system |

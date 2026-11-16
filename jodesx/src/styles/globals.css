@@ -529,3 +529,124 @@
     color: var(--fg);
   }
 }
+
+/* ==========================================================================
+   Why JoDesx & Careers
+   ========================================================================== */
+@layer components {
+  /* Large outlined index behind each core reason card (decorative). */
+  .reason-index {
+    position: absolute;
+    right: 1.25rem;
+    top: 0.25rem;
+    font-size: clamp(4.5rem, 3rem + 5vw, 7rem);
+    line-height: 1;
+    font-weight: 600;
+    font-variation-settings: "wdth" 75;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--line-strong);
+    pointer-events: none;
+    transition: -webkit-text-stroke-color var(--dur-slow) var(--ease-out-soft);
+  }
+
+  .reason-card {
+    transition:
+      border-color var(--dur-base) var(--ease-out-soft),
+      box-shadow var(--dur-slow) var(--ease-out-soft);
+  }
+
+  .reason-card:hover {
+    border-color: var(--line-strong);
+    box-shadow: 0 24px 48px -32px rgb(11 18 32 / 0.35);
+  }
+
+  .reason-card:hover .reason-index {
+    -webkit-text-stroke-color: var(--violet-600);
+  }
+
+  /* Highlighted JoDesx column in the comparison table. */
+  .compare-highlight {
+    background: color-mix(in oklab, var(--cyan-400) 6%, transparent);
+    box-shadow:
+      inset 1px 0 0 color-mix(in oklab, var(--cyan-400) 45%, transparent),
+      inset -1px 0 0 color-mix(in oklab, var(--cyan-400) 45%, transparent);
+  }
+
+  thead .compare-highlight {
+    box-shadow:
+      inset 1px 0 0 color-mix(in oklab, var(--cyan-400) 45%, transparent),
+      inset -1px 0 0 color-mix(in oklab, var(--cyan-400) 45%, transparent),
+      inset 0 2px 0 var(--cyan-400);
+  }
+
+  /* File drop zone */
+  .dropzone {
+    border: 1.5px dashed rgb(11 18 32 / 0.25);
+    transition:
+      border-color var(--dur-fast) var(--ease-out-soft),
+      background-color var(--dur-fast) var(--ease-out-soft);
+  }
+
+  .dropzone:hover,
+  .dropzone[data-dragging="true"] {
+    border-color: var(--violet-600);
+    background-color: rgb(91 79 224 / 0.04);
+  }
+
+  .dropzone:has(input:focus-visible) {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  .dropzone[data-invalid="true"] {
+    border-color: var(--danger);
+  }
+
+  /* Job description typography */
+  .job-prose h2 {
+    font-size: var(--text-title);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    font-variation-settings: "wdth" 92;
+    margin-top: 2.5rem;
+  }
+
+  .job-prose p {
+    margin-top: 1rem;
+    color: var(--fg-muted);
+    font-size: 1.0625rem;
+  }
+
+  .job-prose > p:first-child {
+    margin-top: 0;
+    font-size: var(--text-lead);
+    color: var(--fg);
+  }
+
+  .job-prose ul {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .job-prose li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--fg-muted);
+  }
+
+  .job-prose li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: var(--violet-600);
+  }
+
+  .job-prose strong {
+    color: var(--fg);
+    font-weight: 600;
+  }
+}

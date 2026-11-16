@@ -17,12 +17,15 @@
 | `CONTACT_TO_EMAIL` | Server | With Resend | Inbox that receives inquiries. |
 | `CONTACT_FROM_EMAIL` | Server | With Resend | Verified sender, e.g. `JoDesx Website <website@jodesx.com>`. |
 
+**Job applications** use the same mechanism, with optional overrides: `CAREERS_WEBHOOK_URL` (+ `CAREERS_WEBHOOK_SECRET`) and `CAREERS_TO_EMAIL`. Without overrides they go to the contact webhook/inbox. Applications carry the CV as an attachment (Resend) or as `attachments[0].base64` (webhook). Vercel limits request bodies to 4.5 MB, so CVs are capped at 4 MB.
+
 If both delivery options are configured, the webhook is used. **If neither is configured, the form tells visitors honestly that online inquiries are not connected yet** and helps them preserve their message — it never pretends to send.
 
 ### Webhook payload
 
 ```json
 {
+  "type": "inquiry",              // or "application" (reference APP-…)
   "reference": "JDX-7K2Q9P",
   "submittedAt": "2026-11-16T12:00:00.000Z",
   "name": "…", "email": "…", "company": "…",

@@ -51,8 +51,25 @@ const sections: { id: string; title: string; body: ReactNode }[] = [
     ),
   },
   {
+    id: "candidates",
+    title: "3. Job applicants",
+    body: (
+      <>
+        <p>
+          When you apply for a role, we collect your name, email address, phone number, city and country, the languages you speak, your
+          availability, any profile link you provide, your message, and your CV.
+        </p>
+        <p>
+          We use this information only to assess your application, contact you about it and, with open applications, consider you for future
+          roles. Applications are delivered to the people at JoDesx responsible for hiring and are not shared with clients without your
+          permission. We keep applicant information no longer than necessary for recruitment, and you can ask us to delete it at any time.
+        </p>
+      </>
+    ),
+  },
+  {
     id: "use",
-    title: "3. How we use it",
+    title: "4. How we use it",
     body: (
       <ul>
         <li>To read and respond to your inquiry, and to arrange a conversation you have asked for.</li>
@@ -64,7 +81,7 @@ const sections: { id: string; title: string; body: ReactNode }[] = [
   },
   {
     id: "basis",
-    title: "4. Legal basis",
+    title: "5. Legal basis",
     body: (
       <p>
         Where data protection law requires a legal basis, we rely on your consent (given when you submit the form), on steps taken at your
@@ -75,7 +92,7 @@ const sections: { id: string; title: string; body: ReactNode }[] = [
   },
   {
     id: "sharing",
-    title: "5. Sharing",
+    title: "6. Sharing",
     body: (
       <>
         <p>We do not sell personal information or share it for advertising.</p>
@@ -89,7 +106,7 @@ const sections: { id: string; title: string; body: ReactNode }[] = [
   },
   {
     id: "transfers",
-    title: "6. International transfers",
+    title: "7. International transfers",
     body: (
       <p>
         Because we work with businesses internationally and use service providers that may operate in other countries, your information may be
@@ -99,7 +116,7 @@ const sections: { id: string; title: string; body: ReactNode }[] = [
   },
   {
     id: "retention",
-    title: "7. How long we keep it",
+    title: "8. How long we keep it",
     body: (
       <p>
         We keep inquiry information for as long as needed to respond and to follow up on the conversation. If we begin working together, related
@@ -110,7 +127,7 @@ const sections: { id: string; title: string; body: ReactNode }[] = [
   },
   {
     id: "security",
-    title: "8. Security",
+    title: "9. Security",
     body: (
       <p>
         The website is served over an encrypted connection, form submissions are validated on our server, and access to inquiry information is
@@ -121,7 +138,7 @@ const sections: { id: string; title: string; body: ReactNode }[] = [
   },
   {
     id: "rights",
-    title: "9. Your rights",
+    title: "10. Your rights",
     body: (
       <p>
         Depending on where you live, you may have the right to access, correct or delete the personal information we hold about you, to object to
@@ -132,7 +149,7 @@ const sections: { id: string; title: string; body: ReactNode }[] = [
   },
   {
     id: "contact",
-    title: "10. Contact",
+    title: "11. Contact",
     body: site.contactEmail ? (
       <p>
         For privacy questions or requests, email <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
@@ -146,7 +163,7 @@ const sections: { id: string; title: string; body: ReactNode }[] = [
   },
   {
     id: "changes",
-    title: "11. Changes to this policy",
+    title: "12. Changes to this policy",
     body: <p>We may update this policy as the website or our practices change. The date at the top shows when it was last revised.</p>,
   },
 ];

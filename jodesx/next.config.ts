@@ -36,6 +36,8 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // The applications API reads job files at runtime to confirm a role is open.
+  outputFileTracingIncludes: { "/api/careers/apply": ["./src/content/jobs/**/*"] },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

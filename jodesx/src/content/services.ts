@@ -481,7 +481,7 @@ const aiDataOperations: Service = {
       label: "Annotation",
       summary: "Annotators apply your schema.",
       detail:
-        "Trained annotators label or evaluate each item according to the guidelines. Items the guidelines don't resolve are flagged for clarification rather than labelled inconsistently.",
+        "Trained annotators label or evaluate each item according to the guidelines. Items the guidelines don't resolve are flagged for clarification rather than labeled inconsistently.",
       checkpoint: "Ambiguous items flagged.",
       branch: {
         label: "Guideline clarification",

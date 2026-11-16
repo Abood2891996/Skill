@@ -98,28 +98,6 @@ export const challenges: Challenge[] = [
 ];
 
 /* ------------------------------------------------------------------------
- * Why JoDesx
- * --------------------------------------------------------------------- */
-export const principles: TextBlock[] = [
-  {
-    title: "An operations partner, not a list of people",
-    body: "We design how the work runs — workflow, responsibilities, checks and reporting — and then staff it. You get an operation, not a headcount to manage.",
-  },
-  {
-    title: "Structure from the first week",
-    body: "Scope, procedures and escalation paths are agreed in writing before work starts. Everyone knows what is expected and who decides what.",
-  },
-  {
-    title: "Human judgment where it matters",
-    body: "Moderation calls, customer conversations and data labels all depend on people reading context well. We build the work around that, not around shortcuts.",
-  },
-  {
-    title: "Transparent by default",
-    body: "You see the volumes, the turnaround, the quality samples and the open questions. Reporting is part of the service, not an extra.",
-  },
-];
-
-/* ------------------------------------------------------------------------
  * Engagement lifecycle (home visualization + How We Work page)
  * --------------------------------------------------------------------- */
 export const engagementFlow = [

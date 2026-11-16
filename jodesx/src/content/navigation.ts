@@ -13,8 +13,10 @@ export const serviceNav: NavLink[] = services.map((s) => ({
 }));
 
 export const primaryNav: NavLink[] = [
+  { label: "Why JoDesx", href: "/why-jodesx" },
   { label: "How we work", href: "/how-we-work" },
   { label: "About", href: "/about" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -26,8 +28,10 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
   {
     title: "Company",
     links: [
+      { label: "Why JoDesx", href: "/why-jodesx" },
       { label: "How we work", href: "/how-we-work" },
       { label: "About JoDesx", href: "/about" },
+      { label: "Careers", href: "/careers" },
       { label: "Start an inquiry", href: "/contact" },
     ],
   },
