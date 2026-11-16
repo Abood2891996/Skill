@@ -1,7 +1,7 @@
 {
  "page": "/home/user/Skill/website/index.html",
  "url": "http://127.0.0.1:5200/index.html",
- "at": "2026-11-16T11:31:47.884Z",
+ "at": "2026-11-16T11:41:33.037Z",
  "out": "/home/user/Skill/website/.taste-skill/consistency",
  "widths": [
   {
@@ -28,7 +28,7 @@
      "text": "",
      "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 6,
-     "crop": "1440-11-scroll-reveal.jpg",
+     "crop": "1440-10-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -38,7 +38,7 @@
      "text": "How the managed model works Sets the team’s scop",
      "msg": "starts \"border-left-color\" (0.3 s) the moment it is scrolled into view (an IntersectionObserver) on li.mo-pc__step:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
      "stop": 3,
-     "crop": "1440-04-scroll-reveal.jpg",
+     "crop": "1440-03-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
     },
     {
@@ -48,7 +48,7 @@
      "text": "How the managed model works Sets the team’s scop",
      "stop": 10,
      "msg": "held on screen for 1 screen of scroll (position: sticky) while the page moves on (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)",
-     "crop": "1440-14-pinned.jpg",
+     "crop": "1440-12-pinned.jpg",
      "fix": "let the section scroll with the page"
     },
     {
@@ -58,7 +58,7 @@
      "text": "Questions buyers ask",
      "msg": "the section is only text: no picture, icon, mock or effect in it",
      "stop": 5,
-     "crop": "1440-09-text-only.jpg",
+     "crop": "1440-08-text-only.jpg",
      "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground"
     },
     {
@@ -68,7 +68,7 @@
      "text": "How the managed model works",
      "msg": "a section over 1.5 screens long with no link or button in it",
      "stop": 3,
-     "crop": "1440-05-cta.jpg",
+     "crop": "1440-04-cta.jpg",
      "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
     },
     {
@@ -78,7 +78,7 @@
      "text": "Is Jodesx a staffing agency?",
      "msg": "\"Is Jodesx a staffing agency?\" names no product, part, place or section (the one brand line a page may have)",
      "stop": 4,
-     "crop": "1440-07-copy-headings.jpg",
+     "crop": "1440-06-copy-headings.jpg",
      "fix": "name the thing in every heading: the product, a part, the place or a section noun"
     },
     {
@@ -88,7 +88,7 @@
      "text": "",
      "stop": 4,
      "msg": "uneven space at the edge of a band: 179px outside its edge, 116px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "1440-08-section-gaps.jpg",
+     "crop": "1440-07-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -98,7 +98,7 @@
      "text": "",
      "stop": 5,
      "msg": "uneven space at the edge of a band: 116px outside its edge, 258px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "1440-10-section-gaps.jpg",
+     "crop": "1440-09-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -108,7 +108,7 @@
      "text": "photo-f51544809-960.webp",
      "stop": 3,
      "msg": "4 photographs in more than one look: saturation from 0.18 to 0.73; the odd one out is photo-f51544809-960.webp",
-     "crop": "1440-06-photo-set.jpg",
+     "crop": "1440-05-photo-set.jpg",
      "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
@@ -131,33 +131,13 @@
      "fix": "name each nav link after the heading of the section it opens"
     },
     {
-     "check": "nav-current",
-     "sev": "WARN",
-     "sel": "header.nav.nav--centre",
-     "text": "",
-     "stop": 1,
-     "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
-     "crop": "1440-03-nav-current.jpg",
-     "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls"
-    },
-    {
-     "check": "empty-area",
-     "sev": "WARN",
-     "sel": "footer#contact",
-     "text": "Your team, run from Jordan",
-     "msg": "46% of the section is empty: 320px of empty rows between its content, 2% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
-     "stop": 8,
-     "crop": "1440-13-empty-area.jpg",
-     "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)"
-    },
-    {
      "check": "action-repeat",
      "sev": "WARN",
      "sel": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2)",
      "text": "request a pilot team",
      "stop": 13,
      "msg": "\"request a pilot team\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1440-15-action-repeat.jpg",
+     "crop": "1440-13-action-repeat.jpg",
      "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
     },
     {
@@ -167,7 +147,7 @@
      "text": "mailto:hello@jodesx.example",
      "msg": "the form opens a mail to hello@jodesx.example: a stand-in until the client gives its form address; list it in the report",
      "stop": 7,
-     "crop": "1440-12-form-send.jpg",
+     "crop": "1440-11-form-send.jpg",
      "fix": "send the form to the client's address (data-endpoint) and show the confirmation only after it answers; list a mailto stand-in in the report"
     },
     {
@@ -319,7 +299,7 @@
  },
  "counts": {
   "FAIL": 1,
-  "WARN": 25
+  "WARN": 23
  },
  "checks": {
   "assets": "PASS",
@@ -408,7 +388,7 @@
   "fade-cut": "PASS",
   "photo-weight": "PASS",
   "copy-length": "PASS",
-  "nav-current": "WARN",
+  "nav-current": "PASS",
   "progress-bar": "PASS",
   "photo-repeat": "PASS",
   "button-contrast": "PASS",
@@ -446,7 +426,7 @@
   "count-text": "PASS",
   "loop-cycle": "PASS",
   "section-tile": "PASS",
-  "empty-area": "WARN",
+  "empty-area": "PASS",
   "a11y-name": "PASS",
   "img-alt": "PASS",
   "field-label": "PASS",
