@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+// The site's CSP forbids eval; jitless mode stops Zod probing for it.
+z.config({ jitless: true });
+
 /**
  * Contact inquiry schema — shared by the client form (instant feedback) and
  * the API route (authoritative validation). Keep option lists here so the

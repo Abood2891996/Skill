@@ -29,6 +29,25 @@ function sameOrigin(req: NextRequest): boolean {
   }
 }
 
+/** Reads the body as text, aborting once it exceeds `limit` bytes (returns null). */
+async function readCapped(req: NextRequest, limit: number): Promise<string | null> {
+  if (!req.body) return "";
+  const reader = req.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    size += value.byteLength;
+    if (size > limit) {
+      await reader.cancel();
+      return null;
+    }
+    chunks.push(value);
+  }
+  return new TextDecoder().decode(Buffer.concat(chunks));
+}
+
 export async function POST(req: NextRequest) {
   if (!sameOrigin(req)) {
     return json(403, { ok: false, code: "forbidden", message: "This request was blocked." });
@@ -46,10 +65,11 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  const raw = await req.text();
-  if (raw.length > MAX_BODY_BYTES) {
-    return json(413, { ok: false, code: "too_large", message: "The inquiry is too long. Please shorten it and try again." });
-  }
+  const tooLarge = () =>
+    json(413, { ok: false, code: "too_large", message: "The inquiry is too long. Please shorten it and try again." });
+  if (Number(req.headers.get("content-length") ?? 0) > MAX_BODY_BYTES) return tooLarge();
+  const raw = await readCapped(req, MAX_BODY_BYTES);
+  if (raw === null) return tooLarge();
 
   let data: unknown;
   try {

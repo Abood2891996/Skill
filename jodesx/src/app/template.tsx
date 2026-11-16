@@ -1,4 +1,6 @@
-/** Re-mounts on every navigation, giving each route a short fade-in. */
+import { RouteTransition } from "@/components/motion/RouteTransition";
+
+/** Re-mounts on every navigation; RouteTransition decides whether to fade. */
 export default function Template({ children }: { children: React.ReactNode }) {
-  return <div className="route-enter">{children}</div>;
+  return <RouteTransition>{children}</RouteTransition>;
 }

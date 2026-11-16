@@ -53,7 +53,7 @@ export default function HowWeWorkPage() {
           {processSteps.map((step) => (
             <li key={step.number} className="process-step relative grid gap-6 border-t border-line py-12 first:border-t-0 first:pt-0 md:grid-cols-[9rem_1fr_1fr] md:gap-10 md:py-16">
               <div className="flex items-baseline gap-4 md:block">
-                <span aria-hidden="true" className="type-display-lg block text-[color:var(--line-strong)] [-webkit-text-stroke:1px_var(--fg-subtle)] [color:transparent]">
+                <span aria-hidden="true" className="type-display-lg block text-violet-600">
                   {step.number}
                 </span>
               </div>
