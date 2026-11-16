@@ -1,0 +1,1 @@
+[{"check":"section-gaps","target":"section.hero.hero--photo / section#services","reason":"The dealt photo hero is a full-bleed layer down to the fold, so the gap to the next section is its top padding only; no neighbour shows in either tile."}]

@@ -1,0 +1,366 @@
+{
+ "start": "2026-11-16T10:50:55.551Z",
+ "round": 2,
+ "idle": 0,
+ "errors": 0,
+ "status": "pass",
+ "history": [
+  {
+   "at": "2026-11-16T11:23:58.059Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 6,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-16T11:26:03.196Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 1,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-16T11:28:02.660Z",
+   "mode": "manual",
+   "status": "pass",
+   "fails": 0,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": "index.html",
+  "url": null,
+  "root": null,
+  "kind": "service",
+  "category": "managed outsourcing teams",
+  "primary": "Request a pilot team",
+  "rounds": 3,
+  "start": "2026-11-16T10:50:55.551Z",
+  "by": "gate.mjs --start"
+ },
+ "manual": true,
+ "roundKey": "3aeaf27ec925f434:88af5415",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": null,
+ "fp": "b643ef83a2da1537",
+ "page": "index.html",
+ "found": {
+  "fails": [
+   {
+    "check": "section-gaps",
+    "where": "main#top > section.hero.hero--photo / section#services",
+    "msg": "116px between these sections, -63% against the median 313px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-gaps"
+    ],
+    "wheres": [
+     "main#top > section.hero.hero--photo / section#services"
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "scroll-reveal",
+    "where": "section#jordan > div.wrap.grid > figure.develop.span-6",
+    "msg": "starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "scroll-reveal",
+    "where": "section#model \"How the managed model works Sets the tea\"",
+    "msg": "starts \"border-left-color\" (0.3 s) the moment it is scrolled into view (an IntersectionObserver) on li.mo-pc__step:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "pinned",
+    "where": "section#model > div.wrap.mo-pc__grid \"How the managed model works Sets the tea\"",
+    "msg": "held on screen for 1 screen of scroll (position: sticky) while the page moves on (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)",
+    "fix": "let the section scroll with the page",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "text-only",
+    "where": "section#faq \"Questions buyers ask\"",
+    "msg": "the section is only text: no picture, icon, mock or effect in it",
+    "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cta",
+    "where": "section#model \"How the managed model works\"",
+    "msg": "a section over 1.5 screens long with no link or button in it",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-headings",
+    "where": "div.wrap.grid > div.faq.span-6 > div.faq__item:nth-of-type(1) > h3 \"Is Jodesx a staffing agency?\"",
+    "msg": "\"Is Jodesx a staffing agency?\" names no product, part, place or section (the one brand line a page may have)",
+    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#jordan / section#pilot",
+    "msg": "422px between these sections, +35% against the median 313px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#model / section#faq",
+    "msg": "uneven space at the edge of a band: 179px outside its edge, 116px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#faq / section#jordan",
+    "msg": "uneven space at the edge of a band: 116px outside its edge, 258px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "links",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.nav__link \"العربية\"",
+    "msg": "\"العربية\" goes to ar/index.html, which does not exist here",
+    "fix": "point every link at a real section, page or file",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "photo-set",
+    "where": "div.wrap.mo-pc__grid > div.mo-pc__visuals.frame > figure.mo-pc__visual:nth-of-type(2) > img \"photo-f51544809-960.webp\"",
+    "msg": "4 photographs in more than one look: saturation from 0.18 to 0.73; the odd one out is photo-f51544809-960.webp",
+    "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "photo-credit",
+    "where": "(the page text)",
+    "msg": "1 library source (wikimedia): the page credits wikimedia; confirm each shows the client's own product, place or people",
+    "fix": "confirm the library photograph shows the client's own product, place or people; otherwise replace it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-labels",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > a.nav__logo \"jodesx\"",
+    "msg": "\"jodesx\" opens a section headed \"Managed outsourcing from Jordan\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "orphan",
+    "where": "div.wrap.grid > div.span-6 > ul.rows > li:nth-of-type(1) \"Arabic as a first languageDialects, slan\"",
+    "msg": "its last line holds only \"on\"",
+    "fix": "rebalance the text (text-wrap: pretty, or a shorter line) so the last line holds more than one short word",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-current",
+    "where": "header.nav.nav--centre",
+    "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
+    "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "empty-area",
+    "where": "footer#contact \"Your team, run from Jordan\"",
+    "msg": "46% of the section is empty: 320px of empty rows between its content, 2% beside content that covers under half the container, in its 720px of rows (WARN over 35%, FAIL over 50%)",
+    "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "action-repeat",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary:nth-of-type(2) \"request a pilot team\"",
+    "msg": "\"request a pilot team\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+    "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "form-send",
+    "where": "section#pilot > div.wrap.grid > div.span-6.stack-4:nth-of-type(1) > form.form \"mailto:hello@jodesx.example\"",
+    "msg": "the form opens a mail to hello@jodesx.example: a stand-in until the client gives its form address; list it in the report",
+    "fix": "send the form to the client's address (data-endpoint) and show the confirmation only after it answers; list a mailto stand-in in the report",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "container-edges",
+    "where": "div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps > li.mo-pc__step:nth-of-type(1) \"Sets the team’s scope and SLA Volumes, h\"",
+    "msg": "3 text blocks start on a left line at x 106, 26px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also \"Hires and trains the team Our re\", \"Runs QA on the team’s work Our l\") (it is in a scroll scene: told as a WARN) (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav",
+    "where": "header.nav.nav--centre > div.wrap.nav__bar > button.nav__toggle",
+    "msg": "the nav is lopsided: its last item ends 13px inside the content's edge (366px), while its first starts on the other edge",
+    "fix": "start the nav's first item and end its last on the content's two edges",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "no-visual",
+    "where": "section#pilot \"Start with a pilot team\"",
+    "msg": "pictures, effects and mocks cover 24% of this section; a feature section needs a visual (about 25% or more)",
+    "fix": "give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cta",
+    "where": "section#services \"Services we run for platforms\"",
+    "msg": "a section over 1.5 screens long with no link or button in it",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "main#top > section.hero.hero--photo / section#services",
+    "msg": "135px between these sections, -34% against the median 206px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#services / section#model",
+    "msg": "263px between these sections, +28% against the median 206px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "proximity",
+    "where": "section#pilot > div.wrap.grid > div.frame.frame--photo \"Start with a pilot team Two or three peo\"",
+    "msg": "stacked at this width, the visual starts 14px under the text and buttons above it (\"Start with a pilot team Two or\"): it reads glued to them",
+    "fix": "give the stacked split the section's own gap between text and visual (40px or more on a phone)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "photo-set",
+    "where": "main#top > section.hero.hero--photo > picture.hero__bg > img \"photo-f92090631-780x975.webp\"",
+    "msg": "5 photographs in more than one look: lightness from 0.07 to 0.47; saturation from 0.18 to 0.81; the odd one out is photo-f92090631-780x975.webp",
+    "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   }
+  ],
+  "crashed": [],
+  "seconds": {
+   "consistency": 106,
+   "layout": 4
+  }
+ },
+ "open": [],
+ "waived": [
+  {
+   "check": "section-gaps",
+   "where": "main#top > section.hero.hero--photo / section#services",
+   "msg": "116px between these sections, -63% against the median 313px",
+   "fix": "use one gap between sections (all within 25% of each other)",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-gaps"
+   ],
+   "wheres": [
+    "main#top > section.hero.hero--photo / section#services"
+   ],
+   "reason": "The dealt photo hero is a full-bleed layer down to the fold, so the gap to the next section is its top padding only; no neighbour shows in either tile."
+  }
+ ],
+ "warnCount": 26,
+ "at": "2026-11-16T11:28:02.660Z"
+}
