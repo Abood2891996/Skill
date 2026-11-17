@@ -47,6 +47,7 @@ These are business facts or authorisations the site depends on. Each has a safe 
 
 - Hosting: Vercel project **`skill-dawz`**, deploying `main` with Root Directory `jodesx`. (Projects `skill` and `skill-h11f` are earlier duplicates and can be deleted.)
 - Domain: **www.jodesx.com** (canonical); `jodesx.com` redirects to it. DNS managed by Vercel.
+- Registrar: **Spaceship** (spaceship.com). Expires **16 Nov 2027**. Transfer lock **on** (verified in the .com registry 17 Nov 2026); auto-renew **on** and account 2FA set by the owner (17 Nov 2026). Nameservers: ns1/ns2.vercel-dns.com — do not change.
 - Email: Zoho Mail mailboxes on jodesx.com; website forms delivered through Resend.
 - Security headers: securityheaders.com grade **A** (17 Nov 2026). `'unsafe-inline'` scripts accepted deliberately (see ARCHITECTURE.md); CORS limited to the site's origin.
 - DMARC: `_dmarc` TXT `v=DMARC1; p=none; rua=mailto:dmarc@jodesx.com` added 17 Nov 2026, verified with MXToolbox. **To do (early–mid December 2026):** switch to `p=quarantine` after 2–4 weeks without delivery problems.

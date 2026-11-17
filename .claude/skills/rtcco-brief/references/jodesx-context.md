@@ -19,6 +19,8 @@ Use the facts relevant to the task. If a fact here conflicts with the codebase o
 - Website: **https://www.jodesx.com** (jodesx.com redirects to www).
 - Code: GitHub repo `abood2891996/Skill`, website in folder `jodesx/`, live branch `main`.
 - Hosting: Vercel project `skill-dawz` (Root Directory `jodesx`); DNS managed in Vercel.
+- Domain registrar: Spaceship — expires 16 Nov 2027, auto-renew on, transfer lock on.
+- DMARC: `p=none` since 17 Nov 2026; switch to `p=quarantine` in early–mid December 2026.
 - Email: Zoho Mail inboxes on @jodesx.com; website forms delivered by Resend. Settings are Vercel environment variables (see `jodesx/docs/DEPLOYMENT.md`).
 - Google Search Console verified; sitemap submitted.
 - Owner is not a developer: explain steps simply, one action at a time.
