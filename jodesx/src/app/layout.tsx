@@ -25,6 +25,8 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
   formatDetection: { telephone: false },
+  // Google Search Console ownership verification for www.jodesx.com
+  verification: { google: "rNkSC3I96srw3XN11LAOY19tTidDYGHB9UL7-5P4lBk" },
 };
 
 export const viewport: Viewport = {
