@@ -30,10 +30,9 @@ test("HTML in a post stays plain text", () => {
   assert.equal(blocks[0]?.type === "paragraph" && blocks[0].content[0]?.text, "<script>alert(1)</script>");
 });
 
-test("every published job file has valid front matter", () => {
+test("every published job file (if any) has valid front matter", () => {
   const dir = join(import.meta.dirname, "../src/content/jobs");
   const files = readdirSync(dir).filter((f) => f.endsWith(".md") && !f.startsWith("_"));
-  assert.ok(files.length > 0);
   for (const f of files) {
     const { data } = parseDocument(readFileSync(join(dir, f), "utf8"));
     const r = jobFrontMatter.safeParse(data);

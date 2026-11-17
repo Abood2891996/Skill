@@ -118,6 +118,7 @@ export default function CareersPage() {
         <div className="mt-10">
           <JobBoard jobs={jobs} />
         </div>
+        {open.length > 0 && (
         <p className="mt-8 text-fg-muted">
           Don&rsquo;t see the right role?{" "}
           <Link href="/careers/apply" className="font-semibold text-fg underline underline-offset-4">
@@ -125,6 +126,7 @@ export default function CareersPage() {
           </Link>
           .
         </p>
+        )}
       </Section>
 
       <Section surface="dark" labelledBy="look-title">

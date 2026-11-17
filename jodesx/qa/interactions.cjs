@@ -3,6 +3,8 @@
 const { chromium } = require("playwright");
 const BASE = process.env.BASE_URL || "http://localhost:3100";
 let failures = 0;
+/** Waits up to 5 s for a locator to become visible (avoids racing React re-renders). */
+const visible = (locator) => locator.first().waitFor({ state: "visible", timeout: 5000 }).then(() => true, () => false);
 const ok = (cond, msg) => { console.log(`${cond ? "PASS" : "FAIL"}  ${msg}`); if (!cond) failures++; };
 
 (async () => {
@@ -142,11 +144,11 @@ const ok = (cond, msg) => { console.log(`${cond ? "PASS" : "FAIL"}  ${msg}`); if
     ]);
     const status = resp.status();
     if (status === 503) {
-      ok(await page.getByText("Online inquiries are not connected yet").isVisible(), "unconfigured delivery is reported honestly (503)");
-      ok(await page.getByRole("button", { name: "Copy my inquiry" }).isVisible(), "visitor can copy their inquiry");
+      ok(await visible(page.getByText("Online inquiries are not connected yet")), "unconfigured delivery is reported honestly (503)");
+      ok(await visible(page.getByRole("button", { name: "Copy my inquiry" })), "visitor can copy their inquiry");
       ok((await page.locator("#name").inputValue()) === "Test Person", "form data is preserved");
     } else {
-      ok(status === 200 && (await page.getByText("Inquiry received.").isVisible()), "configured delivery shows success state");
+      ok(status === 200 && (await visible(page.getByText("Inquiry received."))), "configured delivery shows success state");
     }
     await page.close();
   }
@@ -193,19 +195,23 @@ const ok = (cond, msg) => { console.log(`${cond ? "PASS" : "FAIL"}  ${msg}`); if
     await page.goto(BASE + "/careers", { waitUntil: "networkidle" });
     const rows = page.locator(".job-row");
     const total = await rows.count();
-    ok(total >= 1, `job board lists open roles (${total})`);
-    await page.locator("#roles label", { hasText: "Content Moderation" }).click();
-    ok((await rows.count()) === 1 && (await rows.first().textContent()).includes("Content Moderator"), "team filter narrows the list");
-    await page.locator("#roles label", { hasText: "All teams" }).click();
-    ok((await rows.count()) === total, "clearing the filter restores all roles");
-    await rows.filter({ hasText: "Content Moderator" }).click();
-    await page.waitForURL("**/careers/content-moderator");
-    ok((await page.locator("h1").textContent()) === "Content Moderator", "job page opens from the board");
-    const ld = await page.$$eval('script[type="application/ld+json"]', (s) => s.map((x) => x.textContent).join(""));
-    ok(ld.includes('"JobPosting"'), "job page publishes JobPosting structured data");
+    if (total === 0) {
+      ok(await page.getByText("No open roles right now").first().isVisible(), "empty job board explains there are no open roles");
+      await page.locator("#roles").getByRole("link", { name: "Send an open application" }).first().click();
+    } else {
+      ok(true, `job board lists ${total} open role(s)`);
+      await rows.first().click();
+      await page.waitForURL("**/careers/*");
+      const ld = await page.$$eval('script[type="application/ld+json"]', (s) => s.map((x) => x.textContent).join(""));
+      ok(ld.includes('"JobPosting"'), "job page publishes JobPosting structured data");
+      await page.goto(BASE + "/careers/apply", { waitUntil: "networkidle" });
+    }
+    await page.waitForURL("**/careers/apply");
+    await page.waitForLoadState("networkidle");
+    ok(await page.getByText("Open application", { exact: false }).first().isVisible(), "open application page reachable");
 
     await page.getByRole("button", { name: "Send application" }).click();
-    ok((await page.locator("#apply .field-error").count()) >= 8, "empty application shows field errors");
+    ok((await page.locator(".field-error").count()) >= 8, "empty application shows field errors");
     ok(await page.locator("#fullName").evaluate((el) => el === document.activeElement), "focus moves to first invalid field");
 
     await page.fill("#fullName", "Lina Odeh");
@@ -215,26 +221,25 @@ const ok = (cond, msg) => { console.log(`${cond ? "PASS" : "FAIL"}  ${msg}`); if
     await page.fill("#languages", "English (fluent), Arabic (native)");
     await page.selectOption("#availability", "2-weeks");
     await page.fill("#message", "I have two years of experience reviewing marketplace listings against detailed written policies.");
-    await page.locator('#apply input[name="consent"]').check();
+    await page.locator('input[name="consent"]').check();
 
-    // A renamed executable must be rejected by its file signature on the server.
     await page.setInputFiles("#cv", { name: "cv.pdf", mimeType: "application/pdf", buffer: Buffer.from([0x4d, 0x5a, 0x90, 0x00, 0x03]) });
     ok(await page.getByText("cv.pdf").isVisible(), "chosen file is shown with its name");
     await page.waitForTimeout(3100);
     let [resp] = await Promise.all([page.waitForResponse("**/api/careers/apply"), page.getByRole("button", { name: "Send application" }).click()]);
-    ok(resp.status() === 422 && (await page.getByText("doesn't look like a valid PDF").isVisible()), "fake PDF rejected by file signature");
+    ok(resp.status() === 422 && (await visible(page.getByText("doesn't look like a valid PDF"))), "fake PDF rejected by file signature");
 
     await page.setInputFiles("#cv", { name: "Lina CV.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n%test\n") });
     [resp] = await Promise.all([page.waitForResponse("**/api/careers/apply"), page.getByRole("button", { name: "Send application" }).click()]);
     if (resp.status() === 503) {
-      ok(await page.getByText("Online applications are not connected yet").isVisible(), "unconfigured application delivery reported honestly (503)");
+      ok(await visible(page.getByText("Online applications are not connected yet")), "unconfigured application delivery reported honestly (503)");
       ok((await page.locator("#fullName").inputValue()) === "Lina Odeh", "application data preserved");
     } else {
-      ok(resp.status() === 200 && (await page.getByText("Application received.").isVisible()), "configured delivery shows success");
+      ok(resp.status() === 200 && (await visible(page.getByText("Application received."))), "configured delivery shows success");
     }
     await page.close();
 
-    const req = (await browser.newContext({ extraHTTPHeaders: { "X-Forwarded-For": "10.97.1.1" } })).request;
+    const req = (await browser.newContext({ extraHTTPHeaders: { "X-Forwarded-For": `10.97.${Math.floor(Math.random() * 250)}.${Math.floor(Math.random() * 250)}` } })).request;
     const form = { job: "no-such-role", fullName: "A B", email: "a@b.co", phone: "+962 7 9123 4567", location: "Amman", languages: "English", availability: "later", message: "x".repeat(60), consent: "true",
       cv: { name: "cv.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4") } };
     const r = await req.post(BASE + "/api/careers/apply", { multipart: form });
@@ -256,7 +261,7 @@ const ok = (cond, msg) => { console.log(`${cond ? "PASS" : "FAIL"}  ${msg}`); if
   // ---------- Link integrity ----------
   {
     const page = await browser.newPage();
-    const pages = ["/", "/services", "/services/content-moderation", "/services/customer-support", "/services/back-office", "/services/ai-data-operations", "/how-we-work", "/about", "/contact", "/privacy", "/why-jodesx", "/careers", "/careers/apply", "/careers/content-moderator"];
+    const pages = ["/", "/services", "/services/content-moderation", "/services/customer-support", "/services/back-office", "/services/ai-data-operations", "/how-we-work", "/about", "/contact", "/privacy", "/why-jodesx", "/careers", "/careers/apply"];
     const hrefs = new Set();
     let hashOnly = 0;
     for (const p of pages) {

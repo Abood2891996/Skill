@@ -38,7 +38,7 @@ These are business facts or authorisations the site depends on. Each has a safe 
 | 7 | **Data-handling commitments** (e.g. NDAs, access controls you can contractually offer) | Phrased as "agreed in writing during scoping" | `pages.ts` → `generalFaqs` |
 | 8 | **AI data types beyond text** | Text-based work stated as the core | `services.ts` → AI Data Operations FAQ |
 | 9 | **Social profiles** (LinkedIn etc.) | None linked | Footer + Organization JSON-LD `sameAs` |
-| 10 | **The four example job postings** (Content Moderator, Customer Support Specialist, Data Annotation Specialist, Back-Office Operations Assistant) are live as `status: open`. Confirm each is a real opening — or set it to `closed` — before sharing the site publicly. Confirm location ("Jordan"), contract types and languages. | Open | `src/content/jobs/*.md` |
+| 10 | **Job postings** | ✅ Example postings removed 17 Nov 2026 at the owner's request; careers page shows open applications until real roles are posted | `src/content/jobs/` (see POSTING-JOBS.md) |
 | 11 | **Candidate-facing commitments** — structured onboarding, supervised start, rotation/break planning for moderators, growth into QA/training/leadership, "every application is read by a person" | Stated on Careers | `src/content/careers.ts` |
 | 12 | **Why JoDesx commitments** — named contact per client, documentation belongs to the client, scope in writing | Stated as commitments | `src/content/why.ts` |
 | 13 | **Applicant data retention period** | "No longer than necessary for recruitment" | Privacy policy §3 |
