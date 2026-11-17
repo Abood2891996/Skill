@@ -1,0 +1,346 @@
+<!-- PART A — FOR THE OWNER (no coding knowledge needed) -->
+
+<section class="part-cover" id="part-a">
+  <p class="part-label">Part A</p>
+  <h1>Running your website</h1>
+  <p class="lead">Everything you need to manage JoDesx day to day — in plain language, with no coding. Each chapter tells you where to go, what to tap and what you should see.</p>
+</section>
+
+<section id="a1">
+  <h2><span class="num">A1</span> What your website is</h2>
+  <p>JoDesx.com is a professional business website for an outsourcing and operations company. It explains your four services, convinces potential clients, collects inquiries from businesses and job applications from candidates, and delivers both to your Zoho inbox.</p>
+
+  <h3>Every page on the site</h3>
+  <table>
+    <thead><tr><th style="width:34%">Address (after www.jodesx.com)</th><th>What it is for</th></tr></thead>
+    <tbody>
+      <tr><td><code>/</code></td><td>Homepage — the first impression: headline, the four services, the challenge selector, the Operations Blueprint, why JoDesx, engagement process, quality, FAQ.</td></tr>
+      <tr><td><code>/services</code></td><td>Overview and side-by-side comparison of the four services.</td></tr>
+      <tr><td><code>/services/content-moderation</code></td><td>Content Moderation service page.</td></tr>
+      <tr><td><code>/services/customer-support</code></td><td>Customer Support service page.</td></tr>
+      <tr><td><code>/services/back-office</code></td><td>Back-Office Operations service page.</td></tr>
+      <tr><td><code>/services/ai-data-operations</code></td><td>AI Data Operations service page.</td></tr>
+      <tr><td><code>/why-jodesx</code></td><td>Ten reasons to choose JoDesx, comparison table and written commitments.</td></tr>
+      <tr><td><code>/how-we-work</code></td><td>The six-step engagement process and responsibilities on both sides.</td></tr>
+      <tr><td><code>/about</code></td><td>Who JoDesx is, why it exists, the Jordan time-zone advantage, the meaning of the logo.</td></tr>
+      <tr><td><code>/careers</code></td><td>Careers page with the job board (empty until you post jobs).</td></tr>
+      <tr><td><code>/careers/&lt;job-name&gt;</code></td><td>One page per job, with its application form.</td></tr>
+      <tr><td><code>/careers/apply</code></td><td>Open application form (for people when no job fits).</td></tr>
+      <tr><td><code>/contact</code></td><td>Client inquiry form.</td></tr>
+      <tr><td><code>/privacy</code></td><td>Privacy policy.</td></tr>
+      <tr><td><code>/sitemap.xml</code></td><td>Automatic list of pages for Google (not for people).</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="a2">
+  <h2><span class="num">A2</span> The five services that run your website</h2>
+  <p>Your website depends on five online accounts. Think of them as departments, each doing one job. <strong>Keep all five logins safe</strong> — if you lose access to one, that part stops working.</p>
+
+  <table>
+    <thead><tr><th style="width:17%">Service</th><th style="width:30%">What it does</th><th>What happens if it stops</th><th style="width:20%">Where</th></tr></thead>
+    <tbody>
+      <tr><td><strong>GitHub</strong></td><td>Stores the website's files (the "master copy"). Every change is saved here with history.</td><td>The live site keeps working, but no changes can be published.</td><td>github.com → repository <code>abood2891996/Skill</code></td></tr>
+      <tr><td><strong>Vercel</strong></td><td>Puts the website on the internet and manages the domain jodesx.com and its DNS settings.</td><td>The website goes offline and email may stop (DNS lives here).</td><td>vercel.com → project <code>skill-dawz</code></td></tr>
+      <tr><td><strong>Zoho Mail</strong></td><td>Your business inbox(es) on @jodesx.com.</td><td>You stop receiving email, including website inquiries.</td><td>mail.zoho.com</td></tr>
+      <tr><td><strong>Resend</strong></td><td>Sends each form submission from the website to your Zoho inbox.</td><td>Forms show “could not be delivered”; nothing reaches you.</td><td>resend.com</td></tr>
+      <tr><td><strong>Google Search Console</strong></td><td>Shows how people find you on Google and lets Google know about your pages.</td><td>Nothing breaks; you just lose search insight.</td><td>search.google.com/search-console</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn"><p><strong>Also keep paid renewals active:</strong> the domain <code>jodesx.com</code> must be renewed every year with the company you bought it from. If it expires, the website and email stop working. Turn on <em>auto-renew</em> there.</p></div>
+
+  <h3>How a change reaches the live website</h3>
+  <div class="flow">
+    <div><strong>1. Edit</strong><span>A file is changed on GitHub</span></div>
+    <div><strong>2. Save</strong><span>“Commit” to the <code>main</code> branch</span></div>
+    <div><strong>3. Build</strong><span>Vercel notices and rebuilds the site (≈1 min)</span></div>
+    <div><strong>4. Check</strong><span>If the build succeeds, the new version goes live</span></div>
+  </div>
+  <p>If a change contains a mistake, Vercel's build <strong>fails safely</strong>: the old version stays online and nothing breaks for visitors. You simply fix the mistake and save again.</p>
+</section>
+
+<section id="a3">
+  <h2><span class="num">A3</span> Words you will see</h2>
+  <dl class="glossary">
+    <dt>Repository (repo)</dt><dd>The folder on GitHub holding all website files. Yours is <code>abood2891996/Skill</code>; the website lives in its <code>jodesx</code> folder.</dd>
+    <dt>Commit</dt><dd>Saving a change on GitHub, with a short note describing it. Every commit is kept, so changes can be undone.</dd>
+    <dt>Branch / main</dt><dd>A version line of the files. <code>main</code> is the one that goes live. Always save your edits to <code>main</code>.</dd>
+    <dt>Deployment</dt><dd>One published version of the website on Vercel. Each commit creates a new deployment.</dd>
+    <dt>Build</dt><dd>Vercel turning the files into a website. Takes about a minute. It can “fail” if a file has a mistake.</dd>
+    <dt>Domain</dt><dd>Your address: jodesx.com.</dd>
+    <dt>DNS records</dt><dd>Settings that tell the internet where your website and email live. Yours are managed in Vercel.</dd>
+    <dt>Environment variables</dt><dd>Private settings stored in Vercel (like your Resend key and inbox address) that the website reads. They are not in the files on GitHub.</dd>
+    <dt>API key</dt><dd>A password that lets one service use another (e.g. the website using Resend). Never share it.</dd>
+    <dt>Redeploy</dt><dd>Asking Vercel to rebuild the current version — needed after changing environment variables.</dd>
+  </dl>
+</section>
+
+<section id="a4">
+  <h2><span class="num">A4</span> Editing text on the website yourself</h2>
+  <p>Almost all words on the website are stored in a few “content” files. You can edit them directly on the GitHub website — no software needed.</p>
+
+  <h3>Step by step: change any text</h3>
+  <ol class="steps">
+    <li>Go to <strong>github.com</strong>, sign in, and open the repository <strong>abood2891996/Skill</strong>.</li>
+    <li>Make sure the branch selector at the top-left says <strong>main</strong>.</li>
+    <li>Open the folders <code>jodesx</code> → <code>src</code> → <code>content</code> (or the file named in the table below).</li>
+    <li>Tap the file, then tap the <strong>pencil icon ✎</strong> (“Edit this file”) at the top-right of the file.</li>
+    <li>Find the text with your browser's search (on iPad: Share → Find on Page; on a computer: Ctrl/Cmd + F) and change only the words <em>between the quote marks</em>.</li>
+    <li>Tap <strong>Commit changes…</strong>, write a short note such as “Update homepage headline”, choose <strong>Commit directly to the main branch</strong>, and confirm.</li>
+    <li>Wait about one minute, then refresh your website.</li>
+  </ol>
+
+  <div class="callout tip"><p><strong>The three golden rules when editing text files</strong></p>
+    <ul>
+      <li>Change only what is <strong>inside the quote marks</strong> <code>"like this"</code>. Keep the quotes, commas and brackets exactly as they are.</li>
+      <li>If your text contains a double quote <code>"</code>, use typographic quotes “ ” instead.</li>
+      <li>Apostrophes (’) are fine inside <code>"…"</code> text in <code>.ts</code> files.</li>
+    </ul>
+  </div>
+
+  <h3>Where each piece of text lives</h3>
+  <table class="compact">
+    <thead><tr><th style="width:30%">What you want to change</th><th>File (inside <code>jodesx/</code>)</th><th style="width:26%">Look for</th></tr></thead>
+    <tbody>
+      <tr><td>Homepage headline, intro and closing message</td><td><code>src/content/pages.ts</code></td><td><code>export const home</code></td></tr>
+      <tr><td>Homepage section titles (e.g. “Where is the pressure…”)</td><td><code>src/app/page.tsx</code></td><td>the visible sentence</td></tr>
+      <tr><td>The challenge selector options</td><td><code>src/content/pages.ts</code></td><td><code>challenges</code></td></tr>
+      <tr><td>Everything on a service page, incl. its workflow steps</td><td><code>src/content/services.ts</code></td><td>the service name</td></tr>
+      <tr><td>Service comparison table</td><td><code>src/content/pages.ts</code></td><td><code>comparisonRows</code></td></tr>
+      <tr><td>Why JoDesx reasons, comparison and commitments</td><td><code>src/content/why.ts</code></td><td><code>coreReasons</code>, <code>moreReasons</code>, <code>comparison</code>, <code>commitments</code></td></tr>
+      <tr><td>Engagement steps (How we work)</td><td><code>src/content/pages.ts</code></td><td><code>processSteps</code>, <code>engagementFlow</code></td></tr>
+      <tr><td>Responsibilities lists on How we work</td><td><code>src/app/how-we-work/page.tsx</code></td><td><code>responsibilities</code></td></tr>
+      <tr><td>Quality loop, environments, engagement models</td><td><code>src/content/pages.ts</code></td><td><code>qualityPhilosophy</code>, <code>environments</code>, <code>engagementModels</code></td></tr>
+      <tr><td>Homepage FAQ</td><td><code>src/content/pages.ts</code></td><td><code>generalFaqs</code></td></tr>
+      <tr><td>About page</td><td><code>src/content/pages.ts</code></td><td><code>export const about</code></td></tr>
+      <tr><td>Careers page text, hiring steps, candidate FAQ</td><td><code>src/content/careers.ts</code></td><td>the visible sentence</td></tr>
+      <tr><td>Contact page “What happens next”</td><td><code>src/app/contact/page.tsx</code></td><td><code>nextSteps</code></td></tr>
+      <tr><td>Form options (services, team size, start dates)</td><td><code>src/lib/validation/contact.ts</code></td><td><code>Options</code></td></tr>
+      <tr><td>Menu and footer links</td><td><code>src/content/navigation.ts</code></td><td><code>primaryNav</code>, <code>footerNav</code></td></tr>
+      <tr><td>Footer sentences</td><td><code>src/components/layout/SiteFooter.tsx</code></td><td>the visible sentence</td></tr>
+      <tr><td>Privacy policy</td><td><code>src/app/privacy/page.tsx</code></td><td>the section title</td></tr>
+      <tr><td>Google title &amp; description of a page</td><td>top of that page's file (<code>createMetadata</code>) — services: <code>meta</code> in <code>services.ts</code></td><td><code>title:</code> / <code>description:</code></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn"><p>In files ending in <strong><code>.tsx</code></strong>, an apostrophe typed directly into visible text (not inside quote marks) can fail the build. Write <code>&amp;rsquo;</code> instead of <code>’</code> there — for example <code>We&amp;rsquo;ll</code>. If you are unsure, ask a developer or use the <code>.ts</code> content files, which are safer.</p></div>
+</section>
+
+<section id="a5">
+  <h2><span class="num">A5</span> Posting, closing and removing jobs</h2>
+  <p>Each job is one small text file in <code>jodesx/src/content/jobs/</code>. The website builds the job board, the job page, the application form, the sitemap entry and Google Jobs data from it automatically.</p>
+
+  <h3>Post a new job</h3>
+  <ol class="steps">
+    <li>On GitHub (branch <strong>main</strong>), open <code>jodesx/src/content/jobs/</code> and open <code>_TEMPLATE.md</code>. Tap the <strong>copy</strong> icon to copy its contents.</li>
+    <li>Go back to the <code>jobs</code> folder and tap <strong>Add file → Create new file</strong>.</li>
+    <li>Name it after the job with lowercase letters and hyphens, ending in <code>.md</code> — e.g. <code>customer-support-agent.md</code>. This becomes the address <code>www.jodesx.com/careers/customer-support-agent</code>.</li>
+    <li>Paste the template and fill in the fields at the top (between the two <code>---</code> lines) using the table below.</li>
+    <li>Write the description under the second <code>---</code> line.</li>
+    <li>Tap <strong>Commit changes</strong> → <strong>main</strong>. After about a minute the job appears on <code>/careers</code>.</li>
+  </ol>
+
+  <table class="compact">
+    <thead><tr><th style="width:16%">Field</th><th>Meaning</th><th style="width:44%">Allowed values (type exactly)</th></tr></thead>
+    <tbody>
+      <tr><td><code>title</code></td><td>Job title</td><td>Any text</td></tr>
+      <tr><td><code>team</code></td><td>Which team</td><td><code>Content Moderation</code> · <code>Customer Support</code> · <code>Back-Office Operations</code> · <code>AI Data Operations</code> · <code>Operations &amp; Quality</code> · <code>Company</code></td></tr>
+      <tr><td><code>type</code></td><td>Contract type</td><td><code>Full-time</code> · <code>Part-time</code> · <code>Contract</code></td></tr>
+      <tr><td><code>workplace</code></td><td>Where the work happens</td><td><code>Remote</code> · <code>On-site</code> · <code>Hybrid</code></td></tr>
+      <tr><td><code>location</code></td><td>City / country</td><td>e.g. <code>Amman, Jordan</code></td></tr>
+      <tr><td><code>status</code></td><td>Accepting applications?</td><td><code>open</code> · <code>closed</code></td></tr>
+      <tr><td><code>posted</code></td><td>Date posted</td><td><code>YYYY-MM-DD</code>, e.g. <code>2027-01-15</code></td></tr>
+      <tr><td><code>summary</code></td><td>Short text on the job board</td><td>20–220 characters</td></tr>
+      <tr><td><code>languages</code></td><td>Optional</td><td>Any text, e.g. <code>English (fluent); Arabic is a plus</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Writing the description</h3>
+  <div class="two-col">
+    <div>
+      <p>You can use exactly four formats:</p>
+      <ul>
+        <li><code>## Heading</code> — a section title</li>
+        <li><code>- item</code> — a bullet point</li>
+        <li><code>**bold**</code> — bold words</li>
+        <li>An empty line — starts a new paragraph</li>
+      </ul>
+    </div>
+<pre>---
+title: Customer Support Agent
+team: Customer Support
+type: Full-time
+workplace: Remote
+location: Jordan
+status: open
+posted: 2027-01-15
+summary: Answer customers by email and chat for international brands.
+---
+
+Short opening paragraph about the role.
+
+## What you'll do
+
+- Answer customer emails
+- **Resolve** issues within agreed rules</pre>
+  </div>
+
+  <h3>Close or remove a job</h3>
+  <ul>
+    <li><strong>Close</strong> (stop applications, keep the page): edit the file and change <code>status: open</code> to <code>status: closed</code>. It disappears from the job board; the server refuses new applications.</li>
+    <li><strong>Remove completely</strong>: open the file, tap the <strong>⋯</strong> menu → <strong>Delete file</strong>, then commit to <strong>main</strong>.</li>
+  </ul>
+  <p>When no jobs are open, the Careers page automatically shows “No open roles right now” and invites open applications.</p>
+
+  <div class="callout tip"><p><strong>If the job does not appear after 2 minutes</strong>, a field probably has a value that is not allowed (for example <code>full time</code> instead of <code>Full-time</code>). Open Vercel → <strong>Deployments</strong>; the newest one shows <strong>Error</strong>. Tap it → <strong>Building</strong> logs: the message names the file and the field, e.g. <em>team must be one of: …</em>. Fix it and commit again. The live site is unaffected meanwhile.</p></div>
+</section>
+
+<section id="a6">
+  <h2><span class="num">A6</span> Inquiries and applications: where they go</h2>
+  <div class="flow">
+    <div><strong>Visitor</strong><span>fills a form on jodesx.com</span></div>
+    <div><strong>Website</strong><span>checks every field and blocks spam</span></div>
+    <div><strong>Resend</strong><span>sends it as an email</span></div>
+    <div><strong>Zoho</strong><span>it arrives in your inbox</span></div>
+  </div>
+  <ul>
+    <li><strong>Client inquiries</strong> arrive with the subject <em>“New inquiry JDX-XXXXXX: Company — Service”</em>. Pressing <strong>Reply</strong> answers the client directly.</li>
+    <li><strong>Job applications</strong> arrive with the subject <em>“Application APP-XXXXXX: Role — Name”</em> and the <strong>CV attached</strong>. Reply goes to the candidate.</li>
+    <li>The reference code (JDX-… / APP-…) is also shown to the visitor, so you can match messages if they contact you.</li>
+  </ul>
+
+  <h3>Change which inbox receives them</h3>
+  <ol class="steps">
+    <li>Vercel → project <strong>skill-dawz</strong> → <strong>Settings</strong> → <strong>Environment Variables</strong>.</li>
+    <li>Find <code>CONTACT_TO_EMAIL</code> (inquiries) or <code>CAREERS_TO_EMAIL</code> (applications), tap <strong>⋯ → Edit</strong>, change the address, <strong>Save</strong>.</li>
+    <li>Go to <strong>Deployments</strong> → <strong>⋯</strong> on the top deployment → <strong>Redeploy</strong>. Changes only apply after a redeploy.</li>
+  </ol>
+
+  <h3>All website settings stored in Vercel</h3>
+  <table class="compact">
+    <thead><tr><th style="width:32%">Name</th><th>What it does</th><th style="width:16%">Required?</th></tr></thead>
+    <tbody>
+      <tr><td><code>RESEND_API_KEY</code></td><td>Lets the website send through Resend. Secret.</td><td>Yes</td></tr>
+      <tr><td><code>CONTACT_FROM_EMAIL</code></td><td>Sender shown on form emails, e.g. <code>JoDesx Website &lt;website@jodesx.com&gt;</code>. Must end in <code>@jodesx.com</code>.</td><td>Yes</td></tr>
+      <tr><td><code>CONTACT_TO_EMAIL</code></td><td>Inbox for client inquiries (and applications if the next one is empty).</td><td>Yes</td></tr>
+      <tr><td><code>CAREERS_TO_EMAIL</code></td><td>Separate inbox for job applications.</td><td>Optional</td></tr>
+      <tr><td><code>NEXT_PUBLIC_CONTACT_EMAIL</code></td><td>Email shown publicly on Contact, footer and Privacy pages.</td><td>Optional</td></tr>
+      <tr><td><code>NEXT_PUBLIC_SITE_URL</code></td><td>Main address. Default is already <code>https://www.jodesx.com</code>.</td><td>Optional</td></tr>
+      <tr><td><code>CONTACT_WEBHOOK_URL</code>, <code>CAREERS_WEBHOOK_URL</code> (+ <code>_SECRET</code>)</td><td>Alternative to email: send submissions to a CRM, Zapier, etc. If set, used <em>instead of</em> email.</td><td>Optional</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="a7">
+  <h2><span class="num">A7</span> Using Vercel</h2>
+  <p>Log in at <strong>vercel.com</strong>. Your live project is <strong>skill-dawz</strong> (team “abdullah's projects”). Its important settings, which should not change:</p>
+  <table class="compact">
+    <tbody>
+      <tr><td style="width:36%">Connected repository</td><td><code>abood2891996/Skill</code> (Settings → Git)</td></tr>
+      <tr><td>Production branch</td><td><code>main</code></td></tr>
+      <tr><td>Root Directory</td><td><code>jodesx</code> (Settings → Build and Deployment) — <strong>the site breaks without this</strong></td></tr>
+      <tr><td>Framework</td><td>Next.js (detected automatically)</td></tr>
+      <tr><td>Domains</td><td><code>www.jodesx.com</code> (main) · <code>jodesx.com</code> → redirects to www</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The pages you will use</h3>
+  <ul>
+    <li><strong>Overview</strong> — shows the live version and its address.</li>
+    <li><strong>Deployments</strong> — every published version. Green <em>Ready</em> = live and OK; red <em>Error</em> = that change failed (the previous version stays live).</li>
+    <li><strong>Logs</strong> — what the website did in the last hours. Search <code>/api/contact</code> or <code>/api/careers</code> to investigate form problems.</li>
+    <li><strong>Settings → Domains</strong> — domain status (should show blue ticks).</li>
+    <li><strong>Settings → Environment Variables</strong> — the private settings in chapter A6.</li>
+  </ul>
+
+  <h3>Undo a bad change in 30 seconds (rollback)</h3>
+  <ol class="steps">
+    <li>Vercel → <strong>skill-dawz</strong> → <strong>Deployments</strong>.</li>
+    <li>Find the last version that worked (look at the date and the commit note).</li>
+    <li>Tap <strong>⋯</strong> next to it → <strong>Instant Rollback</strong> (sometimes labelled <strong>Promote to Production</strong>) → confirm.</li>
+    <li>The old version is live again immediately. Then fix or undo the faulty change on GitHub calmly.</li>
+  </ol>
+
+  <div class="callout warn"><p><strong>Vercel plan.</strong> Your project is on the free <strong>Hobby</strong> plan. Vercel's terms describe Hobby as intended for personal, non-commercial use. Because JoDesx is a business website, review Vercel's fair-use terms and consider upgrading the team to <strong>Pro</strong> (Settings → Billing) to stay within the rules and gain more resources.</p></div>
+</section>
+
+<section id="a8">
+  <h2><span class="num">A8</span> Your domain and DNS — do not delete these</h2>
+  <p>Your domain's nameservers point to Vercel, so <strong>all DNS records are managed in Vercel</strong>: at the top of Vercel (outside the project) tap <strong>Domains</strong> → <strong>jodesx.com</strong> → <strong>DNS Records</strong>.</p>
+  <table class="compact">
+    <thead><tr><th style="width:24%">Records for</th><th>Typical names</th><th style="width:38%">If deleted…</th></tr></thead>
+    <tbody>
+      <tr><td>The website</td><td>managed automatically by Vercel</td><td>website unreachable</td></tr>
+      <tr><td>Zoho Mail</td><td><code>MX</code> on <code>@</code> (mx.zoho…), <code>TXT</code> “v=spf1 include:zoho…”, <code>TXT</code> <code>zmail._domainkey</code> (DKIM), Zoho verification <code>TXT</code></td><td>you stop receiving email / your emails land in spam</td></tr>
+      <tr><td>Resend</td><td><code>resend._domainkey</code> (TXT), <code>send</code> (MX and TXT)</td><td>website forms stop delivering</td></tr>
+      <tr><td>Google</td><td>none — verification is in the website's code</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <div class="callout tip"><p>Adding a new service later (for example Google Workspace, Microsoft 365, a newsletter tool) usually means adding records here. <strong>Add</strong> new records; never delete existing ones unless you know exactly what they are for. Take a screenshot of the list before any change.</p></div>
+</section>
+
+<section id="a9">
+  <h2><span class="num">A9</span> Email: Zoho and Resend</h2>
+  <ul>
+    <li><strong>Zoho Mail</strong> holds your mailboxes. Create more addresses (e.g. <code>careers@jodesx.com</code>) in Zoho's <strong>Admin Console → Users</strong> or as <strong>aliases</strong> of an existing mailbox. If you add one for applications, put it in <code>CAREERS_TO_EMAIL</code> and redeploy.</li>
+    <li><strong>Resend</strong> only sends the website's emails. Its <strong>Emails</strong> page lists every email the website sent, with status <em>Delivered</em>, <em>Bounced</em> etc. — the first place to look if an inquiry seems missing.</li>
+    <li>Resend's free plan has sending limits (see resend.com/pricing). They are far above what a company website needs; upgrade only if Resend warns you.</li>
+  </ul>
+  <div class="callout warn"><p><strong>If your Resend key is ever exposed</strong> (sent in a chat, pasted somewhere public): Resend → <strong>API Keys</strong> → delete it → create a new one → paste it into <code>RESEND_API_KEY</code> in Vercel → <strong>Redeploy</strong>.</p></div>
+</section>
+
+<section id="a10">
+  <h2><span class="num">A10</span> Google Search Console</h2>
+  <p>Ownership of <code>https://www.jodesx.com</code> is verified through a tag in the website's code (do not remove it). The sitemap <code>sitemap.xml</code> is submitted and updates itself whenever pages or jobs change.</p>
+  <ul>
+    <li><strong>Performance</strong> — searches that showed your site, clicks and positions (data appears after a few days).</li>
+    <li><strong>Pages</strong> — which pages Google has indexed and any problems.</li>
+    <li><strong>URL inspection</strong> — paste a page address and tap <strong>Request indexing</strong> after a big change or a new job post.</li>
+  </ul>
+</section>
+
+<section id="a11">
+  <h2><span class="num">A11</span> Problem solving: symptom → cause → fix</h2>
+  <table class="trouble">
+    <thead><tr><th style="width:27%">You notice…</th><th style="width:30%">Most likely cause</th><th>What to do</th></tr></thead>
+    <tbody>
+      <tr><td>The website does not open at all</td><td>Domain expired, or DNS/domain settings changed in Vercel</td><td>Check the domain renewal at the company you bought it from. In Vercel → Settings → Domains, both domains must show ticks; if “Invalid Configuration”, see A8. Check status.vercel.com for outages.</td></tr>
+      <tr><td>I saved a change but the site did not update</td><td>The build failed, or it is still building</td><td>Vercel → Deployments. <em>Building</em> → wait. <em>Error</em> → open it, read the log (it names the file and line), fix on GitHub, commit again.</td></tr>
+      <tr><td>The site shows something broken after my change</td><td>A text edit changed the layout or meaning</td><td>Do an <strong>Instant Rollback</strong> (A7), then correct the edit on GitHub.</td></tr>
+      <tr><td>Form says “Online inquiries are not connected yet”</td><td>Email settings missing in Vercel, or no redeploy after adding them</td><td>Check <code>RESEND_API_KEY</code>, <code>CONTACT_FROM_EMAIL</code>, <code>CONTACT_TO_EMAIL</code> exist (A6). Then Redeploy.</td></tr>
+      <tr><td>Form says “could not be delivered”</td><td>Resend key wrong/deleted, domain unverified in Resend, or sender not @jodesx.com</td><td>Resend → Domains: jodesx.com must be <em>Verified</em>. Resend → API Keys: create a new key, update Vercel, Redeploy. Vercel → Logs for details.</td></tr>
+      <tr><td>Form succeeds but no email arrives</td><td>Went to spam, or a typo in the receiving address</td><td>Check Zoho's Spam folder. Resend → Emails shows whether it was delivered and to which address. Fix <code>CONTACT_TO_EMAIL</code> if needed.</td></tr>
+      <tr><td>“Too many inquiries were sent from this connection”</td><td>Anti-spam limit (5 inquiries / 10 min, 5 applications / 30 min per connection)</td><td>Normal protection. Wait and retry. If genuine visitors hit it often, ask a developer to adjust the limit (B8).</td></tr>
+      <tr><td>Applicant says their CV was rejected</td><td>File is not a real PDF/DOC/DOCX, or larger than 4 MB</td><td>Ask them to export the CV again as PDF (“Save as PDF”) under 4 MB.</td></tr>
+      <tr><td>A new job does not appear</td><td><code>status</code> is not <code>open</code>, or a field value is invalid (build failed)</td><td>See the tip at the end of A5.</td></tr>
+      <tr><td>A job page shows “Page not found”</td><td>File was deleted or renamed</td><td>Restore it (GitHub keeps history) or post it again.</td></tr>
+      <tr><td>Zoho email stopped working</td><td>Zoho DNS records deleted/changed</td><td>Zoho Admin Console → Domains → jodesx.com shows which record is missing; add it back in Vercel DNS (A8).</td></tr>
+      <tr><td>Link previews (WhatsApp, LinkedIn) look old</td><td>Those apps cache previews</td><td>Wait a day, or use LinkedIn Post Inspector to refresh.</td></tr>
+      <tr><td>Google shows old text</td><td>Google has not re-read the page yet</td><td>Search Console → URL inspection → Request indexing.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="a12">
+  <h2><span class="num">A12</span> Security checklist</h2>
+  <ul class="checklist">
+    <li>Two-factor authentication (2FA) on <strong>GitHub, Vercel, Zoho, Resend, Google</strong>, and the company holding your domain.</li>
+    <li>Domain <strong>auto-renew</strong> on, with a valid payment card.</li>
+    <li>Never share API keys or passwords in chats or emails; if one leaks, replace it (A9).</li>
+    <li>Only give GitHub/Vercel access to developers you trust, and remove it when their work ends (GitHub → Settings → Collaborators; Vercel → Team Settings → Members).</li>
+    <li>Keep this guide and a list of your accounts in a safe place.</li>
+  </ul>
+</section>
+
+<section id="a13">
+  <h2><span class="num">A13</span> Hiring a developer: what to send them</h2>
+  <p>Any web developer familiar with <strong>Next.js / React</strong> can work on this site. Give them:</p>
+  <ol>
+    <li>This guide (Part B is written for them).</li>
+    <li>Access to the GitHub repository <code>abood2891996/Skill</code> as a collaborator.</li>
+    <li>If needed, membership of the Vercel team — or let them work through GitHub only, and keep Vercel to yourself.</li>
+    <li>Your request, in plain words, with screenshots.</li>
+  </ol>
+  <p>Ask them to keep <code>npm run check</code> passing and to update the documentation in <code>jodesx/docs/</code> when they change something important.</p>
+</section>

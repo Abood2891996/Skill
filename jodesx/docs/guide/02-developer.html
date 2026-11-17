@@ -1,0 +1,317 @@
+<!-- PART B — FOR DEVELOPERS -->
+
+<section class="part-cover" id="part-b">
+  <p class="part-label">Part B</p>
+  <h1>Developer handbook</h1>
+  <p class="lead">Architecture, conventions and step-by-step recipes for extending the JoDesx website safely. Read B1–B4 once; use the rest as reference.</p>
+</section>
+
+<section id="b1">
+  <h2><span class="num">B1</span> Stack and repository</h2>
+  <table class="compact">
+    <tbody>
+      <tr><td style="width:28%">Framework</td><td>Next.js 16 (App Router), React 19</td></tr>
+      <tr><td>Language</td><td>TypeScript 5.9 — <code>strict</code>, <code>noUncheckedIndexedAccess</code>, no <code>any</code> (lint-enforced)</td></tr>
+      <tr><td>Styling</td><td>Tailwind CSS 4 + CSS custom-property design tokens</td></tr>
+      <tr><td>Validation</td><td>Zod 4 in <code>jitless</code> mode (required by the CSP)</td></tr>
+      <tr><td>Icons</td><td><code>lucide-react</code> for UI affordances; brand visuals are hand-built SVG</td></tr>
+      <tr><td>Font</td><td>Instrument Sans variable (OFL), self-hosted via <code>next/font/local</code>; width axis used for display type</td></tr>
+      <tr><td>Email</td><td>Resend HTTP API (or signed webhook) — no SDK, plain <code>fetch</code></td></tr>
+      <tr><td>Hosting</td><td>Vercel project <code>skill-dawz</code>, Root Directory <code>jodesx</code>, production branch <code>main</code></td></tr>
+      <tr><td>Node</td><td>≥ 20.9 to build/run; ≥ 22.6 for unit tests (built-in TS stripping)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Repository layout</h3>
+<pre>Skill/                      ← GitHub repo abood2891996/Skill
+├─ jodesx/                  ← THE WEBSITE (Vercel Root Directory)
+├─ skills/security-audit/   ← unrelated: a Cloudflare security-audit Claude skill (pre-existing)
+├─ .claude/skills/          ← Claude Code skills used to build the site (frontend-design, webapp-testing)
+└─ README.md, LICENSE       ← belong to the security-audit skill</pre>
+
+  <h3>Inside <code>jodesx/</code></h3>
+<pre>src/app/            routes (App Router), API routes, metadata files
+src/components/     brand · navigation · layout · hero · interactive · services
+                    sections · forms · careers · why · motion · ui
+src/content/        ALL copy and structured content (typed) + jobs/*.md
+src/hooks/          useDismiss, usePrefersReducedMotion
+src/lib/            validation · contact (delivery, rate limit) · careers · seo · utils
+src/styles/         tokens.css · globals.css · navigation.css · signal.css
+public/brand/       generated logo assets
+scripts/            build-brand.mjs · export-brand-png.cjs · build-guide.cjs
+tests/              node:test unit tests
+qa/                 Playwright screenshot + interaction suites
+docs/               documentation (this guide's source is docs/guide/)</pre>
+</section>
+
+<section id="b2">
+  <h2><span class="num">B2</span> Local setup and commands</h2>
+<pre>git clone https://github.com/abood2891996/Skill.git
+cd Skill/jodesx
+npm install
+cp .env.example .env.local     # optional; forms report "not connected" without it
+npm run dev                    # http://localhost:3000</pre>
+  <table class="compact">
+    <thead><tr><th style="width:30%">Command</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><code>npm run dev</code></td><td>Dev server with hot reload</td></tr>
+      <tr><td><code>npm run build</code> / <code>npm start</code></td><td>Production build / serve it</td></tr>
+      <tr><td><code>npm run typecheck</code></td><td><code>tsc --noEmit</code></td></tr>
+      <tr><td><code>npm run lint</code></td><td>ESLint (next core-web-vitals + typescript)</td></tr>
+      <tr><td><code>npm test</code></td><td>Unit tests (validation, rate limit, delivery, job parser)</td></tr>
+      <tr><td><code>npm run check</code></td><td><strong>All of the above + build. Must pass before every push.</strong></td></tr>
+      <tr><td><code>npm run brand:build</code></td><td>Regenerate logo SVGs and <code>logo-geometry.ts</code></td></tr>
+      <tr><td><code>node qa/interactions.cjs</code></td><td>Browser suite against <code>BASE_URL</code> (default <code>http://localhost:3100</code>)</td></tr>
+      <tr><td><code>node scripts/build-guide.cjs</code></td><td>Rebuild this PDF from <code>docs/guide/</code></td></tr>
+    </tbody>
+  </table>
+  <div class="callout tip"><p>The QA scripts and PNG/PDF exporters need Playwright, which is <em>not</em> a project dependency: <code>npm i -D playwright &amp;&amp; npx playwright install chromium</code>, or run them where Playwright is installed globally.</p></div>
+  <p><strong>Workflow:</strong> branch from <code>main</code> → change → <code>npm run check</code> → open a pull request (Vercel creates a preview URL for it) → merge to <code>main</code> → production deploys automatically.</p>
+</section>
+
+<section id="b3">
+  <h2><span class="num">B3</span> Architecture</h2>
+  <h3>Rendering</h3>
+  <ul>
+    <li>Every page is statically prerendered at build time. Only <code>/api/contact</code> and <code>/api/careers/apply</code> run on the server (Node runtime).</li>
+    <li>Job pages use <code>generateStaticParams</code> with <code>dynamicParams = false</code>: a job exists only if its Markdown file existed at build time.</li>
+    <li><code>app/template.tsx</code> wraps routes in <code>RouteTransition</code>, which fades content in <em>only on client-side navigations</em>. Never fade the first paint from opacity 0 — Chrome then records no LCP (this bug was found and fixed).</li>
+  </ul>
+
+  <h3>Content model (<code>src/content/</code>)</h3>
+  <table class="compact">
+    <tbody>
+      <tr><td style="width:24%"><code>types.ts</code></td><td><code>ServiceSlug</code> union, <code>Service</code>, <code>BlueprintStage</code>, <code>Faq</code>, <code>TextBlock</code>. Adding a slug makes TypeScript flag every place that must handle it.</td></tr>
+      <tr><td><code>services.ts</code></td><td>Four <code>Service</code> objects: hero, problems, capabilities, workflow (feeds the Operations Blueprint), quality, use cases, engagement, FAQs, CTA, SEO meta. Exports <code>services</code>, <code>getService()</code>.</td></tr>
+      <tr><td><code>pages.ts</code></td><td>Home, About, process steps, engagement flow, challenge selector entries, quality loop, environments, engagement models, comparison rows, general FAQs.</td></tr>
+      <tr><td><code>why.ts</code></td><td>Why JoDesx: hero, core/more reasons, comparison table, commitments.</td></tr>
+      <tr><td><code>careers.ts</code></td><td>Careers copy, reasons to join (with icon keys), traits, hiring steps, FAQs.</td></tr>
+      <tr><td><code>navigation.ts</code></td><td>Header and footer links (service links derived from <code>services</code>).</td></tr>
+      <tr><td><code>site.ts</code></td><td>Name, canonical URL (<code>NEXT_PUBLIC_SITE_URL</code>, default <code>https://www.jodesx.com</code>), public email, <code>absoluteUrl()</code>.</td></tr>
+      <tr><td><code>jobs/*.md</code></td><td>Job postings (front matter + limited Markdown). Files starting with <code>_</code> are ignored.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Key components</h3>
+  <table class="compact">
+    <tbody>
+      <tr><td style="width:38%"><code>ui/Section</code>, <code>SectionHeader</code></td><td>Every section: declares a <em>surface</em> (<code>dark</code>, <code>deep</code>, <code>light</code>, <code>paper</code>) and wraps content in the container.</td></tr>
+      <tr><td><code>sections/PageHero</code></td><td>Dark intro band for inner pages: breadcrumbs, H1, lead, optional aside and buttons.</td></tr>
+      <tr><td><code>sections/ClosingCta</code></td><td>Final call to action on every page.</td></tr>
+      <tr><td><code>services/ServicePageTemplate</code></td><td>Renders an entire service page from a <code>Service</code> object.</td></tr>
+      <tr><td><code>hero/SignalField</code></td><td>Hero animation. Pure SVG + CSS; delays are computed from path geometry.</td></tr>
+      <tr><td><code>interactive/OperationsBlueprint</code></td><td>ARIA tabs + stage buttons + auto walkthrough (pauses when off-screen, stops on interaction, off under reduced motion).</td></tr>
+      <tr><td><code>interactive/ChallengeSelector</code></td><td>Native radios → recommendation → <code>/contact?service=…&amp;challenge=…</code>.</td></tr>
+      <tr><td><code>navigation/SiteHeader</code>, <code>MobileMenu</code></td><td>Disclosure dropdown; focus-trapped mobile menu rendered <em>outside</em> <code>&lt;header&gt;</code> (the header's translate would otherwise become the containing block of the fixed panel).</td></tr>
+      <tr><td><code>forms/ContactForm</code>, <code>careers/ApplicationForm</code></td><td>Client forms sharing Zod schemas with the API routes; <code>forms/fields.tsx</code> holds accessible field primitives.</td></tr>
+      <tr><td><code>motion/InViewPlayer</code></td><td>Sets <code>data-playing</code>/<code>data-seen</code>; CSS pauses animations off-screen.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="b4">
+  <h2><span class="num">B4</span> Design system</h2>
+  <ul>
+    <li><strong>Tokens</strong> — <code>src/styles/tokens.css</code>: palette (Midnight Navy <code>#0B1220</code>, Signal Cyan <code>#35D6E8</code>, Digital Violet <code>#786BFF</code>, Slate Blue <code>#172438</code>, Soft White <code>#F4F7FB</code>, plus shades), fluid type scale, spacing, radius hierarchy, motion curves. Exposed to Tailwind in <code>globals.css</code> via <code>@theme inline</code> (e.g. <code>bg-navy-900</code>, <code>text-cyan-300</code>, <code>ease-signal</code>).</li>
+    <li><strong>Surfaces</strong> — <code>.surface-dark</code> / <code>.surface-light</code> set contextual variables (<code>--fg</code>, <code>--fg-muted</code>, <code>--line</code>, <code>--accent</code>, <code>--signal</code>, <code>--focus</code>…). Components use <code>text-fg</code>, <code>border-line</code>, <code>text-accent-text</code> etc., so they work on any surface. <strong>Prefer contextual classes over raw colours.</strong></li>
+    <li><strong>Type roles</strong> — <code>.type-display-xl|lg|md</code> (condensed width axis), <code>.type-title</code>, <code>.type-lead</code>, <code>.type-small</code>.</li>
+    <li><strong>Controls</strong> — <code>.btn .btn-primary|secondary .btn-sm</code>, <code>.link-signal</code>, <code>.panel</code>, <code>.form-control</code>, <code>.field-error</code>.</li>
+    <li><strong>Signal motion</strong> — <code>signal.css</code>. Every animation has a reduced-motion still frame.</li>
+    <li><strong>Brand rules</strong> — see <code>docs/BRAND-GUIDELINES.md</code>. Sentence case; no all-caps eyebrows; numbered markers only for real sequences.</li>
+  </ul>
+  <div class="callout tip"><p><strong>Change the brand colours:</strong> edit hex values in <code>tokens.css</code> only. <strong>Change the font:</strong> replace the file in <code>src/app/fonts/</code> and the <code>localFont</code> call in <code>app/layout.tsx</code>; keep the <code>--font-instrument</code> variable name or update <code>globals.css</code>. The OG images load the <code>.woff</code> files in the same folder.</p></div>
+</section>
+
+<section id="b5">
+  <h2><span class="num">B5</span> Recipe: add a new page</h2>
+  <ol class="steps">
+    <li>Create <code>src/app/partners/page.tsx</code> (folder name = URL):</li>
+  </ol>
+<pre>import { ClosingCta } from "@/components/sections/ClosingCta";
+import { PageHero } from "@/components/sections/PageHero";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { Section, SectionHeader } from "@/components/ui/Section";
+import { createMetadata } from "@/lib/seo/metadata";
+import { breadcrumbJsonLd } from "@/lib/seo/structured-data";
+
+export const metadata = createMetadata({
+  title: "Partners",
+  description: "One-sentence description for Google (150–160 characters).",
+  path: "/partners",
+});
+
+const crumbs = [{ name: "Home", path: "/" }, { name: "Partners", path: "/partners" }];
+
+export default function PartnersPage() {
+  return (
+    &lt;&gt;
+      &lt;PageHero crumbs={crumbs} title="Headline" lead="Supporting sentence." /&gt;
+      &lt;Section surface="light" labelledBy="intro-title"&gt;
+        &lt;SectionHeader id="intro-title" title="Section title" size="md" /&gt;
+        &lt;p className="mt-6 prose-measure text-fg-muted"&gt;Body text.&lt;/p&gt;
+      &lt;/Section&gt;
+      &lt;ClosingCta title="Closing line." body="What to do next." /&gt;
+      &lt;JsonLd data={breadcrumbJsonLd(crumbs)} /&gt;
+    &lt;/&gt;
+  );
+}</pre>
+  <ol class="steps" start="2">
+    <li>Add it to the menu/footer in <code>src/content/navigation.ts</code>.</li>
+    <li>Add it to <code>src/app/sitemap.ts</code>.</li>
+    <li>Add the route to the page lists in <code>qa/interactions.cjs</code> (link check) and run <code>npm run check</code>.</li>
+  </ol>
+  <p>Rules: exactly one <code>h1</code> (PageHero provides it); every <code>Section</code> gets a <code>labelledBy</code> that matches a heading <code>id</code>; alternate surfaces for rhythm (dark hero → light → paper …).</p>
+</section>
+
+<section id="b6">
+  <h2><span class="num">B6</span> Recipe: add a fifth service</h2>
+  <ol class="steps">
+    <li><code>src/content/types.ts</code> — add the slug to <code>ServiceSlug</code>, e.g. <code>| "sales-support"</code>. Run <code>npm run typecheck</code>: TypeScript now lists every place that must be updated.</li>
+    <li><code>src/content/services.ts</code> — create the <code>Service</code> object (copy an existing one) and add it to the <code>services</code> array. Navigation, grid, Blueprint tabs, comparison table columns and related links pick it up automatically.</li>
+    <li><code>src/components/services/ServiceGlyph.tsx</code> — add a glyph to <code>GLYPHS</code> (48-unit grid; lanes, gates, a <code>.glyph-unit</code> square).</li>
+    <li><code>src/content/pages.ts</code> — add a value for the new slug in every <code>comparisonRows</code> row (required by type); optionally add <code>challenges</code> and <code>environments</code> entries.</li>
+    <li><code>src/lib/validation/contact.ts</code> — add it to <code>serviceOptions</code> (form dropdown + email label).</li>
+    <li>Create <code>src/app/services/sales-support/page.tsx</code> and <code>opengraph-image.tsx</code> by copying an existing service folder and changing the slug.</li>
+    <li>Optional: add a job team in <code>src/lib/careers/job-schema.ts</code> (<code>jobTeams</code>).</li>
+    <li>Run <code>npm run check</code> and the browser suite; check the Blueprint layout (it is designed for five stages per service).</li>
+  </ol>
+</section>
+
+<section id="b7">
+  <h2><span class="num">B7</span> Recipe: change a form</h2>
+  <p>Both forms follow the same pattern: <strong>schema → client form → API route → email text</strong>. Example — add a “Website” field to the inquiry form:</p>
+  <ol class="steps">
+    <li><code>src/lib/validation/contact.ts</code> — add to <code>contactSchema</code>:
+<pre>companyWebsite: z.string().trim().max(200).optional()
+  .transform((v) => (v ? v : undefined))
+  .pipe(z.url({ protocol: /^https?$/ }).optional()),</pre></li>
+    <li><code>src/components/forms/ContactForm.tsx</code> — add <code>companyWebsite: ""</code> to <code>EMPTY</code> and the <code>Values</code> type, map it in <code>toInput()</code>, and render a <code>&lt;Field&gt;</code> + <code>&lt;TextInput&gt;</code> like the others.</li>
+    <li><code>src/lib/contact/delivery.ts</code> — include it in <code>formatInquiryText()</code> and the webhook <code>payload</code>.</li>
+    <li>Add a unit test in <code>tests/contact.test.ts</code>; run <code>npm run check</code>.</li>
+  </ol>
+  <p>The API route validates with the same schema, so no route change is needed for simple fields. Job applications use <code>lib/validation/application.ts</code>, <code>careers/ApplicationForm.tsx</code> and <code>app/api/careers/apply/route.ts</code> (multipart; read fields via <code>form.get()</code>).</p>
+</section>
+
+<section id="b8">
+  <h2><span class="num">B8</span> APIs, delivery and security</h2>
+  <h3><code>POST /api/contact</code> (JSON) and <code>POST /api/careers/apply</code> (multipart)</h3>
+  <table class="compact">
+    <thead><tr><th style="width:40%">Check (in order)</th><th>Response</th></tr></thead>
+    <tbody>
+      <tr><td>Origin header must match Host</td><td>403</td></tr>
+      <tr><td>Content type (JSON / multipart)</td><td>415</td></tr>
+      <tr><td>Rate limit per client IP — contact 5 / 10 min, careers 5 / 30 min</td><td>429</td></tr>
+      <tr><td>Body size — contact 16 KB (streamed cap); careers 4 MB CV + 64 KB</td><td>413</td></tr>
+      <tr><td>Honeypot field <code>website</code> filled</td><td>200, silently dropped</td></tr>
+      <tr><td>Zod validation (same schema as the client)</td><td>422 + <code>fields</code></td></tr>
+      <tr><td>Submitted &lt; 3 s after render</td><td>400</td></tr>
+      <tr><td>Careers: job must exist and be <code>open</code> (or <code>general</code>)</td><td>410</td></tr>
+      <tr><td>Careers: CV magic bytes must match extension (PDF/DOC/DOCX)</td><td>422</td></tr>
+      <tr><td>Delivery not configured</td><td>503 <code>not_configured</code></td></tr>
+      <tr><td>Delivery provider error</td><td>502</td></tr>
+      <tr><td>Delivered</td><td>200 + reference (JDX-… / APP-…)</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li><strong>Delivery</strong> — <code>lib/contact/delivery.ts</code>, <code>deliverMessage()</code>. Webhook (HMAC-SHA256 in <code>X-JoDesx-Signature</code>) takes precedence over Resend. Applications fall back to the contact channel when <code>CAREERS_*</code> are unset.</li>
+    <li><strong>Rate limiter</strong> — in-memory and per serverless instance (best effort). For stronger guarantees implement the <code>RateLimiter</code> interface with Upstash Redis or add a Vercel Firewall rule on the two API paths.</li>
+    <li><strong>Security headers / CSP</strong> — <code>next.config.ts</code>. <code>default-src 'self'</code>; no third-party origins. Adding analytics, chat widgets, maps, fonts or CAPTCHA requires extending <code>script-src</code>/<code>connect-src</code>/<code>frame-src</code> for those origins <em>and</em> updating the privacy policy (cookies!). Vercel Web Analytics is same-origin and works without CSP changes.</li>
+    <li><strong>Secrets</strong> live only in Vercel environment variables. Never prefix secrets with <code>NEXT_PUBLIC_</code>.</li>
+    <li><strong>Runtime file access</strong> — the careers API reads <code>src/content/jobs</code> at runtime; <code>outputFileTracingIncludes</code> in <code>next.config.ts</code> ships those files with the function. Keep it if you move the folder.</li>
+  </ul>
+</section>
+
+<section id="b9">
+  <h2><span class="num">B9</span> Careers internals</h2>
+  <ul>
+    <li><code>lib/careers/markdown.ts</code> — tiny parser: front matter (<code>key: value</code>, quotes, trailing <code># comments</code>) and body blocks (heading, list, paragraph, bold). Output is data rendered by <code>careers/JobBody.tsx</code> as React elements — <strong>no HTML injection path</strong>. Extend it there if posts need links or numbered lists.</li>
+    <li><code>lib/careers/job-schema.ts</code> — Zod contract for front matter; build fails with a readable message on invalid posts.</li>
+    <li><code>lib/careers/jobs.ts</code> — reads, validates, sorts (open first, newest first), caches in production.</li>
+    <li><code>app/careers/[slug]/page.tsx</code> — job page; publishes <code>JobPosting</code> JSON-LD for open roles (Google Jobs). Remote roles use <code>TELECOMMUTE</code> with Jordan as applicant location — adjust in <code>jobPostingJsonLd()</code> if hiring elsewhere.</li>
+  </ul>
+</section>
+
+<section id="b10">
+  <h2><span class="num">B10</span> SEO</h2>
+  <ul>
+    <li><code>lib/seo/metadata.ts</code> — <code>createMetadata({title, description, path})</code>: title template “… | JoDesx”, canonical, Open Graph, Twitter.</li>
+    <li><code>lib/seo/structured-data.ts</code> — Organization, WebSite, Service, FAQPage, BreadcrumbList builders; render with <code>&lt;JsonLd data={…} /&gt;</code>.</li>
+    <li><code>app/sitemap.ts</code>, <code>app/robots.ts</code> — generated; <code>/api/</code> disallowed.</li>
+    <li><code>lib/seo/og-image.tsx</code> — branded 1200×630 social images; used by <code>opengraph-image.tsx</code> files (root + services).</li>
+    <li>Google Search Console verification: <code>verification.google</code> in <code>app/layout.tsx</code> — keep it.</li>
+  </ul>
+</section>
+
+<section id="b11">
+  <h2><span class="num">B11</span> Brand assets</h2>
+  <p>All logo files in <code>public/brand/</code>, plus <code>src/app/icon.svg</code> and <code>src/components/brand/logo-geometry.ts</code>, are <strong>generated</strong> by <code>scripts/build-brand.mjs</code> from one geometric definition (48-unit grid) and an outlined wordmark (opentype.js). Change geometry there, run <code>npm run brand:build</code>, then <code>node scripts/export-brand-png.cjs</code> for PNGs. Never hand-edit the outputs.</p>
+</section>
+
+<section id="b12">
+  <h2><span class="num">B12</span> Testing and quality gates</h2>
+  <table class="compact">
+    <thead><tr><th style="width:30%">Gate</th><th>What it covers</th></tr></thead>
+    <tbody>
+      <tr><td><code>npm run check</code></td><td>Types, lint, 21 unit tests, production build.</td></tr>
+      <tr><td><code>qa/interactions.cjs</code></td><td>63+ real-browser checks: navigation, dropdown/mobile menu keyboard and focus, Blueprint tabs, challenge selector → prefilled form, form validation and honest delivery states, CV signature rejection, API hardening (403/400/422/429/410), reduced motion, security headers, link integrity.</td></tr>
+      <tr><td><code>qa/screens.cjs</code></td><td>Full-page screenshots + horizontal-overflow check at chosen widths.</td></tr>
+      <tr><td>axe-core / Lighthouse</td><td>Last run: 0 axe violations (WCAG 2.2 AA); Lighthouse 100 on desktop, 95–99 mobile performance, 100 accessibility/best practices/SEO.</td></tr>
+    </tbody>
+  </table>
+  <p>Run the browser suite against a production build: <code>npm run build &amp;&amp; npm start -- -p 3100</code>, then <code>node qa/interactions.cjs</code>, or against a Vercel preview with <code>BASE_URL=https://…</code>.</p>
+</section>
+
+<section id="b13">
+  <h2><span class="num">B13</span> Gotchas learned while building</h2>
+  <ul>
+    <li><strong>Fixed elements inside transformed parents</strong> — any <code>transform</code>/<code>translate</code> on an ancestor becomes the containing block. Keep overlays outside the header.</li>
+    <li><strong>LCP</strong> — never start first-load content at <code>opacity: 0</code>.</li>
+    <li><strong>CSP + Zod</strong> — keep <code>z.config({ jitless: true })</code> in schema files; otherwise Zod probes <code>eval</code> and triggers CSP violations.</li>
+    <li><strong>Grid rows stretch</strong> — form fields use <code>content-start</code> so a neighbour's hint or error does not push inputs out of line.</li>
+    <li><strong>Apostrophes in JSX text</strong> — use <code>&amp;rsquo;</code> (lint rule <code>react/no-unescaped-entities</code>).</li>
+    <li><strong><code>NEXT_PUBLIC_*</code> variables</strong> are inlined at build: change → redeploy.</li>
+    <li><strong>Restarting a local production server</strong> after a rebuild: stop the old <code>next-server</code> process first, or it serves stale chunks (500s).</li>
+    <li><strong>Vercel body limit</strong> — 4.5 MB per request; the CV cap (4 MB) stays below it.</li>
+  </ul>
+</section>
+
+<section id="b14">
+  <h2><span class="num">B14</span> Maintenance</h2>
+  <ul>
+    <li><strong>Monthly</strong>: <code>npm outdated</code>; apply patch/minor updates, run <code>npm run check</code> and the browser suite, deploy via PR.</li>
+    <li><strong>Major upgrades</strong> (Next, React, Tailwind, Zod): read the official upgrade guides; upgrade one at a time on a branch; check the Vercel preview.</li>
+    <li><strong>Security</strong>: <code>npm audit</code>; rotate the Resend key if exposed; review GitHub/Vercel access yearly.</li>
+    <li><strong>Docs</strong>: keep <code>jodesx/docs/</code> current — especially <code>PROJECT-STATUS.md</code> — and rebuild this guide with <code>node scripts/build-guide.cjs</code>.</li>
+  </ul>
+</section>
+
+<section id="appendix">
+  <h2><span class="num">C</span> Quick reference</h2>
+  <h3>Documents in <code>jodesx/docs/</code></h3>
+  <table class="compact">
+    <tbody>
+      <tr><td style="width:32%"><code>PROJECT-STATUS.md</code></td><td>Live setup, decisions still needing business confirmation</td></tr>
+      <tr><td><code>ARCHITECTURE.md</code></td><td>Technical architecture and quality record</td></tr>
+      <tr><td><code>DEPLOYMENT.md</code></td><td>Hosting, environment variables, webhook payload</td></tr>
+      <tr><td><code>POSTING-JOBS.md</code></td><td>Job posting guide</td></tr>
+      <tr><td><code>BRAND-GUIDELINES.md</code></td><td>Logo construction, colours, typography, the Signal system</td></tr>
+      <tr><td><code>CONTENT-STRATEGY.md</code></td><td>Messaging, tone, credibility rules, SEO intent</td></tr>
+      <tr><td><code>COMPETITOR-RESEARCH.md</code>, <code>SKILLS-AUDIT.md</code></td><td>Research record and tools used</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Content rules that protect the brand</h3>
+  <ul>
+    <li>No invented clients, testimonials, statistics, certifications, awards or history — add proof only when it is real and approved.</li>
+    <li>JoDesx does not build AI models; say so where AI is mentioned.</li>
+    <li>Plain, specific, sentence-case copy; no “world-class”, “cutting-edge”, “seamless”.</li>
+  </ul>
+
+  <h3>Before you change anything important</h3>
+  <ul class="checklist">
+    <li>Know how to roll back (A7).</li>
+    <li>Screenshot DNS records before touching them (A8).</li>
+    <li>Run <code>npm run check</code> (developers).</li>
+    <li>Test a form submission after changing email settings.</li>
+  </ul>
+</section>
