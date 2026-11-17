@@ -30,8 +30,8 @@ These are business facts or authorisations the site depends on. Each has a safe 
 | # | Item | Current default | Where to change |
 | --- | --- | --- | --- |
 | 1 | **Production domain** | `https://www.jodesx.com` — confirmed (domain purchased; `jodesx.com` redirects to www in Vercel) | `NEXT_PUBLIC_SITE_URL` |
-| 2 | **Inquiry delivery** — webhook or Resend, and the receiving inbox | Not configured → form reports this honestly | Environment variables (DEPLOYMENT.md) |
-| 3 | **Public contact email** | Hidden | `NEXT_PUBLIC_CONTACT_EMAIL` |
+| 2 | **Inquiry delivery** — webhook or Resend, and the receiving inbox | ✅ Done 17 Nov 2026: Resend (domain jodesx.com verified) → Zoho Mail inbox; end-to-end test email received | Vercel environment variables on project `skill-dawz` |
+| 3 | **Public contact email** | Set by the owner in Vercel if desired | `NEXT_PUBLIC_CONTACT_EMAIL` |
 | 4 | **Privacy policy legal review** — legal entity name, registered address, applicable law (e.g. Jordan's data protection law; GDPR/UK GDPR for European visitors), retention periods, list of processors (host, form provider) | Generic but accurate draft describing what the site actually does (no cookies/analytics) | `src/app/privacy/page.tsx` |
 | 5 | **Engagement models** — dedicated team / managed workflow / flexible capacity; "pilot first" approach | Presented as available options | `src/content/pages.ts` → `engagementModels`; service `engagement` arrays |
 | 6 | **Coverage hours & languages** | Described as "agreed during scoping" / "confirmed before committing" | `services.ts` FAQs |
@@ -43,8 +43,13 @@ These are business facts or authorisations the site depends on. Each has a safe 
 | 12 | **Why JoDesx commitments** — named contact per client, documentation belongs to the client, scope in writing | Stated as commitments | `src/content/why.ts` |
 | 13 | **Applicant data retention period** | "No longer than necessary for recruitment" | Privacy policy §3 |
 
+## Live setup (17 Nov 2026)
+
+- Hosting: Vercel project **`skill-dawz`**, deploying `main` with Root Directory `jodesx`. (Projects `skill` and `skill-h11f` are earlier duplicates and can be deleted.)
+- Domain: **www.jodesx.com** (canonical); `jodesx.com` redirects to it. DNS managed by Vercel.
+- Email: Zoho Mail mailboxes on jodesx.com; website forms delivered through Resend.
+
 ## Unresolved dependencies
 
 - First-hand competitor review (needs network access to the 13 domains).
-- An end-to-end delivery test with real credentials (logic is unit-tested with mocked webhook and Resend calls).
 - Optional later: client proof (case studies, testimonials, logos) **once real and approved** — the layout leaves room for a proof section without redesign.
