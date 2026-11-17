@@ -8,7 +8,8 @@ Use the facts relevant to the task. If a fact here conflicts with the codebase o
 - **Positioning:** “Operational support, intelligently connected.” Homepage headline: “Operations, structured around your business.”
 - **Model:** remote employees or contracted specialists organised and supervised by JoDesx; scope in writing; documented procedures; quality review; reporting.
 - **Time zone:** Jordan, UTC+3 — full overlap with Europe and the Gulf, start of the North American day.
-- **Unconfirmed (do not state as fact without the owner):** clients, results, prices, team size, certifications, language coverage, office address, legal entity name.
+- **Legal entity:** شركة قلب التقنية المعلوماتية لأنشطة مراكز الاتصال و خدمات الحاسوب و المعلومات /ذات مسؤولية محدودة — a limited liability company registered in Jordan; JoDesx is its trading name. Stored in `jodesx/src/content/site.ts` (`legal`). Show only the country (no city/address) unless the owner says otherwise. Privacy email: privacy@jodesx.com.
+- **Unconfirmed (do not state as fact without the owner):** clients, results, prices, team size, certifications, language coverage, office address.
 
 ## Brand
 - Colours: Midnight Navy `#0B1220`, Signal Cyan `#35D6E8`, Digital Violet `#786BFF`, Slate Blue `#172438`, Soft White `#F4F7FB`.

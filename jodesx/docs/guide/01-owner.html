@@ -27,7 +27,8 @@
       <tr><td><code>/careers/&lt;job-name&gt;</code></td><td>One page per job, with its application form.</td></tr>
       <tr><td><code>/careers/apply</code></td><td>Open application form (for people when no job fits).</td></tr>
       <tr><td><code>/contact</code></td><td>Client inquiry form.</td></tr>
-      <tr><td><code>/privacy</code></td><td>Privacy policy.</td></tr>
+      <tr><td><code>/privacy</code></td><td>Privacy policy (names the registered company; privacy requests go to <code>privacy@jodesx.com</code>).</td></tr>
+      <tr><td><code>/terms</code></td><td>Terms of use (rules for using the site; governed by Jordanian law).</td></tr>
       <tr><td><code>/sitemap.xml</code></td><td>Automatic list of pages for Google (not for people).</td></tr>
     </tbody>
   </table>
@@ -119,7 +120,8 @@
       <tr><td>Form options (services, team size, start dates)</td><td><code>src/lib/validation/contact.ts</code></td><td><code>Options</code></td></tr>
       <tr><td>Menu and footer links</td><td><code>src/content/navigation.ts</code></td><td><code>primaryNav</code>, <code>footerNav</code></td></tr>
       <tr><td>Footer sentences</td><td><code>src/components/layout/SiteFooter.tsx</code></td><td>the visible sentence</td></tr>
-      <tr><td>Privacy policy</td><td><code>src/app/privacy/page.tsx</code></td><td>the section title</td></tr>
+      <tr><td>Privacy policy / Terms of use</td><td><code>src/app/privacy/page.tsx</code> / <code>src/app/terms/page.tsx</code></td><td>the section title</td></tr>
+      <tr><td>Company legal name, privacy email</td><td><code>src/content/site.ts</code></td><td><code>legal</code>, <code>privacyEmail</code></td></tr>
       <tr><td>Google title &amp; description of a page</td><td>top of that page's file (<code>createMetadata</code>) — services: <code>meta</code> in <code>services.ts</code></td><td><code>title:</code> / <code>description:</code></td></tr>
     </tbody>
   </table>

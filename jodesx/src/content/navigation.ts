@@ -37,6 +37,9 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
   },
   {
     title: "Legal",
-    links: [{ label: "Privacy policy", href: "/privacy" }],
+    links: [
+      { label: "Privacy policy", href: "/privacy" },
+      { label: "Terms of use", href: "/terms" },
+    ],
   },
 ];

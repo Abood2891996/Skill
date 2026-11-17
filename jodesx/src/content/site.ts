@@ -12,6 +12,14 @@ export const site = {
   /** Public business email. Empty string hides it everywhere. */
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() ?? "",
   country: "Jordan",
+  /** Registered legal entity that operates JoDesx (as provided by the owner, 17 Nov 2026). */
+  legal: {
+    name: "شركة قلب التقنية المعلوماتية لأنشطة مراكز الاتصال و خدمات الحاسوب و المعلومات /ذات مسؤولية محدودة",
+    form: "a limited liability company registered in the Hashemite Kingdom of Jordan",
+    country: "the Hashemite Kingdom of Jordan",
+  },
+  /** Mailbox (Zoho alias) for privacy requests. */
+  privacyEmail: "privacy@jodesx.com",
   description:
     "JoDesx is a Jordan-based business operations company that builds and runs structured remote teams for content moderation, customer support, back-office operations and AI data operations.",
   positioning: "Operational support, intelligently connected.",

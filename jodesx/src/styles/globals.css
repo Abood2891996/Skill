@@ -650,3 +650,52 @@
     font-weight: 600;
   }
 }
+
+@layer components {
+  .legal-prose .legal-summary h2 {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .legal-prose .legal-summary ul {
+    margin-top: 0.75rem;
+  }
+
+  .legal-prose table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .legal-prose th,
+  .legal-prose td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--line);
+    color: var(--fg-muted);
+  }
+
+  .legal-prose th {
+    color: var(--fg);
+    font-weight: 600;
+    background: var(--paper);
+  }
+}
+
+@layer components {
+  .legal-prose .legal-entity {
+    display: block;
+    margin: 0.75rem 0;
+    padding: 0.85rem 1.1rem;
+    border-right: 3px solid var(--violet-600);
+    border-radius: var(--radius-sm);
+    background: var(--paper);
+    color: var(--fg);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: right;
+  }
+}
