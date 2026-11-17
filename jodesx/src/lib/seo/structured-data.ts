@@ -13,6 +13,7 @@ export function organizationJsonLd(): JsonLd {
     logo: absoluteUrl("/brand/jodesx-social-avatar.png"),
     description: site.description,
     address: { "@type": "PostalAddress", addressCountry: "JO" },
+    sameAs: Object.values(site.social),
     ...(site.contactEmail ? { email: site.contactEmail } : {}),
   };
 }

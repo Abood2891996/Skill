@@ -24,6 +24,7 @@ Use the facts relevant to the task. If a fact here conflicts with the codebase o
 - DMARC: `p=none` since 17 Nov 2026; switch to `p=quarantine` in early–mid December 2026.
 - Email: Zoho Mail inboxes on @jodesx.com; website forms delivered by Resend. Settings are Vercel environment variables (see `jodesx/docs/DEPLOYMENT.md`).
 - Google Search Console verified; sitemap submitted.
+- LinkedIn company page: https://www.linkedin.com/company/jodesx/ (linked in the footer and Organization `sameAs`). Copy: `jodesx/docs/LINKEDIN-COPY.md`.
 - Owner is not a developer: explain steps simply, one action at a time.
 
 ## Where things live (website)

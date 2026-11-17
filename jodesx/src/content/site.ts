@@ -18,6 +18,10 @@ export const site = {
     form: "a limited liability company registered in the Hashemite Kingdom of Jordan",
     country: "the Hashemite Kingdom of Jordan",
   },
+  /** Official social profiles (also published as Organization "sameAs" for search engines). */
+  social: {
+    linkedin: "https://www.linkedin.com/company/jodesx/",
+  },
   /** Mailbox (Zoho alias) for privacy requests. */
   privacyEmail: "privacy@jodesx.com",
   description:
