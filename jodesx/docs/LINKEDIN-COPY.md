@@ -44,58 +44,51 @@ Tell us about the operation you want to hand over: www.jodesx.com
 
 Logo and cover image: `public/brand/linkedin/` (regenerate with `node scripts/export-linkedin.cjs`).
 
-## Launch post — company page (English, 1,022 characters)
+## Launch post — company page (English, 1,186 characters)
 
 Image: `public/brand/linkedin/jodesx-linkedin-launch-1080x1350.png`
 
 ```
-Most outsourcing hands you people — then leaves you to design the work, train the team and check the quality yourself.
+We're pleased to introduce JoDesx — operations, structured around your business.
 
-We built JoDesx to take on that part.
+JoDesx is a business operations company based in Jordan. We build and manage dedicated teams that handle operational work for international businesses, working remotely or on-site at our offices in Jordan.
 
-Today, JoDesx is live: a business operations company based in Jordan that builds and runs structured teams for international businesses.
+Our services
+▪ Content Moderation — review and policy enforcement aligned with your guidelines
+▪ Customer Support — email, chat and ticket support delivered in your tone and within your policies
+▪ Back-Office Operations — data entry, documentation and order processing, run to defined procedures
+▪ AI Data Operations — annotation, labeling and quality review for AI teams
 
-What we run
-▪ Content moderation
-▪ Customer support
-▪ Back-office operations
-▪ AI data operations
+Our approach
+Every engagement is built on a clearly defined scope, documented procedures, ongoing quality review and transparent reporting — so our clients can extend their operational capacity while keeping full visibility of the work.
 
-How every engagement works
-▪ Scope, responsibilities and escalation paths are agreed in writing before the first task
-▪ Every process is documented, so quality doesn't depend on who is on shift
-▪ Work is sampled, reviewed and reported — so you see what we see
+Based in Jordan (UTC+3), our teams work across European and Gulf business hours.
 
-Our teams work remotely or on-site at our offices in Jordan, whichever suits your operation. And from UTC+3, our working day overlaps fully with Europe and the Gulf.
+We look forward to supporting companies that need reliable, well-run operations. Visit www.jodesx.com to start a conversation.
 
-If part of your operation is taking more of your team's time than it should, we'd like to hear about it.
-
-www.jodesx.com
-
-#Outsourcing #BusinessOperations #ContentModeration #CustomerSupport #Jordan
+#BusinessOperations #Outsourcing #CustomerSupport #ContentModeration #Jordan
 ```
 
-## Launch post — founder's personal profile (Arabic, 562 characters)
+## Launch post — founder's personal profile (Arabic, 586 characters)
 
 Post from the personal profile 1–2 hours after the company post, or reshare the company post with this text.
 
 ```
-يسعدني أن أعلن إطلاق JoDesx 🎉
+يسعدني أن أعلن عن إطلاق JoDesx.
 
-الفكرة بسيطة: كثير من خدمات التعهيد تعطيك أشخاصًا، ثم تترك لك تصميم العمل وتدريب الفريق ومتابعة الجودة.
-في JoDesx نتولى نحن هذا الجزء.
-
-نبني ونُدير فرقًا منظّمة للشركات حول العالم — عن بُعد أو من مكاتبنا في الأردن — في:
+JoDesx شركة أردنية متخصصة في العمليات التشغيلية للأعمال. نبني ونُدير فرقًا مخصّصة تتولى العمل التشغيلي للشركات حول العالم، عن بُعد أو من مكاتبنا في الأردن، في:
 ▪ الإشراف على المحتوى
 ▪ خدمة العملاء
 ▪ العمليات الإدارية (Back-office)
 ▪ عمليات بيانات الذكاء الاصطناعي
 
-كل تعاون يبدأ بنطاق عمل مكتوب، وإجراءات موثّقة، ومراجعة جودة مستمرة.
+نعمل وفق نطاق عمل واضح، وإجراءات موثّقة، ومراجعة مستمرة للجودة، وتقارير شفافة، ليتمكن عملاؤنا من توسيع قدراتهم التشغيلية مع رؤية كاملة لسير العمل.
 
-إذا كان لديك عمل تشغيلي يستهلك وقت فريقك، أو تعرف شركة تحتاج ذلك، يسعدني أن نتحدث.
+إذا كانت شركتك، أو شركة تعرفها، تبحث عن دعم تشغيلي موثوق، يسعدني التواصل.
 
 www.jodesx.com
 
-#JoDesx #الأردن #تعهيد #خدمة_العملاء
+#JoDesx #الأردن #خدمة_العملاء #العمليات_التشغيلية
 ```
+
+Tone rule (owner, 17 Nov 2026): present JoDesx on its own merits — no generalisations or comparisons about other outsourcing providers.
