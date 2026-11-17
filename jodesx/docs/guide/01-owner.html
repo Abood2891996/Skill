@@ -274,9 +274,11 @@ Short opening paragraph about the role.
       <tr><td>The website</td><td>managed automatically by Vercel</td><td>website unreachable</td></tr>
       <tr><td>Zoho Mail</td><td><code>MX</code> on <code>@</code> (mx.zoho…), <code>TXT</code> “v=spf1 include:zoho…”, <code>TXT</code> <code>zmail._domainkey</code> (DKIM), Zoho verification <code>TXT</code></td><td>you stop receiving email / your emails land in spam</td></tr>
       <tr><td>Resend</td><td><code>resend._domainkey</code> (TXT), <code>send</code> (MX and TXT)</td><td>website forms stop delivering</td></tr>
+      <tr><td>Anti-spoofing (DMARC)</td><td><code>TXT</code> <code>_dmarc</code> → <code>v=DMARC1; p=none; rua=mailto:dmarc@jodesx.com</code></td><td>others can send fake emails in your name more easily</td></tr>
       <tr><td>Google</td><td>none — verification is in the website's code</td><td>—</td></tr>
     </tbody>
   </table>
+  <div class="callout warn"><p><strong>DMARC — planned next step.</strong> The record was added on 17 November 2026 in <em>monitoring</em> mode (<code>p=none</code>). After 2–4 weeks without problems, change <code>p=none</code> to <code>p=quarantine</code> in the same record so fake emails using @jodesx.com go to spam. Check it any time at mxtoolbox.com/dmarc.aspx (green = working).</p></div>
   <div class="callout tip"><p>Adding a new service later (for example Google Workspace, Microsoft 365, a newsletter tool) usually means adding records here. <strong>Add</strong> new records; never delete existing ones unless you know exactly what they are for. Take a screenshot of the list before any change.</p></div>
 </section>
 
