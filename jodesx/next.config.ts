@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV !== "production";
 
+/** The site's own origin (matches src/content/site.ts). Used to restrict CORS. */
+const siteOrigin = (process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.jodesx.com").replace(/\/+$/, "");
+
 /**
  * Content Security Policy.
  * The site loads no third-party scripts, fonts or images, so everything is
@@ -31,6 +34,9 @@ const securityHeaders = [
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+  // Vercel's default is "*". Nothing on this site needs to be read by other origins,
+  // so cross-origin reads are limited to the site itself.
+  { key: "Access-Control-Allow-Origin", value: siteOrigin },
 ];
 
 const nextConfig: NextConfig = {
