@@ -307,7 +307,7 @@ Short opening paragraph about the role.
   <table class="trouble">
     <thead><tr><th style="width:27%">You notice…</th><th style="width:30%">Most likely cause</th><th>What to do</th></tr></thead>
     <tbody>
-      <tr><td>The website does not open at all</td><td>Domain expired, or DNS/domain settings changed in Vercel</td><td>Check the domain renewal at the company you bought it from. In Vercel → Settings → Domains, both domains must show ticks; if “Invalid Configuration”, see A8. Check status.vercel.com for outages.</td></tr>
+      <tr><td>The website does not open at all</td><td>Domain expired, or DNS/domain settings changed in Vercel</td><td>Check the domain renewal at Spaceship (spaceship.com). In Vercel → Settings → Domains, both domains must show ticks; if “Invalid Configuration”, see A8. Check status.vercel.com for outages.</td></tr>
       <tr><td>I saved a change but the site did not update</td><td>The build failed, or it is still building</td><td>Vercel → Deployments. <em>Building</em> → wait. <em>Error</em> → open it, read the log (it names the file and line), fix on GitHub, commit again.</td></tr>
       <tr><td>The site shows something broken after my change</td><td>A text edit changed the layout or meaning</td><td>Do an <strong>Instant Rollback</strong> (A7), then correct the edit on GitHub.</td></tr>
       <tr><td>Form says “Online inquiries are not connected yet”</td><td>Email settings missing in Vercel, or no redeploy after adding them</td><td>Check <code>RESEND_API_KEY</code>, <code>CONTACT_FROM_EMAIL</code>, <code>CONTACT_TO_EMAIL</code> exist (A6). Then Redeploy.</td></tr>
