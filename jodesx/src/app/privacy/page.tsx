@@ -9,7 +9,7 @@ export const metadata = createMetadata({
   path: "/privacy",
 });
 
-const LAST_UPDATED = "16 November 2026";
+const LAST_UPDATED = "17 November 2026";
 
 const sections: { id: string; title: string; body: ReactNode }[] = [
   {
@@ -62,7 +62,7 @@ const sections: { id: string; title: string; body: ReactNode }[] = [
         <p>
           We use this information only to assess your application, contact you about it and, with open applications, consider you for future
           roles. Applications are delivered to the people at JoDesx responsible for hiring and are not shared with clients without your
-          permission. We keep applicant information no longer than necessary for recruitment, and you can ask us to delete it at any time.
+          permission. We keep applicant information, including your CV, for <strong>up to six months</strong> from the date we receive it, and then delete it. If you join JoDesx, the information you provided becomes part of your employment records. You can ask us to delete your application at any time before then.
         </p>
       </>
     ),
@@ -121,7 +121,8 @@ const sections: { id: string; title: string; body: ReactNode }[] = [
       <p>
         We keep inquiry information for as long as needed to respond and to follow up on the conversation. If we begin working together, related
         information is kept for the duration of the relationship and afterwards only as long as required for legal or accounting purposes.
-        Otherwise, we delete inquiry information when it is no longer needed.
+        Otherwise, we delete inquiry information when it is no longer needed. Job applications are kept for up to six months, as described in
+        section 3.
       </p>
     ),
   },

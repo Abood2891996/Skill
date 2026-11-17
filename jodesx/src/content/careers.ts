@@ -77,6 +77,6 @@ export const careersFaqs: Faq[] = [
   {
     question: "What happens to my CV and personal details?",
     answer:
-      "They are used only for recruitment at JoDesx and kept no longer than necessary. You can ask us to delete them at any time. See the privacy policy for details.",
+      "They are used only for recruitment at JoDesx and kept for up to six months from the date we receive them, then deleted. If you join us, they become part of your employment records. You can ask us to delete them sooner at any time. See the privacy policy for details.",
   },
 ];

@@ -41,7 +41,7 @@ These are business facts or authorisations the site depends on. Each has a safe 
 | 10 | **Job postings** | ✅ Example postings removed 17 Nov 2026 at the owner's request; careers page shows open applications until real roles are posted | `src/content/jobs/` (see POSTING-JOBS.md) |
 | 11 | **Candidate-facing commitments** — structured onboarding, supervised start, rotation/break planning for moderators, growth into QA/training/leadership, "every application is read by a person" | Stated on Careers | `src/content/careers.ts` |
 | 12 | **Why JoDesx commitments** — named contact per client, documentation belongs to the client, scope in writing | Stated as commitments | `src/content/why.ts` |
-| 13 | **Applicant data retention period** | "No longer than necessary for recruitment" | Privacy policy §3 |
+| 13 | **Applicant data retention period** | ✅ Decided 17 Nov 2026: **6 months** from receipt, then deleted (hired candidates → employment records). Stated in Privacy §3 and the careers FAQ; applied in Zoho by a filter + monthly clean-up (see guide A9) | `src/app/privacy/page.tsx`, `src/content/careers.ts` |
 
 ## Live setup (17 Nov 2026)
 

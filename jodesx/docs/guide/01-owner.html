@@ -287,6 +287,7 @@ Short opening paragraph about the role.
   <ul>
     <li><strong>Zoho Mail</strong> holds your mailboxes. Create more addresses (e.g. <code>careers@jodesx.com</code>) in Zoho's <strong>Admin Console → Users</strong> or as <strong>aliases</strong> of an existing mailbox. If you add one for applications, put it in <code>CAREERS_TO_EMAIL</code> and redeploy.</li>
     <li><strong>Resend</strong> only sends the website's emails. Its <strong>Emails</strong> page lists every email the website sent, with status <em>Delivered</em>, <em>Bounced</em> etc. — the first place to look if an inquiry seems missing.</li>
+    <li><strong>Job applications are kept for 6 months, then deleted</strong> — this is what the privacy policy promises. In Zoho, a filter moves every email whose subject starts with <code>Application APP-</code> into a folder <em>Applications</em>. Once a month, open that folder, search for emails older than 6 months, delete them, then empty <em>Trash</em>. Candidates you hire: save their documents in their employee file before deleting.</li>
     <li>Resend's free plan has sending limits (see resend.com/pricing). They are far above what a company website needs; upgrade only if Resend warns you.</li>
   </ul>
   <div class="callout warn"><p><strong>If your Resend key is ever exposed</strong> (sent in a chat, pasted somewhere public): Resend → <strong>API Keys</strong> → delete it → create a new one → paste it into <code>RESEND_API_KEY</code> in Vercel → <strong>Redeploy</strong>.</p></div>
