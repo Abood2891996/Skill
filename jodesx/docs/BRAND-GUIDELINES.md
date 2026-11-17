@@ -19,7 +19,7 @@
 
 ### Messaging hierarchy
 
-1. **What we do** — build and run remote operational teams in four areas.
+1. **What we do** — build and run operational teams in four areas, remote or on-site at our offices in Jordan.
 2. **How we do it** — written scope, documented procedures, quality review, reporting.
 3. **Why it matters** — operations stop competing with the work that moves the business forward.
 4. **Proof** — shown, not claimed: workflows, checkpoints, responsibilities, honest FAQs.

@@ -59,6 +59,7 @@ Claims that *are* made and the basis for each:
 | Based in Jordan, working internationally | Brief |
 | Jordan is UTC+3; overlaps European/Gulf hours and the start of the North American day | Geographic fact (Jordan has used UTC+3 year-round since 2022) |
 | Remote employees or contracted specialists, depending on engagement | Brief (business model) |
+| Teams work remotely or on-site at JoDesx offices in Jordan, as the client prefers | Owner, 17 Nov 2026 |
 | Engagement models (dedicated / managed / flexible), pilot-first approach | Proposed operating model — **needs business confirmation** |
 | Language coverage confirmed per engagement | Deliberately non-committal |
 

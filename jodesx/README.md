@@ -1,6 +1,6 @@
 # JoDesx website
 
-The marketing and inquiry website for **JoDesx** — a Jordan-based business operations company that builds and runs structured remote teams for content moderation, customer support, back-office operations and AI data operations.
+The marketing and inquiry website for **JoDesx** — a Jordan-based business operations company that builds and runs structured operational teams — remote or on-site in Jordan — for content moderation, customer support, back-office operations and AI data operations.
 
 Built with Next.js 16, React 19, TypeScript and Tailwind CSS 4. Every page is statically prerendered; one server route handles the inquiry form.
 

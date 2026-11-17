@@ -63,7 +63,7 @@ export const careersFaqs: Faq[] = [
       "Not always. Many roles value careful judgment, strong English and reliability more than a specific background. Each posting lists what is required and what is a bonus.",
   },
   {
-    question: "Are the roles remote?",
+    question: "Are the roles remote or on-site?",
     answer: "Each posting states its workplace — remote, on-site or hybrid — and location. Remote roles need a reliable computer and internet connection.",
   },
   {

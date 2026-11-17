@@ -21,7 +21,7 @@ export const site = {
   /** Mailbox (Zoho alias) for privacy requests. */
   privacyEmail: "privacy@jodesx.com",
   description:
-    "JoDesx is a Jordan-based business operations company that builds and runs structured remote teams for content moderation, customer support, back-office operations and AI data operations.",
+    "JoDesx is a Jordan-based business operations company that builds and runs structured operational teams — remote or on-site at its offices in Jordan — for content moderation, customer support, back-office operations and AI data operations.",
   positioning: "Operational support, intelligently connected.",
 } as const;
 

@@ -10,7 +10,7 @@ import { breadcrumbJsonLd } from "@/lib/seo/structured-data";
 export const metadata = createMetadata({
   title: "About JoDesx",
   description:
-    "JoDesx is a Jordan-based business operations company helping international businesses extend their operational capacity through structured remote teams and well-defined workflows.",
+    "JoDesx is a Jordan-based business operations company helping international businesses extend their operational capacity through structured teams, remote or on-site, and well-defined workflows.",
   path: "/about",
 });
 

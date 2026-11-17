@@ -6,7 +6,7 @@ import type { Faq, ServiceSlug, TextBlock } from "./types";
 export const home = {
   hero: {
     title: "Operations, structured around your business.",
-    lead: "JoDesx builds and runs remote operational teams for content moderation, customer support, back-office work and AI data operations — with defined workflows, human review and clear reporting.",
+    lead: "JoDesx builds and runs operational teams for content moderation, customer support, back-office work and AI data operations — remote or on-site at our offices in Jordan, with defined workflows, human review and clear reporting.",
     primaryCta: "Start an inquiry",
     secondaryCta: "See how we work",
   },
@@ -237,7 +237,7 @@ export const environments: { title: string; body: string; services: ServiceSlug[
 export const engagementModels: (TextBlock & { fit: string })[] = [
   {
     title: "Dedicated team",
-    body: "A consistent team assigned to your operation, trained on your processes and reporting to your contacts.",
+    body: "A consistent team assigned to your operation — working remotely or from our offices in Jordan, as you prefer — trained on your processes and reporting to your contacts.",
     fit: "Best for ongoing work with steady volume.",
   },
   {
@@ -259,7 +259,7 @@ export const generalFaqs: Faq[] = [
   {
     question: "What exactly does JoDesx do?",
     answer:
-      "JoDesx organizes and runs remote operational teams for four kinds of work: content moderation, customer support, back-office operations and AI data operations. We define the workflow with you, staff it, review quality and report on results.",
+      "JoDesx organizes and runs operational teams — remote or on-site at our offices in Jordan — for four kinds of work: content moderation, customer support, back-office operations and AI data operations. We define the workflow with you, staff it, review quality and report on results.",
   },
   {
     question: "Is JoDesx a staffing or recruitment agency?",
@@ -269,12 +269,12 @@ export const generalFaqs: Faq[] = [
   {
     question: "Where is the team based?",
     answer:
-      "JoDesx is based in Jordan and works with businesses internationally. Jordan's time zone overlaps fully with European and Gulf business hours and with the start of the North American working day; coverage hours for your engagement are agreed during scoping.",
+      "JoDesx is based in Jordan and works with businesses internationally. Teams work remotely or on-site at our offices in Jordan, whichever suits your operation. Jordan's time zone overlaps fully with European and Gulf business hours and with the start of the North American working day; coverage hours for your engagement are agreed during scoping.",
   },
   {
     question: "Who works on our account?",
     answer:
-      "Depending on the engagement, work is carried out by remote employees or contracted specialists organized and supervised by JoDesx. The team structure is described in the operating agreement, so you know how your work is staffed.",
+      "Depending on the engagement, work is carried out by employees working remotely or from our offices in Jordan, or by contracted specialists — all organized and supervised by JoDesx. The team structure is described in the operating agreement, so you know how your work is staffed.",
   },
   {
     question: "How do we start?",
@@ -294,7 +294,7 @@ export const generalFaqs: Faq[] = [
 export const about = {
   hero: {
     title: "A company built on the belief that operations should create clarity.",
-    lead: "JoDesx is a Jordan-based business operations company. We help international businesses extend their operational capacity through structured remote teams, human expertise and well-defined workflows.",
+    lead: "JoDesx is a Jordan-based business operations company. We help international businesses extend their operational capacity through structured teams — remote or on-site in Jordan — human expertise and well-defined workflows.",
   },
   why: {
     title: "Why JoDesx exists",

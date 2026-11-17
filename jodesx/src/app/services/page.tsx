@@ -13,7 +13,7 @@ import { breadcrumbJsonLd } from "@/lib/seo/structured-data";
 export const metadata = createMetadata({
   title: "Outsourced Operations Services",
   description:
-    "Compare JoDesx services — content moderation, customer support, back-office operations and AI data operations — and find where a structured remote team fits your business.",
+    "Compare JoDesx services — content moderation, customer support, back-office operations and AI data operations — and find where a structured operations team fits your business.",
   path: "/services",
 });
 
