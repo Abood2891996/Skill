@@ -62,7 +62,7 @@ Documents in `docs/security/` (v1.0): client-facing Security Overview, Informati
 
 ## Client contract (18 Nov 2026)
 
-`docs/contracts/`: Master Services Agreement with a Statement of Work template and a Data Processing Addendum outline (**draft — lawyer review required, do not send or sign**). `LAWYER-BRIEF-AR.md` lists the questions for a Jordanian lawyer and the commercial decisions left to the owner in [brackets]. No prices in the contract; fees go in each SOW. Built by `node scripts/build-security-docs.cjs` (now covers `docs/security/` and `docs/contracts/`).
+`docs/contracts/`: Master Services Agreement with a Statement of Work template and a Data Processing Addendum outline (**draft — lawyer review required, do not send or sign**). `LAWYER-BRIEF-AR.md` lists the questions for a Jordanian lawyer and the commercial decisions left to the owner in [brackets]. No prices in the contract; fees go in each SOW. Pricing model chosen by the owner: **monthly fee per full-time team member**. Quotation template `JoDesx-Quotation-TEMPLATE.pdf` (all prices in brackets) and internal market-rate research with sources in `PRICING-RESEARCH-AR.md` (not for the website). Built by `node scripts/build-security-docs.cjs` (now covers `docs/security/` and `docs/contracts/`).
 
 ## Unresolved dependencies
 
