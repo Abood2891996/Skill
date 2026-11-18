@@ -127,7 +127,7 @@ export function SiteHeader() {
             <div
               id={panelId}
               hidden={!servicesOpen}
-              className="services-panel absolute left-1/2 top-full w-[min(44rem,calc(100vw-4rem))] -translate-x-1/2 pt-3"
+              className="services-panel absolute -left-4 top-full w-[min(44rem,calc(100vw-2rem))] pt-3"
             >
               <div className="overflow-hidden rounded-[var(--radius-lg)] border border-line-strong bg-navy-800 shadow-[0_30px_80px_-30px_rgb(0_0_0/0.7)]">
                 <ul className="grid grid-cols-2 gap-px bg-line">

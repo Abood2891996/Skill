@@ -254,3 +254,82 @@
     transform: none;
   }
 }
+
+/* ---------- Engagement rail: continuous travelling light ---------- */
+/* Cycle: the light crosses the rail in ~60% of the cycle; title i lights when it arrives. */
+.engagement-rail {
+  --rail-cycle: 7s;
+  --rail-start: 3s; /* begins after the one-time fill */
+}
+
+.engagement-rail .rail-light {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  /* Vertical rail (mobile) */
+  left: 4px;
+  top: 0;
+  width: 7px;
+  height: 64px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, transparent, var(--cyan-300), transparent);
+  filter: drop-shadow(0 0 6px rgb(53 214 232 / 0.8));
+}
+
+@media (min-width: 768px) {
+  .engagement-rail .rail-light {
+    left: 0;
+    top: 4px;
+    width: 96px;
+    height: 7px;
+    background: linear-gradient(90deg, transparent, var(--cyan-300), transparent);
+  }
+}
+
+.engagement-rail[data-seen="true"] .rail-light {
+  animation: rail-light-v var(--rail-cycle) linear var(--rail-start) infinite;
+}
+
+@media (min-width: 768px) {
+  .engagement-rail[data-seen="true"] .rail-light {
+    animation-name: rail-light-h;
+  }
+}
+
+@keyframes rail-light-v {
+  0% { top: 0; opacity: 0; }
+  6% { opacity: 1; }
+  56% { opacity: 1; }
+  62% { top: calc(100% - 64px); opacity: 0; }
+  100% { top: calc(100% - 64px); opacity: 0; }
+}
+
+@keyframes rail-light-h {
+  0% { left: -96px; opacity: 0; }
+  6% { opacity: 1; }
+  56% { opacity: 1; }
+  62% { left: 100%; opacity: 0; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Title i lights up as the light reaches its node (6 steps across ~60% of the cycle). */
+.engagement-rail[data-seen="true"] .rail-title {
+  animation: rail-title-glow var(--rail-cycle) ease-out infinite;
+  animation-delay: calc(var(--rail-start) + var(--i) * var(--rail-cycle) * 0.1);
+}
+
+@keyframes rail-title-glow {
+  0% { color: var(--fg); text-shadow: none; }
+  3% { color: var(--cyan-300); text-shadow: 0 0 18px rgb(53 214 232 / 0.55); }
+  14% { color: var(--fg); text-shadow: none; }
+  100% { color: var(--fg); text-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .engagement-rail .rail-light {
+    display: none;
+  }
+  .engagement-rail .rail-title {
+    animation: none !important;
+  }
+}

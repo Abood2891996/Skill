@@ -42,7 +42,7 @@ export default function HowWeWorkPage() {
       <PageHero
         crumbs={crumbs}
         title="Six steps from first conversation to a working operation."
-        lead="Most outsourcing problems start before the first task is done: unclear scope, undocumented processes, no agreed definition of quality. Our process is designed to settle those questions first."
+        lead="An outsourced operation runs best when its scope, processes and definition of quality are settled before the first task. Our process is designed to settle those questions first."
       >
         <ButtonLink href="/contact">Start with step one</ButtonLink>
       </PageHero>
