@@ -60,6 +60,10 @@ Call Center added as a fifth service (inbound, outbound, technical support, tele
 
 Documents in `docs/security/` (v1.0): client-facing Security Overview, Information Security Policy (employee acknowledgement), Confidentiality Agreement (**draft — lawyer review and Arabic version required**), checklists. Decisions by the owner: company-owned laptops only; screening = identity + non-conviction certificate; client notification within 24 hours of a confirmed incident. **Do not send the Security Overview to clients until the "before sending" items in `docs/security/IMPLEMENTATION-AR.md` are complete** (security@ alias, MFA everywhere, Bitwarden, encrypted managed laptops with tested remote wipe, signed NDAs, office measures).
 
+## Client contract (18 Nov 2026)
+
+`docs/contracts/`: Master Services Agreement with a Statement of Work template and a Data Processing Addendum outline (**draft — lawyer review required, do not send or sign**). `LAWYER-BRIEF-AR.md` lists the questions for a Jordanian lawyer and the commercial decisions left to the owner in [brackets]. No prices in the contract; fees go in each SOW. Built by `node scripts/build-security-docs.cjs` (now covers `docs/security/` and `docs/contracts/`).
+
 ## Unresolved dependencies
 
 - First-hand competitor review (needs network access to the 13 domains).

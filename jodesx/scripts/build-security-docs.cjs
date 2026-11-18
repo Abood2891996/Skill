@@ -1,5 +1,6 @@
 /**
- * Builds the JoDesx security documents (PDF) from docs/security/src/*.html.
+ * Builds the JoDesx security and contract documents (PDF) from
+ * docs/security/src/*.html and docs/contracts/src/*.html.
  *
  *   node scripts/build-security-docs.cjs
  *
@@ -13,8 +14,7 @@ const { join } = require("node:path");
 const { pathToFileURL } = require("node:url");
 
 const root = join(__dirname, "..");
-const srcDir = join(root, "docs/security/src");
-const outDir = join(root, "docs/security");
+const folders = ["docs/security", "docs/contracts"];
 const font = pathToFileURL(join(root, "src/app/fonts/InstrumentSans-Variable.woff2")).href;
 const logo = readFileSync(join(root, "public/brand/jodesx-logo-horizontal-dark.svg"), "utf8").replace(/<title[^>]*>.*?<\/title>/, "");
 
@@ -54,11 +54,14 @@ td { padding: 2mm 2.5mm; border-bottom: 1px solid #DCE3EE; vertical-align: top; 
 .section { break-inside: auto; }
 `;
 
-const files = readdirSync(srcDir).filter((f) => f.endsWith(".html")).sort();
+const jobs = folders.flatMap((folder) => {
+  const srcDir = join(root, folder, "src");
+  return readdirSync(srcDir).filter((f) => f.endsWith(".html")).sort().map((file) => ({ folder, srcDir, outDir: join(root, folder), file }));
+});
 
 (async () => {
   const browser = await chromium.launch();
-  for (const file of files) {
+  for (const { folder, srcDir, outDir, file } of jobs) {
     const raw = readFileSync(join(srcDir, file), "utf8");
     const meta = JSON.parse(/<!--\s*(\{[\s\S]*?\})\s*-->/.exec(raw)[1]);
     const body = raw.replace(/<!--[\s\S]*?-->/, "");
@@ -74,7 +77,7 @@ ${body}</body></html>`;
     await page.pdf({ path: join(outDir, meta.output), format: "A4", printBackground: true, preferCSSPageSize: true, tagged: true, outline: true });
     await page.close();
     unlinkSync(tmp);
-    console.log("Wrote docs/security/" + meta.output);
+    console.log(`Wrote ${folder}/${meta.output}`);
   }
   await browser.close();
 })();
