@@ -3,7 +3,7 @@ import { InViewPlayer } from "@/components/motion/InViewPlayer";
 /**
  * THE JODESX SIGNAL — hero composition.
  *
- * Four operational lanes enter from the left, pass two gates (Review, Quality)
+ * Five operational lanes enter from the left, pass two gates (Review, Quality)
  * and converge into one reported output. A pulse travels each lane in turn;
  * gate indicators light as the pulse passes them. Pure SVG + CSS animation,
  * paused when off-screen, static under prefers-reduced-motion.
@@ -23,15 +23,18 @@ const GATES = [
 const LANES = [
   { y: 104, label: "Content" },
   { y: 200, label: "Inquiries" },
+  { y: 280, label: "Calls" },
   { y: 360, label: "Tasks" },
   { y: 456, label: "Data" },
 ] as const;
 
-const CYCLE_S = 6.4; // one full rotation through all four lanes
+const CYCLE_S = 7; // one full rotation through all five lanes
 const TRAVEL_SHARE = 0.5; // portion of the cycle a pulse spends travelling
 const DASH = 70; // pulse length in normalised path units (path length = 1000)
 
 function lanePath(y: number) {
+  // The centre lane runs straight into the output.
+  if (y === OUT_Y) return { d: `M0 ${y}H${OUT_END}`, length: OUT_END };
   const dir = Math.sign(OUT_Y - y);
   const straight = TURN_X - R;
   const vertical = Math.abs(OUT_Y - y) - 2 * R;
@@ -93,7 +96,7 @@ export function SignalField() {
             x={g.x - 14}
             y={LANES[0].y - 40}
             width="28"
-            height={LANES[3].y - LANES[0].y + 80}
+            height={LANES[4].y - LANES[0].y + 80}
             rx="8"
           />
         ))}

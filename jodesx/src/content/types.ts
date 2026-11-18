@@ -1,4 +1,4 @@
-export type ServiceSlug = "content-moderation" | "customer-support" | "back-office" | "ai-data-operations";
+export type ServiceSlug = "content-moderation" | "customer-support" | "call-center" | "back-office" | "ai-data-operations";
 
 export interface TextBlock {
   title: string;

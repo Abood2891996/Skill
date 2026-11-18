@@ -17,9 +17,9 @@ import { createMetadata } from "@/lib/seo/metadata";
 import { faqJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata = createMetadata({
-  title: "JoDesx — Outsourced operations teams for content moderation, support, back-office and AI data",
+  title: "JoDesx — Call center and outsourced operations teams in Jordan",
   description:
-    "JoDesx is a Jordan-based business process outsourcing company. We build and run structured teams, remote or on-site in Jordan, for content moderation, customer support, back-office operations and AI data annotation.",
+    "JoDesx is a Jordan-based business process outsourcing company. We build and run call center, customer support, content moderation, back-office and AI data teams in Arabic and English, remote or on-site in Jordan.",
   path: "/",
   absoluteTitle: true,
 });

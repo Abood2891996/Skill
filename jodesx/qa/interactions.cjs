@@ -261,7 +261,7 @@ const ok = (cond, msg) => { console.log(`${cond ? "PASS" : "FAIL"}  ${msg}`); if
   // ---------- Link integrity ----------
   {
     const page = await browser.newPage();
-    const pages = ["/", "/services", "/services/content-moderation", "/services/customer-support", "/services/back-office", "/services/ai-data-operations", "/how-we-work", "/about", "/contact", "/privacy", "/terms", "/why-jodesx", "/careers", "/careers/apply"];
+    const pages = ["/", "/services", "/services/content-moderation", "/services/customer-support", "/services/call-center", "/services/back-office", "/services/ai-data-operations", "/how-we-work", "/about", "/contact", "/privacy", "/terms", "/why-jodesx", "/careers", "/careers/apply"];
     const hrefs = new Set();
     let hashOnly = 0;
     for (const p of pages) {

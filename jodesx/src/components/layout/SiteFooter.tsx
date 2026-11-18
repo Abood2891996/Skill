@@ -14,7 +14,7 @@ export function SiteFooter() {
               <Logo height={28} decorative />
             </Link>
             <p className="mt-6 text-fg-muted">
-              Structured teams, remote or on-site in Jordan, for content moderation, customer support, back-office and AI data operations.
+              Call center, customer support, content moderation, back-office and AI data teams — Arabic and English, remote or on-site in Jordan.
             </p>
             <a
               href={site.social.linkedin}

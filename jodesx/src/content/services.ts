@@ -140,6 +140,11 @@ const contentModeration: Service = {
         "They are escalated, not guessed. Escalation paths, contacts and expected response times are defined during setup, and each escalated item carries the moderator's notes and context.",
     },
     {
+      question: "Which languages can your moderators review?",
+      answer:
+        "Arabic and English, including regional Arabic dialects common on social platforms. Moderators review content in both languages against the same guidelines.",
+    },
+    {
       question: "Can moderation run outside our business hours?",
       answer:
         "Coverage hours are agreed during scoping, based on when your content volume actually arrives and on team availability. We confirm what we can staff before committing to it.",
@@ -200,8 +205,8 @@ const customerSupport: Service = {
       body: "Follow-ups, feedback collection and review responses that close the loop after the ticket is solved.",
     },
     {
-      title: "Multilingual support",
-      body: "Additional languages can be scoped where qualified team members are available. We confirm language coverage before committing to it.",
+      title: "Arabic and English",
+      body: "Support in Arabic and English across every channel. Other languages can be scoped where qualified team members are available.",
     },
   ],
   channels: {
@@ -301,7 +306,7 @@ const customerSupport: Service = {
     {
       question: "Which languages can you support?",
       answer:
-        "Language coverage depends on team availability and is confirmed during scoping. We will not commit to a language we cannot staff properly.",
+        "Arabic and English, across email, chat and tickets. Other languages can be discussed during scoping — we only commit to languages we can staff properly.",
     },
     {
       question: "What can agents do without asking us?",
@@ -312,6 +317,169 @@ const customerSupport: Service = {
   cta: {
     title: "Tell us how your support runs today.",
     body: "Share your channels, typical volumes and the questions that take up the most time. We'll propose how a JoDesx team would fit in.",
+  },
+};
+
+const callCenter: Service = {
+  slug: "call-center",
+  name: "Call Center",
+  href: "/services/call-center",
+  tagline: "Every call answered, every conversation handled with care.",
+  summary: "Inbound and outbound call teams in Arabic and English — customer care, technical support, follow-ups and sales.",
+  meta: {
+    title: "Call Center Outsourcing in Jordan",
+    description:
+      "Outsourced call center services from JoDesx in Jordan: inbound customer care, technical support, outbound follow-ups and telesales in Arabic and English, run to your scripts and quality standards.",
+  },
+  hero: {
+    title: "Call center teams that sound like part of your company.",
+    lead: "JoDesx runs inbound and outbound call teams in Arabic and English — answering your customers, supporting your users and reaching out on your behalf, with scripts, quality reviews and reporting agreed with you.",
+  },
+  problems: [
+    "Calls go unanswered or wait too long in the queue.",
+    "Your team cannot cover evenings, weekends or seasonal peaks.",
+    "Follow-up and outreach calls keep slipping down the list.",
+    "You need Arabic and English on the same line.",
+  ],
+  capabilitiesTitle: "Call services",
+  capabilities: [
+    {
+      title: "Inbound customer care",
+      body: "Answering your support and inquiry lines — orders, accounts, bookings and general questions — within the permissions you define.",
+    },
+    {
+      title: "Technical support",
+      body: "First-line technical help by phone: troubleshooting from your knowledge base, with clear escalation to your specialists.",
+    },
+    {
+      title: "Outbound customer calls",
+      body: "Follow-ups, appointment confirmations, satisfaction surveys and retention calls, made on schedule and logged in your systems.",
+    },
+    {
+      title: "Outbound sales and lead generation",
+      body: "Telesales and lead qualification to your scripts and targets, respecting calling hours, consent and do-not-call requirements.",
+    },
+    {
+      title: "Overflow and after-hours coverage",
+      body: "Extra capacity for peaks and coverage for the hours your in-house team is offline.",
+    },
+    {
+      title: "Arabic and English",
+      body: "Every agent handles calls in Arabic and English, so regional and international customers are served on the same line.",
+    },
+  ],
+  channels: {
+    title: "Call types",
+    items: ["Inbound support lines", "Technical support", "Outbound follow-ups", "Surveys", "Telesales", "Callbacks and voicemail"],
+  },
+  workflowIntro: "Every call follows a defined path — from the moment it rings to the note that closes it.",
+  workflow: [
+    {
+      id: "connect",
+      label: "Call connected",
+      summary: "Inbound routed or outbound dialled.",
+      detail:
+        "Inbound calls arrive through your telephony routing; outbound calls are made from agreed lists and schedules. Every call is logged against the customer record in your systems.",
+      checkpoint: "Call logged against the right record.",
+    },
+    {
+      id: "identify",
+      label: "Identify and understand",
+      summary: "Caller verified, need understood.",
+      detail:
+        "The agent verifies the caller as your procedure requires, listens to the full request and confirms it back before acting — in Arabic or English.",
+      checkpoint: "Verification steps completed.",
+    },
+    {
+      id: "resolve",
+      label: "Resolve or act",
+      summary: "Handled to your script and policies.",
+      detail:
+        "Agents follow your scripts, knowledge base and permissions — resolving the issue, completing the follow-up or presenting the offer.",
+      checkpoint: "Outcome matches script and policy.",
+      branch: {
+        label: "Warm transfer to your team",
+        detail:
+          "Calls outside the agreed scope — complex technical faults, complaints needing a decision, special requests — are transferred to your team with a summary, so the caller does not repeat themselves.",
+      },
+    },
+    {
+      id: "qa",
+      label: "Quality review",
+      summary: "Calls sampled and scored.",
+      detail:
+        "Where your policy and applicable law allow call recording, a sample of calls is scored against an agreed rubric — accuracy, tone, compliance and resolution — and feedback goes back to the agent.",
+      checkpoint: "Sample scored against the rubric.",
+    },
+    {
+      id: "wrap",
+      label: "Wrap-up and reporting",
+      summary: "Notes, outcomes and trends reported.",
+      detail:
+        "Each call ends with clear notes and an outcome code. Regular reporting covers volumes, answer and handling times, outcomes and recurring issues.",
+      checkpoint: "Notes and outcome recorded.",
+    },
+  ],
+  qualityTitle: "How call quality is protected",
+  quality: [
+    {
+      title: "Scripts and call guides agreed first",
+      body: "Openings, verification, key messages and escalation rules are written and approved by you before the first call.",
+    },
+    {
+      title: "Listening, not just answering",
+      body: "Agents confirm the caller's need before acting. Fewer repeat calls come from getting it right the first time.",
+    },
+    {
+      title: "Compliance built into outbound work",
+      body: "Calling hours, consent and do-not-call requirements for each target country are agreed and followed on every campaign.",
+    },
+    {
+      title: "Sensitive information handled safely",
+      body: "Payment card details are never written down or stored by agents; card payments by phone are taken only through a compliant process agreed with you.",
+    },
+  ],
+  useCases: [
+    { title: "E-commerce and retail", body: "Order, delivery and returns calls, plus confirmation calls." },
+    { title: "Software and SaaS", body: "First-line technical support and onboarding calls." },
+    { title: "Telecom, utilities and subscriptions", body: "Account, billing and retention conversations." },
+    { title: "Healthcare and services", body: "Appointment booking, reminders and follow-ups." },
+    { title: "B2B sales teams", body: "Lead qualification and outbound campaigns." },
+  ],
+  engagement: [
+    { title: "Dedicated call team", body: "A consistent team trained on your products, scripts and systems." },
+    { title: "Outbound campaigns", body: "Defined campaigns with agreed lists, scripts, targets and timelines." },
+    { title: "Overflow and after-hours", body: "Calls routed to JoDesx when your team is busy or offline." },
+  ],
+  faqs: [
+    {
+      question: "Do you use our phone system or your own?",
+      answer:
+        "Either. Our agents can work inside your existing contact-center platform, or we can set up a telephony solution for the engagement. The setup, numbers and routing are agreed during scoping.",
+    },
+    {
+      question: "Which languages do your agents speak?",
+      answer: "Arabic and English. Every agent handles calls in both languages, so regional and international customers can be served on the same line.",
+    },
+    {
+      question: "Are calls recorded?",
+      answer:
+        "Only if your policy and the applicable law allow it, with the required notices to callers. Recordings stay in your systems or in a setup agreed with you, and are used for quality review and training.",
+    },
+    {
+      question: "How do you handle outbound sales compliance?",
+      answer:
+        "Before any campaign we agree calling hours, consent requirements and do-not-call handling for each target country, and agents follow them on every call.",
+    },
+    {
+      question: "Can you take payments over the phone?",
+      answer:
+        "Only through a compliant payment process agreed with you. Agents never write down or store card details.",
+    },
+  ],
+  cta: {
+    title: "Tell us about your call volumes.",
+    body: "Share your call types, languages, hours and typical volumes. We'll propose a team structure and how calls would flow.",
   },
 };
 
@@ -542,7 +710,7 @@ const aiDataOperations: Service = {
     {
       question: "Which data types can you work with?",
       answer:
-        "Text-based work — classification, evaluation, extraction and categorization — is the core. Other data types can be discussed during scoping, and we will be clear about what the team is ready for.",
+        "Text-based work in Arabic and English — classification, evaluation, extraction and categorization — is the core. Other data types can be discussed during scoping, and we will be clear about what the team is ready for.",
     },
     {
       question: "How do you start a new annotation project?",
@@ -556,7 +724,7 @@ const aiDataOperations: Service = {
   },
 };
 
-export const services: Service[] = [contentModeration, customerSupport, backOffice, aiDataOperations];
+export const services: Service[] = [contentModeration, customerSupport, callCenter, backOffice, aiDataOperations];
 
 export const serviceSlugs = services.map((s) => s.slug);
 

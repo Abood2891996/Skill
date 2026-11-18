@@ -12,6 +12,7 @@ z.config({ jitless: true });
 export const serviceOptions = [
   { value: "content-moderation", label: "Content Moderation" },
   { value: "customer-support", label: "Customer Support" },
+  { value: "call-center", label: "Call Center" },
   { value: "back-office", label: "Back-Office Operations" },
   { value: "ai-data-operations", label: "AI Data Operations" },
   { value: "not-sure", label: "Not sure yet — help me decide" },

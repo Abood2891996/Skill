@@ -6,12 +6,12 @@ import type { Faq, ServiceSlug, TextBlock } from "./types";
 export const home = {
   hero: {
     title: "Operations, structured around your business.",
-    lead: "JoDesx builds and runs operational teams for content moderation, customer support, back-office work and AI data operations — remote or on-site at our offices in Jordan, with defined workflows, human review and clear reporting.",
+    lead: "JoDesx builds and runs operational teams for call center, customer support, content moderation, back-office and AI data operations — in Arabic and English, remote or on-site at our offices in Jordan.",
     primaryCta: "Start an inquiry",
     secondaryCta: "See how we work",
   },
   intro: {
-    title: "Four areas of operational work. One way of running them.",
+    title: "Five areas of operational work. One way of running them.",
     body: "Each service is different in content and identical in discipline: scope agreed in writing, procedures documented, quality reviewed, results reported.",
   },
   closing: {
@@ -63,6 +63,22 @@ export const challenges: Challenge[] = [
     diagnosis:
       "If product or operations staff are the default support team, most repeat questions can move to a trained first line with clear handover rules.",
     firstStep: "Define what a support team can answer alone and what must come back to you.",
+  },
+  {
+    id: "missed-calls",
+    label: "Calls are missed or wait too long in the queue",
+    service: "call-center",
+    diagnosis:
+      "Missed calls usually come from peaks the current team cannot absorb, or from hours nobody covers. Mapping when calls actually arrive shows where capacity is needed.",
+    firstStep: "Review call volumes by hour and day to size coverage for peaks and after-hours.",
+  },
+  {
+    id: "outbound-capacity",
+    label: "We need outbound calls we never get to",
+    service: "call-center",
+    diagnosis:
+      "Follow-ups, confirmations and sales calls slip when the same team also answers inbound demand. A dedicated outbound team with clear scripts keeps them moving.",
+    firstStep: "Define the call lists, scripts and targets for one contained outbound campaign.",
   },
   {
     id: "admin-load",
@@ -212,12 +228,12 @@ export const environments: { title: string; body: string; services: ServiceSlug[
   {
     title: "E-commerce and marketplaces",
     body: "Businesses with orders, listings and customers to look after.",
-    services: ["customer-support", "back-office", "content-moderation"],
+    services: ["customer-support", "call-center", "back-office", "content-moderation"],
   },
   {
     title: "Software and SaaS companies",
     body: "Product teams that need support and operations to scale with users.",
-    services: ["customer-support", "back-office"],
+    services: ["customer-support", "call-center", "back-office"],
   },
   {
     title: "AI and data teams",
@@ -226,8 +242,8 @@ export const environments: { title: string; body: string; services: ServiceSlug[
   },
   {
     title: "Service and operations businesses",
-    body: "Companies whose growth is limited by administrative load.",
-    services: ["back-office", "customer-support"],
+    body: "Companies whose customers call — and whose growth is limited by administrative load.",
+    services: ["call-center", "back-office", "customer-support"],
   },
 ];
 
@@ -259,7 +275,7 @@ export const generalFaqs: Faq[] = [
   {
     question: "What exactly does JoDesx do?",
     answer:
-      "JoDesx organizes and runs operational teams — remote or on-site at our offices in Jordan — for four kinds of work: content moderation, customer support, back-office operations and AI data operations. We define the workflow with you, staff it, review quality and report on results.",
+      "JoDesx organizes and runs operational teams — remote or on-site at our offices in Jordan — for five kinds of work: content moderation, customer support, call center, back-office operations and AI data operations, in Arabic and English. We define the workflow with you, staff it, review quality and report on results.",
   },
   {
     question: "Is JoDesx a staffing or recruitment agency?",
@@ -339,6 +355,7 @@ export const comparisonRows: { label: string; values: Record<ServiceSlug, string
     values: {
       "content-moderation": "Review queues, reports and your content policy",
       "customer-support": "Inbound conversations and your support policies",
+      "call-center": "Inbound lines, outbound lists and your call scripts",
       "back-office": "Recurring administrative and data tasks",
       "ai-data-operations": "Datasets, a labeling schema and guidelines",
     },
@@ -348,6 +365,7 @@ export const comparisonRows: { label: string; values: Record<ServiceSlug, string
     values: {
       "content-moderation": "Consistent, logged decisions and escalations",
       "customer-support": "Resolved tickets and insight into recurring issues",
+      "call-center": "Answered calls, completed outreach and call outcome reports",
       "back-office": "Verified records, delivered on schedule",
       "ai-data-operations": "Validated, structured data with a quality summary",
     },
@@ -357,6 +375,7 @@ export const comparisonRows: { label: string; values: Record<ServiceSlug, string
     values: {
       "content-moderation": "Policy, edge cases and appeals",
       "customer-support": "Refund limits, exceptions and technical faults",
+      "call-center": "Script approval, offers, refunds and escalated complaints",
       "back-office": "Approvals and anything outside procedure",
       "ai-data-operations": "Guideline definitions and acceptance thresholds",
     },
@@ -366,6 +385,7 @@ export const comparisonRows: { label: string; values: Record<ServiceSlug, string
     values: {
       "content-moderation": "Review a sample of decisions against your policy",
       "customer-support": "Classify recent tickets by type and complexity",
+      "call-center": "Map call types, volumes and peak hours together",
       "back-office": "Document one recurring process together",
       "ai-data-operations": "Run a calibrated pilot batch",
     },

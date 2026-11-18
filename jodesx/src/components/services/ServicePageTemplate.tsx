@@ -11,7 +11,7 @@ import type { Service } from "@/content/types";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo/structured-data";
 import { ServiceGlyph } from "./ServiceGlyph";
 
-/** Shared layout for the four service pages; all content comes from src/content/services.ts. */
+/** Shared layout for every service page; all content comes from src/content/services.ts. */
 export function ServicePageTemplate({ service }: { service: Service }) {
   const crumbs = [
     { name: "Home", path: "/" },
@@ -144,7 +144,7 @@ export function ServicePageTemplate({ service }: { service: Service }) {
           <h2 id="related-title" className="text-sm font-semibold text-fg-muted">
             Other JoDesx services
           </h2>
-          <ul className="mt-5 grid gap-3 md:grid-cols-3">
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {related.map((r) => (
               <li key={r.slug}>
                 <Link href={r.href} className="group flex items-center gap-4 rounded-[var(--radius-md)] border border-line bg-surface-raised p-4 transition-colors hover:border-line-strong">

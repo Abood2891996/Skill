@@ -4,7 +4,7 @@ import { services } from "@/content/services";
 import { ServiceGlyph } from "./ServiceGlyph";
 
 /**
- * The four services as one connected surface: hairline-divided panels rather
+ * The services as one connected surface: hairline-divided panels rather
  * than detached cards. A signal line draws across the top edge on hover.
  */
 export function ServiceGrid({ headingLevel = "h3" }: { headingLevel?: "h2" | "h3" }) {
@@ -12,7 +12,7 @@ export function ServiceGrid({ headingLevel = "h3" }: { headingLevel?: "h2" | "h3
   return (
     <ul className="grid overflow-hidden rounded-[var(--radius-lg)] border border-line bg-line gap-px md:grid-cols-2">
       {services.map((s) => (
-        <li key={s.slug} className="bg-surface-raised">
+        <li key={s.slug} className="bg-surface-raised md:[&:last-child:nth-child(odd)]:col-span-2">
           <Link href={s.href} className="service-panel group relative flex h-full flex-col p-7 sm:p-9">
             <span aria-hidden="true" className="service-panel-line" />
             <div className="flex items-start justify-between gap-6">

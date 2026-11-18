@@ -9,7 +9,7 @@ import { breadcrumbJsonLd } from "@/lib/seo/structured-data";
 export const metadata = createMetadata({
   title: "Contact — Start an Inquiry",
   description:
-    "Tell JoDesx about the operational work you want to hand over — content moderation, customer support, back-office or AI data operations — and start a conversation about scope.",
+    "Tell JoDesx about the operational work you want to hand over — call center, customer support, content moderation, back-office or AI data operations — and start a conversation about scope.",
   path: "/contact",
 });
 

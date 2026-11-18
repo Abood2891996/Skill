@@ -132,7 +132,7 @@ export function SiteHeader() {
               <div className="overflow-hidden rounded-[var(--radius-lg)] border border-line-strong bg-navy-800 shadow-[0_30px_80px_-30px_rgb(0_0_0/0.7)]">
                 <ul className="grid grid-cols-2 gap-px bg-line">
                   {services.map((s) => (
-                    <li key={s.slug} className="bg-navy-800">
+                    <li key={s.slug} className="bg-navy-800 [&:last-child:nth-child(odd)]:col-span-2">
                       <Link
                         href={s.href}
                         aria-current={pathname === s.href ? "page" : undefined}

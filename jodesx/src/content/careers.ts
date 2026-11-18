@@ -4,7 +4,7 @@ import type { Faq, TextBlock } from "./types";
 
 export const careersHero = {
   title: "Do careful work for companies around the world — from Jordan.",
-  lead: "JoDesx teams moderate content, support customers, run back-office processes and prepare AI training data for international businesses. We give you the training, clear procedures and support to do that work well — and to grow while you do it.",
+  lead: "JoDesx teams answer and make calls, support customers, moderate content, run back-office processes and prepare AI training data for international businesses, in Arabic and English. We give you the training, clear procedures and support to do that work well — and to grow while you do it.",
 };
 
 export const reasonsToJoin: (TextBlock & { icon: "training" | "clarity" | "feedback" | "global" | "wellbeing" | "growth" })[] = [

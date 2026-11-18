@@ -2,7 +2,7 @@ import { z } from "zod";
 
 z.config({ jitless: true });
 
-export const jobTeams = ["Content Moderation", "Customer Support", "Back-Office Operations", "AI Data Operations", "Operations & Quality", "Company"] as const;
+export const jobTeams = ["Content Moderation", "Customer Support", "Call Center", "Back-Office Operations", "AI Data Operations", "Operations & Quality", "Company"] as const;
 export const jobTypes = ["Full-time", "Part-time", "Contract"] as const;
 export const workplaces = ["Remote", "On-site", "Hybrid"] as const;
 

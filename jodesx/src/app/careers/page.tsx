@@ -15,7 +15,7 @@ import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo/structured-data";
 export const metadata = createMetadata({
   title: "Careers — Jobs at JoDesx",
   description:
-    "Join JoDesx in Jordan: content moderation, customer support, back-office and AI data roles with international companies, structured training and clear procedures.",
+    "Join JoDesx in Jordan: call center, customer support, content moderation, back-office and AI data roles with international companies, structured training and clear procedures.",
   path: "/careers",
 });
 

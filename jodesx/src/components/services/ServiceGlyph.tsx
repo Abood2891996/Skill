@@ -49,6 +49,15 @@ const GLYPHS: Record<ServiceSlug, ReactNode> = {
       <rect className="glyph-unit" x="38" y="21" width="6" height="6" fill={unit} />
     </>
   ),
+  // A voice waveform passes a gate and resolves into a steady line.
+  "call-center": (
+    <>
+      <path d="M4 24H8L10 17L13 31L16 13L19 35L22 20L24 24" stroke={lane} strokeWidth="1.5" strokeLinejoin="round" />
+      <rect x="24.75" y="14.75" width="10.5" height="18.5" rx="1.5" stroke={accent} strokeWidth="1.5" />
+      <path d="M35 24H44" stroke={accent} strokeWidth="1.5" />
+      <rect className="glyph-unit" x="38" y="21" width="6" height="6" fill={unit} />
+    </>
+  ),
   // Stacked records pass a verification column.
   "back-office": (
     <>
