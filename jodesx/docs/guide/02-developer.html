@@ -82,7 +82,7 @@ npm run dev                    # http://localhost:3000</pre>
   <table class="compact">
     <tbody>
       <tr><td style="width:24%"><code>types.ts</code></td><td><code>ServiceSlug</code> union, <code>Service</code>, <code>BlueprintStage</code>, <code>Faq</code>, <code>TextBlock</code>. Adding a slug makes TypeScript flag every place that must handle it.</td></tr>
-      <tr><td><code>services.ts</code></td><td>Four <code>Service</code> objects: hero, problems, capabilities, workflow (feeds the Operations Blueprint), quality, use cases, engagement, FAQs, CTA, SEO meta. Exports <code>services</code>, <code>getService()</code>.</td></tr>
+      <tr><td><code>services.ts</code></td><td>Five <code>Service</code> objects: hero, problems, capabilities, workflow (feeds the Operations Blueprint), quality, use cases, engagement, FAQs, CTA, SEO meta. Exports <code>services</code>, <code>getService()</code>.</td></tr>
       <tr><td><code>pages.ts</code></td><td>Home, About, process steps, engagement flow, challenge selector entries, quality loop, environments, engagement models, comparison rows, general FAQs.</td></tr>
       <tr><td><code>why.ts</code></td><td>Why JoDesx: hero, core/more reasons, comparison table, commitments.</td></tr>
       <tr><td><code>careers.ts</code></td><td>Careers copy, reasons to join (with icon keys), traits, hiring steps, FAQs.</td></tr>
@@ -164,9 +164,9 @@ export default function PartnersPage() {
 </section>
 
 <section id="b6">
-  <h2><span class="num">B6</span> Recipe: add a fifth service</h2>
+  <h2><span class="num">B6</span> Recipe: add another service</h2>
   <ol class="steps">
-    <li><code>src/content/types.ts</code> — add the slug to <code>ServiceSlug</code>, e.g. <code>| "sales-support"</code>. Run <code>npm run typecheck</code>: TypeScript now lists every place that must be updated.</li>
+    <li><code>src/content/types.ts</code> — add the slug to <code>ServiceSlug</code>, e.g. <code>| "sales-support"</code> (Call Center was added this way). Run <code>npm run typecheck</code>: TypeScript now lists every place that must be updated.</li>
     <li><code>src/content/services.ts</code> — create the <code>Service</code> object (copy an existing one) and add it to the <code>services</code> array. Navigation, grid, Blueprint tabs, comparison table columns and related links pick it up automatically.</li>
     <li><code>src/components/services/ServiceGlyph.tsx</code> — add a glyph to <code>GLYPHS</code> (48-unit grid; lanes, gates, a <code>.glyph-unit</code> square).</li>
     <li><code>src/content/pages.ts</code> — add a value for the new slug in every <code>comparisonRows</code> row (required by type); optionally add <code>challenges</code> and <code>environments</code> entries.</li>

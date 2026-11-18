@@ -4,7 +4,8 @@ Use the facts relevant to the task. If a fact here conflicts with the codebase o
 
 ## Business
 - **JoDesx** (exact capitalisation) — a Jordan-based business operations and outsourcing company serving international businesses. An operations partner, not a staffing agency, freelance marketplace, software agency or AI company.
-- **Four services:** Content Moderation · Customer Support · Back-Office Operations · AI Data Operations (human-in-the-loop; JoDesx does not build AI models).
+- **Five services:** Call Center (inbound, outbound, technical support, telesales) · Customer Support · Content Moderation · Back-Office Operations · AI Data Operations
+- **Languages:** Arabic and English across all services (confirmed by the owner 18 Nov 2026). Do not claim other languages. (human-in-the-loop; JoDesx does not build AI models).
 - **Positioning:** “Operational support, intelligently connected.” Homepage headline: “Operations, structured around your business.”
 - **Model:** teams work **remotely or on-site at JoDesx offices in Jordan**, as the client prefers (confirmed by the owner 17 Nov 2026); employees or contracted specialists organised and supervised by JoDesx; scope in writing; documented procedures; quality review; reporting.
 - **Time zone:** Jordan, UTC+3 — full overlap with Europe and the Gulf, start of the North American day.

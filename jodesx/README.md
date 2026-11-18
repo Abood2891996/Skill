@@ -40,8 +40,8 @@ node qa/screens.cjs <outDir> /,/services 1440,390   # full-page screenshots + ov
 | Route | Purpose |
 | --- | --- |
 | `/` | Home: hero with the Signal field, services, challenge selector, Operations Blueprint, principles, engagement rail, quality loop, environments, engagement models, FAQ |
-| `/services` | Overview and comparison of the four services |
-| `/services/content-moderation` · `/customer-support` · `/back-office` · `/ai-data-operations` | Service pages (shared template) |
+| `/services` | Overview and comparison of the five services |
+| `/services/content-moderation` · `/customer-support` · `/call-center` · `/back-office` · `/ai-data-operations` | Service pages (shared template) |
 | `/why-jodesx` | Ten reasons to choose JoDesx, what every engagement includes, and written commitments |
 | `/how-we-work` | The six-step engagement process and responsibilities |
 | `/about` | Company purpose, philosophy, Jordan-based identity |

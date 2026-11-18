@@ -10,7 +10,7 @@ Operations, support, trust & safety and data leads at international businesses �
 
 | Visitor question | Where it is answered |
 | --- | --- |
-| What does JoDesx do? | Home hero + four-service grid |
+| What does JoDesx do? | Home hero + five-service grid |
 | Is my problem one they solve? | Challenge selector; "Signs this service could help" on each service page |
 | Which service? | Services overview comparison table; challenge selector |
 | How would it actually run? | Operations Blueprint (per-service stages, checkpoints, escalations) |
@@ -20,7 +20,7 @@ Operations, support, trust & safety and data leads at international businesses �
 
 ## 3. Messaging hierarchy
 
-1. **Category:** business operations and outsourcing — four services.
+1. **Category:** call center and business operations outsourcing — five services, in Arabic and English.
 2. **Differentiator:** an operations partner that designs how the work runs, not a supplier of people.
 3. **Mechanism:** written scope → documented procedures → quality review → reporting.
 4. **Outcome:** operational capacity extended; internal teams freed for higher-value work.
@@ -35,6 +35,7 @@ Closing line: *Let's make your next operation work better.*
 | --- | --- | --- |
 | Content Moderation | Human review for the content your platform carries. | Consistency against *your* policy; escalation, not guessing. |
 | Customer Support | Support conversations, handled the way you would handle them. | Your tools, your tone, clean handovers. |
+| Call Center | Every call answered, every conversation handled with care. | Inbound, outbound, technical support and telesales in Arabic and English; compliant recording, payments and outbound calling. |
 | Back-Office Operations | The repeatable work that keeps everything else running. | Written procedures, checks sized to risk, exceptions surfaced. |
 | AI Data Operations | Human judgment, structured for AI training data. | Guidelines first, measured agreement; *we don't build models*. |
 
@@ -74,6 +75,7 @@ Claims that *are* made and the basis for each:
 | /services | outsourced operations services, remote operations teams | Outsourced Operations Services |
 | /services/content-moderation | content moderation services | Content Moderation Services |
 | /services/customer-support | outsourced customer support | Outsourced Customer Support |
+| /services/call-center | call center outsourcing Jordan, Arabic call center | Call Center Outsourcing in Jordan |
 | /services/back-office | back-office outsourcing | Back-Office Outsourcing |
 | /services/ai-data-operations | AI data annotation services | AI Data Annotation and Labeling Services |
 

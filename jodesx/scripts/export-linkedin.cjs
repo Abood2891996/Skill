@@ -21,12 +21,12 @@ html, body { margin: 0; }
 .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(244,247,251,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(244,247,251,.045) 1px, transparent 1px); background-size: 24px 24px; }
 .t { position: absolute; left: 290px; top: 52px; width: 560px; }
 .h { font-size: 31px; font-weight: 600; font-stretch: 80%; letter-spacing: -0.02em; line-height: 1.05; }
-.s { margin-top: 12px; font-size: 13.5px; color: #B4BFD0; letter-spacing: .005em; }
+.s { margin-top: 12px; font-size: 12.5px; color: #B4BFD0; letter-spacing: .005em; }
 .s b { color: #7FE6F1; font-weight: 600; }
 svg.l { position: absolute; right: 20px; top: 0; }
 </style></head><body><div class="c"><div class="grid"></div>
 <div class="t"><div class="h">Operations, structured around your business.</div>
-<div class="s">Content moderation · Customer support · Back-office · AI data operations</div><div class="s"><b>www.jodesx.com</b></div></div>
+<div class="s">Call center · Customer support · Content moderation · Back-office · AI data operations</div><div class="s">Arabic &amp; English &nbsp;·&nbsp; <b>www.jodesx.com</b></div></div>
 <svg class="l" width="300" height="191" viewBox="0 0 300 191" fill="none">
   <path d="M0 38H150Q170 38 170 58V75Q170 95 190 95H262" stroke="#F4F7FB" stroke-opacity=".18" stroke-width="1.5"/>
   <path d="M0 95H262" stroke="#35D6E8" stroke-width="2"/>
@@ -47,10 +47,11 @@ html, body { margin: 0; }
 .badge { position: absolute; left: 96px; top: 300px; display: inline-flex; align-items: center; gap: 14px; font-size: 26px; font-weight: 500; color: #B4BFD0; }
 .badge i { width: 14px; height: 14px; border-radius: 50%; background: #35D6E8; box-shadow: 0 0 0 8px rgba(53,214,232,.15); }
 .h { position: absolute; left: 96px; top: 360px; width: 880px; font-size: 104px; font-weight: 600; font-stretch: 80%; letter-spacing: -0.03em; line-height: 0.98; }
-.svc { position: absolute; left: 96px; top: 1010px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 48px; font-size: 27px; color: #D6DEEA; }
+.svc { position: absolute; left: 96px; top: 985px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 48px; font-size: 27px; color: #D6DEEA; }
 .svc div { display: flex; align-items: center; gap: 16px; } .svc div::before { content: ""; width: 12px; height: 12px; background: #786BFF; flex: none; }
 .url { position: absolute; left: 96px; bottom: 96px; font-size: 30px; font-weight: 600; color: #7FE6F1; letter-spacing: .01em; }
 .loc { position: absolute; right: 96px; bottom: 98px; font-size: 24px; color: #8C9AB0; }
+.svc div:last-child::before { background: #35D6E8; }
 svg.lanes { position: absolute; left: 0; top: 760px; }
 </style></head><body><div class="c"><div class="grid"></div>
 <div class="logo">${brand("jodesx-logo-horizontal-dark.svg")}</div>
@@ -65,7 +66,7 @@ svg.lanes { position: absolute; left: 0; top: 760px; }
   <rect x="441" y="94" width="12" height="12" fill="#35D6E8"/><rect x="591" y="94" width="12" height="12" fill="#35D6E8"/>
   <rect x="930" y="80" width="40" height="40" rx="5" fill="#786BFF"/>
 </svg>
-<div class="svc"><div>Content moderation</div><div>Customer support</div><div>Back-office operations</div><div>AI data operations</div></div>
+<div class="svc"><div>Call center</div><div>Customer support</div><div>Content moderation</div><div>Back-office operations</div><div>AI data operations</div><div>Arabic &amp; English</div></div>
 <div class="url">www.jodesx.com</div><div class="loc">Jordan · Remote or on-site</div>
 </div></body></html>`;
 
