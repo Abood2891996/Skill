@@ -253,7 +253,7 @@ const ok = (cond, msg) => { console.log(`${cond ? "PASS" : "FAIL"}  ${msg}`); if
     await page.getByRole("link", { name: "All the reasons to choose JoDesx" }).click();
     await page.waitForURL("**/why-jodesx");
     ok((await page.locator(".reason-card").count()) === 4, "Why page shows the four core reasons");
-    ok((await page.locator("table tbody tr").count()) >= 6, "comparison table rendered");
+    ok((await page.locator("table tbody tr").count()) >= 6, "engagement inclusions table rendered");
     ok((await page.locator('nav[aria-label="Main"] a[aria-current="page"]').textContent()) === "Why JoDesx", "Why JoDesx marked active in nav");
     await page.close();
   }

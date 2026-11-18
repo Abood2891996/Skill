@@ -34,6 +34,7 @@ The owner is not a developer and often writes briefly, sometimes in Arabic. Your
 
 - **Truthfulness:** never invent clients, testimonials, statistics, certifications, awards, history, prices or promises. If something must be confirmed by the owner, say so and use neutral wording meanwhile.
 - **JoDesx does not build AI models** — it provides human operations for AI teams.
+- **No comparisons with other providers:** present JoDesx on its own merits; never generalise about or criticise other outsourcing companies.
 - **Brand voice:** precise, calm, understated; sentence case; no “world-class / cutting-edge / seamless / best”. See `jodesx/docs/CONTENT-STRATEGY.md` and `BRAND-GUIDELINES.md` for anything visual or written.
 - **Language:** reply to the owner in the language they wrote in (Arabic ↔ English). Website copy stays in US English unless asked otherwise.
 - **Safety of the live site:** website changes must pass `npm run check` in `jodesx/` before they reach `main`; mention how to roll back if something is risky.

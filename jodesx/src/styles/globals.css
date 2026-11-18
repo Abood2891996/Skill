@@ -564,21 +564,6 @@
     -webkit-text-stroke-color: var(--violet-600);
   }
 
-  /* Highlighted JoDesx column in the comparison table. */
-  .compare-highlight {
-    background: color-mix(in oklab, var(--cyan-400) 6%, transparent);
-    box-shadow:
-      inset 1px 0 0 color-mix(in oklab, var(--cyan-400) 45%, transparent),
-      inset -1px 0 0 color-mix(in oklab, var(--cyan-400) 45%, transparent);
-  }
-
-  thead .compare-highlight {
-    box-shadow:
-      inset 1px 0 0 color-mix(in oklab, var(--cyan-400) 45%, transparent),
-      inset -1px 0 0 color-mix(in oklab, var(--cyan-400) 45%, transparent),
-      inset 0 2px 0 var(--cyan-400);
-  }
-
   /* File drop zone */
   .dropzone {
     border: 1.5px dashed rgb(11 18 32 / 0.25);

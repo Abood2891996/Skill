@@ -10,7 +10,7 @@ Remote or on-site teams in Jordan for content moderation, customer support, back
 
 Operational support, intelligently connected.
 
-## Overview (1,509 characters)
+## Overview (1,551 characters)
 
 ```
 JoDesx is a business operations and outsourcing company based in Jordan. We build and run structured teams that take on operational work for international businesses — working remotely or on-site at our offices in Jordan, as you prefer — so your own team can focus on the work that moves the company forward.
@@ -22,10 +22,10 @@ What we run
 • AI Data Operations — data annotation, labeling, text evaluation and quality review for AI teams. We don't build AI models; we provide the careful human work behind them.
 
 How we work
-Every engagement follows the same discipline: scope agreed in writing before work starts, documented procedures, quality sampling and calibration, and regular reporting. You get a running operation — not a headcount to manage.
+Every engagement follows the same discipline: scope agreed in writing before work starts, documented procedures, quality sampling and calibration, and regular reporting. Your team reviews outcomes while we run the day-to-day.
 
 Why JoDesx
-• An operations partner, not a staffing list
+• Ownership of the full workflow — design, staffing, supervision, quality and reporting
 • Remote or on-site at our offices in Jordan — your choice
 • Start with a contained scope, then scale on evidence
 • Your tools and data stay in your systems

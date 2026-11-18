@@ -264,7 +264,7 @@ export const generalFaqs: Faq[] = [
   {
     question: "Is JoDesx a staffing or recruitment agency?",
     answer:
-      "No. A staffing agency supplies people for you to manage. JoDesx takes responsibility for how the work is run — procedures, supervision, quality review and reporting — within the scope we agree.",
+      "No. JoDesx takes responsibility for how the work is run — procedures, supervision, quality review and reporting — within the scope we agree.",
   },
   {
     question: "Where is the team based?",
@@ -299,8 +299,8 @@ export const about = {
   why: {
     title: "Why JoDesx exists",
     paragraphs: [
-      "Growing companies reach a point where operational work — reviewing content, answering customers, processing data — starts to compete with the work that moves the business forward. Outsourcing is the obvious answer, and often the disappointing one: people are supplied, but the operation still has to be designed, supervised and corrected by the client.",
-      "JoDesx was set up to close that gap. We treat every engagement as an operation to be designed: what the work is, how it flows, who decides what, how quality is checked and how results are reported. The people matter enormously — and they do their best work inside a structure that makes good judgment repeatable.",
+      "Growing companies reach a point where operational work — reviewing content, answering customers, processing data — starts to compete with the work that moves the business forward. Handing that work to a partner works best when the partner takes full ownership of how it runs.",
+      "JoDesx was set up to provide that ownership. We treat every engagement as an operation to be designed: what the work is, how it flows, who decides what, how quality is checked and how results are reported. The people matter enormously — and they do their best work inside a structure that makes good judgment repeatable.",
     ],
   },
   philosophy: [

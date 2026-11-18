@@ -93,8 +93,8 @@ export default function HomePage() {
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeader
               id="why-title"
-              title="Outsourcing should reduce complexity, not relocate it."
-              lead="Most of the effort in outsourced operations goes into designing how the work runs. That's the part we take on."
+              title="Operations designed, staffed and run with you."
+              lead="We design how the work runs, build the team around it and stay accountable for quality and reporting."
             />
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href="/why-jodesx">All the reasons to choose JoDesx</ButtonLink>

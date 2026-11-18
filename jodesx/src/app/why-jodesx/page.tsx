@@ -1,18 +1,18 @@
-import { Check, Minus } from "lucide-react";
+import { Check } from "lucide-react";
 import { ClosingCta } from "@/components/sections/ClosingCta";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { WhyVisual } from "@/components/why/WhyVisual";
-import { commitments, comparison, coreReasons, moreReasons, whyHero } from "@/content/why";
+import { commitments, coreReasons, inclusions, moreReasons, whyHero } from "@/content/why";
 import { createMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/structured-data";
 
 export const metadata = createMetadata({
   title: "Why JoDesx",
   description:
-    "Why businesses outsource operations to JoDesx: a running workflow instead of a headcount, written scope, low-risk pilots, inspectable quality, your data in your systems, and a time zone that works for you.",
+    "Why businesses choose JoDesx for outsourced operations: a running workflow from the first week, written scope, a contained start, inspectable quality, your data in your systems, and remote or on-site teams in Jordan.",
   path: "/why-jodesx",
 });
 
@@ -26,8 +26,8 @@ export default function WhyPage() {
     <>
       <PageHero crumbs={crumbs} title={whyHero.title} lead={whyHero.lead} aside={<WhyVisual />}>
         <ButtonLink href="/contact">Start an inquiry</ButtonLink>
-        <ButtonLink href="#compare" variant="secondary">
-          See the comparison
+        <ButtonLink href="#includes" variant="secondary">
+          What every engagement includes
         </ButtonLink>
       </PageHero>
 
@@ -35,7 +35,7 @@ export default function WhyPage() {
       <Section surface="light" labelledBy="core-title">
         <SectionHeader
           id="core-title"
-          title="Four reasons clients hand their operations to us"
+          title="Four reasons to hand your operations to JoDesx"
           lead="These are the differences you feel in the first month — in your inbox, in your calendar and in your results."
           size="md"
         />
@@ -74,79 +74,36 @@ export default function WhyPage() {
         </ul>
       </Section>
 
-      {/* Comparison */}
-      <Section surface="dark" id="compare" labelledBy="compare-title">
+      {/* What every engagement includes */}
+      <Section surface="dark" id="includes" labelledBy="includes-title">
         <SectionHeader
-          id="compare-title"
-          title="Three ways to get the work done"
-          lead="Hiring in-house, using a staffing supplier, or working with an operations partner. Here is how they compare where it counts."
+          id="includes-title"
+          title="What every engagement includes"
+          lead="The same foundations, whichever service you choose and however large the team."
           size="md"
         />
-
-        <div className="mt-12 hidden overflow-hidden rounded-[var(--radius-lg)] border border-line lg:block">
+        <div className="mt-12 overflow-hidden rounded-[var(--radius-lg)] border border-line">
           <table className="w-full border-collapse text-left">
-            <caption className="sr-only">Comparison of hiring in-house, a staffing supplier and JoDesx</caption>
-            <thead>
-              <tr>
-                <td className="w-[22%] p-5" />
-                <th scope="col" className="p-5 text-sm font-semibold text-fg-muted">Hiring in-house</th>
-                <th scope="col" className="p-5 text-sm font-semibold text-fg-muted">Staffing supplier</th>
-                <th scope="col" className="compare-highlight p-5">
-                  <span className="flex items-center gap-2 font-semibold text-cyan-300">
-                    <span aria-hidden="true" className="size-2.5 bg-violet-400" />
-                    JoDesx
-                  </span>
-                </th>
-              </tr>
-            </thead>
+            <caption className="sr-only">What every JoDesx engagement includes</caption>
             <tbody>
-              {comparison.map((row) => (
-                <tr key={row.label} className="border-t border-line">
-                  <th scope="row" className="p-5 align-top font-semibold">{row.label}</th>
-                  <td className="p-5 align-top text-fg-subtle">
-                    <span className="flex gap-2.5">
-                      <Minus size={16} className="mt-1 flex-none" aria-hidden="true" />
-                      {row.inHouse}
+              {inclusions.map((row) => (
+                <tr key={row.label} className="border-t border-line first:border-t-0">
+                  <th scope="row" className="w-[34%] p-5 align-top font-semibold sm:w-[28%]">
+                    <span className="flex items-start gap-2.5">
+                      <span aria-hidden="true" className="mt-2 size-2 flex-none bg-violet-400" />
+                      {row.label}
                     </span>
-                  </td>
-                  <td className="p-5 align-top text-fg-subtle">
-                    <span className="flex gap-2.5">
-                      <Minus size={16} className="mt-1 flex-none" aria-hidden="true" />
-                      {row.supplier}
-                    </span>
-                  </td>
-                  <td className="compare-highlight p-5 align-top text-fg">
+                  </th>
+                  <td className="p-5 align-top text-fg-muted">
                     <span className="flex gap-2.5">
                       <Check size={16} className="mt-1 flex-none text-cyan-400" aria-hidden="true" />
-                      {row.jodesx}
+                      {row.detail}
                     </span>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
-
-        <div className="mt-10 grid gap-4 lg:hidden">
-          {comparison.map((row) => (
-            <article key={row.label} className="rounded-[var(--radius-lg)] border border-line p-5">
-              <h3 className="font-semibold">{row.label}</h3>
-              <dl className="mt-4 grid gap-3 text-sm">
-                <div>
-                  <dt className="text-fg-subtle">Hiring in-house</dt>
-                  <dd className="text-fg-muted">{row.inHouse}</dd>
-                </div>
-                <div>
-                  <dt className="text-fg-subtle">Staffing supplier</dt>
-                  <dd className="text-fg-muted">{row.supplier}</dd>
-                </div>
-                <div className="rounded-[var(--radius-md)] border border-cyan-400/40 bg-cyan-400/5 p-3">
-                  <dt className="font-semibold text-cyan-300">JoDesx</dt>
-                  <dd className="text-fg">{row.jodesx}</dd>
-                </div>
-              </dl>
-            </article>
-          ))}
         </div>
       </Section>
 

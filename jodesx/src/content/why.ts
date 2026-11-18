@@ -13,16 +13,16 @@ export interface Reason {
 }
 
 export const whyHero = {
-  title: "The outsourcing partner that runs the work — not just staffs it.",
-  lead: "Most outsourcing hands you people and leaves the hard part to you: designing the process, training the team, checking the quality. JoDesx takes that part on. Here is exactly what that means for your business.",
+  title: "An operations partner that takes ownership of the work.",
+  lead: "JoDesx designs, staffs and runs each operation with you — from a written scope to quality review and reporting. Here is what that means for your business.",
 };
 
 /** The four reasons that lead on the homepage. */
 export const coreReasons: Reason[] = [
   {
     id: "operation",
-    title: "You get a working operation, not a headcount",
-    body: "Others supply people and expect you to manage them. We deliver a running workflow — procedures written, supervision in place, quality checked and results reported. Your team manages outcomes, not individuals.",
+    title: "A running operation from the first week",
+    body: "We deliver a working workflow — procedures written, supervision in place, quality checked and results reported. Your team reviews outcomes while we handle the day-to-day.",
     outcome: "Less management load from the first week.",
   },
   {
@@ -68,7 +68,7 @@ export const moreReasons: Reason[] = [
   {
     id: "access",
     title: "Direct access to the people running your work",
-    body: "You get a named contact who knows your operation in detail. No ticket queue to reach your own team, no repeating the same context to someone new.",
+    body: "You get a named contact who knows your operation in detail and can answer quickly, with the full context of your work.",
     outcome: "Issues raised early and resolved quickly.",
   },
   {
@@ -85,51 +85,21 @@ export const moreReasons: Reason[] = [
   },
 ];
 
-export interface ComparisonRow {
+export interface Inclusion {
   label: string;
-  inHouse: string;
-  supplier: string;
-  jodesx: string;
+  detail: string;
 }
 
-/** Three ways to get operational work done. Generic categories — no named competitors. */
-export const comparison: ComparisonRow[] = [
-  {
-    label: "Who designs the workflow",
-    inHouse: "You",
-    supplier: "Usually you",
-    jodesx: "JoDesx, together with you",
-  },
-  {
-    label: "Recruiting and training",
-    inHouse: "Weeks to months per hire, managed by you",
-    supplier: "Recruiting covered; training often left to you",
-    jodesx: "Recruiting, training and supervision handled",
-  },
-  {
-    label: "Quality measurement",
-    inHouse: "Built by you, if there's time",
-    supplier: "Rarely included",
-    jodesx: "Sampling, calibration and reporting built in",
-  },
-  {
-    label: "Your management load",
-    inHouse: "Full",
-    supplier: "High — you manage the people",
-    jodesx: "Low — you review outcomes",
-  },
-  {
-    label: "Scaling up or down",
-    inHouse: "Slow and costly",
-    supplier: "Possible, with a reset each time",
-    jodesx: "Agreed flexibility within the engagement",
-  },
-  {
-    label: "Process documentation",
-    inHouse: "Often lives in people's heads",
-    supplier: "Usually not provided",
-    jodesx: "Written down — and yours to keep",
-  },
+/** What every JoDesx engagement includes (shown on the Why JoDesx page). */
+export const inclusions: Inclusion[] = [
+  { label: "Workflow design", detail: "Designed with you and documented before work begins." },
+  { label: "Recruiting and training", detail: "Handled by JoDesx, including onboarding on your tools, products and policies." },
+  { label: "Supervision", detail: "Day-to-day supervision by JoDesx; you review outcomes." },
+  { label: "Quality measurement", detail: "Sampling, calibration and error tracking built into every engagement." },
+  { label: "Reporting", detail: "Volumes, turnaround and quality findings, on a schedule agreed with you." },
+  { label: "Working model", detail: "Remote or on-site at our offices in Jordan, as your operation requires." },
+  { label: "Scaling", detail: "Capacity adjusted within the flexibility agreed in your engagement." },
+  { label: "Documentation", detail: "Written procedures for every task — and yours to keep." },
 ];
 
 /** Plain-language commitments. */

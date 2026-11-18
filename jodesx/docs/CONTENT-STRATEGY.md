@@ -50,6 +50,9 @@ Closing line: *Let's make your next operation work better.*
 
 ## 6. Credibility rules (non-negotiable)
 
+**Tone toward other providers (owner, 17 Nov 2026):** present JoDesx on its own merits. Never generalise about, compare with or criticise other outsourcing or staffing providers (no "most outsourcing…", "others…", "not a staffing list"). Describe what JoDesx does and what the client gains.
+
+
 The site contains **no** client names or logos, testimonials, case studies, statistics, employee counts, years in business, certifications, awards, partnerships or office addresses — because none have been confirmed. Credibility is built from process transparency instead.
 
 Claims that *are* made and the basis for each:
