@@ -8,3 +8,4 @@ next-env.d.ts
 !.env.example
 qa-screenshots/
 docs/guide/.guide-build.html
+docs/security/.tmp-*

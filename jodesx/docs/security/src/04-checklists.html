@@ -1,0 +1,84 @@
+<!-- {"title": "Security Checklists", "subtitle": "Onboarding, laptop setup, offboarding and incident response — tick every box, keep a copy in the employee's file.", "audience": "JoDesx management", "version": "1.0", "date": "18 November 2026", "output": "JoDesx-Security-Checklists.pdf"} -->
+
+<h2><span class="n">A</span>Onboarding — before any client access</h2>
+<p>Employee: ____________________ &nbsp; Role: ____________ &nbsp; Start date: ____________</p>
+<h3>Screening and agreements</h3>
+<ul class="check">
+  <li>Identity verified (national ID / passport copy on file)</li>
+  <li>Criminal-record (non-conviction) certificate received and on file</li>
+  <li>References checked (where available)</li>
+  <li>Employment / contractor agreement signed</li>
+  <li>Confidentiality Agreement signed</li>
+  <li>Information Security Policy read, explained and acknowledgement signed</li>
+  <li>Client-specific NDA signed (if the client requires one)</li>
+</ul>
+<h3>Training</h3>
+<ul class="check">
+  <li>Security training completed (policy walkthrough, phishing, incident reporting)</li>
+  <li>Client-specific training completed (policies, tools, escalation paths)</li>
+  <li>Content moderation only: wellbeing and break arrangements explained</li>
+</ul>
+<h3>Accounts</h3>
+<ul class="check">
+  <li>Zoho account created; MFA enabled (authenticator app)</li>
+  <li>Bitwarden invitation accepted; MFA enabled on Bitwarden</li>
+  <li>Client accounts requested with the minimum permissions needed; MFA enabled where available</li>
+  <li>Access recorded in the access register (who, which system, which role, date)</li>
+</ul>
+<h3>Laptop issued (complete section B first)</h3>
+<ul class="check">
+  <li>Laptop asset number: ________ &nbsp; Serial: ____________ handed over and signed for</li>
+</ul>
+
+<h2><span class="n">B</span>Laptop setup — before handing it over</h2>
+<table>
+  <thead><tr><th style="width:34%">Control</th><th>Windows 11 Pro</th><th>macOS</th></tr></thead>
+  <tbody>
+    <tr><td>Full-disk encryption</td><td>BitLocker on; recovery key stored in Bitwarden (management vault)</td><td>FileVault on; recovery key stored in Bitwarden</td></tr>
+    <tr><td>Automatic updates</td><td>Windows Update: automatic; restart within 7 days</td><td>Software Update: automatic install on</td></tr>
+    <tr><td>Anti-malware</td><td>Microsoft Defender on, real-time protection on</td><td>Built-in XProtect; keep macOS updated</td></tr>
+    <tr><td>Firewall</td><td>Windows Firewall on</td><td>Firewall on</td></tr>
+    <tr><td>Screen lock ≤ 5 minutes</td><td>Lock screen + sleep after 5 min, password on wake</td><td>Require password immediately; display sleep 5 min</td></tr>
+    <tr><td>Standard user account</td><td>Employee uses a standard account; admin account kept by management</td><td>Same</td></tr>
+    <tr><td>Device management</td><td>Enrolled in the chosen MDM (remote lock/wipe tested)</td><td>Enrolled in the chosen MDM</td></tr>
+    <tr><td>Removable storage</td><td>USB storage blocked via MDM policy</td><td>Blocked via MDM policy</td></tr>
+    <tr><td>Browser</td><td>Up-to-date browser; Bitwarden extension; no unapproved extensions</td><td>Same</td></tr>
+  </tbody>
+</table>
+<ul class="check">
+  <li>All controls above verified by: ____________________ Date: ____________</li>
+</ul>
+
+<h2><span class="n">C</span>Offboarding — on the last working day</h2>
+<p>Employee: ____________________ &nbsp; Last day: ____________</p>
+<ul class="check">
+  <li>Zoho account disabled; mail forwarded to manager if needed</li>
+  <li>Removed from Bitwarden; any shared passwords they could see are changed</li>
+  <li>Each client asked in writing to revoke the person&rsquo;s access; confirmation received</li>
+  <li>Removed from internal chat groups and shared folders</li>
+  <li>Laptop and equipment returned and checked; laptop wiped before reuse</li>
+  <li>Reminder given of continuing confidentiality obligations</li>
+  <li>Access register updated</li>
+</ul>
+<p>Completed by: ____________________ &nbsp; Date: ____________</p>
+
+<h2><span class="n">D</span>Incident response — first hour</h2>
+<ul class="check">
+  <li>Record what happened, when, who reported it and which client(s) may be affected</li>
+  <li>Contain: disable affected accounts, change passwords, lock or wipe the device via MDM</li>
+  <li>Preserve evidence (messages, logs, screenshots) — do not delete anything</li>
+  <li>Decide whether client data or systems may be affected</li>
+  <li>If yes: notify the client <strong>within 24 hours of confirming</strong> — what happened, what was done, what is recommended</li>
+  <li>Personal data involved: assess obligations under the Jordanian data protection law and GDPR (with legal advice)</li>
+  <li>Within 2 weeks: written review — cause, fix, and changes to prevent it happening again</li>
+</ul>
+
+<h2><span class="n">E</span>Recurring reviews</h2>
+<table>
+  <thead><tr><th style="width:30%">When</th><th>Task</th></tr></thead>
+  <tbody>
+    <tr><td>Monthly</td><td>Check all laptops show as encrypted and updated in the MDM; delete job applications older than 6 months</td></tr>
+    <tr><td>Every quarter</td><td>Review the access register with each client; remove access that is no longer needed</td></tr>
+    <tr><td>Every year</td><td>Security refresher training for all staff; review this policy, the Security Overview and these checklists</td></tr>
+  </tbody>
+</table>

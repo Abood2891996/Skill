@@ -52,6 +52,10 @@ These are business facts or authorisations the site depends on. Each has a safe 
 - Security headers: securityheaders.com grade **A** (17 Nov 2026). `'unsafe-inline'` scripts accepted deliberately (see ARCHITECTURE.md); CORS limited to the site's origin.
 - DMARC: `_dmarc` TXT `v=DMARC1; p=none; rua=mailto:dmarc@jodesx.com` added 17 Nov 2026, verified with MXToolbox. **To do (early–mid December 2026):** switch to `p=quarantine` after 2–4 weeks without delivery problems.
 
+## Security programme (18 Nov 2026)
+
+Documents in `docs/security/` (v1.0): client-facing Security Overview, Information Security Policy (employee acknowledgement), Confidentiality Agreement (**draft — lawyer review and Arabic version required**), checklists. Decisions by the owner: company-owned laptops only; screening = identity + non-conviction certificate; client notification within 24 hours of a confirmed incident. **Do not send the Security Overview to clients until the "before sending" items in `docs/security/IMPLEMENTATION-AR.md` are complete** (security@ alias, MFA everywhere, Bitwarden, encrypted managed laptops with tested remote wipe, signed NDAs, office measures).
+
 ## Unresolved dependencies
 
 - First-hand competitor review (needs network access to the 13 domains).

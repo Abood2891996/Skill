@@ -102,6 +102,7 @@ docs/             project documentation
 | Document | Contents |
 | --- | --- |
 | `docs/JoDesx-Website-Guide.pdf` | **Complete illustrated guide** — Part A for the owner (no coding), Part B for developers. Source: `docs/guide/`; rebuild with `node scripts/build-guide.cjs` |
+| `docs/security/` | **Security documents (PDF):** client Security Overview, Information Security Policy, Confidentiality Agreement (draft), checklists; Arabic implementation plan `IMPLEMENTATION-AR.md`. Rebuild: `node scripts/build-security-docs.cjs` |
 | `docs/POSTING-JOBS.md` | How to post, close and remove jobs; where applications go |
 | `docs/PROJECT-STATUS.md` | Completed phases, open dependencies, **decisions needing confirmation** |
 | `docs/ARCHITECTURE.md` | Technical architecture, components, form flow, quality record |

@@ -11,6 +11,12 @@ Use the facts relevant to the task. If a fact here conflicts with the codebase o
 - **Legal entity:** شركة قلب التقنية المعلوماتية لأنشطة مراكز الاتصال و خدمات الحاسوب و المعلومات /ذات مسؤولية محدودة — a limited liability company registered in Jordan; JoDesx is its trading name. Stored in `jodesx/src/content/site.ts` (`legal`). Show only the country (no city/address) unless the owner says otherwise. Privacy email: privacy@jodesx.com.
 - **Unconfirmed (do not state as fact without the owner):** clients, results, prices, team size, certifications, language coverage, office address.
 
+## Security commitments (v1.0, 18 Nov 2026 — see jodesx/docs/security/)
+- Company-owned, encrypted, MDM-managed laptops only; no personal devices for client work.
+- Screening: identity + non-conviction certificate before access; NDA + policy acknowledgement for everyone.
+- MFA everywhere, Bitwarden password manager, least privilege, quarterly access reviews, same-day offboarding.
+- Client notified within 24 hours of a confirmed incident affecting their data. No ISO 27001 / SOC 2 certification — never imply otherwise.
+
 ## Brand
 - Colours: Midnight Navy `#0B1220`, Signal Cyan `#35D6E8`, Digital Violet `#786BFF`, Slate Blue `#172438`, Soft White `#F4F7FB`.
 - Font: Instrument Sans (condensed width for headlines). Visual system: “The JoDesx Signal” (lanes, gates, a violet square unit).
