@@ -60,6 +60,14 @@ Call Center added as a fifth service (inbound, outbound, technical support, tele
 
 Documents in `docs/security/` (v1.0): client-facing Security Overview, Information Security Policy (employee acknowledgement), Confidentiality Agreement (**draft — lawyer review and Arabic version required**), checklists. Decisions by the owner: company-owned laptops only; screening = identity + non-conviction certificate; client notification within 24 hours of a confirmed incident. **Do not send the Security Overview to clients until the "before sending" items in `docs/security/IMPLEMENTATION-AR.md` are complete** (security@ alias, MFA everywhere, Bitwarden, encrypted managed laptops with tested remote wipe, signed NDAs, office measures).
 
+## Email and DNS incident (19 Nov 2026)
+
+- The owner had set up the mailboxes on **Neo** (neo.space) instead of Zoho. Setting up Neo also added four `A` records on the apex (AWS addresses) and a `www` CNAME to the apex in Vercel DNS, which took the website offline (`ERR_CERT_COMMON_NAME_INVALID`). Fixed by deleting those five records and adding Vercel's recommended `A @ 216.198.79.1`; both domains valid again.
+- Mail moved to **Zoho Mail** on 19 Nov 2026 (verified, MX/DKIM switched). Aliases on the owner's mailbox: info@, careers@, security@, plus the owner's own name address. The website forms work again (Resend → Zoho), after removing the bounced address from Resend's suppression list.
+- SPF is temporarily `v=spf1 include:zoho.<region> include:spf0001.neo.space ~all`. **Around 26 Nov 2026:** remove the Neo part, delete the Neo records in Vercel DNS (`neo1._domainkey`, `neo-verification`, Neo MX records if still present) and cancel the Neo subscription.
+- Lesson: when connecting a mail provider, choose manual setup and add only mail records (MX, SPF, DKIM, verification) — never `A`/`CNAME` website records.
+- Still to confirm: privacy@ and dmarc@ aliases exist in Zoho (privacy@ is published in the privacy policy; dmarc@ receives DMARC reports).
+
 ## Client contract (18 Nov 2026)
 
 `docs/contracts/`: Master Services Agreement with a Statement of Work template and a Data Processing Addendum outline (**draft — lawyer review required, do not send or sign**). `LAWYER-BRIEF-AR.md` lists the questions for a Jordanian lawyer and the commercial decisions left to the owner in [brackets]. No prices in the contract; fees go in each SOW. Pricing model chosen by the owner: **monthly fee per full-time team member**. Quotation template `JoDesx-Quotation-TEMPLATE.pdf` (all prices in brackets) and internal market-rate research with sources in `PRICING-RESEARCH-AR.md` (not for the website). Built by `node scripts/build-security-docs.cjs` (now covers `docs/security/` and `docs/contracts/`).
