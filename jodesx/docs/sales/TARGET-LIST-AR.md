@@ -20,3 +20,41 @@
 ## أفضل مصدر يومي للعملاء
 1. **إعلانات الوظائف:** ابحث في LinkedIn Jobs وIndeed وBayt عن «Arabic customer support» أو «Arabic call center». الشركة التي توظّف لهذا العمل الآن تحتاجه فعلًا، فراسل مدير الفريق مباشرة.
 2. **أخبار التمويل:** صفحة الأخبار في Wamda وMagnitt أسبوعيًا. الشركة التي جمعت تمويلًا ستكبر قريبًا.
+
+---
+
+# القائمة الثانية: شركات ناشئة من كل مكان (20 نوفمبر 2026)
+
+### أ) شركات أجنبية تتوسّع في الشرق الأوسط (تحتاج العربي)
+| الشركة | من أين | الخبر | الخدمة | المصدر |
+|---|---|---|---|---|
+| PlayReplay | السويد | تقنية رياضية، تتوسع في السعودية والإمارات وقطر ومصر بعد تمويل 12 مليون دولار | Customer Support بالعربي | [Arab News](https://www.arabnews.pk/node/2654741/business-economy) |
+| Angelic Intelligence | غير محدد | تمويل أولي 15 مليون دولار للتوسع مع تركيز على الشرق الأوسط | Customer Support / AI Data | [Arab News](https://www.arabnews.pk/node/2654741/business-economy) |
+| Connect Money | — | تتوسع في السعودية والمغرب | Customer Support بالعربي | [MENA Startup Digest](https://menastartupdigest.com/) |
+| RemotePass | الإمارات | تمويل Series B (17.4 مليون) للتوسع في أوروبا وأمريكا، فتحتاج دعمًا عبر مناطق زمنية | Customer Support / Back-office | [Arab News](https://www.arabnews.pk/node/2654741/business-economy) |
+
+### ب) شركات ناشئة في المنطقة جمعت تمويلًا حديثًا
+| الشركة | البلد | الخبر | الخدمة | المصدر |
+|---|---|---|---|---|
+| Autobia | السعودية | Series A بـ12 مليون دولار (أكتوبر 2026) | Customer Support / Call Center | [EnterpriseAM](https://enterpriseam.com/egypt/2026/11/12/mena-startup-funding-falls-96-in-october-to-usd-40-mn-as-megadeals-vanish/) |
+| DawaDose | السعودية | صحة رقمية، تمويل أولي قبل توسع إقليمي (نوفمبر 2026) | Customer Support | [MENA Startup Digest](https://menastartupdigest.com/) |
+| iMENA | السعودية | تمويل 214 مليون دولار لتوسيع منصاتها الرقمية | Call Center / Back-office | [Dealroom](https://dealroom.co/news/173208-imena-raises-214m-to-expand-digital-platforms-in-saudi-arabia/) |
+| Ariika، Lychee | مصر ← السعودية | علامات تجارية تتوسع في الرياض | Customer Support | [Arab News](https://www.arabnews.pk/node/2654741/business-economy) |
+
+### ج) شركات ناشئة أمريكية وأوروبية (دعم بالإنجليزي وأعمال إدارية)
+| الشركة | البلد | الخبر | الخدمة | المصدر |
+|---|---|---|---|---|
+| Payhawk | أوروبا | تقنية مالية، تقييم 2 مليار دولار بدعم Goldman (نوفمبر 2026) | Customer Support / Back-office | [Bloomberg](https://bloomberg.com/news/articles/2026-11-18/goldman-backs-fintech-startup-payhawk-at-2-billion-value) |
+| Arva AI | — | أدوات ذكاء اصطناعي لعمليات البنوك، Series A بـ20 مليون | Back-office / AI Data | [Funding report](https://parsers.substack.com/p/funding-rounds-report-weekly-of-november-74f) |
+| Firmly | — | SaaS، Series A بـ15 مليون (نوفمبر 2026) | Customer Support | [The SaaS News](https://www.thesaasnews.com/) |
+| Operand | — | Series A بـ31 مليون (نوفمبر 2026) | Customer Support | [The SaaS News](https://www.thesaasnews.com/) |
+| Nebuly | إيطاليا | Series A بـ21 مليون للتوسع في أمريكا وأوروبا | Customer Support / Back-office | [Funding report](https://parsers.substack.com/p/funding-rounds-report-weekly-of-november-74f) |
+
+### د) شركات بيانات الذكاء الاصطناعي (شراكة فريق عمل)
+| الشركة | الخبر | كيف تتعامل معها | المصدر |
+|---|---|---|---|
+| Mercor | Series D بـ750 مليون (نوفمبر 2026)، تربط خبراء بشركات الذكاء الاصطناعي | سجّل الشركة أو فريقك كمزوّد خبرة عربية | [Crunchbase News](https://news.crunchbase.com/venture/data-recruiting-job-hunting-hr-ai-startups-mercor) |
+| Humyn Labs | Series A بـ47 مليون، تجمع بيانات بشرية في أكثر من 20 دولة | اعرض عليهم الأردن كبلد لجمع البيانات، مع فريق تديره أنت | [Business Standard](https://www.business-standard.com/companies/news/ai-startup-humyn-labs-raises-47-million-in-series-a-funding-round-126111800765_1.html) |
+| Surge AI، Snorkel AI، Adaptive ML | شركات بيانات وتقييم معروفة | اعرض فريقًا عربيًا وإنجليزيًا مُدارًا | [Surge](https://en.wikipedia.org/wiki/Surge_AI)، [Adaptive ML](https://en.wikipedia.org/wiki/Adaptive_ML) |
+
+**مصادر أسبوعية لأسماء جديدة:** [Seedtable](https://seedtable.com/funding-rounds)، [startups.gallery](https://startups.gallery/news)، [The SaaS News](https://www.thesaasnews.com/)، [FWDStart](https://www.fwdstart.me/)، [MENA Startup Digest](https://menastartupdigest.com/)، [Wamda](https://www.wamda.com/media/news).
