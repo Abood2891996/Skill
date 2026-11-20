@@ -58,3 +58,14 @@
 | Surge AI، Snorkel AI، Adaptive ML | شركات بيانات وتقييم معروفة | اعرض فريقًا عربيًا وإنجليزيًا مُدارًا | [Surge](https://en.wikipedia.org/wiki/Surge_AI)، [Adaptive ML](https://en.wikipedia.org/wiki/Adaptive_ML) |
 
 **مصادر أسبوعية لأسماء جديدة:** [Seedtable](https://seedtable.com/funding-rounds)، [startups.gallery](https://startups.gallery/news)، [The SaaS News](https://www.thesaasnews.com/)، [FWDStart](https://www.fwdstart.me/)، [MENA Startup Digest](https://menastartupdigest.com/)، [Wamda](https://www.wamda.com/media/news).
+
+### هـ) منصات فيها محتوى من المستخدمين (Content Moderation بالعربي)
+| الشركة | البلد | الخبر | الخدمة | المصدر |
+|---|---|---|---|---|
+| Bubbl | السعودية | تطبيق تواصل، 60 ألف مستخدم يوميًا، 80% منهم في السعودية | Content Moderation / Support | [Arab Founders](https://arabfounders.net/en/bubbl-raises-350k-expansion-middle-east/) |
+| Fizz | — | تطبيق اجتماعي مجهول الهوية، كان الأول في متجر التطبيقات بالسعودية | Content Moderation | [TechCrunch](https://techcrunch.com/?p=3109338) |
+| Declic | السعودية | منصة اجتماعية للفعاليات، تمويل مليون دولار للتوسع خليجيًا | Content Moderation / Support | [Arab Founders](https://arabfounders.net/en/declic-raises-1m-seed-regional-expansion/) |
+| Vurse | الإمارات | منصة تواصل اجتماعي تتوسع في المنطقة | Content Moderation | [Entrepreneur ME](https://mena.entrepreneur.com/growth-strategies/having-claimed-the-top-spot-in-the-ios-app-stores-uae/469849) |
+| Sellou | المنطقة | تجارة عبر الفيديو، تمويل 3 ملايين | Content Moderation / Support | [Arab Founders](https://arabfounders.net/en/sellou-raises-3m-video-ecommerce-mena/) |
+| Popcorn | — | منصة فيديو بالذكاء الاصطناعي باللهجات العربية | AI Data / Moderation | [Arab Founders](https://arabfounders.net/en/popcorn-ai-video-platform-arabic-dialects-2800-users-launch/) |
+| Taager | مصر، السعودية، الإمارات، العراق | منصة تجارة إلكترونية للبائعين، تمويل 6.75 مليون | Back-office / Support | [Arab Founders](https://arabfounders.net/en/taager-pre-series-b-funding-mena/) |
