@@ -1,6 +1,8 @@
 # Working on this repository
 
-This repository holds the **JoDesx website** (`jodesx/`) and an unrelated Cloudflare `security-audit` skill (`skills/`).
+This repository holds the **JoDesx website** (`jodesx/`), the separate **Sanad AI tutor** project (`tutor/`,
+see `tutor/README.md` and `tutor/docs/PROJECT-STATUS.md`; run `cd tutor && npm run check` before merging),
+and an unrelated Cloudflare `security-audit` skill (`skills/`).
 
 ## Always use the RTCCO system
 The owner asked that every substantive task follows **RTCCO** (Role, Task, Context, Constraints, Output).
