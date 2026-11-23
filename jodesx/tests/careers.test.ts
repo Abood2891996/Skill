@@ -85,3 +85,11 @@ test("applications fall back to the inquiry channel", () => {
   assert.equal(resolveChannel({ CAREERS_WEBHOOK_URL: "https://h.example/c" }, "inquiry"), null);
   assert.equal(resolveChannel({ RESEND_API_KEY: "k", CONTACT_FROM_EMAIL: "f@x.com", CAREERS_TO_EMAIL: "hr@x.com" }, "application"), "resend");
 });
+
+test("optional job fields: country code and CV requirement", () => {
+  const base = { title: "Role", team: "AI Data Operations", type: "Contract", workplace: "On-site", location: "Saudi Arabia", status: "open", posted: "2026-11-23", summary: "A summary that is long enough to pass." };
+  assert.equal(jobFrontMatter.safeParse({ ...base, country: "SA", cv: "no" }).success, true);
+  assert.equal(jobFrontMatter.safeParse({ ...base, country: "Saudi" }).success, false);
+  assert.equal(jobFrontMatter.safeParse({ ...base, cv: "maybe" }).success, false);
+  assert.equal(jobFrontMatter.safeParse(base).success, true);
+});

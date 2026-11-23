@@ -43,9 +43,11 @@ interface ApplicationFormProps {
   job: string;
   roleTitle: string;
   contactEmail: string;
+  /** When false, the CV is optional. */
+  cvRequired?: boolean;
 }
 
-export function ApplicationForm({ job, roleTitle, contactEmail }: ApplicationFormProps) {
+export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = true }: ApplicationFormProps) {
   const [values, setValues] = useState<Values>(EMPTY);
   const [cv, setCv] = useState<File | null>(null);
   const [dragging, setDragging] = useState(false);
@@ -78,7 +80,7 @@ export function ApplicationForm({ job, roleTitle, contactEmail }: ApplicationFor
   const validate = (v: Values, file: File | null) => {
     const parsed = applicationSchema.safeParse(toInput(v));
     const found = parsed.success ? {} : applicationFieldErrors(parsed.error);
-    const cvError = checkCvBasics(file);
+    const cvError = !cvRequired && !file ? null : checkCvBasics(file);
     if (cvError) found.cv = cvError;
     return found;
   };
@@ -126,7 +128,7 @@ export function ApplicationForm({ job, roleTitle, contactEmail }: ApplicationFor
     const input = toInput(values);
     for (const [k, v] of Object.entries(input)) if (v !== undefined) body.append(k, String(v));
     body.append("website", values.website);
-    body.append("cv", cv as File);
+    if (cv) body.append("cv", cv);
 
     setStatus({ kind: "submitting" });
     try {
@@ -213,7 +215,7 @@ export function ApplicationForm({ job, roleTitle, contactEmail }: ApplicationFor
 
         <div className="grid gap-2">
           <span className="font-medium" id="cv-label">
-            CV <span aria-hidden="true">*</span>
+            CV {cvRequired ? <span aria-hidden="true">*</span> : <span className="font-normal text-fg-subtle">(optional)</span>}
           </span>
           <div
             className="dropzone relative rounded-[var(--radius-md)] bg-paper p-5"

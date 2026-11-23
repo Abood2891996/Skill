@@ -17,6 +17,8 @@ status: open                      # open | closed
 posted: 2026-01-31                # YYYY-MM-DD
 summary: One or two sentences that appear on the job board (20–220 characters).
 languages: English                # optional
+# country: SA                     # optional two-letter code of the work location (default JO)
+# cv: no                          # optional; "no" makes the CV optional for this role (default yes)
 ---
 
 Opening paragraph: what the role is and why it matters.

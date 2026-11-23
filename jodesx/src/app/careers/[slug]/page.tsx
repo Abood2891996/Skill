@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ApplicationForm } from "@/components/careers/ApplicationForm";
+import { COUNTRY_NAMES } from "@/lib/careers/job-schema";
 import { blocksToText, JobBody } from "@/components/careers/JobBody";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const EMPLOYMENT_TYPE: Record<Job["type"], string> = { "Full-time": "FULL_TIME", "Part-time": "PART_TIME", Contract: "CONTRACTOR" };
 
 function jobPostingJsonLd(job: Job) {
+  const country = job.country ?? "JO";
   return {
     "@context": "https://schema.org",
     "@type": "JobPosting",
@@ -38,8 +40,8 @@ function jobPostingJsonLd(job: Job) {
     url: absoluteUrl(`/careers/${job.slug}`),
     hiringOrganization: { "@type": "Organization", name: site.name, sameAs: site.url, logo: absoluteUrl("/brand/jodesx-social-avatar.png") },
     ...(job.workplace === "Remote"
-      ? { jobLocationType: "TELECOMMUTE", applicantLocationRequirements: { "@type": "Country", name: "Jordan" } }
-      : { jobLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: job.location, addressCountry: "JO" } } }),
+      ? { jobLocationType: "TELECOMMUTE", applicantLocationRequirements: { "@type": "Country", name: COUNTRY_NAMES[country] ?? country } }
+      : { jobLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: job.location, addressCountry: country } } }),
   };
 }
 
@@ -141,7 +143,7 @@ export default async function JobPage({ params }: Props) {
           </div>
           <div className="rounded-[var(--radius-xl)] border border-line bg-paper p-6 shadow-[0_30px_60px_-40px_rgb(11_18_32/0.35)] sm:p-10">
             {open ? (
-              <ApplicationForm job={job.slug} roleTitle={job.title} contactEmail={site.contactEmail} />
+              <ApplicationForm job={job.slug} roleTitle={job.title} contactEmail={site.contactEmail} cvRequired={job.cv !== "no"} />
             ) : (
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="/careers#roles">See open roles</ButtonLink>

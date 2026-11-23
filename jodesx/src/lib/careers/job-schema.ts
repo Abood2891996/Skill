@@ -17,6 +17,12 @@ export const jobFrontMatter = z.object({
   posted: z.iso.date({ error: "posted must be a date like 2026-11-16" }),
   summary: z.string().min(20, { error: "summary needs at least 20 characters" }).max(220),
   languages: z.string().optional(),
+  /** Two-letter country code of the work location (for search engines). Defaults to JO. */
+  country: z.string().regex(/^[A-Z]{2}$/, { error: "country must be a two-letter code such as JO or SA" }).optional(),
+  /** "no" makes the CV optional for this role (e.g. hands-on work where CVs are uncommon). Defaults to "yes". */
+  cv: z.enum(["yes", "no"], { error: "cv must be yes or no" }).optional(),
 });
+
+export const COUNTRY_NAMES: Record<string, string> = { JO: "Jordan", SA: "Saudi Arabia", AE: "United Arab Emirates", QA: "Qatar" };
 
 export type JobFrontMatter = z.infer<typeof jobFrontMatter>;

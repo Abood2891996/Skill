@@ -21,6 +21,8 @@ Job postings are simple text files in `src/content/jobs/`. Each file is one job.
 | `posted` | Date posted | `YYYY-MM-DD`, e.g. `2026-12-01` |
 | `summary` | 1–2 sentences shown on the job board | 20–220 characters |
 | `languages` | Optional language requirements | Any text |
+| `country` | Optional: two-letter code of the work location, used by Google job search (default `JO`) | e.g. `JO`, `SA`, `AE` |
+| `cv` | Optional: `no` makes the CV optional for this role (default `yes`) | `yes` or `no` |
 
 6. Write the job description below the second `---`. You can use:
    - `## Heading` for section titles (e.g. `## What you'll do`)

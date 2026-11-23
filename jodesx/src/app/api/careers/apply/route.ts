@@ -39,7 +39,7 @@ function sameOrigin(req: NextRequest): boolean {
   }
 }
 
-function formatText(app: Application, role: string, reference: string, cvName: string): string {
+function formatText(app: Application, role: string, reference: string, cvName: string | null): string {
   const availability = availabilityOptions.find((o) => o.value === app.availability)?.label ?? app.availability;
   return [
     `New JoDesx job application — ${reference}`,
@@ -52,7 +52,7 @@ function formatText(app: Application, role: string, reference: string, cvName: s
     `Languages: ${app.languages}`,
     `Available to start: ${availability}`,
     `Profile / portfolio: ${app.profileUrl ?? "Not provided"}`,
-    `CV: ${cvName} (attached)`,
+    `CV: ${cvName ? `${cvName} (attached)` : "Not provided (optional for this role)"}`,
     "",
     "About the candidate:",
     app.message,
@@ -108,8 +108,10 @@ export async function POST(req: NextRequest) {
   });
 
   const cv = form.get("cv");
-  const cvFile = cv instanceof File ? cv : null;
-  const cvError = checkCvBasics(cvFile);
+  const cvFile = cv instanceof File && cv.size > 0 ? cv : null;
+  const jobSlug = str("job");
+  const cvOptional = jobSlug !== undefined && jobSlug !== GENERAL_APPLICATION && getJob(jobSlug)?.cv === "no";
+  const cvError = cvOptional && !cvFile ? null : checkCvBasics(cvFile);
 
   if (!parsed.success || cvError) {
     const fields = parsed.success ? {} : applicationFieldErrors(parsed.error);
@@ -132,23 +134,26 @@ export async function POST(req: NextRequest) {
     roleTitle = job.title;
   }
 
-  const bytes = new Uint8Array(await (cvFile as File).arrayBuffer());
-  const signature = verifyCvSignature((cvFile as File).name, bytes);
-  if (!signature.ok) {
-    return json(422, {
-      ok: false,
-      code: "validation",
-      message: "Some fields need attention.",
-      fields: { cv: "This file doesn't look like a valid PDF or Word document. Please export your CV again and re-attach it." },
-    });
+  let attachment: { filename: string; contentType: string; base64: string } | null = null;
+  if (cvFile) {
+    const bytes = new Uint8Array(await cvFile.arrayBuffer());
+    const signature = verifyCvSignature(cvFile.name, bytes);
+    if (!signature.ok) {
+      return json(422, {
+        ok: false,
+        code: "validation",
+        message: "Some fields need attention.",
+        fields: { cv: "This file doesn't look like a valid PDF or Word document. Please export your CV again and re-attach it." },
+      });
+    }
+    attachment = { filename: safeFileName(cvFile.name), contentType: signature.mime, base64: Buffer.from(bytes).toString("base64") };
   }
 
   const reference = createReference("APP");
-  const filename = safeFileName((cvFile as File).name);
   const result = await deliverMessage({
     kind: "application",
     subject: `Application ${reference}: ${roleTitle} — ${app.fullName}`,
-    text: formatText(app, roleTitle, reference, filename),
+    text: formatText(app, roleTitle, reference, attachment?.filename ?? null),
     replyTo: app.email,
     payload: {
       reference,
@@ -163,7 +168,7 @@ export async function POST(req: NextRequest) {
       profileUrl: app.profileUrl ?? null,
       message: app.message,
     },
-    attachments: [{ filename, contentType: signature.mime, base64: Buffer.from(bytes).toString("base64") }],
+    attachments: attachment ? [attachment] : [],
   });
 
   if (result.ok) return json(200, { ok: true, reference });

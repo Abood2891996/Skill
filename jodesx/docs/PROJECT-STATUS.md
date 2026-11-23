@@ -68,6 +68,10 @@ Documents in `docs/security/` (v1.0): client-facing Security Overview, Informati
 - Lesson: when connecting a mail provider, choose manual setup and add only mail records (MX, SPF, DKIM, verification) — never `A`/`CNAME` website records.
 - Still to confirm: privacy@ and dmarc@ aliases exist in Zoho (privacy@ is published in the privacy policy; dmarc@ receives DMARC reports).
 
+## Video contributor role (23 Nov 2026)
+
+Job `hands-on-work-video-contributor-saudi-arabia` (AI data video recording at commercial worksites in Saudi Arabia, contractor, paid per approved hour, CV optional). Job files now support optional `country` (two-letter code for Google job data, default JO) and `cv: no` (CV optional for that role). **Not on `main` until the owner confirms the data-partner contract is signed.** The partner is not named on the site.
+
 ## Client contract (18 Nov 2026)
 
 `docs/contracts/`: Master Services Agreement with a Statement of Work template and a Data Processing Addendum outline (**draft — lawyer review required, do not send or sign**). `LAWYER-BRIEF-AR.md` lists the questions for a Jordanian lawyer and the commercial decisions left to the owner in [brackets]. No prices in the contract; fees go in each SOW. Pricing model chosen by the owner: **monthly fee per full-time team member**. Quotation template `JoDesx-Quotation-TEMPLATE.pdf` (all prices in brackets) and internal market-rate research with sources in `PRICING-RESEARCH-AR.md` (not for the website). Built by `node scripts/build-security-docs.cjs` (now covers `docs/security/` and `docs/contracts/`).
