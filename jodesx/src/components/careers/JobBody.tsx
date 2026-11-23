@@ -14,16 +14,26 @@ export function JobBody({ blocks }: { blocks: Block[] }) {
     <div className="job-prose">
       {blocks.map((b, i) => {
         if (b.type === "heading") return <h2 key={i}>{b.text}</h2>;
-        if (b.type === "list")
-          return (
-            <ul key={i}>
-              {b.items.map((item, j) => (
-                <li key={j}>
+        if (b.type === "list") {
+          const items = b.items.map((item, j) => (
+            <li key={j}>
+              {b.ordered ? (
+                <span>
                   <Inline segments={item} />
-                </li>
-              ))}
-            </ul>
+                </span>
+              ) : (
+                <Inline segments={item} />
+              )}
+            </li>
+          ));
+          return b.ordered ? (
+            <ol key={i} className="job-steps">
+              {items}
+            </ol>
+          ) : (
+            <ul key={i}>{items}</ul>
           );
+        }
         return (
           <p key={i}>
             <Inline segments={b.content} />

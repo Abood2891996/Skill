@@ -114,3 +114,8 @@ test("the good-fit note can be optional for some roles", async () => {
   assert.equal(applicationSchemaOptionalMessage.safeParse({ ...base, message: "" }).success, true);
   assert.equal(applicationSchemaOptionalMessage.safeParse(base).success, true);
 });
+
+test("numbered lists become ordered list blocks", () => {
+  const { blocks } = parseDocument("---\na: b\n---\n1. One\n2. **Two**\n\n- Bullet");
+  assert.deepEqual(blocks.map((b) => (b.type === "list" ? `list:${b.ordered ? "ol" : "ul"}:${b.items.length}` : b.type)), ["list:ol:2", "list:ul:1"]);
+});

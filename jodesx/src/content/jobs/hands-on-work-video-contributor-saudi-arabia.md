@@ -50,8 +50,6 @@ Any real, skilled manual work counts. The only things we can't use: recordings i
 ## What you'll need
 
 - Hands-on work you do regularly at a commercial site in Saudi Arabia
-- **Written permission from the owner of the workplace** to record there (or you are the owner)
-- The legal right to take on independent work in Saudi Arabia, for example a Saudi freelance permit (وثيقة العمل الحر) or as the business owner
 - A recent smartphone from the eligible device list (we send it to you)
 - Respect for other people's privacy: no customers, colleagues' faces, screens, documents, vehicle plates or other personal information in your videos
 

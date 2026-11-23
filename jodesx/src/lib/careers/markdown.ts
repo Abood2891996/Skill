@@ -2,6 +2,7 @@
  * Minimal, safe Markdown for job postings.
  *
  * Supports exactly what a job post needs — `## headings`, `- bullet lists`,
+ * `1. numbered lists`,
  * paragraphs and `**bold**` — and returns plain data that React renders as
  * elements. No HTML is ever injected, so posts cannot break the page or run
  * scripts.
@@ -11,7 +12,7 @@ export type InlineSegment = { text: string; bold: boolean };
 export type Block =
   | { type: "heading"; text: string }
   | { type: "paragraph"; content: InlineSegment[] }
-  | { type: "list"; items: InlineSegment[][] };
+  | { type: "list"; items: InlineSegment[][]; ordered?: boolean };
 
 export interface ParsedDocument {
   data: Record<string, string>;
@@ -55,12 +56,16 @@ export function parseBlocks(body: string): Block[] {
   const blocks: Block[] = [];
   let paragraph: string[] = [];
   let list: InlineSegment[][] | null = null;
+  let ordered = false;
 
+  const pushList = () => {
+    if (list) blocks.push(ordered ? { type: "list", items: list, ordered: true } : { type: "list", items: list });
+    list = null;
+  };
   const flush = () => {
     if (paragraph.length) blocks.push({ type: "paragraph", content: parseInline(paragraph.join(" ")) });
-    if (list) blocks.push({ type: "list", items: list });
+    pushList();
     paragraph = [];
-    list = null;
   };
 
   for (const raw of body.split("\n")) {
@@ -70,18 +75,18 @@ export function parseBlocks(body: string): Block[] {
     } else if (line.startsWith("#")) {
       flush();
       blocks.push({ type: "heading", text: line.replace(/^#+\s*/, "") });
-    } else if (/^[-*]\s+/.test(line)) {
+    } else if (/^([-*]|\d+[.)])\s+/.test(line)) {
       if (paragraph.length) {
         blocks.push({ type: "paragraph", content: parseInline(paragraph.join(" ")) });
         paragraph = [];
       }
+      const isOrdered = /^\d+[.)]\s+/.test(line);
+      if (list && isOrdered !== ordered) pushList();
+      ordered = isOrdered;
       list ??= [];
-      list.push(parseInline(line.replace(/^[-*]\s+/, "")));
+      list.push(parseInline(line.replace(/^([-*]|\d+[.)])\s+/, "")));
     } else {
-      if (list) {
-        blocks.push({ type: "list", items: list });
-        list = null;
-      }
+      pushList();
       paragraph.push(line);
     }
   }
