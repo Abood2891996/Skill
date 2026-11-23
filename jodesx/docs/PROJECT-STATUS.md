@@ -70,7 +70,7 @@ Documents in `docs/security/` (v1.0): client-facing Security Overview, Informati
 
 ## Video contributor role (23 Nov 2026)
 
-Job `hands-on-work-video-contributor-saudi-arabia` (AI data video recording at commercial worksites in Saudi Arabia, contractor, paid per approved hour, CV optional). Job files now support optional `country` (two-letter code for Google job data, default JO) and `cv: no` (CV optional for that role). **Not on `main` until the owner confirms the data-partner contract is signed.** The partner is not named on the site.
+Job `hands-on-work-video-contributor-saudi-arabia` (AI data video recording at commercial worksites in Saudi Arabia, contractor, paid per approved hour, CV optional). Job files now support optional `country` (two-letter code for Google job data, default JO) and `cv: no` (CV optional for that role). Published on the owner's instruction (23 Nov 2026), before the data-partner contract was signed. The partner is not named on the site.
 
 ## Client contract (18 Nov 2026)
 
