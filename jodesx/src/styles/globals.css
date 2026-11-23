@@ -684,3 +684,20 @@
     text-align: right;
   }
 }
+
+/* Arabic pages: system Arabic fonts, no letter-spacing (it breaks joined Arabic letters), mirrored list markers. */
+.lang-ar,
+.lang-ar * {
+  letter-spacing: normal !important;
+}
+.lang-ar {
+  font-family: var(--font-instrument), "Segoe UI", Tahoma, "Geeza Pro", "Noto Sans Arabic", system-ui, sans-serif;
+}
+.lang-ar .job-prose li {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+.lang-ar .job-prose li::before {
+  left: auto;
+  right: 0;
+}

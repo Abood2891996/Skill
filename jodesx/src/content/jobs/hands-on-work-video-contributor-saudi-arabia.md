@@ -6,6 +6,7 @@ workplace: On-site
 location: Saudi Arabia (at your own workplace)
 country: SA
 cv: no
+motivation: no
 status: open
 posted: 2026-11-23
 summary: Earn extra income by filming your normal hands-on work at a commercial workplace in Saudi Arabia, for an AI training data project. Paid per approved hour.
@@ -52,4 +53,4 @@ Recordings inside homes, and office or computer work, are not part of this proje
 - **Trial week:** you record, we review together, and you get clear feedback on each video.
 - **Payment:** for every approved hour, paid after each payment cycle. Rejected recordings are not paid, and every rejection comes with a reason.
 
-You can write your application in Arabic. A CV is not required. Tell us about your work, where you do it and what phone you use.
+You can write your application in Arabic. A CV is not required, and the note about yourself is optional, but telling us your type of work, where you do it and what phone you use helps us reply faster.

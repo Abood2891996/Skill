@@ -21,6 +21,12 @@ export const jobFrontMatter = z.object({
   country: z.string().regex(/^[A-Z]{2}$/, { error: "country must be a two-letter code such as JO or SA" }).optional(),
   /** "no" makes the CV optional for this role (e.g. hands-on work where CVs are uncommon). Defaults to "yes". */
   cv: z.enum(["yes", "no"], { error: "cv must be yes or no" }).optional(),
+  /** "no" makes the "Why are you a good fit?" answer optional for this role. Defaults to "yes". */
+  motivation: z.enum(["yes", "no"], { error: "motivation must be yes or no" }).optional(),
+  /** Language of this posting. Defaults to "en". */
+  lang: z.enum(["en", "ar"], { error: "lang must be en or ar" }).optional(),
+  /** For a translated posting: the file name (without .md) of the original job. */
+  translationOf: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, { error: "translationOf must be the original job's file name" }).optional(),
 });
 
 export const COUNTRY_NAMES: Record<string, string> = { JO: "Jordan", SA: "Saudi Arabia", AE: "United Arab Emirates", QA: "Qatar" };

@@ -93,3 +93,24 @@ test("optional job fields: country code and CV requirement", () => {
   assert.equal(jobFrontMatter.safeParse({ ...base, cv: "maybe" }).success, false);
   assert.equal(jobFrontMatter.safeParse(base).success, true);
 });
+
+test("translated postings point to an existing original with the same status", () => {
+  const dir = join(process.cwd(), "src/content/jobs");
+  const files = readdirSync(dir).filter((f) => f.endsWith(".md") && !f.startsWith("_"));
+  const all = new Map(files.map((f) => [f.replace(/\.md$/, ""), jobFrontMatter.parse(parseDocument(readFileSync(join(dir, f), "utf8")).data)]));
+  for (const [slug, job] of all) {
+    if (!job.translationOf) continue;
+    const original = all.get(job.translationOf);
+    assert.ok(original, `${slug}: translationOf points to a missing job`);
+    assert.equal(original.status, job.status, `${slug}: status differs from the original`);
+    assert.equal(original.translationOf, undefined, `${slug}: original must not itself be a translation`);
+  }
+});
+
+test("the good-fit note can be optional for some roles", async () => {
+  const { applicationSchemaOptionalMessage } = await import("../src/lib/validation/application.ts");
+  const base = { job: "x", fullName: "Test Person", email: "a@example.com", phone: "+966 50 123 4567", location: "Riyadh", languages: "Arabic", availability: "immediately", consent: true };
+  assert.equal(applicationSchema.safeParse({ ...base, message: "" }).success, false);
+  assert.equal(applicationSchemaOptionalMessage.safeParse({ ...base, message: "" }).success, true);
+  assert.equal(applicationSchemaOptionalMessage.safeParse(base).success, true);
+});

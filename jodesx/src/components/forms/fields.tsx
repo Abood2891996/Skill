@@ -15,6 +15,8 @@ interface FieldProps {
   label: string;
   required?: boolean;
   optional?: boolean;
+  /** Text shown for optional fields (for translated forms). */
+  optionalText?: string;
   hint?: string;
   error?: string;
   counter?: string;
@@ -22,7 +24,7 @@ interface FieldProps {
 }
 
 /** Label + control + hint + error, with ids wired for screen readers. */
-export function Field({ id, label, required, optional, hint, error, counter, children }: FieldProps) {
+export function Field({ id, label, required, optional, optionalText = "(optional)", hint, error, counter, children }: FieldProps) {
   const hintId = hint ? `${id}-hint` : undefined;
   const errorId = error ? `${id}-error` : undefined;
   const describedBy = [errorId, hintId].filter(Boolean).join(" ") || undefined;
@@ -33,7 +35,7 @@ export function Field({ id, label, required, optional, hint, error, counter, chi
         <label htmlFor={id} className="font-medium">
           {label}
           {required && <span aria-hidden="true"> *</span>}
-          {optional && <span className="ml-1.5 text-sm font-normal text-fg-subtle">(optional)</span>}
+          {optional && <span className="ms-1.5 text-sm font-normal text-fg-subtle">{optionalText}</span>}
         </label>
         {counter && (
           <span className="text-xs tabular-nums text-fg-subtle" aria-hidden="true">

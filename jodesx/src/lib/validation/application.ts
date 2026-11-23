@@ -58,6 +58,16 @@ export const applicationSchema = z.object({
   startedAt: z.number().int().positive().optional(),
 });
 
+/** Same as applicationSchema, but the "Why are you a good fit?" answer may be left empty. */
+export const applicationSchemaOptionalMessage = applicationSchema.extend({
+  message: z
+    .string()
+    .trim()
+    .max(3000, { error: "Please keep a short note about yourself under 3000 characters." })
+    .optional()
+    .transform((v) => v ?? ""),
+});
+
 export type ApplicationInput = z.input<typeof applicationSchema>;
 export type Application = z.output<typeof applicationSchema>;
 export type ApplicationField = keyof ApplicationInput | "cv";

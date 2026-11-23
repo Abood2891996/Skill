@@ -41,8 +41,20 @@ export function getAllJobs(): Job[] {
   return jobs;
 }
 
+/** Open roles in their original language (translations are reached from the role page). */
 export function getOpenJobs(): Job[] {
-  return getAllJobs().filter((j) => j.status === "open");
+  return getAllJobs().filter((j) => j.status === "open" && !j.translationOf);
+}
+
+/** The original posting a translation belongs to (or the job itself). */
+export function getPrimaryJob(job: Job): Job {
+  return (job.translationOf && getJob(job.translationOf)) || job;
+}
+
+/** The other-language version of a posting, if one exists. */
+export function getCounterpart(job: Job): Job | undefined {
+  if (job.translationOf) return getJob(job.translationOf);
+  return getAllJobs().find((j) => j.translationOf === job.slug);
 }
 
 export function getJob(slug: string): Job | undefined {

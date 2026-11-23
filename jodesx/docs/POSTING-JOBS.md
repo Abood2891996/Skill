@@ -23,6 +23,12 @@ Job postings are simple text files in `src/content/jobs/`. Each file is one job.
 | `languages` | Optional language requirements | Any text |
 | `country` | Optional: two-letter code of the work location, used by Google job search (default `JO`) | e.g. `JO`, `SA`, `AE` |
 | `cv` | Optional: `no` makes the CV optional for this role (default `yes`) | `yes` or `no` |
+| `motivation` | Optional: `no` makes "Why are you a good fit?" optional (default `yes`) | `yes` or `no` |
+| `lang` | Optional: language of the posting (default `en`) | `en` or `ar` |
+| `translationOf` | Only on a translated posting: the file name (without `.md`) of the original | e.g. `quality-reviewer` |
+
+### Arabic version of a job
+Copy the job file, add `-ar` to the name (e.g. `quality-reviewer-ar.md`), translate the text, and add `lang: ar` and `translationOf: quality-reviewer`. Keep `team`, `type` and `workplace` in English (the page shows them in Arabic). The Arabic page is right-to-left, has an "English"/"العربية" switch, and visitors whose phone is set to Arabic are taken to it automatically (unless they chose English before). Only the original appears in the job list and in Google job search; when you close the job, close both files.
 
 6. Write the job description below the second `---`. You can use:
    - `## Heading` for section titles (e.g. `## What you'll do`)

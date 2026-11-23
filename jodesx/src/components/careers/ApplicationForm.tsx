@@ -7,6 +7,7 @@ import { Field, Select, TextArea, TextInput } from "@/components/forms/fields";
 import {
   applicationFieldErrors,
   applicationSchema,
+  applicationSchemaOptionalMessage,
   availabilityOptions,
   checkCvBasics,
   CV_ACCEPT,
@@ -34,6 +35,102 @@ const EMPTY = {
 };
 type Values = typeof EMPTY;
 
+const STRINGS = {
+  en: {
+    applyingFor: "Applying for",
+    requiredNote: ["Fields marked", "are required."],
+    requiredSr: "required",
+    details: "Your details",
+    fullName: "Full name",
+    email: "Email",
+    phone: "Phone",
+    phoneHint: "Include the country code.",
+    location: "City and country",
+    locationPlaceholder: "e.g. Amman, Jordan",
+    experience: "Your experience",
+    cv: "CV",
+    optional: "(optional)",
+    drop: "Drop your CV here or click to choose a file",
+    cvHint: "PDF, DOC or DOCX · up to 4 MB",
+    remove: "Remove file",
+    languages: "Languages you speak",
+    languagesHint: "Include your level, e.g. English (fluent), Arabic (native).",
+    start: "When could you start?",
+    choose: "Choose one",
+    availability: {} as Record<string, string>,
+    profile: "LinkedIn or portfolio link",
+    message: "Why are you a good fit?",
+    messageHint: "A few sentences about relevant experience, strengths, or why this work interests you.",
+    consent: ["I agree that JoDesx may use my details and CV to assess my application, as described in the", "privacy policy"],
+    send: "Send application",
+    sending: "Sending application…",
+    usedFor: "Your details are used only for recruitment.",
+    received: "Application received.",
+    thanks: (name: string) => `Thank you, ${name}. Your application for`,
+    sentTo: "has been sent to the JoDesx team",
+    withRef: "with reference",
+    readNote: "A person will read it. If your profile matches the role, we\u2019ll contact you about the next step.",
+    otherRoles: "See other open roles",
+    genericError: "Something went wrong while sending. Please try again.",
+    offline: "We couldn't reach the server. Check your connection and try again.",
+    emailInstead: ["Please email your CV to", "instead. Your details are kept in the form."],
+    keptInForm: "Your details are kept in the form, so you can try again later.",
+    fieldErrors: {} as Partial<Record<ApplicationField, string>>,
+  },
+  ar: {
+    applyingFor: "التقديم على",
+    requiredNote: ["الحقول المعلّمة بـ", "مطلوبة."],
+    requiredSr: "مطلوب",
+    details: "بياناتك",
+    fullName: "الاسم الكامل",
+    email: "البريد الإلكتروني",
+    phone: "رقم الهاتف",
+    phoneHint: "مع مفتاح الدولة، مثل ‎+966",
+    location: "المدينة والدولة",
+    locationPlaceholder: "مثال: الرياض، السعودية",
+    experience: "عملك",
+    cv: "السيرة الذاتية",
+    optional: "(اختياري)",
+    drop: "اسحب سيرتك الذاتية هنا أو اضغط لاختيار ملف",
+    cvHint: "PDF أو DOC أو DOCX · حتى 4 ميغابايت",
+    remove: "إزالة الملف",
+    languages: "اللغات التي تتكلمها",
+    languagesHint: "مثال: العربية (اللغة الأم).",
+    start: "متى تستطيع البدء؟",
+    choose: "اختر",
+    availability: { immediately: "فورًا", "2-weeks": "خلال أسبوعين", "1-month": "خلال شهر", later: "بعد أكثر من شهر" } as Record<string, string>,
+    profile: "رابط LinkedIn أو أعمالك",
+    message: "حدّثنا عن عملك",
+    messageHint: "نوع عملك، ومكانه، ونوع جوالك.",
+    consent: ["أوافق على أن تستخدم JoDesx بياناتي لتقييم طلبي، كما هو موضّح في", "سياسة الخصوصية"],
+    send: "إرسال الطلب",
+    sending: "جارٍ إرسال الطلب…",
+    usedFor: "تُستخدم بياناتك للتوظيف فقط.",
+    received: "تم استلام طلبك.",
+    thanks: (name: string) => `شكرًا ${name}. تم إرسال طلبك على وظيفة`,
+    sentTo: "إلى فريق JoDesx",
+    withRef: "برقم مرجعي",
+    readNote: "سيقرأ طلبك شخص من فريقنا، وإذا كان مناسبًا سنتواصل معك للخطوة التالية.",
+    otherRoles: "الوظائف المتاحة الأخرى",
+    genericError: "حدث خطأ أثناء الإرسال. حاول مرة أخرى.",
+    offline: "تعذّر الاتصال. تأكد من الإنترنت وحاول مرة أخرى.",
+    emailInstead: ["أرسل بياناتك إلى", "بدلًا من ذلك. بياناتك محفوظة في النموذج."],
+    keptInForm: "بياناتك محفوظة في النموذج، فتستطيع المحاولة لاحقًا.",
+    fieldErrors: {
+      fullName: "اكتب اسمك الكامل.",
+      email: "اكتب بريدًا إلكترونيًا صحيحًا، مثل name@example.com.",
+      phone: "اكتب رقم الهاتف مع مفتاح الدولة، مثل ‎+966 50 123 4567.",
+      location: "اكتب مدينتك ودولتك.",
+      languages: "اكتب اللغات التي تتكلمها.",
+      availability: "اختر متى تستطيع البدء.",
+      profileUrl: "اكتب رابطًا كاملًا يبدأ بـ https://",
+      message: "اكتب نبذة قصيرة (50 حرفًا على الأقل) أو اتركها فارغة.",
+      consent: "يجب الموافقة على سياسة الخصوصية.",
+      cv: "أرفق السيرة الذاتية بصيغة PDF أو Word، بحجم 4 ميغابايت أو أقل.",
+    } as Partial<Record<ApplicationField, string>>,
+  },
+};
+
 function formatSize(bytes: number) {
   return bytes < 1024 * 1024 ? `${Math.max(1, Math.round(bytes / 1024))} KB` : `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }
@@ -45,9 +142,20 @@ interface ApplicationFormProps {
   contactEmail: string;
   /** When false, the CV is optional. */
   cvRequired?: boolean;
+  /** When false, "Why are you a good fit?" is optional. */
+  messageRequired?: boolean;
+  /** Interface language. */
+  locale?: "en" | "ar";
 }
 
-export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = true }: ApplicationFormProps) {
+export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = true, messageRequired = true, locale = "en" }: ApplicationFormProps) {
+  const t = STRINGS[locale];
+  const localize = (found: Partial<Record<ApplicationField, string>>) => {
+    if (locale === "en") return found;
+    const out: Partial<Record<ApplicationField, string>> = {};
+    for (const k of Object.keys(found) as ApplicationField[]) out[k] = t.fieldErrors[k] ?? found[k];
+    return out;
+  };
   const [values, setValues] = useState<Values>(EMPTY);
   const [cv, setCv] = useState<File | null>(null);
   const [dragging, setDragging] = useState(false);
@@ -78,11 +186,11 @@ export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = tru
   });
 
   const validate = (v: Values, file: File | null) => {
-    const parsed = applicationSchema.safeParse(toInput(v));
+    const parsed = (messageRequired ? applicationSchema : applicationSchemaOptionalMessage).safeParse(toInput(v));
     const found = parsed.success ? {} : applicationFieldErrors(parsed.error);
     const cvError = !cvRequired && !file ? null : checkCvBasics(file);
     if (cvError) found.cv = cvError;
-    return found;
+    return localize(found);
   };
 
   const update = <K extends keyof Values>(key: K, value: Values[K]) => {
@@ -145,17 +253,17 @@ export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = tru
         return;
       }
       if (data.code === "validation" && data.fields) {
-        setErrors(data.fields);
+        setErrors(localize(data.fields));
         setStatus({ kind: "idle" });
         return;
       }
       setStatus({
         kind: "error",
-        message: data.message ?? "Something went wrong while sending. Please try again.",
+        message: locale === "en" ? (data.message ?? t.genericError) : t.genericError,
         notConfigured: data.code === "not_configured",
       });
     } catch {
-      setStatus({ kind: "error", message: "We couldn't reach the server. Check your connection and try again." });
+      setStatus({ kind: "error", message: t.offline });
     }
   }
 
@@ -165,14 +273,14 @@ export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = tru
         <span className="grid size-12 place-items-center rounded-full bg-navy-900 text-cyan-400">
           <Check size={22} aria-hidden="true" />
         </span>
-        <h3 className="type-display-md mt-6">Application received.</h3>
+        <h3 className="type-display-md mt-6">{t.received}</h3>
         <p className="mt-4 text-fg-muted">
-          Thank you, {values.fullName.split(" ")[0]}. Your application for <strong className="text-fg">{roleTitle}</strong> has been sent to the
-          JoDesx team{status.reference ? <> with reference <strong className="text-fg">{status.reference}</strong></> : null}.
+          {t.thanks(values.fullName.split(" ")[0] ?? "")} <strong className="text-fg">{roleTitle}</strong> {t.sentTo}
+          {status.reference ? <> {t.withRef} <strong className="text-fg" dir="ltr">{status.reference}</strong></> : null}.
         </p>
-        <p className="mt-3 text-fg-muted">A person will read it. If your profile matches the role, we&rsquo;ll contact you about the next step.</p>
+        <p className="mt-3 text-fg-muted">{t.readNote}</p>
         <Link href="/careers#roles" className="link-signal mt-8">
-          See other open roles
+          {t.otherRoles}
         </Link>
       </div>
     );
@@ -184,38 +292,38 @@ export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = tru
   return (
     <form ref={formRef} onSubmit={onSubmit} noValidate className="grid gap-10">
       <p className="text-sm text-fg-subtle">
-        Applying for <strong className="text-fg">{roleTitle}</strong>. Fields marked <span aria-hidden="true">*</span>
-        <span className="sr-only">required</span> are required.
+        {t.applyingFor} <strong className="text-fg">{roleTitle}</strong>. {t.requiredNote[0]} <span aria-hidden="true">*</span>
+        <span className="sr-only">{t.requiredSr}</span> {t.requiredNote[1]}
       </p>
 
       <fieldset className="grid gap-5">
-        <legend className="type-title mb-5">Your details</legend>
+        <legend className="type-title mb-5">{t.details}</legend>
         <div className="grid gap-5 sm:grid-cols-2">
-          <Field id="fullName" label="Full name" required error={errorFor("fullName")}>
+          <Field id="fullName" label={t.fullName} required error={errorFor("fullName")}>
             {(a) => <TextInput {...a} name="fullName" autoComplete="name" value={values.fullName} onChange={(e) => update("fullName", e.target.value)} onBlur={() => blur("fullName")} />}
           </Field>
-          <Field id="email" label="Email" required error={errorFor("email")}>
+          <Field id="email" label={t.email} required error={errorFor("email")}>
             {(a) => (
-              <TextInput {...a} name="email" type="email" inputMode="email" autoComplete="email" spellCheck={false} value={values.email} onChange={(e) => update("email", e.target.value)} onBlur={() => blur("email")} />
+              <TextInput {...a} dir="ltr" name="email" type="email" inputMode="email" autoComplete="email" spellCheck={false} value={values.email} onChange={(e) => update("email", e.target.value)} onBlur={() => blur("email")} />
             )}
           </Field>
-          <Field id="phone" label="Phone" required error={errorFor("phone")} hint="Include the country code.">
-            {(a) => <TextInput {...a} name="phone" type="tel" autoComplete="tel" value={values.phone} onChange={(e) => update("phone", e.target.value)} onBlur={() => blur("phone")} />}
+          <Field id="phone" label={t.phone} required error={errorFor("phone")} hint={t.phoneHint}>
+            {(a) => <TextInput {...a} dir="ltr" name="phone" type="tel" autoComplete="tel" value={values.phone} onChange={(e) => update("phone", e.target.value)} onBlur={() => blur("phone")} />}
           </Field>
-          <Field id="location" label="City and country" required error={errorFor("location")}>
+          <Field id="location" label={t.location} required error={errorFor("location")}>
             {(a) => (
-              <TextInput {...a} name="location" autoComplete="address-level2" placeholder="e.g. Amman, Jordan" value={values.location} onChange={(e) => update("location", e.target.value)} onBlur={() => blur("location")} />
+              <TextInput {...a} name="location" autoComplete="address-level2" placeholder={t.locationPlaceholder} value={values.location} onChange={(e) => update("location", e.target.value)} onBlur={() => blur("location")} />
             )}
           </Field>
         </div>
       </fieldset>
 
       <fieldset className="grid gap-5">
-        <legend className="type-title mb-5">Your experience</legend>
+        <legend className="type-title mb-5">{t.experience}</legend>
 
         <div className="grid gap-2">
           <span className="font-medium" id="cv-label">
-            CV {cvRequired ? <span aria-hidden="true">*</span> : <span className="font-normal text-fg-subtle">(optional)</span>}
+            {t.cv} {cvRequired ? <span aria-hidden="true">*</span> : <span className="font-normal text-fg-subtle">{t.optional}</span>}
           </span>
           <div
             className="dropzone relative rounded-[var(--radius-md)] bg-paper p-5"
@@ -255,7 +363,7 @@ export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = tru
                 <button
                   type="button"
                   className="relative z-10 grid size-9 place-items-center rounded-full border border-line-strong text-fg-muted hover:text-fg"
-                  aria-label="Remove file"
+                  aria-label={t.remove}
                   onClick={() => {
                     chooseFile(null);
                     if (fileRef.current) fileRef.current.value = "";
@@ -270,9 +378,9 @@ export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = tru
                   <Upload size={20} aria-hidden="true" />
                 </span>
                 <span>
-                  <span className="block font-semibold">Drop your CV here or click to choose a file</span>
+                  <span className="block font-semibold">{t.drop}</span>
                   <span id="cv-hint" className="block text-sm text-fg-subtle">
-                    PDF, DOC or DOCX · up to 4 MB
+                    {t.cvHint}
                   </span>
                 </span>
               </div>
@@ -287,18 +395,18 @@ export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = tru
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
-          <Field id="languages" label="Languages you speak" required error={errorFor("languages")} hint="Include your level, e.g. English (fluent), Arabic (native).">
+          <Field id="languages" label={t.languages} required error={errorFor("languages")} hint={t.languagesHint}>
             {(a) => <TextInput {...a} name="languages" value={values.languages} onChange={(e) => update("languages", e.target.value)} onBlur={() => blur("languages")} />}
           </Field>
-          <Field id="availability" label="When could you start?" required error={errorFor("availability")}>
+          <Field id="availability" label={t.start} required error={errorFor("availability")}>
             {(a) => (
               <Select {...a} name="availability" value={values.availability} onChange={(e) => update("availability", e.target.value)} onBlur={() => blur("availability")}>
                 <option value="" disabled>
-                  Choose one
+                  {t.choose}
                 </option>
                 {availabilityOptions.map((o) => (
                   <option key={o.value} value={o.value}>
-                    {o.label}
+                    {t.availability[o.value] ?? o.label}
                   </option>
                 ))}
               </Select>
@@ -306,18 +414,20 @@ export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = tru
           </Field>
         </div>
 
-        <Field id="profileUrl" label="LinkedIn or portfolio link" optional error={errorFor("profileUrl")}>
+        <Field id="profileUrl" label={t.profile} optional optionalText={t.optional} error={errorFor("profileUrl")}>
           {(a) => (
-            <TextInput {...a} name="profileUrl" type="url" inputMode="url" placeholder="https://" value={values.profileUrl} onChange={(e) => update("profileUrl", e.target.value)} onBlur={() => blur("profileUrl")} />
+            <TextInput {...a} dir="ltr" name="profileUrl" type="url" inputMode="url" placeholder="https://" value={values.profileUrl} onChange={(e) => update("profileUrl", e.target.value)} onBlur={() => blur("profileUrl")} />
           )}
         </Field>
 
         <Field
           id="message"
-          label="Why are you a good fit?"
-          required
+          label={t.message}
+          required={messageRequired}
+          optional={!messageRequired}
+          optionalText={t.optional}
           error={errorFor("message")}
-          hint="A few sentences about relevant experience, strengths, or why this work interests you."
+          hint={t.messageHint}
           counter={`${values.message.trim().length} / 3000`}
         >
           {(a) => <TextArea {...a} name="message" rows={6} maxLength={3000} value={values.message} onChange={(e) => update("message", e.target.value)} onBlur={() => blur("message")} />}
@@ -342,15 +452,15 @@ export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = tru
             className="mt-1 size-[18px] flex-none accent-[var(--violet-600)]"
           />
           <span className="text-fg-muted">
-            I agree that JoDesx may use my details and CV to assess my application, as described in the{" "}
+            {t.consent[0]}{" "}
             <Link href="/privacy#candidates" className="font-medium text-fg underline underline-offset-4">
-              privacy policy
+              {t.consent[1]}
             </Link>
             . <span aria-hidden="true">*</span>
           </span>
         </label>
         {errorFor("consent") && (
-          <p id="consent-error" className="field-error ml-[30px]">
+          <p id="consent-error" className="field-error ms-[30px]">
             <AlertCircle size={15} aria-hidden="true" />
             {errorFor("consent")}
           </p>
@@ -364,17 +474,17 @@ export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = tru
             {status.message}
           </p>
           {status.notConfigured && (
-            <p className="mt-2 pl-[26px] text-fg-muted">
+            <p className="mt-2 ps-[26px] text-fg-muted">
               {contactEmail ? (
                 <>
-                  Please email your CV to{" "}
+                  {t.emailInstead[0]}{" "}
                   <a className="font-medium text-fg underline underline-offset-4" href={`mailto:${contactEmail}?subject=${encodeURIComponent(`Application: ${roleTitle}`)}`}>
                     {contactEmail}
                   </a>{" "}
-                  instead. Your details are kept in the form.
+                  {t.emailInstead[1]}
                 </>
               ) : (
-                <>Your details are kept in the form, so you can try again later.</>
+                <>{t.keptInForm}</>
               )}
             </p>
           )}
@@ -386,13 +496,13 @@ export function ApplicationForm({ job, roleTitle, contactEmail, cvRequired = tru
           {submitting ? (
             <>
               <LoaderCircle size={18} className="animate-spin" aria-hidden="true" />
-              Sending application…
+              {t.sending}
             </>
           ) : (
-            "Send application"
+            t.send
           )}
         </button>
-        <p className="text-sm text-fg-subtle">Your details are used only for recruitment.</p>
+        <p className="text-sm text-fg-subtle">{t.usedFor}</p>
       </div>
     </form>
   );

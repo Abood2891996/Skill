@@ -5,6 +5,7 @@ import { createRateLimiter } from "@/lib/contact/rate-limit";
 import {
   applicationFieldErrors,
   applicationSchema,
+  applicationSchemaOptionalMessage,
   availabilityOptions,
   checkCvBasics,
   GENERAL_APPLICATION,
@@ -55,7 +56,7 @@ function formatText(app: Application, role: string, reference: string, cvName: s
     `CV: ${cvName ? `${cvName} (attached)` : "Not provided (optional for this role)"}`,
     "",
     "About the candidate:",
-    app.message,
+    app.message || "Not provided (optional for this role)",
     "",
     "Consent to privacy policy: yes",
   ].join("\n");
@@ -93,7 +94,10 @@ export async function POST(req: NextRequest) {
   // Honeypot: acknowledge silently, deliver nothing.
   if (str("website")) return json(200, { ok: true, reference: null });
 
-  const parsed = applicationSchema.safeParse({
+  const requestedJob = str("job");
+  const jobRules = requestedJob && requestedJob !== GENERAL_APPLICATION ? getJob(requestedJob) : undefined;
+  const schema = jobRules?.motivation === "no" ? applicationSchemaOptionalMessage : applicationSchema;
+  const parsed = schema.safeParse({
     job: str("job"),
     fullName: str("fullName"),
     email: str("email"),
@@ -109,8 +113,7 @@ export async function POST(req: NextRequest) {
 
   const cv = form.get("cv");
   const cvFile = cv instanceof File && cv.size > 0 ? cv : null;
-  const jobSlug = str("job");
-  const cvOptional = jobSlug !== undefined && jobSlug !== GENERAL_APPLICATION && getJob(jobSlug)?.cv === "no";
+  const cvOptional = jobRules?.cv === "no";
   const cvError = cvOptional && !cvFile ? null : checkCvBasics(cvFile);
 
   if (!parsed.success || cvError) {
