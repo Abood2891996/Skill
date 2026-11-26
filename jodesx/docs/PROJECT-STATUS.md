@@ -68,6 +68,10 @@ Documents in `docs/security/` (v1.0): client-facing Security Overview, Informati
 - Lesson: when connecting a mail provider, choose manual setup and add only mail records (MX, SPF, DKIM, verification) — never `A`/`CNAME` website records.
 - Still to confirm: privacy@ and dmarc@ aliases exist in Zoho (privacy@ is published in the privacy policy; dmarc@ receives DMARC reports).
 
+## Livelier homepage (26 Nov 2026)
+
+Rotating last word in the hero headline (`KineticHeadline`), a scroll-linked "signal thread" in the left margin with a gate per section (`ScrollSignal`), and a "Build your team" tool (`TeamBuilder`) that sends its outline to the contact form (`service`, `team`, `lang`, `hours`, `where` URL values; only fixed labels are read). No prices or promises. axe: 0 violations; CLS 0; reduced motion respected.
+
 ## Video contributor role (23 Nov 2026)
 
 Job `hands-on-work-video-contributor-saudi-arabia` (AI data video recording at commercial worksites in Saudi Arabia, contractor, paid per approved hour, CV optional). Job files now support optional `country` (two-letter code for Google job data, default JO) and `cv: no` (CV optional for that role). Published on the owner's instruction (23 Nov 2026), before the data-partner contract was signed. Arabic version `hands-on-work-video-contributor-saudi-arabia-ar` (RTL, language switch, auto-open for Arabic-language phones); the good-fit note is optional for this role (`motivation: no`). Only these job pages are bilingual; the rest of the site is English. The partner is not named on the site.
