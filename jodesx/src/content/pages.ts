@@ -6,6 +6,8 @@ import type { Faq, ServiceSlug, TextBlock } from "./types";
 export const home = {
   hero: {
     title: "Operations, structured around your business.",
+    /** The hero headline before its rotating last word. */
+    titleLead: "Operations, structured around your",
     lead: "JoDesx builds and runs operational teams for call center, customer support, content moderation, back-office and AI data operations — in Arabic and English, remote or on-site at our offices in Jordan.",
     primaryCta: "Start an inquiry",
     secondaryCta: "See how we work",

@@ -1,4 +1,7 @@
+import { KineticHeadline } from "@/components/hero/KineticHeadline";
 import { SignalField } from "@/components/hero/SignalField";
+import { TeamBuilder } from "@/components/interactive/TeamBuilder";
+import { SignalThread } from "@/components/motion/ScrollSignal";
 import { ChallengeSelector } from "@/components/interactive/ChallengeSelector";
 import { OperationsBlueprint } from "@/components/interactive/OperationsBlueprint";
 import { ClosingCta } from "@/components/sections/ClosingCta";
@@ -26,15 +29,13 @@ export const metadata = createMetadata({
 
 export default function HomePage() {
   return (
-    <>
+    <SignalThread>
       {/* ---------- Hero ---------- */}
       <section aria-labelledby="hero-title" className="surface-dark relative overflow-hidden pt-[calc(var(--header-h)+2.5rem)] pb-16 sm:pb-20 lg:pt-[calc(var(--header-h)+4rem)]">
         <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0" />
         <div className="container-site relative grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
           <div className="hero-copy">
-            <h1 id="hero-title" className="type-display-xl max-w-[12ch]">
-              {home.hero.title}
-            </h1>
+            <KineticHeadline id="hero-title" lead={home.hero.titleLead} />
             <p className="type-lead mt-7 max-w-xl">{home.hero.lead}</p>
             <div className="mt-10 flex flex-wrap gap-3">
               <ButtonLink href="/contact">{home.hero.primaryCta}</ButtonLink>
@@ -60,8 +61,21 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* ---------- Build your team ---------- */}
+      <Section surface="paper" id="build-your-team" labelledBy="team-title">
+        <SectionHeader
+          id="team-title"
+          kicker="Build your team"
+          title="Shape the team you have in mind."
+          lead="Choose the work, the languages, the hours and the size. Watch the team take shape, then send the outline to us as the start of a conversation."
+        />
+        <div className="mt-12">
+          <TeamBuilder />
+        </div>
+      </Section>
+
       {/* ---------- Challenge selector ---------- */}
-      <Section surface="paper" id="challenge" labelledBy="challenge-title">
+      <Section surface="light" id="challenge" labelledBy="challenge-title">
         <SectionHeader
           id="challenge-title"
           title="Where is the pressure in your operation?"
@@ -198,6 +212,6 @@ export default function HomePage() {
       />
 
       <JsonLd data={faqJsonLd(generalFaqs)} />
-    </>
+    </SignalThread>
   );
 }

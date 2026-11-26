@@ -333,3 +333,126 @@
     animation: none !important;
   }
 }
+
+/* ---------- Kinetic hero word ---------- */
+.kinetic-word {
+  display: inline-grid;
+  vertical-align: bottom;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.kinetic-word__item {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  background: linear-gradient(90deg, var(--cyan-300, #7fe6f1), var(--violet-400, #a29bff));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: translateY(105%);
+  opacity: 0;
+  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1), opacity 420ms ease;
+}
+.kinetic-word__item[data-state="in"] {
+  transform: translateY(0);
+  opacity: 1;
+}
+.kinetic-word__item[data-state="out"] {
+  transform: translateY(-105%);
+  opacity: 0;
+}
+
+/* ---------- Scroll signal thread ---------- */
+.scroll-signal {
+  position: absolute;
+  width: 2px;
+  z-index: 5;
+  pointer-events: none;
+}
+.scroll-signal__track,
+.scroll-signal__fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+}
+.scroll-signal__track {
+  background: color-mix(in oklab, var(--violet-600, #5b4fe0) 22%, transparent);
+}
+.scroll-signal__fill {
+  background: linear-gradient(180deg, #35d6e8, #786bff);
+  transform-origin: top;
+  transform: scaleY(0);
+  box-shadow: 0 0 12px rgb(53 214 232 / 0.45);
+}
+.scroll-signal__gate {
+  position: absolute;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  transform: translateX(-50%);
+  border: 1.5px solid color-mix(in oklab, #786bff 55%, transparent);
+  background: transparent;
+  transition: background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+.scroll-signal__gate[data-passed] {
+  background: #35d6e8;
+  border-color: #35d6e8;
+  box-shadow: 0 0 10px rgb(53 214 232 / 0.7);
+}
+.scroll-signal__head {
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  background: #786bff;
+  transform: translate(-50%, 0) rotate(45deg);
+  box-shadow: 0 0 0 4px rgb(120 107 255 / 0.18), 0 0 18px rgb(120 107 255 / 0.8);
+}
+@media (max-width: 767px) {
+  .scroll-signal__gate { width: 6px; height: 6px; margin-top: -3px; }
+  .scroll-signal__head { width: 8px; height: 8px; }
+}
+
+/* ---------- Build your team ---------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18px, 1fr));
+  gap: 8px;
+  min-height: 3rem;
+  align-content: start;
+}
+.team-unit {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background: color-mix(in oklab, #35d6e8 85%, transparent);
+  animation: team-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.team-unit--lead {
+  background: #786bff;
+  box-shadow: 0 0 0 3px rgb(120 107 255 / 0.25);
+}
+.team-unit--legend {
+  width: 10px;
+  height: 10px;
+  animation: none;
+}
+.team-more {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  color: var(--fg-muted);
+  font-weight: 700;
+}
+@keyframes team-in {
+  from { opacity: 0; transform: scale(0.3) translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kinetic-word__item { transition: none; }
+  .team-unit { animation: none; }
+  .scroll-signal__fill, .scroll-signal__gate { transition: none; }
+}

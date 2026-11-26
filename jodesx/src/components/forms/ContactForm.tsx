@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { AlertCircle, Check, Copy, LoaderCircle } from "lucide-react";
 import { challenges } from "@/content/pages";
+import { teamBrief } from "@/lib/team-builder";
 import {
   contactMethodOptions,
   contactSchema,
@@ -79,7 +80,8 @@ export function ContactForm({ contactEmail }: { contactEmail: string }) {
     return {
       ...EMPTY,
       service: serviceOptions.some((o) => o.value === service) ? service : "",
-      requirements: challenge ? `Main challenge: ${challenge.label}.\n\n` : "",
+      teamSize: teamSizeOptions.some((o) => o.value === params.get("team")) ? (params.get("team") as string) : EMPTY.teamSize,
+      requirements: (challenge ? `Main challenge: ${challenge.label}.\n\n` : "") + teamBrief(params),
     };
   });
   const [errors, setErrors] = useState<Partial<Record<ContactField, string>>>({});
